@@ -14,6 +14,7 @@ namespace Xamarin.Forms
 	internal class BindingExpression
 	{
 		internal const string PropertyNotFoundErrorMessage = "'{0}' property not found on '{1}', target property: '{2}.{3}'";
+		internal const string ConvertErrorMessage = "{0} can not be converted to type '{1}'";
 
 		readonly List<BindingExpressionPart> _parts = new List<BindingExpressionPart>();
 
@@ -171,7 +172,11 @@ namespace Xamarin.Forms
 
 				if (!TryConvert(part, ref value, property.ReturnType, true))
 				{
-					Log.Warning("Binding", "{0} can not be converted to type '{1}'", value, property.ReturnType);
+					var composedConvertErrorMessage = string.Format(ConvertErrorMessage, value, property.ReturnType);
+
+					DebugSettings.OnBindingFailed(sourceObject, composedConvertErrorMessage);
+
+					Log.Warning("Binding", composedConvertErrorMessage);
 					return;
 				}
 
@@ -183,7 +188,11 @@ namespace Xamarin.Forms
 
 				if (!TryConvert(part, ref value, part.SetterType, false))
 				{
-					Log.Warning("Binding", "{0} can not be converted to type '{1}'", value, part.SetterType);
+					var composedConvertErrorMessage = string.Format(ConvertErrorMessage, value, part.SetterType);
+
+					DebugSettings.OnBindingFailed(sourceObject, composedConvertErrorMessage);
+
+					Log.Warning("Binding", composedConvertErrorMessage);
 					return;
 				}
 
