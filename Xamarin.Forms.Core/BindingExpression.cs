@@ -15,6 +15,7 @@ namespace Xamarin.Forms
 	{
 		internal const string PropertyNotFoundErrorMessage = "'{0}' property not found on '{1}', target property: '{2}.{3}'";
 		internal const string ConvertErrorMessage = "{0} can not be converted to type '{1}'";
+		internal const string IndexParsingFailedErrorMessage = "{0} could not be parsed as an index for a {1}";
 
 		readonly List<BindingExpressionPart> _parts = new List<BindingExpressionPart>();
 
@@ -141,8 +142,8 @@ namespace Xamarin.Forms
 					{
 						var composedPropertyNotFoundMessage = string.Format(PropertyNotFoundErrorMessage, part.Content, current, target.GetType(), property.PropertyName);
 
-						DebugSettings.OnBindingFailed(sourceObject, composedPropertyNotFoundMessage);
-						
+						DebugSettings.OnPropertyNotFound(sourceObject, part.Content, current.ToString(), target.GetType(), property.PropertyName);
+
 						Log.Warning("Binding", composedPropertyNotFoundMessage);
 						break;
 					}
@@ -174,7 +175,7 @@ namespace Xamarin.Forms
 				{
 					var composedConvertErrorMessage = string.Format(ConvertErrorMessage, value, property.ReturnType);
 
-					DebugSettings.OnBindingFailed(sourceObject, composedConvertErrorMessage);
+					DebugSettings.OnConverterFailed(sourceObject, value, property.ReturnType);
 
 					Log.Warning("Binding", composedConvertErrorMessage);
 					return;
@@ -190,7 +191,7 @@ namespace Xamarin.Forms
 				{
 					var composedConvertErrorMessage = string.Format(ConvertErrorMessage, value, part.SetterType);
 
-					DebugSettings.OnBindingFailed(sourceObject, composedConvertErrorMessage);
+					DebugSettings.OnConverterFailed(sourceObject, value, part.SetterType);
 
 					Log.Warning("Binding", composedConvertErrorMessage);
 					return;
@@ -288,7 +289,11 @@ namespace Xamarin.Forms
 				{
 					int index;
 					if (!int.TryParse(part.Content, out index))
-						Log.Warning("Binding", "{0} could not be parsed as an index for a {1}", part.Content, sourceType);
+					{
+						var composedErrorMessage = string.Format(IndexParsingFailedErrorMessage, part.Content, sourceType);
+						DebugSettings.OnIndexParsingFailed(part.Content, sourceType);
+						Log.Warning("Binding", composedErrorMessage);
+					}
 					else
 						part.Arguments = new object[] { index };
 
