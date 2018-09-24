@@ -57,6 +57,7 @@ namespace Xamarin.Forms
 
 		internal static readonly BindableProperty TransformProperty = BindableProperty.Create("Transform", typeof(string), typeof(VisualElement), null, propertyChanged: OnTransformChanged);
 
+<<<<<<< HEAD
 		public static readonly BindableProperty VisualProperty =
 			BindableProperty.Create(nameof(Visual), typeof(IVisual), typeof(VisualElement), Forms.VisualMarker.MatchParent,
 									validateValue: (b, v) => v != null, propertyChanged: OnVisualChanged);
@@ -92,6 +93,12 @@ namespace Xamarin.Forms
 		{
             if ((string)newValue == "none") {
                 bindable.ClearValue(TranslationXProperty);
+=======
+		static void OnTransformChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+			if ((string)newValue == "none") {
+				bindable.ClearValue(TranslationXProperty);
+>>>>>>> Update from origin (#8)
 				bindable.ClearValue(TranslationYProperty);
 				bindable.ClearValue(RotationProperty);
 				bindable.ClearValue(RotationXProperty);
@@ -101,7 +108,11 @@ namespace Xamarin.Forms
 				bindable.ClearValue(ScaleYProperty);
 				return;
 			}
+<<<<<<< HEAD
 			var transforms = ((string)newValue).Split(' ');
+=======
+				var transforms = ((string)newValue).Split(' ');
+>>>>>>> Update from origin (#8)
 			foreach (var transform in transforms) {
 				if (string.IsNullOrEmpty(transform) || transform.IndexOf('(') < 0 || transform.IndexOf(')') < 0)
 					throw new FormatException("Format for transform is 'none | transform(value) [transform(value) ]*'");
@@ -405,9 +416,38 @@ namespace Xamarin.Forms
 			set => SetValue(TabIndexProperty, value);
 		}
 
+<<<<<<< HEAD
 		protected virtual void OnTabIndexPropertyChanged(int oldValue, int newValue) { }
 
 		protected virtual int TabIndexDefaultValueCreator() => 0;
+=======
+		public int TabIndex
+		{
+			get => (int)GetValue(TabIndexProperty);
+			set => SetValue(TabIndexProperty, value);
+		}
+
+		protected virtual void OnTabIndexPropertyChanged(int oldValue, int newValue) { }
+
+		protected virtual int TabIndexDefaultValueCreator() => 0;
+
+		public bool IsTabStop
+		{
+			get => (bool)GetValue(IsTabStopProperty);
+			set => SetValue(IsTabStopProperty, value);
+		}
+
+		protected virtual void OnTabStopPropertyChanged(bool oldValue, bool newValue) { }
+
+		protected virtual bool TabStopDefaultValueCreator() => true;
+
+		[TypeConverter(typeof(ListStringTypeConverter))]
+		public IList<string> StyleClass
+		{
+			get { return @class; }
+			set { @class = value; }
+		}
+>>>>>>> Update from origin (#8)
 
 		public bool IsTabStop
 		{

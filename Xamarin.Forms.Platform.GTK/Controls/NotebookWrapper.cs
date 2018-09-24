@@ -4,7 +4,11 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Controls
 {
+<<<<<<< HEAD
 	public class NotebookWrapper : GtkFormsContainer
+=======
+	public class NotebookWrapper : EventBox
+>>>>>>> Update from origin (#8)
 	{
 		private Notebook _noteBook;
 		private Pixbuf _backgroundPixbuf;
@@ -87,7 +91,11 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			for (int i = 0; i < _noteBook.NPages; i++)
 			{
 				var page = _noteBook.GetNthPage(i) as NotebookPageWrapper;
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> Update from origin (#8)
 				if (page?.Widget == widget)
 				{
 					_noteBook.RemovePage(i);
@@ -96,9 +104,17 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
+<<<<<<< HEAD
 		public async void SetBackgroundImage(ImageSource imageSource)
 		{
 			_backgroundPixbuf = await imageSource.GetNativeImageAsync();
+=======
+		public void SetBackgroundImage(string backgroundImagePath)
+		{
+			_backgroundPixbuf = !string.IsNullOrEmpty(backgroundImagePath)
+				? new Pixbuf(backgroundImagePath)
+				: null;
+>>>>>>> Update from origin (#8)
 
 			for (int i = 0; i < _noteBook.NPages; i++)
 			{

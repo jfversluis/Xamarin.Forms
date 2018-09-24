@@ -43,6 +43,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+<<<<<<< HEAD
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -52,6 +53,14 @@
     </PackageReference>
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.0.2" />
     <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
+=======
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest, Version=2.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.UITest.2.2.6\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+>>>>>>> Update from origin (#8)
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseViewContainerRemoteAndroid.cs" />

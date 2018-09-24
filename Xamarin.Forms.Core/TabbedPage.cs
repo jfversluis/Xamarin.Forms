@@ -9,10 +9,13 @@ namespace Xamarin.Forms
 		public static readonly BindableProperty BarBackgroundColorProperty = BarElement.BarBackgroundColorProperty;
 
 		public static readonly BindableProperty BarTextColorProperty = BarElement.BarTextColorProperty;
+<<<<<<< HEAD
 
 		public static readonly BindableProperty UnselectedTabColorProperty = BindableProperty.Create(nameof(UnselectedTabColor), typeof(Color),	typeof(TabbedPage), default(Color));
 
 		public static readonly BindableProperty SelectedTabColorProperty = BindableProperty.Create(nameof(SelectedTabColor), typeof(Color),	typeof(TabbedPage), default(Color));
+=======
+>>>>>>> Update from origin (#8)
 
 		readonly Lazy<PlatformConfigurationRegistry<TabbedPage>> _platformConfigurationRegistry;
 
@@ -24,6 +27,7 @@ namespace Xamarin.Forms
 		public Color BarTextColor {
 			get => (Color)GetValue(BarElement.BarTextColorProperty);
 			set => SetValue(BarElement.BarTextColorProperty, value);
+<<<<<<< HEAD
 		}
 
 		public Color UnselectedTabColor
@@ -35,6 +39,8 @@ namespace Xamarin.Forms
 		{
 			get => (Color)GetValue(SelectedTabColorProperty);
 			set => SetValue(SelectedTabColorProperty, value);
+=======
+>>>>>>> Update from origin (#8)
 		}
 
 		protected override Page CreateDefault(object item)

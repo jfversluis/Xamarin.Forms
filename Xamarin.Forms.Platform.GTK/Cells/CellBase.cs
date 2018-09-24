@@ -132,6 +132,7 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 			{
 				var menuItem = new ImageMenuItem(item.Text);
 
+<<<<<<< HEAD
 				_ = item.ApplyNativeImageAsync(MenuItem.IconImageSourceProperty, icon =>
 				{
 					if (icon != null)
@@ -141,6 +142,18 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 				menuItem.ButtonPressEvent += (sender, args) =>
 				{
 					((IMenuItemController)item).Activate();
+=======
+				string icon = item.Icon;
+
+				if (!string.IsNullOrEmpty(icon))
+				{
+					menuItem.Image = new Gtk.Image(icon);
+				}
+
+				menuItem.ButtonPressEvent += (sender, args) =>
+				{
+					item.Activate();
+>>>>>>> Update from origin (#8)
 				};
 
 				menu.Add(menuItem);

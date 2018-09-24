@@ -29,8 +29,11 @@
     <AndroidTlsProvider>
     </AndroidTlsProvider>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+<<<<<<< HEAD
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+=======
+>>>>>>> Update from origin (#8)
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <DefineConstants>HAVE_OPENTK</DefineConstants>

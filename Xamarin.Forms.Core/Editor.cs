@@ -22,8 +22,11 @@ namespace Xamarin.Forms
 		public static readonly BindableProperty PlaceholderProperty = PlaceholderElement.PlaceholderProperty;
 
 		public static readonly BindableProperty PlaceholderColorProperty = PlaceholderElement.PlaceholderColorProperty;
+<<<<<<< HEAD
 
 		public static readonly BindableProperty IsTextPredictionEnabledProperty = BindableProperty.Create(nameof(IsTextPredictionEnabled), typeof(bool), typeof(Editor), true, BindingMode.Default);
+=======
+>>>>>>> Update from origin (#8)
 
 		public static readonly BindableProperty AutoSizeProperty = BindableProperty.Create(nameof(AutoSize), typeof(EditorAutoSizeOption), typeof(Editor), defaultValue: EditorAutoSizeOption.Disabled, propertyChanged: (bindable, oldValue, newValue)
 			=> ((Editor)bindable)?.InvalidateMeasure());

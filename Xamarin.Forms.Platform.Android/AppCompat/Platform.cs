@@ -6,6 +6,10 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
+<<<<<<< HEAD
+=======
+using ARelativeLayout = Android.Widget.RelativeLayout;
+>>>>>>> Update from origin (#8)
 using AView = Android.Views.View;
 using Xamarin.Forms.Internals;
 

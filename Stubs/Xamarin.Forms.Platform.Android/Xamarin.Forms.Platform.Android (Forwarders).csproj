@@ -21,7 +21,10 @@
     <TargetFrameworkVersion>$(AndroidTargetFrameworkVersion)</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+<<<<<<< HEAD
     <PackageId>Xamarin.Forms.Platform.AndroidForwarders</PackageId>
+=======
+>>>>>>> Update from origin (#8)
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

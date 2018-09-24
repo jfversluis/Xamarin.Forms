@@ -95,7 +95,11 @@ namespace Xamarin.Forms.Platform.WPF
 			{
 				var appBar = new FormsAppBarButton() { DataContext = item };
 
+<<<<<<< HEAD
 				var iconBinding = new System.Windows.Data.Binding(nameof(item.IconImageSource))
+=======
+				var iconBinding = new System.Windows.Data.Binding(nameof(item.Icon))
+>>>>>>> Update from origin (#8)
 				{
 					Converter = new IconConveter()
 				};
@@ -108,7 +112,11 @@ namespace Xamarin.Forms.Platform.WPF
 				{
 					if (appBar.DataContext is ToolbarItem toolbarItem)
 					{
+<<<<<<< HEAD
 						((IMenuItemController)toolbarItem).Activate();
+=======
+						toolbarItem.Activate();
+>>>>>>> Update from origin (#8)
 					}
 				};
 

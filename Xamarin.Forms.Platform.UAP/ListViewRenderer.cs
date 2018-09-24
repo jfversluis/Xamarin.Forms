@@ -33,10 +33,14 @@ namespace Xamarin.Forms.Platform.UWP
 		bool _subscribedToItemClick;
 		bool _subscribedToTapped;
 		bool _disposed;
+<<<<<<< HEAD
 		CollectionViewSource _collectionViewSource;	
 
 		UwpScrollBarVisibility? _defaultHorizontalScrollVisibility;
 		UwpScrollBarVisibility? _defaultVerticalScrollVisibility;
+=======
+		CollectionViewSource _collectionViewSource;
+>>>>>>> Update from origin (#8)
 
 		protected WListView List { get; private set; }
 
@@ -98,8 +102,27 @@ namespace Xamarin.Forms.Platform.UWP
 		void ReloadData()
 		{
 			if (Element?.ItemsSource == null)
+<<<<<<< HEAD
 			{
 				_collection = null;
+			}
+			else
+			{
+				_collectionIsWrapped = !IsObservableCollection(Element.ItemsSource);
+				if (_collectionIsWrapped)
+				{
+					_collection = new ObservableCollection<object>();
+					foreach (var item in Element.ItemsSource)
+						_collection.Add(item);
+				}
+				else
+				{
+					_collection = (IList)Element.ItemsSource;
+				}
+=======
+			{
+				_collection = null;
+>>>>>>> Update from origin (#8)
 			}
 			else
 			{
@@ -119,6 +142,12 @@ namespace Xamarin.Forms.Platform.UWP
 			if (_collectionViewSource != null)
 				_collectionViewSource.Source = null;
 
+<<<<<<< HEAD
+			if (_collectionViewSource != null)
+				_collectionViewSource.Source = null;
+
+=======
+>>>>>>> Update from origin (#8)
 			_collectionViewSource = new CollectionViewSource
 			{
 				Source = _collection,

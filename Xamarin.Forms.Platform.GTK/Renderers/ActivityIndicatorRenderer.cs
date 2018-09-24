@@ -33,12 +33,33 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				UpdateIsRunning();
 		}
 
+<<<<<<< HEAD
+=======
+		protected override void UpdateBackgroundColor()
+		{
+			base.UpdateBackgroundColor();
+	 
+			var backgroundColor = Element.BackgroundColor == Color.Default ? Color.Transparent.ToGtkColor() : Element.BackgroundColor.ToGtkColor();
+
+			Control.UpdateAlpha(Element.BackgroundColor == Color.Default ? 0.0 : 1.0);
+			Control.UpdateBackgroundColor(backgroundColor);
+
+			Container.VisibleWindow = true;
+		}
+
+>>>>>>> Update from origin (#8)
 		private void UpdateColor()
 		{
 			if (Element == null || Control == null)
 				return;
 
+<<<<<<< HEAD
 			Control.UpdateColor(Element.Color);
+=======
+			var color = Element.Color == Color.Default ? Color.Default.ToGtkColor() : Element.Color.ToGtkColor();
+
+			Control.UpdateColor(color);
+>>>>>>> Update from origin (#8)
 		}
 
 		private void UpdateIsRunning()

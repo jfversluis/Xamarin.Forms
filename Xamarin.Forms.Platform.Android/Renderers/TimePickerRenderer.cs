@@ -6,8 +6,14 @@ using Android.Util;
 using Android.Text.Format;
 using ATimePicker = Android.Widget.TimePicker;
 using Android.OS;
+<<<<<<< HEAD
 using Android.Widget;
 using AColor = Android.Graphics.Color;
+=======
+using Android.Views;
+using System.Collections.Generic;
+using Android.Text;
+>>>>>>> Update from origin (#8)
 
 namespace Xamarin.Forms.Platform.Android
 {
@@ -16,6 +22,15 @@ namespace Xamarin.Forms.Platform.Android
 	{
 		int _originalHintTextColor;
 		AlertDialog _dialog;
+<<<<<<< HEAD
+=======
+		TextColorSwitcher _textColorSwitcher;
+		 
+
+		HashSet<Keycode> availableKeys = new HashSet<Keycode>(new[] {
+			Keycode.Tab, Keycode.Forward, Keycode.Back, Keycode.DpadDown, Keycode.DpadLeft, Keycode.DpadRight, Keycode.DpadUp
+		});
+>>>>>>> Update from origin (#8)
 
 		bool Is24HourView
 		{
@@ -49,6 +64,14 @@ namespace Xamarin.Forms.Platform.Android
 			_dialog = null;
 		}
 
+<<<<<<< HEAD
+=======
+		protected override EditText CreateNativeControl()
+		{
+			return new EditText(Context) { Focusable = true, Clickable = true, Tag = this };
+		}
+
+>>>>>>> Update from origin (#8)
 		protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
 		{
 			base.OnElementChanged(e);
@@ -57,6 +80,12 @@ namespace Xamarin.Forms.Platform.Android
 			{
 				var textField = CreateNativeControl();
 
+<<<<<<< HEAD
+=======
+				textField.SetOnClickListener(TimePickerListener.Instance);
+				textField.InputType = InputTypes.Null;
+				textField.KeyPress += TextFieldKeyPress;
+>>>>>>> Update from origin (#8)
 				SetNativeControl(textField);
 				_originalHintTextColor = EditText.CurrentHintTextColor;
 			}
@@ -67,6 +96,24 @@ namespace Xamarin.Forms.Platform.Android
 
 			if ((int)Build.VERSION.SdkInt > 16)
 				Control.TextAlignment = global::Android.Views.TextAlignment.ViewStart;
+		}
+
+		void TextFieldKeyPress(object sender, KeyEventArgs e)
+		{
+			if (availableKeys.Contains(e.KeyCode))
+			{
+				e.Handled = false;
+				return;
+			}
+			e.Handled = true;
+			OnClick();
+		}
+
+		internal override void OnNativeFocusChanged(bool hasFocus)
+		{
+			base.OnNativeFocusChanged(hasFocus);
+			if (hasFocus)
+				OnClick();
 		}
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

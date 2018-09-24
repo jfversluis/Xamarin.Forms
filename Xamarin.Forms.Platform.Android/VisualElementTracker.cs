@@ -298,6 +298,7 @@ namespace Xamarin.Forms.Platform.Android
 				{
 					return;
 				}
+<<<<<<< HEAD
 
 				// Forms layouts should not impose clipping on their children
 				viewGroup.SetClipChildren(false);
@@ -311,6 +312,21 @@ namespace Xamarin.Forms.Platform.Android
 				if (!(_renderer.View.Parent is ViewGroup parent))
 					return;
 
+=======
+
+				// Forms layouts should not impose clipping on their children
+				viewGroup.SetClipChildren(false);
+
+				// But if IsClippedToBounds is true, they _should_ enforce clipping at their own edges
+				viewGroup.ClipBounds = shouldClip ? new Rect(0, 0, viewGroup.Width, viewGroup.Height) : null;
+			}
+			else
+			{
+				// For everything in 17 and below, use the setClipChildren method
+				if (!(_renderer.View.Parent is ViewGroup parent))
+					return;
+
+>>>>>>> Update from origin (#8)
 				if ((int)Build.VERSION.SdkInt >= 18 && parent.ClipChildren == shouldClip)
 					return;
 

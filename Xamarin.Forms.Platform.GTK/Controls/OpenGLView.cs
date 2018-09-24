@@ -72,6 +72,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			GLib.Source.Remove(_timerId);
 		}
 
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
@@ -79,6 +80,15 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			if (_glWidget != null)
 			{
 				_glWidget.Destroy();
+=======
+		public override void Dispose()
+		{
+			base.Dispose();
+
+			if (_glWidget != null)
+			{
+				_glWidget.Dispose();
+>>>>>>> Update from origin (#8)
 			}
 		}
 

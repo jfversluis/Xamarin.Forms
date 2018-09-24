@@ -90,14 +90,22 @@ namespace Xamarin.Forms.Controls.Issues
 		[Preserve(AllMembers = true)]
 		public class RecommendationsBaseViewModel : ViewModelBase
 		{
+<<<<<<< HEAD
 			public virtual string AccountName => $"";
+=======
+			public string AccountName => $"";
+>>>>>>> Update from origin (#8)
 			public List<Recommendation> Recommendations { get; set; }
 		}
 
 		[Preserve(AllMembers = true)]
 		public class RecommendationsViewModel : RecommendationsBaseViewModel
 		{
+<<<<<<< HEAD
 			public override string AccountName => $"Recommendations";
+=======
+			public string AccountName => $"Recommendations";
+>>>>>>> Update from origin (#8)
 
 			public RecommendationsViewModel()
 			{
@@ -113,7 +121,11 @@ namespace Xamarin.Forms.Controls.Issues
 		[Preserve(AllMembers = true)]
 		public class RecommendationsViewModel2 : RecommendationsBaseViewModel
 		{
+<<<<<<< HEAD
 			public override string AccountName => $"Recommendations 2";
+=======
+			public string AccountName => $"Recommendations 2";
+>>>>>>> Update from origin (#8)
 			public RecommendationsViewModel2()
 			{
 				Recommendations = new List<Recommendation>()

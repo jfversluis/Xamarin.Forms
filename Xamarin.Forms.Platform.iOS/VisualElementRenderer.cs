@@ -161,6 +161,7 @@ namespace Xamarin.Forms.Platform.MacOS
 
 		protected bool TabStop { get; set; } = true;
 
+<<<<<<< HEAD
 		protected void UpdateTabStop()
 		{
 			if (Element == null)
@@ -178,6 +179,11 @@ namespace Xamarin.Forms.Platform.MacOS
 			TabIndex = Element.TabIndex;
 			UpdateParentPageAccessibilityElements();
 		}
+=======
+		protected void UpdateTabStop () => TabStop = Element.IsTabStop;
+
+		protected void UpdateTabIndex () => TabIndex = Element.TabIndex;
+>>>>>>> Update from origin (#8)
 
 		public NativeView FocusSearch(bool forwardDirection)
 		{
@@ -189,6 +195,7 @@ namespace Xamarin.Forms.Platform.MacOS
 
 			int tabIndex = Element.TabIndex;
 			int attempt = 0;
+<<<<<<< HEAD
 
 			do
 			{
@@ -218,6 +225,38 @@ namespace Xamarin.Forms.Platform.MacOS
 				}
 			}
 			base.KeyUp(theEvent);
+=======
+			NativeView control = null;
+
+			do
+			{
+				element = element.FindNextElement(forwardDirection, tabIndexes, ref tabIndex);
+#if __MACOS__
+				var renderer = Platform.GetRenderer(element);
+				control = (renderer as ITabStop)?.TabStop;
+#else
+				element.Focus();
+#endif
+			} while (!(control != null || element.IsFocused || ++attempt >= maxAttempts));
+			return control;
+		}
+
+#if __MACOS__
+		public override NativeView NextKeyView { 
+			get {
+				return FocusSearch (forwardDirection: true) ?? base.NextKeyView;
+			}
+			set {
+				if (value != null) // setting the value to null throws an exception
+					base.NextKeyView = value;
+			}
+		}
+
+		public override NativeView PreviousKeyView {
+			get {
+				return FocusSearch (forwardDirection: false) ?? base.PreviousKeyView;
+			}
+>>>>>>> Update from origin (#8)
 		}
 #else
 		UIKeyCommand [] tabCommands = {

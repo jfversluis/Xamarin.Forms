@@ -29,6 +29,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+<<<<<<< HEAD
+=======
+    <Reference Include="Xamarin.UITest, Version=2.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.UITest.2.2.6\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest.Desktop">
+      <HintPath>..\packages\Xamarin.UITest.Desktop.0.0.7\lib\net45\Xamarin.UITest.Desktop.dll</HintPath>
+    </Reference>
+>>>>>>> Update from origin (#8)
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -45,6 +54,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
+<<<<<<< HEAD
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -55,6 +65,23 @@
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.0.2" />
     <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
     <PackageReference Include="Xamarin.UITest.Desktop" Version="0.0.7" />
+=======
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.12\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Client">
+      <HintPath>..\packages\ServiceStack.Client.4.5.12\lib\net45\ServiceStack.Client.dll</HintPath>
+    </Reference>
+>>>>>>> Update from origin (#8)
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseViewContainerRemoteMac.cs" />

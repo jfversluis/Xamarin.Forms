@@ -9,11 +9,19 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 	public class Page : Table
 	{
 		private Gdk.Rectangle _lastAllocation = Gdk.Rectangle.Zero;
+<<<<<<< HEAD
 		private GtkFormsContainer _headerContainer;
 		private GtkFormsContainer _contentContainerWrapper;
 		private Fixed _contentContainer;
 		private HBox _toolbar;
 		private GtkFormsContainer _content;
+=======
+		private EventBox _headerContainer;
+		private EventBox _contentContainerWrapper;
+		private Fixed _contentContainer;
+		private HBox _toolbar;
+		private EventBox _content;
+>>>>>>> Update from origin (#8)
 		private ImageControl _image;
 		private Gdk.Color _defaultBackgroundColor;
 
@@ -32,7 +40,11 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
+<<<<<<< HEAD
 		public GtkFormsContainer Content
+=======
+		public EventBox Content
+>>>>>>> Update from origin (#8)
 		{
 			get
 			{
@@ -52,6 +64,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			BuildPage();
 		}
 
+<<<<<<< HEAD
 		public void SetToolbarColor(Color backgroundColor)
 		{
 			_headerContainer.SetBackgroundColor(backgroundColor);
@@ -96,6 +109,58 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_toolbar = null;
 			_content = null;
 			_headerContainer = null;
+=======
+		public void SetToolbarColor(Gdk.Color? backgroundColor)
+		{
+			if (backgroundColor.HasValue)
+			{
+				_headerContainer.ModifyBg(StateType.Normal, backgroundColor.Value);
+			}
+			else
+			{
+				_headerContainer.ModifyBg(StateType.Normal, _defaultBackgroundColor);
+			}
+		}
+
+		public void SetBackgroundColor(Gdk.Color? backgroundColor)
+		{
+			if (backgroundColor != null)
+			{
+				_contentContainerWrapper.VisibleWindow = true;
+				_contentContainerWrapper.ModifyBg(StateType.Normal, backgroundColor.Value);
+			}
+			else
+			{
+				_contentContainerWrapper.VisibleWindow = false;
+			}
+		}
+
+		public void SetBackgroundImage(string backgroundImagePath)
+		{
+			if (string.IsNullOrEmpty(backgroundImagePath))
+			{
+				return;
+			}
+
+			try
+			{
+				_image.Pixbuf = new Pixbuf(backgroundImagePath);
+			}
+			catch (Exception ex)
+			{
+				Internals.Log.Warning("Page BackgroundImage", "Could not load background image: {0}", ex);
+			}
+		}
+
+		public override void Dispose()
+		{
+			base.Dispose();
+			
+			if (_contentContainerWrapper != null)
+			{
+				_contentContainerWrapper.SizeAllocated -= OnContentContainerWrapperSizeAllocated;
+			}
+>>>>>>> Update from origin (#8)
 		}
 
 		private void BuildPage()
@@ -103,17 +168,29 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_defaultBackgroundColor = Style.Backgrounds[(int)StateType.Normal];
 
 			_toolbar = new HBox();
+<<<<<<< HEAD
 			_content = new GtkFormsContainer();
 
 			var root = new VBox(false, 0);
 
 			_headerContainer = new GtkFormsContainer();
+=======
+			_content = new EventBox();
+
+			var root = new VBox(false, 0);
+
+			_headerContainer = new EventBox();
+>>>>>>> Update from origin (#8)
 			root.PackStart(_headerContainer, false, false, 0);
 
 			_image = new ImageControl();
 			_image.Aspect = ImageAspect.Fill;
 
+<<<<<<< HEAD
 			_contentContainerWrapper = new GtkFormsContainer();
+=======
+			_contentContainerWrapper = new EventBox();
+>>>>>>> Update from origin (#8)
 			_contentContainerWrapper.SizeAllocated += OnContentContainerWrapperSizeAllocated;
 			_contentContainer = new Fixed();
 			_contentContainer.Add(_image);
@@ -128,15 +205,25 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 		private void RefreshToolbar(HBox newToolbar)
 		{
+<<<<<<< HEAD
 			_toolbar.Destroy();
+=======
+			_headerContainer.RemoveFromContainer(_toolbar);
+>>>>>>> Update from origin (#8)
 			_toolbar = newToolbar;
 			_headerContainer.Add(_toolbar);
 			_toolbar.ShowAll();
 		}
 
+<<<<<<< HEAD
 		private void RefreshContent(GtkFormsContainer newContent)
 		{
 			_content.Destroy();
+=======
+		private void RefreshContent(EventBox newContent)
+		{
+			_contentContainer.RemoveFromContainer(_content);
+>>>>>>> Update from origin (#8)
 			_content = newContent;
 			_contentContainer.Add(_content);
 			_content.ShowAll();

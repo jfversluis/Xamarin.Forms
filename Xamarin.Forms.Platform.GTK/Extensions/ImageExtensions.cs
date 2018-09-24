@@ -49,6 +49,7 @@ namespace Xamarin.Forms.Platform.GTK.Extensions
 				return null;
 			}
 		}
+<<<<<<< HEAD
 
 		internal static async Task<Pixbuf> GetNativeImageAsync(this ImageSource imageSource, CancellationToken cancellationToken = default(CancellationToken))
 		{
@@ -168,5 +169,7 @@ namespace Xamarin.Forms.Platform.GTK.Extensions
 				onLoading?.Invoke(false);
 			}
 		}
+=======
+>>>>>>> Update from origin (#8)
 	}
 }

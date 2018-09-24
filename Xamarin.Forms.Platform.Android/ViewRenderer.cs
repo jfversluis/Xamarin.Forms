@@ -61,6 +61,8 @@ namespace Xamarin.Forms.Platform.Android
 
 		AView ITabStop.TabStop => Control;
 
+		AView ITabStop.TabStop => Control;
+
 		void IViewRenderer.MeasureExactly()
 		{
 			MeasureExactly(Control, Element, Context);

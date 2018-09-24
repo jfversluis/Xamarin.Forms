@@ -172,6 +172,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
+<<<<<<< HEAD
 		public void Reload()
 		{
 			if (_platform == GTKPlatform.Windows)
@@ -184,6 +185,8 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 		public void ExecuteScript(string script)
 		{
 			if (_platform == GTKPlatform.Windows)

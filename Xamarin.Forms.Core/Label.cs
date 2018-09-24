@@ -50,7 +50,10 @@ namespace Xamarin.Forms
 
 					formattedString.SpansCollectionChanged -= label.Span_CollectionChanged;
 					formattedString.PropertyChanged -= label.OnFormattedTextChanged;
+<<<<<<< HEAD
 					formattedString.PropertyChanging -= label.OnFormattedTextChanging;
+=======
+>>>>>>> Update from origin (#8)
 					formattedString.Parent = null;
 					label.RemoveSpans(formattedString.Spans);
 				}
@@ -258,6 +261,42 @@ namespace Xamarin.Forms
 						GestureController.CompositeGestureRecognizers.Remove(spanRecognizer);
 		}
 
+<<<<<<< HEAD
+=======
+		void SetupSpans(System.Collections.IEnumerable spans)
+		{
+			foreach (Span span in spans)
+			{
+				span.GestureRecognizersCollectionChanged += Span_GestureRecognizer_CollectionChanged;
+				SetupSpanGestureRecognizers(span.GestureRecognizers);
+			}
+		}
+
+		void SetupSpanGestureRecognizers(System.Collections.IEnumerable gestureRecognizers)
+		{
+			foreach(GestureRecognizer gestureRecognizer in gestureRecognizers)
+				GestureController.CompositeGestureRecognizers.Add(new ChildGestureRecognizer() { GestureRecognizer = gestureRecognizer });
+		}
+
+
+		void RemoveSpans(System.Collections.IEnumerable spans)
+		{
+			foreach (Span span in spans)
+			{
+				RemoveSpanGestureRecognizers(span.GestureRecognizers);
+				span.GestureRecognizersCollectionChanged -= Span_GestureRecognizer_CollectionChanged;
+			}
+		}
+
+		void RemoveSpanGestureRecognizers(System.Collections.IEnumerable gestureRecognizers)
+		{
+			foreach (GestureRecognizer gestureRecognizer in gestureRecognizers)
+				foreach (var spanRecognizer in GestureController.CompositeGestureRecognizers.ToList())
+					if (spanRecognizer is ChildGestureRecognizer childGestureRecognizer && childGestureRecognizer.GestureRecognizer == gestureRecognizer)
+						GestureController.CompositeGestureRecognizers.Remove(spanRecognizer);
+		}
+
+>>>>>>> Update from origin (#8)
 
 		void Span_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{

@@ -8,9 +8,15 @@ using System.ComponentModel;
 using System.Linq;
 using Orientation = Android.Widget.Orientation;
 using Android.Content;
+<<<<<<< HEAD
 using AColor = Android.Graphics.Color;
 using Android.Text;
 using Android.Text.Style;
+=======
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using System.Collections.Generic;
+using Android.Text;
+>>>>>>> Update from origin (#8)
 
 namespace Xamarin.Forms.Platform.Android
 {
@@ -20,6 +26,10 @@ namespace Xamarin.Forms.Platform.Android
 		bool _isDisposed;
 		TextColorSwitcher _textColorSwitcher;
 		int _originalHintTextColor;
+
+		HashSet<Keycode> availableKeys = new HashSet<Keycode>(new[] {
+			Keycode.Tab, Keycode.Forward, Keycode.Back, Keycode.DpadDown, Keycode.DpadLeft, Keycode.DpadRight, Keycode.DpadUp
+		});
 
 		public PickerRenderer(Context context) : base(context)
 		{
@@ -48,7 +58,11 @@ namespace Xamarin.Forms.Platform.Android
 
 		protected override EditText CreateNativeControl()
 		{
+<<<<<<< HEAD
 			return new PickerEditText(Context);
+=======
+			return new EditText(Context) { Focusable = true, Clickable = true, Tag = this };
+>>>>>>> Update from origin (#8)
 		}
 
 		protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
@@ -62,6 +76,12 @@ namespace Xamarin.Forms.Platform.Android
 				if (Control == null)
 				{
 					var textField = CreateNativeControl();
+<<<<<<< HEAD
+=======
+					textField.SetOnClickListener(PickerListener.Instance);
+					textField.InputType = InputTypes.Null;
+					textField.KeyPress += TextFieldKeyPress;
+>>>>>>> Update from origin (#8)
 
 					var useLegacyColorManagement = e.NewElement.UseLegacyColorManagement();
 					_textColorSwitcher = new TextColorSwitcher(textField.TextColors, useLegacyColorManagement);
@@ -77,6 +97,24 @@ namespace Xamarin.Forms.Platform.Android
 			}
 
 			base.OnElementChanged(e);
+		}
+
+		void TextFieldKeyPress(object sender, KeyEventArgs e)
+		{
+			if (availableKeys.Contains(e.KeyCode))
+			{
+				e.Handled = false;
+				return;
+			}
+			e.Handled = true;
+			OnClick();
+		}
+
+		internal override void OnNativeFocusChanged(bool hasFocus)
+		{
+			base.OnNativeFocusChanged(hasFocus);
+			if (hasFocus)
+				OnClick();
 		}
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

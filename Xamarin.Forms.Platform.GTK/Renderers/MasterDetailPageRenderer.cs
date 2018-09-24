@@ -10,9 +10,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 {
 	public class MasterDetailPageRenderer : AbstractPageRenderer<Controls.MasterDetailPage, MasterDetailPage>
 	{
+<<<<<<< HEAD
 		Page _currentMaster;
 		Page _currentDetail;
 
+=======
+>>>>>>> Update from origin (#8)
 		public MasterDetailPageRenderer()
 		{
 			MessagingCenter.Subscribe(this, Forms.BarTextColor, (NavigationPage sender, Color color) =>
@@ -76,7 +79,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					// There is nothing similar in Gtk. 
 					// Custom control has been created that simulates the expected behavior.
 					Widget = new Controls.MasterDetailPage();
+<<<<<<< HEAD
 					var eventBox = new GtkFormsContainer();
+=======
+					var eventBox = new EventBox();
+>>>>>>> Update from origin (#8)
 					eventBox.Add(Widget);
 
 					Control.Content = eventBox;
@@ -117,7 +124,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		private async void HandleMasterPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
+<<<<<<< HEAD
 			if (e.PropertyName == Xamarin.Forms.Page.IconImageSourceProperty.PropertyName)
+=======
+			if (e.PropertyName == Xamarin.Forms.Page.IconProperty.PropertyName)
+>>>>>>> Update from origin (#8)
 				await UpdateHamburguerIconAsync();
 		}
 
@@ -125,6 +136,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			Gtk.Application.Invoke(async delegate
 			{
+<<<<<<< HEAD
 				await UpdateHamburguerIconAsync();
 				if (Page.Master != _currentMaster)
 				{
@@ -148,6 +160,24 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				}
 				UpdateBarTextColor();
 				UpdateBarBackgroundColor();
+=======
+				Page.Master.PropertyChanged -= HandleMasterPropertyChanged;
+				await UpdateHamburguerIconAsync();
+
+				if (Platform.GetRenderer(Page.Master) == null)
+					Platform.SetRenderer(Page.Master, Platform.CreateRenderer(Page.Master));
+				if (Platform.GetRenderer(Page.Detail) == null)
+					Platform.SetRenderer(Page.Detail, Platform.CreateRenderer(Page.Detail));
+
+				Widget.Master = Platform.GetRenderer(Page.Master).Container;
+				Widget.Detail = Platform.GetRenderer(Page.Detail).Container;
+				Widget.MasterTitle = Page.Master?.Title ?? string.Empty;
+
+				UpdateBarTextColor();
+				UpdateBarBackgroundColor();
+
+				Page.Master.PropertyChanged += HandleMasterPropertyChanged;
+>>>>>>> Update from origin (#8)
 			});
 		}
 
@@ -195,6 +225,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 
+<<<<<<< HEAD
 		private Task UpdateHamburguerIconAsync()
 		{
 			return Page.Master.ApplyNativeImageAsync(Xamarin.Forms.Page.IconImageSourceProperty, image =>
@@ -202,11 +233,32 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				Widget.UpdateHamburguerIcon(image);
 
 				if (Page.Detail is NavigationPage navigationPage)
+=======
+		private async Task UpdateHamburguerIconAsync()
+		{
+			var hamburguerIcon = Page.Master.Icon;
+
+			if (hamburguerIcon != null)
+			{
+				IImageSourceHandler handler =
+					Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(hamburguerIcon);
+
+				var image = await handler.LoadImageAsync(hamburguerIcon);
+				Widget.UpdateHamburguerIcon(image);
+
+				var navigationPage = Page.Detail as NavigationPage;
+
+				if (navigationPage != null)
+>>>>>>> Update from origin (#8)
 				{
 					var navigationRenderer = Platform.GetRenderer(navigationPage) as IToolbarTracker;
 					navigationRenderer?.NativeToolbarTracker.UpdateToolBar();
 				}
+<<<<<<< HEAD
 			});
+=======
+			}
+>>>>>>> Update from origin (#8)
 		}
 
 		private MasterBehaviorType GetMasterBehavior(MasterBehavior masterBehavior)

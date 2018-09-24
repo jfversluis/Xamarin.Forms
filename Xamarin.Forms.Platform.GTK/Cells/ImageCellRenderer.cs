@@ -10,7 +10,15 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 		{
 			var gtkImageCell = base.GetCell(item, reusableView, listView) as ImageCell;
 			var imageCell = (Xamarin.Forms.ImageCell)item;
+<<<<<<< HEAD
 			SetImage(imageCell, gtkImageCell);
+=======
+
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+			SetImage(imageCell, gtkImageCell);
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+>>>>>>> Update from origin (#8)
 			return gtkImageCell;
 		}
 
@@ -31,7 +39,11 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 					detailColor);
 		}
 
+<<<<<<< HEAD
 		protected override void CellPropertyChanged(object sender, PropertyChangedEventArgs args)
+=======
+		protected override async void CellPropertyChanged(object sender, PropertyChangedEventArgs args)
+>>>>>>> Update from origin (#8)
 		{
 			base.CellPropertyChanged(sender, args);
 
@@ -48,6 +60,7 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 			}
 			else if (args.PropertyName == Xamarin.Forms.ImageCell.ImageSourceProperty.PropertyName)
 			{
+<<<<<<< HEAD
 				SetImage(imageCell, gtkImageCell);
 			}
 		}
@@ -59,6 +72,43 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 			{
 				target.Image = image;
 			});
+=======
+				await SetImage(imageCell, gtkImageCell);
+			}
+		}
+
+		private static async System.Threading.Tasks.Task SetImage(Xamarin.Forms.ImageCell cell, ImageCell target)
+		{
+			var source = cell.ImageSource;
+
+			target.Image = null;
+
+			Renderers.IImageSourceHandler handler;
+
+			if (source != null && (handler =
+				Internals.Registrar.Registered.GetHandlerForObject<Renderers.IImageSourceHandler>(source)) != null)
+			{
+				Gdk.Pixbuf image;
+
+				try
+				{
+					image = await handler.LoadImageAsync(source).ConfigureAwait(false);
+				}
+				catch (System.Threading.Tasks.TaskCanceledException)
+				{
+					image = null;
+				}
+				catch(Exception)
+				{
+					image = null;
+				}
+
+				target.Image = image;
+
+			}
+			else
+				target.Image = null;
+>>>>>>> Update from origin (#8)
 		}
 	}
 }

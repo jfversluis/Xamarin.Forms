@@ -11,8 +11,12 @@ using Android.Support.V4.View;
 
 namespace Xamarin.Forms.Platform.Android.FastRenderers
 {
+<<<<<<< HEAD
 	public class ImageRenderer : AImageView, IVisualElementRenderer, IImageRendererController, IViewRenderer, ITabStop,
 		ILayoutChanges
+=======
+	internal sealed class ImageRenderer : AImageView, IVisualElementRenderer, IImageRendererController, IViewRenderer, ITabStop
+>>>>>>> Update from origin (#8)
 	{
 		bool _disposed;
 		Image _element;

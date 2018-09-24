@@ -8,7 +8,11 @@ using Control = Gtk.Widget;
 
 namespace Xamarin.Forms.Platform.GTK
 {
+<<<<<<< HEAD
 	public class VisualElementRenderer<TElement, TNativeElement> : Container, IVisualNativeElementRenderer, IVisualElementRenderer, IDisposable, IEffectControlProvider
+=======
+	public class VisualElementRenderer<TElement, TNativeElement> : Container, IVisualElementRenderer, IDisposable, IEffectControlProvider
+>>>>>>> Update from origin (#8)
 		where TElement : VisualElement
 		where TNativeElement : Control
 	{
@@ -50,8 +54,11 @@ namespace Xamarin.Forms.Platform.GTK
 
 		public TNativeElement Control { get; set; }
 
+<<<<<<< HEAD
 		Control IVisualNativeElementRenderer.Control => Control;
 
+=======
+>>>>>>> Update from origin (#8)
 		public TElement Element { get; set; }
 
 		public Container Container => this;
@@ -139,9 +146,16 @@ namespace Xamarin.Forms.Platform.GTK
 			UpdateIsVisible();
 		}
 
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
+=======
+		public override void Dispose()
+		{
+			base.Dispose();
+
+>>>>>>> Update from origin (#8)
 			Dispose(true);
 		}
 
@@ -238,7 +252,20 @@ namespace Xamarin.Forms.Platform.GTK
 			if (_disposed || Element == null || Control == null)
 				return;
 
+<<<<<<< HEAD
 			Container.SetBackgroundColor(Element.BackgroundColor);
+=======
+			Color backgroundColor = Element.BackgroundColor;
+
+			bool isDefault = backgroundColor.IsDefaultOrTransparent();
+
+			if (!isDefault)
+			{
+				Container.ModifyBg(StateType.Normal, backgroundColor.ToGtkColor());
+			}
+
+			Container.VisibleWindow = !isDefault;
+>>>>>>> Update from origin (#8)
 		}
 
 		protected virtual void SetAccessibilityHint()

@@ -426,9 +426,18 @@ namespace Xamarin.Forms.Platform.UWP
 			if (Control == null || Element == null)
 				return;
 
+<<<<<<< HEAD
 			bool headerIconsEnabled = Element.OnThisPlatform().GetHeaderIconsEnabled();
 			bool invalidateMeasure = false;
 
+=======
+			if (!Element.IsSet(Specifics.HeaderIconsEnabledProperty))
+				return;
+
+			bool headerIconsEnabled = Element.OnThisPlatform().GetHeaderIconsEnabled();
+			bool invalidateMeasure = false;
+
+>>>>>>> Update from origin (#8)
 			// Get all stack panels affected by update.
 			var stackPanels = Control.GetDescendantsByName<WStackPanel>(TabBarHeaderStackPanelName);
 			foreach (var stackPanel in stackPanels)

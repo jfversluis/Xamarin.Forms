@@ -49,7 +49,11 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("color", typeof(ITextElement), nameof(TextElement.TextColorProperty), Inherited = true)]
 [assembly: StyleProperty("color", typeof(ProgressBar), nameof(ProgressBar.ProgressColorProperty))]
 [assembly: StyleProperty("color", typeof(Switch), nameof(Switch.OnColorProperty))]
+<<<<<<< HEAD
 [assembly: StyleProperty("column-gap", typeof(Grid), nameof(Grid.ColumnSpacingProperty))]
+=======
+[assembly: StyleProperty("column-gap", typeof(Grid), nameof(Grid.RowSpacingProperty))]
+>>>>>>> Update from origin (#8)
 [assembly: StyleProperty("direction", typeof(VisualElement), nameof(VisualElement.FlowDirectionProperty), Inherited = true)]
 [assembly: StyleProperty("font-family", typeof(IFontElement), nameof(FontElement.FontFamilyProperty), Inherited = true)]
 [assembly: StyleProperty("font-size", typeof(IFontElement), nameof(FontElement.FontSizeProperty), Inherited = true)]
@@ -74,7 +78,11 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("text-decoration", typeof(IDecorableTextElement), nameof(DecorableTextElement.TextDecorationsProperty))]
 [assembly: StyleProperty("transform", typeof(VisualElement), nameof(VisualElement.TransformProperty))]
 [assembly: StyleProperty("transform-origin", typeof(VisualElement), nameof(VisualElement.TransformOriginProperty))]
+<<<<<<< HEAD
 //[assembly: StyleProperty("vertical-align", /*typeof(Label), nameof(Label.VerticalTextAlignmentProperty)*/)]
+=======
+[assembly: StyleProperty("vertical-align", typeof(Label), nameof(Label.VerticalTextAlignment))]
+>>>>>>> Update from origin (#8)
 [assembly: StyleProperty("visibility", typeof(VisualElement), nameof(VisualElement.IsVisibleProperty), Inherited = true)]
 [assembly: StyleProperty("width", typeof(VisualElement), nameof(VisualElement.WidthRequestProperty))]
 [assembly: StyleProperty("line-height", typeof(ILineHeightElement), nameof(LineHeightElement.LineHeightProperty), Inherited = true)]
@@ -105,6 +113,7 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("-xf-max-track-color", typeof(Slider), nameof(Slider.MaximumTrackColorProperty))]
 [assembly: StyleProperty("-xf-thumb-color", typeof(Slider), nameof(Slider.ThumbColorProperty))]
 [assembly: StyleProperty("-xf-spacing", typeof(StackLayout), nameof(StackLayout.SpacingProperty))]
+<<<<<<< HEAD
 [assembly: StyleProperty("-xf-orientation", typeof(StackLayout), nameof(StackLayout.OrientationProperty))]
 [assembly: StyleProperty("-xf-visual", typeof(VisualElement), nameof(VisualElement.VisualProperty))]
 [assembly: StyleProperty("-xf-vertical-text-alignment", typeof(Label), nameof(Label.VerticalTextAlignmentProperty))]
@@ -121,3 +130,6 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("-xf-shell-tabbar-unselected", typeof(Element), nameof(Shell.TabBarUnselectedColorProperty), PropertyOwnerType = typeof(Shell))]
 [assembly: StyleProperty("-xf-shell-title", typeof(Element), nameof(Shell.TitleColorProperty), PropertyOwnerType = typeof(Shell))]
 [assembly: StyleProperty("-xf-shell-unselected", typeof(Element), nameof(Shell.UnselectedColorProperty), PropertyOwnerType = typeof(Shell))]
+=======
+[assembly: StyleProperty("-xf-orientation", typeof(StackLayout), nameof(StackLayout.OrientationProperty))]
+>>>>>>> Update from origin (#8)

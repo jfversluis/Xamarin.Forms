@@ -65,5 +65,20 @@ namespace Xamarin.Forms.Core.UITests
 
 			return elements;
 		}
+
+
+		public static AppResult[] QueryNTimes(this IApp app, Func<AppQuery, AppQuery> elementQuery, int numberOfTries, Action onFail)
+		{
+			int tryCount = 0;
+			var elements = app.Query(elementQuery);
+			while (elements.Length == 0 && tryCount < numberOfTries)
+			{
+				elements = app.Query(elementQuery);
+				tryCount++;
+				if (elements.Length == 0 && onFail != null) onFail();
+			}
+
+			return elements;
+		}
 	}
 }

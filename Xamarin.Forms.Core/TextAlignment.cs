@@ -20,6 +20,8 @@ namespace Xamarin.Forms
 					return TextAlignment.Start;
 				if (value.Equals("top", StringComparison.OrdinalIgnoreCase))
 					return TextAlignment.Start;
+				if (value.Equals("top", StringComparison.OrdinalIgnoreCase))
+					return TextAlignment.Start;
 				if (value.Equals("right", StringComparison.OrdinalIgnoreCase))
 					return TextAlignment.End;
 				if (value.Equals("bottom", StringComparison.OrdinalIgnoreCase))
@@ -28,6 +30,7 @@ namespace Xamarin.Forms
 					return TextAlignment.Center;
 				if (value.Equals("middle", StringComparison.OrdinalIgnoreCase))
 					return TextAlignment.Center;
+<<<<<<< HEAD
 				if (value.Equals("End", StringComparison.OrdinalIgnoreCase) || value.Equals("right", StringComparison.OrdinalIgnoreCase))
 					return TextAlignment.End;
 				if (value.Equals("Center", StringComparison.OrdinalIgnoreCase) || value.Equals("center", StringComparison.OrdinalIgnoreCase))
@@ -35,6 +38,8 @@ namespace Xamarin.Forms
 
 				if (Enum.TryParse(value, out TextAlignment direction))
 					return direction;
+=======
+>>>>>>> Update from origin (#8)
 			}
 			throw new InvalidOperationException(string.Format("Cannot convert \"{0}\" into {1}", value, typeof(TextAlignment)));
 		}

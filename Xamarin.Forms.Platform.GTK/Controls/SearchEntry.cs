@@ -109,9 +109,15 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
+=======
+		public override void Dispose()
+		{
+			base.Dispose();
+>>>>>>> Update from origin (#8)
 
 			if (_entryWrapper?.Entry != null)
 			{

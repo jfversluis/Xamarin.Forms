@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ComponentModel;
+=======
+>>>>>>> Update from origin (#8)
 using System.Linq.Expressions;
 
 namespace Xamarin.Forms

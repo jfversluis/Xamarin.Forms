@@ -59,9 +59,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				return;
 
 			IVisualElementRenderer renderer = Element.Content.GetOrCreateRenderer();
+<<<<<<< HEAD
 			var wrappingFixed = new Gtk.Fixed { renderer.Container };
 			Control.Child = wrappingFixed;
 			wrappingFixed.ShowAll();
+=======
+			Control.Child = renderer.Container;
+			renderer.Container.ShowAll();
+>>>>>>> Update from origin (#8)
 		}
 	}
 }

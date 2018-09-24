@@ -115,6 +115,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_selectionColor = DefaultSelectionColor;
 		}
 
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			_store?.Dispose();
@@ -132,6 +133,8 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			base.Destroy();
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 		public static Gdk.Color DefaultSelectionColor = Color.FromHex("#3498DB").ToGtkColor();
 
 		public Widget Header

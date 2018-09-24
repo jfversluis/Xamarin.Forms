@@ -34,7 +34,10 @@ namespace Xamarin.Forms.Platform.iOS
 			UpdateBackground(tvc, item);
 
 			SetAccessibility(tvc, item);
+<<<<<<< HEAD
 			UpdateAutomationId(tvc, textCell);
+=======
+>>>>>>> Update from origin (#8)
 
 			return tvc;
 		}
@@ -60,6 +63,7 @@ namespace Xamarin.Forms.Platform.iOS
 				tvc.DetailTextLabel.TextColor = textCell.DetailColor.ToUIColor(DefaultTextColor);
 			else if (args.PropertyName == Cell.IsEnabledProperty.PropertyName)
 				UpdateIsEnabled(tvc, textCell);
+<<<<<<< HEAD
 			else if (args.PropertyName == TextCell.AutomationIdProperty.PropertyName)
 				UpdateAutomationId(tvc, textCell);
 
@@ -69,6 +73,11 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			tvc.AccessibilityIdentifier = cell.AutomationId;
 		}
+=======
+
+			HandlePropertyChanged(tvc, args);
+		}
+>>>>>>> Update from origin (#8)
 
 		protected virtual void HandlePropertyChanged(object sender, PropertyChangedEventArgs args)
 		{

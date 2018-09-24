@@ -72,9 +72,13 @@ namespace Xamarin.Forms.Platform.Android
 		bool _selectionLengthChangePending;
 		bool _nativeSelectionIsUpdating;
 
+<<<<<<< HEAD
 		protected abstract EditText EditText { get; }
 
 		public EntryRendererBase(Context context) : base(context)
+=======
+		public EntryRenderer(Context context) : base(context)
+>>>>>>> Update from origin (#8)
 		{
 			AutoPackage = false;
 		}
@@ -156,8 +160,13 @@ namespace Xamarin.Forms.Platform.Android
 			_cursorPositionChangePending = Element.IsSet(Entry.CursorPositionProperty);
 			_selectionLengthChangePending = Element.IsSet(Entry.SelectionLengthProperty);
 
+<<<<<<< HEAD
 			UpdatePlaceHolderText();
 			EditText.Text = Element.Text;
+=======
+			Control.Hint = Element.Placeholder;
+			Control.Text = Element.Text;
+>>>>>>> Update from origin (#8)
 			UpdateInputType();
 
 			UpdateColor();
@@ -167,7 +176,10 @@ namespace Xamarin.Forms.Platform.Android
 			UpdateMaxLength();
 			UpdateImeOptions();
 			UpdateReturnType();
+<<<<<<< HEAD
 			UpdateIsReadOnly();
+=======
+>>>>>>> Update from origin (#8)
 
 			if (_cursorPositionChangePending || _selectionLengthChangePending)
 				UpdateCursorSelection();
@@ -356,8 +368,13 @@ namespace Xamarin.Forms.Platform.Android
 			if (Control == null || Element == null)
 				return;
 
+<<<<<<< HEAD
 			EditText.ImeOptions = Element.ReturnType.ToAndroidImeAction();
 			_currentInputImeFlag = EditText.ImeOptions;
+=======
+			Control.ImeOptions = Element.ReturnType.ToAndroidImeAction();
+			_currentInputImeFlag = Control.ImeOptions;
+>>>>>>> Update from origin (#8)
 		}
 
 		void SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -366,6 +383,7 @@ namespace Xamarin.Forms.Platform.Android
 				return;
 
 			int cursorPosition = Element.CursorPosition;
+<<<<<<< HEAD
 			int selectionStart = EditText.SelectionStart;
 
 			if (!_cursorPositionChangePending)
@@ -381,6 +399,23 @@ namespace Xamarin.Forms.Platform.Android
 				int elementSelectionLength = System.Math.Min(EditText.Text.Length - cursorPosition, Element.SelectionLength);
 
 				var controlSelectionLength = EditText.SelectionEnd - selectionStart;
+=======
+			int selectionStart = Control.SelectionStart;
+
+			if (!_cursorPositionChangePending)
+			{
+				var start = cursorPosition;
+
+				if (selectionStart != start)
+					SetCursorPositionFromRenderer(selectionStart);
+			}
+
+			if (!_selectionLengthChangePending)
+			{
+				int elementSelectionLength = System.Math.Min(Control.Text.Length - cursorPosition, Element.SelectionLength);
+
+				var controlSelectionLength = Control.SelectionEnd - selectionStart;
+>>>>>>> Update from origin (#8)
 				if (controlSelectionLength != elementSelectionLength)
 					SetSelectionLengthFromRenderer(controlSelectionLength);
 			}
@@ -388,16 +423,24 @@ namespace Xamarin.Forms.Platform.Android
 
 		void UpdateCursorSelection()
 		{
+<<<<<<< HEAD
 			if (_nativeSelectionIsUpdating || Control == null || Element == null || EditText == null)
 				return;
 
 			if (!Element.IsReadOnly && EditText.RequestFocus())
+=======
+			if (_nativeSelectionIsUpdating || Control == null || Element == null)
+				return;
+
+			if (Control.RequestFocus())
+>>>>>>> Update from origin (#8)
 			{
 				try
 				{
 					int start = GetSelectionStart();
 					int end = GetSelectionEnd(start);
 
+<<<<<<< HEAD
 					EditText.SetSelection(start, end);
 				}
 				catch (System.Exception ex)
@@ -407,7 +450,81 @@ namespace Xamarin.Forms.Platform.Android
 				finally
 				{
 					_cursorPositionChangePending = _selectionLengthChangePending = false;
+=======
+					Control.SetSelection(start, end);
 				}
+				catch (System.Exception ex)
+				{
+					Internals.Log.Warning("Entry", $"Failed to set Control.Selection from CursorPosition/SelectionLength: {ex}");
+>>>>>>> Update from origin (#8)
+				}
+				finally
+				{
+					_cursorPositionChangePending = _selectionLengthChangePending = false;
+				}
+			}
+		}
+
+		int GetSelectionEnd(int start)
+		{
+			int end = start;
+			int selectionLength = Element.SelectionLength;
+
+			if (Element.IsSet(Entry.SelectionLengthProperty))
+				end = System.Math.Max(start, System.Math.Min(Control.Length(), start + selectionLength));
+
+			int newSelectionLength = System.Math.Max(0, end - start);
+			if (newSelectionLength != selectionLength)
+				SetSelectionLengthFromRenderer(newSelectionLength);
+
+			return end;
+		}
+
+		int GetSelectionStart()
+		{
+			int start = Control.Length();
+			int cursorPosition = Element.CursorPosition;
+
+			if (Element.IsSet(Entry.CursorPositionProperty))
+				start = System.Math.Min(Control.Text.Length, cursorPosition);
+
+			if (start != cursorPosition)
+				SetCursorPositionFromRenderer(start);
+
+			return start;
+		}
+
+		void SetCursorPositionFromRenderer(int start)
+		{
+			try
+			{
+				_nativeSelectionIsUpdating = true;
+				ElementController?.SetValueFromRenderer(Entry.CursorPositionProperty, start);
+			}
+			catch (System.Exception ex)
+			{
+				Internals.Log.Warning("Entry", $"Failed to set CursorPosition from renderer: {ex}");
+			}
+			finally
+			{
+				_nativeSelectionIsUpdating = false;
+			}
+		}
+
+		void SetSelectionLengthFromRenderer(int selectionLength)
+		{
+			try
+			{
+				_nativeSelectionIsUpdating = true;
+				ElementController?.SetValueFromRenderer(Entry.SelectionLengthProperty, selectionLength);
+			}
+			catch (System.Exception ex)
+			{
+				Internals.Log.Warning("Entry", $"Failed to set SelectionLength from renderer: {ex}");
+			}
+			finally
+			{
+				_nativeSelectionIsUpdating = false;
 			}
 		}
 

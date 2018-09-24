@@ -646,7 +646,13 @@ namespace Xamarin.Forms.Build.Tasks
 			setter.Body.InitLocals = true;
 
 			var il = setter.Body.GetILProcessor();
+<<<<<<< HEAD
 			if (!properties.Any() || properties.Last().property.SetMethod == null) {
+=======
+			var lastProperty = properties.LastOrDefault();
+			var setterRef = lastProperty?.Item1.SetMethod;
+			if (setterRef == null) {
+>>>>>>> Update from origin (#8)
 				yield return Create(Ldnull); //throw or not ?
 				yield break;
 			}
@@ -659,6 +665,7 @@ namespace Xamarin.Forms.Build.Tasks
 			else
 				il.Emit(Ldarg_0);
 			for (int i = 0; i < properties.Count - 1; i++) {
+<<<<<<< HEAD
 				(PropertyDefinition property, TypeReference propDeclTypeRef, string indexArg) = properties[i];
 				if (indexArg != null) {
 					var indexType = property.GetMethod.Parameters[0].ParameterType.ResolveGenericParameters(propDeclTypeRef);
@@ -667,6 +674,17 @@ namespace Xamarin.Forms.Build.Tasks
 					else if (TypeRefComparer.Default.Equals(indexType, module.TypeSystem.Int32)) {
 						if (!int.TryParse(indexArg, out var index))
 							throw new XamlParseException($"Binding: {indexArg} could not be parsed as an index for a {property.Name}", node as IXmlLineInfo);
+=======
+				var property = properties[i].Item1;
+				var indexerArg = properties[i].Item2;
+				if (indexerArg != null) {
+					if (property.GetMethod.Parameters [0].ParameterType == module.TypeSystem.String)
+						il.Emit(Ldstr, indexerArg);
+					else if (property.GetMethod.Parameters [0].ParameterType == module.TypeSystem.Int32) {
+						int index;
+						if (!int.TryParse(indexerArg, out index))
+							throw new XamlParseException($"Binding: {indexerArg} could not be parsed as an index for a {property.Name}", node as IXmlLineInfo);
+>>>>>>> Update from origin (#8)
 						il.Emit(Ldc_I4, index);
 					}
 				}
@@ -680,6 +698,7 @@ namespace Xamarin.Forms.Build.Tasks
 					il.Emit(Call, getMethod);
 			}
 
+<<<<<<< HEAD
 			(PropertyDefinition lastProperty, TypeReference lastPropDeclTypeRef, string lastIndexArg) = properties.Last();
 			if (lastIndexArg != null) {
 				var indexType = lastProperty.GetMethod.Parameters[0].ParameterType.ResolveGenericParameters(lastPropDeclTypeRef);
@@ -691,6 +710,21 @@ namespace Xamarin.Forms.Build.Tasks
 					il.Emit(Ldc_I4, index);
 				}
 			}
+=======
+			var indexer = properties.Last().Item2;
+			if (indexer != null) {
+				if (lastProperty.Item1.GetMethod.Parameters [0].ParameterType == module.TypeSystem.String)
+					il.Emit(Ldstr, indexer);
+				else if (lastProperty.Item1.GetMethod.Parameters [0].ParameterType == module.TypeSystem.Int32) {
+					int index;
+					if (!int.TryParse(indexer, out index))
+						throw new XamlParseException($"Binding: {indexer} could not be parsed as an index for a {lastProperty.Item1.Name}", node as IXmlLineInfo);
+					il.Emit(Ldc_I4, index);
+				}
+			}
+
+			il.Emit(Ldarg_1);
+>>>>>>> Update from origin (#8)
 
 			il.Emit(Ldarg_1);
 

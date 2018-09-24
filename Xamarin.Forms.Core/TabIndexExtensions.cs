@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using Xamarin.Forms.Internals;
+<<<<<<< HEAD
 using System.Linq;
 using System;
+=======
+>>>>>>> Update from origin (#8)
 
 namespace Xamarin.Forms
 {
 	public static class TabIndexExtensions
 	{
+<<<<<<< HEAD
 		public static SortedDictionary<int, List<ITabStopElement>> GetSortedTabIndexesOnParentPage(this VisualElement element, out int countChildrensWithTabStopWithoutThis)
 		{
 			return new SortedDictionary<int, List<ITabStopElement>>(TabIndexExtensions.GetTabIndexesOnParentPage(element, out countChildrensWithTabStopWithoutThis));
@@ -17,10 +21,18 @@ namespace Xamarin.Forms
 			countChildrensWithTabStopWithoutThis = 0;
 
 			Element parentPage = (element as NavigableElement).Parent;
+=======
+		public static IDictionary<int, List<VisualElement>> GetTabIndexesOnParentPage(this VisualElement element, out int countChildrensWithTabStopWithoutThis)
+		{
+			countChildrensWithTabStopWithoutThis = 0;
+
+			Element parentPage = element.Parent;
+>>>>>>> Update from origin (#8)
 			while (parentPage != null && !(parentPage is Page))
 				parentPage = parentPage.Parent;
 
 			var descendantsOnPage = parentPage?.VisibleDescendants();
+<<<<<<< HEAD
 
 			if (parentPage is Shell shell)
 				descendantsOnPage = shell.Items;
@@ -35,17 +47,35 @@ namespace Xamarin.Forms
 					childrensWithTabStop.Add(visualElement);
 			}
 			if (checkContainsElement && !childrensWithTabStop.Contains(element))
+=======
+			if (descendantsOnPage == null)
+				return null;
+
+			var childrensWithTabStop = new List<VisualElement>();
+			foreach (var descendant in descendantsOnPage)
+			{
+				if (descendant is VisualElement visualElement && visualElement.IsTabStop)
+					childrensWithTabStop.Add(visualElement);
+			}
+			if (!childrensWithTabStop.Contains(element))
+>>>>>>> Update from origin (#8)
 				return null;
 
 			countChildrensWithTabStopWithoutThis = childrensWithTabStop.Count - 1;
 			return childrensWithTabStop.GroupToDictionary(c => c.TabIndex);
 		}
 
+<<<<<<< HEAD
 		public static ITabStopElement FindNextElement(this ITabStopElement element, bool forwardDirection, IDictionary<int, List<ITabStopElement>> tabIndexes, ref int tabIndex) 
 		{
 			if (!tabIndexes.TryGetValue(tabIndex, out var tabGroup))
 				return null;
 
+=======
+		public static VisualElement FindNextElement(this VisualElement element, bool forwardDirection, IDictionary<int, List<VisualElement>> tabIndexes, ref int tabIndex)
+		{
+			var tabGroup = tabIndexes[tabIndex];
+>>>>>>> Update from origin (#8)
 			if (!forwardDirection)
 			{
 				// search prev element in same TabIndex group

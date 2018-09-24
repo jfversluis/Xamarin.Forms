@@ -14,10 +14,14 @@ namespace Xamarin.Forms.Core.UITests
 		string btn1Id = "tb1";
 		string btn2Id = "tb2";
 		string btn4Id = "tb4";
+<<<<<<< HEAD
 #if !__MACOS__
 		string btn3Id = "tb3";
 #endif 
 
+=======
+		string btn3Id = "tb3";
+>>>>>>> Update from origin (#8)
 #if __ANDROID__
 		static bool isSecondaryMenuOpen = false;
 #endif
@@ -149,7 +153,10 @@ namespace Xamarin.Forms.Core.UITests
 			var btn1 = App.Query(c => c.Marked(btn1Id))[0];
 #endif
 			ShouldShowMenu();
+<<<<<<< HEAD
 			App.WaitForElement(c => c.Marked(btn4Id));
+=======
+>>>>>>> Update from origin (#8)
 			var btn2 = App.Query(c => c.Marked(btn4Id))[0];
 #if __IOS__
 			Assert.True(btn1.Rect.CenterY < btn2.Rect.CenterY);

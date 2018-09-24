@@ -11,7 +11,11 @@ using AView = Android.Views.View;
 
 namespace Xamarin.Forms.Platform.Android.FastRenderers
 {
+<<<<<<< HEAD
 	public class LabelRenderer : FormsTextView, IVisualElementRenderer, IViewRenderer, ITabStop
+=======
+	internal sealed class LabelRenderer : FormsTextView, IVisualElementRenderer, IViewRenderer, ITabStop
+>>>>>>> Update from origin (#8)
 	{
 		int? _defaultLabelFor;
 		bool _disposed;

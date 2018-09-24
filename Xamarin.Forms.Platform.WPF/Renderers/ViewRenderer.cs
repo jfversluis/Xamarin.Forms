@@ -198,6 +198,19 @@ namespace Xamarin.Forms.Platform.WPF
 			Control.Unloaded -= Control_Unloaded;
 			Disappearing();
 		}
+		
+		private void Control_Loaded(object sender, RoutedEventArgs e)
+		{
+			Control.Loaded -= Control_Loaded;
+			Element.IsNativeStateConsistent = true;
+			Appearing();
+		}
+
+		private void Control_Unloaded(object sender, RoutedEventArgs e)
+		{
+			Control.Unloaded -= Control_Unloaded;
+			Disappearing();
+		}
 
 		protected virtual void Appearing()
 		{

@@ -43,6 +43,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+<<<<<<< HEAD
+=======
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest, Version=2.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.UITest.2.2.6\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+>>>>>>> Update from origin (#8)
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -86,6 +95,7 @@
   <Target Name="AfterBuild">
     <Delete Files="bin/$(Configuration)/System.Net.Http.dll" />
   </Target>
+<<<<<<< HEAD
   <Target Name="_CopyXamarinUITestFiles" AfterTargets="Build">
     <ItemGroup>
       <_XamarinUITestFiles Include="$(NuGetPackageRoot)Xamarin.UITest\%(Version)\**" Condition="@(PackageReference -> '%(Identity)') == 'Xamarin.UITest'" InProject="False" />
@@ -93,3 +103,6 @@
     <Copy SourceFiles="@(_XamarinUITestFiles)" DestinationFolder="$(SolutionDir)packages\Xamarin.UITest.AnyVersion\%(RecursiveDir)" ContinueOnError="true" Retries="0" />
   </Target>
 </Project>
+=======
+</Project>
+>>>>>>> Update from origin (#8)

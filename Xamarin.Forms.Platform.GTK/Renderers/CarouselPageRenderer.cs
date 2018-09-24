@@ -69,7 +69,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					Widget = new Carousel();
 					Widget.Animated = true;
 
+<<<<<<< HEAD
 					var eventBox = new GtkFormsContainer();
+=======
+					var eventBox = new EventBox();
+>>>>>>> Update from origin (#8)
 					eventBox.Add(Widget);
 					Control.Content = eventBox;
 				}
@@ -106,7 +110,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected override void UpdateBackgroundImage()
 		{
+<<<<<<< HEAD
 			Widget?.SetBackgroundImage(Page.BackgroundImageSource);
+=======
+			Widget?.SetBackgroundImage(Page.BackgroundImage);
+>>>>>>> Update from origin (#8)
 		}
 
 		private void Init()
@@ -134,7 +142,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					}
 
 					var newPages = new List<object>();
+<<<<<<< HEAD
 					foreach (var pc in _pages)
+=======
+					foreach(var pc in _pages)
+>>>>>>> Update from origin (#8)
 					{
 						newPages.Add(pc.Page);
 					}

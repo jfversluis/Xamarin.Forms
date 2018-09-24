@@ -8,9 +8,16 @@ namespace Xamarin.Forms.Platform.GTK
 	{
 		public override void Post(SendOrPostCallback d, object state)
 		{
+<<<<<<< HEAD
 			Gtk.Application.Invoke((s, e) =>
 			{
 				d(state);
+=======
+			Idle.Add(() =>
+			{
+				d(state);
+				return false;
+>>>>>>> Update from origin (#8)
 			});
 		}
 
@@ -25,7 +32,11 @@ namespace Xamarin.Forms.Platform.GTK
 				var evt = new ManualResetEvent(false);
 				Exception exception = null;
 
+<<<<<<< HEAD
 				Gtk.Application.Invoke((s, e) =>
+=======
+				Idle.Add(() =>
+>>>>>>> Update from origin (#8)
 				{
 					try
 					{
@@ -39,6 +50,10 @@ namespace Xamarin.Forms.Platform.GTK
 					{
 						evt.Set();
 					}
+<<<<<<< HEAD
+=======
+					return false;
+>>>>>>> Update from origin (#8)
 				});
 
 				evt.WaitOne();

@@ -138,6 +138,7 @@ namespace Xamarin.Forms.Platform.MacOS
 		{
 			return new NSGestureProbe((gesturerecognizer) =>
 			{
+<<<<<<< HEAD
 				var tapGestureRecognizer = weakRecognizer.Target as TapGestureRecognizer;
 				var eventTracker = weakEventTracker.Target as EventTracker;
 				var view = eventTracker?._renderer?.Element as View;
@@ -155,6 +156,10 @@ namespace Xamarin.Forms.Platform.MacOS
 			{
 				var eventTracker = weakEventTracker.Target as EventTracker;
 				var view = eventTracker?._renderer?.Element as View;
+=======
+				var eventTracker = weakEventTracker.Target as EventTracker;
+				var view = eventTracker?._renderer?.Element as View;
+>>>>>>> Update from origin (#8)
 				var childGestures = GetChildGestures(sender, weakEventTracker, weakRecognizer, eventTracker, view);
 				
 				var clickGestureRecognizer = ((ChildGestureRecognizer)weakRecognizer.Target).GestureRecognizer as ClickGestureRecognizer;
@@ -215,9 +220,12 @@ namespace Xamarin.Forms.Platform.MacOS
 
 				var recognizers = childGestures?.GetChildGesturesFor<TapGestureRecognizer>(x => x.NumberOfTapsRequired == (int)sender.NumberOfTapsRequired);
 
+<<<<<<< HEAD
 				if(recognizers == null)
 					return;
 
+=======
+>>>>>>> Update from origin (#8)
 				var tapGestureRecognizer = ((ChildGestureRecognizer)weakRecognizer.Target).GestureRecognizer as TapGestureRecognizer;
 				foreach (var item in recognizers)
 					if (item == tapGestureRecognizer && view != null)

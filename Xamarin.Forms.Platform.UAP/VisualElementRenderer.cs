@@ -342,8 +342,15 @@ namespace Xamarin.Forms.Platform.UWP
 				return;
 			_control.IsTabStop = Element.IsTabStop;
 
+<<<<<<< HEAD
 			if (this is ITabStopOnDescendants)
 				_control?.GetChildren<Control>().ForEach(c => c.IsTabStop = Element.IsTabStop);
+=======
+			// update TabStop of children for complex controls (like as DatePicker, TimePicker, SearchBar and Stepper)
+			var children = FrameworkElementExtensions.GetChildren<Control>(_control);
+			foreach (var child in children)
+				child.IsTabStop = _control.IsTabStop;
+>>>>>>> Update from origin (#8)
 		}
 
 		protected void UpdateTabIndex()
@@ -378,8 +385,11 @@ namespace Xamarin.Forms.Platform.UWP
 				UpdateTabStop();
 			else if (e.PropertyName == VisualElement.TabIndexProperty.PropertyName)
 				UpdateTabIndex();
+<<<<<<< HEAD
 
 			_elementPropertyChanged?.Invoke(this, e);
+=======
+>>>>>>> Update from origin (#8)
 		}
 
 		protected virtual void OnRegisterEffect(PlatformEffect effect)

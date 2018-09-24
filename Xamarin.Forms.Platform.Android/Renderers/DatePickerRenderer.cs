@@ -1,7 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Android.App;
 using Android.Content;
+<<<<<<< HEAD
+=======
+using Android.Content.Res;
+using Android.Text;
+>>>>>>> Update from origin (#8)
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -17,7 +23,15 @@ namespace Xamarin.Forms.Platform.Android
 		bool _disposed;
 		protected abstract EditText EditText { get; }
 
+<<<<<<< HEAD
 		public DatePickerRendererBase(Context context) : base(context)
+=======
+		HashSet<Keycode> availableKeys = new HashSet<Keycode>(new[] {
+			Keycode.Tab, Keycode.Forward, Keycode.Back, Keycode.DpadDown, Keycode.DpadLeft, Keycode.DpadRight, Keycode.DpadUp
+		});
+
+		public DatePickerRenderer(Context context) : base(context)
+>>>>>>> Update from origin (#8)
 		{
 			AutoPackage = false;
 			if (Forms.IsLollipopOrNewer)
@@ -54,6 +68,14 @@ namespace Xamarin.Forms.Platform.Android
 			base.Dispose(disposing);
 		}
 
+<<<<<<< HEAD
+=======
+		protected override EditText CreateNativeControl()
+		{
+			return new EditText(Context) { Focusable = true, Clickable = true, Tag = this };
+		}
+
+>>>>>>> Update from origin (#8)
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
@@ -61,6 +83,13 @@ namespace Xamarin.Forms.Platform.Android
 			if (e.OldElement == null)
 			{
 				var textField = CreateNativeControl();
+<<<<<<< HEAD
+=======
+
+				textField.SetOnClickListener(TextFieldClickHandler.Instance);
+				textField.InputType = InputTypes.Null;
+				textField.KeyPress += TextFieldKeyPress;
+>>>>>>> Update from origin (#8)
 				SetNativeControl(textField);
 				_originalHintTextColor = EditText.CurrentHintTextColor;
 			}
@@ -71,6 +100,24 @@ namespace Xamarin.Forms.Platform.Android
 			UpdateMinimumDate();
 			UpdateMaximumDate();
 			UpdateTextColor();
+		}
+
+		void TextFieldKeyPress(object sender, KeyEventArgs e)
+		{
+			if (availableKeys.Contains(e.KeyCode))
+			{
+				e.Handled = false;
+				return;
+			}
+			e.Handled = true;
+			OnTextFieldClicked();
+		}
+
+		internal override void OnNativeFocusChanged(bool hasFocus)
+		{
+			base.OnNativeFocusChanged(hasFocus);
+			if (hasFocus)
+				OnTextFieldClicked();
 		}
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

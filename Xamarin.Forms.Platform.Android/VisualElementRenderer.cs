@@ -7,7 +7,10 @@ using Xamarin.Forms.Internals;
 using AView = Android.Views.View;
 using Xamarin.Forms.Platform.Android.FastRenderers;
 using Android.Runtime;
+<<<<<<< HEAD
 using Android.Support.V4.View;
+=======
+>>>>>>> Update from origin (#8)
 
 namespace Xamarin.Forms.Platform.Android
 {
@@ -140,6 +143,7 @@ namespace Xamarin.Forms.Platform.Android
 
 		protected bool TabStop { get; set; } = true;
 
+<<<<<<< HEAD
 		protected void UpdateTabStop()
 		{
 			TabStop = Element.IsTabStop;
@@ -171,6 +175,19 @@ namespace Xamarin.Forms.Platform.Android
 			var tabIndexes = element?.GetTabIndexesOnParentPage(out maxAttempts);
 			if (tabIndexes == null)
 				return base.FocusSearch(focused, direction);
+=======
+		protected void UpdateTabStop() => TabStop = Element.IsTabStop;
+
+		protected void UpdateTabIndex() => TabIndex = Element.TabIndex;
+
+		public override AView FocusSearch(AView focused, [GeneratedEnum] FocusSearchDirection direction)
+		{
+			VisualElement element = Element as VisualElement;
+			int maxAttempts = 0;
+			var tabIndexes = element?.GetTabIndexesOnParentPage(out maxAttempts);
+			if (tabIndexes == null)
+				return null;
+>>>>>>> Update from origin (#8)
 
 			int tabIndex = element.TabIndex;
 			AView control = null;
@@ -183,6 +200,7 @@ namespace Xamarin.Forms.Platform.Android
 			do
 			{
 				element = element.FindNextElement(forwardDirection, tabIndexes, ref tabIndex);
+<<<<<<< HEAD
 				var renderer = (element as VisualElement)?.GetRenderer();
 				control = (renderer as ITabStop)?.TabStop;
 			} while (!(control?.Focusable == true || ++attempt >= maxAttempts));
@@ -192,6 +210,13 @@ namespace Xamarin.Forms.Platform.Android
 				popupElement.ShowPopupOnFocus = true;
 
 			return control?.Focusable == true ? control : null;
+=======
+				var renderer = element.GetRenderer();
+				control = (renderer as ITabStop)?.TabStop;
+			} while (!(control?.Focusable == true || ++attempt >= maxAttempts));
+
+			return control;
+>>>>>>> Update from origin (#8)
 		}
 
 		public ViewGroup ViewGroup => this;
@@ -365,8 +390,11 @@ namespace Xamarin.Forms.Platform.Android
 				UpdateTabStop();
 			else if (e.PropertyName == VisualElement.TabIndexProperty.PropertyName)
 				UpdateTabIndex();
+<<<<<<< HEAD
 			else if (e.PropertyName == nameof(Element.Parent))
 				UpdateParentPageTraversalOrder();
+=======
+>>>>>>> Update from origin (#8)
 
 			ElementPropertyChanged?.Invoke(this, e);
 		}

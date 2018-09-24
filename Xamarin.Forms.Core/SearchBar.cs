@@ -7,7 +7,11 @@ using Xamarin.Forms.Platform;
 namespace Xamarin.Forms
 {
 	[RenderWith(typeof(_SearchBarRenderer))]
+<<<<<<< HEAD
 	public class SearchBar : InputView, IFontElement, IPlaceholderElement, ITextElement, ITextAlignmentElement, ISearchBarController, IElementConfiguration<SearchBar>
+=======
+	public class SearchBar : View, IFontElement, IPlaceholderElement, ITextElement, ITextAlignmentElement, ISearchBarController, IElementConfiguration<SearchBar>
+>>>>>>> Update from origin (#8)
 	{
 		public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create("SearchCommand", typeof(ICommand), typeof(SearchBar), null, propertyChanged: OnCommandChanged);
 

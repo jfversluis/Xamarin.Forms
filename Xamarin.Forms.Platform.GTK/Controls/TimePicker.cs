@@ -224,7 +224,11 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 	}
 
+<<<<<<< HEAD
 	public class TimePicker : GtkFormsContainer
+=======
+	public class TimePicker : Gtk.EventBox
+>>>>>>> Update from origin (#8)
 	{
 		private const string DefaultTimeFormat = @"hh\:mm\:ss";
 

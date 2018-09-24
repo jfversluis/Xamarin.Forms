@@ -23,10 +23,15 @@ namespace Xamarin.Forms
 		public static readonly BindableProperty TintProperty = BindableProperty.Create("Tint", typeof(Color), typeof(NavigationPage), Color.Default);
 
 		public static readonly BindableProperty BarBackgroundColorProperty = BarElement.BarBackgroundColorProperty;
+<<<<<<< HEAD
 
 		public static readonly BindableProperty BarTextColorProperty = BarElement.BarTextColorProperty;
 
 		public static readonly BindableProperty TitleIconImageSourceProperty = BindableProperty.CreateAttached("TitleIconImageSource", typeof(ImageSource), typeof(NavigationPage), default(ImageSource));
+=======
+
+		public static readonly BindableProperty BarTextColorProperty = BarElement.BarTextColorProperty;
+>>>>>>> Update from origin (#8)
 
 		[Obsolete("TitleIconProperty is obsolete as of 4.0.0. Please use TitleIconImageSourceProperty instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]

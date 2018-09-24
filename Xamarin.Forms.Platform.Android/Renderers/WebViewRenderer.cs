@@ -20,7 +20,10 @@ namespace Xamarin.Forms.Platform.Android
 
 		protected internal IWebViewController ElementController => Element;
 		protected internal bool IgnoreSourceChanges { get; set; }
+<<<<<<< HEAD
 		protected internal string UrlCanceled { get; set; }
+=======
+>>>>>>> Update from origin (#8)
 
 		public WebViewRenderer(Context context) : base(context)
 		{
@@ -212,11 +215,14 @@ namespace Xamarin.Forms.Platform.Android
 			UpdateCanGoBackForward();
 		}
 
+<<<<<<< HEAD
 		void OnReloadRequested(object sender, EventArgs eventArgs)
 		{
 			Control.Reload();
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 		protected internal void UpdateCanGoBackForward()
 		{
 			if (Element == null || Control == null)
@@ -233,6 +239,7 @@ namespace Xamarin.Forms.Platform.Android
 			}
 		}
 
+<<<<<<< HEAD
 		void UpdateEnableZoomControls()
 		{
 			var value = Element.OnThisPlatform().ZoomControlsEnabled();
@@ -245,6 +252,8 @@ namespace Xamarin.Forms.Platform.Android
 			Control.Settings.DisplayZoomControls = Element.OnThisPlatform().ZoomControlsDisplayed();
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 		class JavascriptResult : Java.Lang.Object, IValueCallback
 		{
 			TaskCompletionSource<string> source;

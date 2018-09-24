@@ -13,9 +13,14 @@ using AView = Android.Views.View;
 
 namespace Xamarin.Forms.Platform.Android.FastRenderers
 {
+<<<<<<< HEAD
 	public class ButtonRenderer : AppCompatButton,
 		IBorderVisualElementRenderer, IButtonLayoutRenderer, IVisualElementRenderer, IViewRenderer, ITabStop,
 		AView.IOnAttachStateChangeListener, AView.IOnFocusChangeListener, AView.IOnClickListener, AView.IOnTouchListener
+=======
+	internal sealed class ButtonRenderer : AppCompatButton, IVisualElementRenderer, AView.IOnAttachStateChangeListener,
+		AView.IOnFocusChangeListener, IEffectControlProvider, AView.IOnClickListener, AView.IOnTouchListener, IViewRenderer, ITabStop
+>>>>>>> Update from origin (#8)
 	{
 		float _defaultFontSize;
 		int? _defaultLabelFor;
@@ -56,7 +61,15 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 		ViewGroup IVisualElementRenderer.ViewGroup => null;
 		VisualElementTracker IVisualElementRenderer.Tracker => _tracker;
 
+<<<<<<< HEAD
 		Button Button
+=======
+		Button Button { get; set; }
+
+		AView ITabStop.TabStop => this;
+
+		public void OnClick(AView v)
+>>>>>>> Update from origin (#8)
 		{
 			get => _button;
 			set

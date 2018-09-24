@@ -404,7 +404,18 @@ namespace Xamarin.Forms
 
 			public AndroidDeviceInfo(Context formsActivity)
 			{
+<<<<<<< HEAD
 				CheckOrientationChanged(formsActivity);
+=======
+				using (DisplayMetrics display = formsActivity.Resources.DisplayMetrics)
+				{
+					_scalingFactor = display.Density;
+					_pixelScreenSize = new Size(display.WidthPixels, display.HeightPixels);
+					ScaledScreenSize = new Size(_pixelScreenSize.Width / _scalingFactor, _pixelScreenSize.Height / _scalingFactor);
+				}
+
+				CheckOrientationChanged(formsActivity.Resources.Configuration.Orientation);
+>>>>>>> Update from origin (#8)
 
 				// This will not be an implementation of IDeviceInfoProvider when running inside the context
 				// of layoutlib, which is what the Android Designer does.

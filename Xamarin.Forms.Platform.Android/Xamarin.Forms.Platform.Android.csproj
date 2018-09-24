@@ -144,6 +144,7 @@
     <Compile Include="GetDesiredSizeDelegate.cs" />
     <Compile Include="IBorderVisualElementRenderer.cs" />
     <Compile Include="IDeviceInfoProvider.cs" />
+<<<<<<< HEAD
     <Compile Include="IDisposedState.cs" />
     <Compile Include="ILayoutChanges.cs" />
     <Compile Include="ImageCache.cs" />
@@ -156,6 +157,10 @@
     <Compile Include="Renderers\FontImageSourceHandler.cs" />
     <Compile Include="Renderers\FormsWebViewClient.cs" />
     <Compile Include="Renderers\IFormsEditText.cs" />
+=======
+    <Compile Include="ITabStop.cs" />
+    <Compile Include="Renderers\FormsWebViewClient.cs" />
+>>>>>>> Update from origin (#8)
     <Compile Include="Renderers\IImageViewHandler.cs" />
     <Compile Include="InnerGestureListener.cs" />
     <Compile Include="InnerScaleListener.cs" />

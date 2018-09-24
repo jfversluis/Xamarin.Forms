@@ -102,7 +102,10 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					WebViewController.EvaluateJavaScriptRequested += OnEvaluateJavaScriptRequested;
 					WebViewController.GoBackRequested += OnGoBackRequested;
 					WebViewController.GoForwardRequested += OnGoForwardRequested;
+<<<<<<< HEAD
 					WebViewController.ReloadRequested += OnReloadRequested;
+=======
+>>>>>>> Update from origin (#8)
 				}
 			}
 
@@ -244,10 +247,13 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			UpdateCanGoBackForward();
 		}
+<<<<<<< HEAD
 
 		void OnReloadRequested(object sender, EventArgs eventArgs)
 		{
 			Control.Reload();
 		}
+=======
+>>>>>>> Update from origin (#8)
 	}
 }

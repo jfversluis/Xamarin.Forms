@@ -7,7 +7,11 @@ using GtkImageButton = Xamarin.Forms.Platform.GTK.Controls.ImageButton;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
+<<<<<<< HEAD
 	public class ButtonRenderer : ViewRenderer<Button, GtkImageButton>
+=======
+	public class ButtonRenderer : ViewRenderer<Button, ImageButton>
+>>>>>>> Update from origin (#8)
 	{
 		private const uint DefaultBorderWidth = 1;
 
@@ -31,9 +35,15 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				if (Control == null)
 				{
+<<<<<<< HEAD
 					// To allow all available options in Xamarin.Forms, a custom control has been created.
 					// Can set text, text color, border, image, etc.
 					var btn = new GtkImageButton();
+=======
+					// To allow all avalaible options in Xamarin.Forms, a custom control has been created.
+					// Can set text, text color, border, image, etc.
+					var btn = new ImageButton();
+>>>>>>> Update from origin (#8)
 					SetNativeControl(btn);
 
 					Control.Clicked += OnButtonClicked;
@@ -67,7 +77,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				UpdateBorder();
 			else if (e.PropertyName == Button.BorderWidthProperty.PropertyName)
 				UpdateBorder();
+<<<<<<< HEAD
 			else if (e.PropertyName == Button.ImageSourceProperty.PropertyName || e.PropertyName == Button.ContentLayoutProperty.PropertyName)
+=======
+			else if (e.PropertyName == Button.ImageProperty.PropertyName || e.PropertyName == Button.ContentLayoutProperty.PropertyName)
+>>>>>>> Update from origin (#8)
 				UpdateContent();
 		}
 
@@ -94,7 +108,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			var elemValue = (string)Element?.GetValue(AutomationProperties.NameProperty);
 
+<<<<<<< HEAD
 			if (string.IsNullOrWhiteSpace(elemValue)
+=======
+			if (string.IsNullOrWhiteSpace(elemValue) 
+>>>>>>> Update from origin (#8)
 				&& Control?.Accessible.Description == Control?.LabelWidget.Text)
 				return;
 
@@ -161,6 +179,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		private void UpdateContent()
 		{
+<<<<<<< HEAD
 			this.ApplyNativeImageAsync(Button.ImageSourceProperty, image =>
 			{
 				if (image != null)
@@ -172,6 +191,19 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 				Control.ImageWidget.Visible = image != null;
 			});
+=======
+			if (!string.IsNullOrEmpty(Element.Image))
+			{
+				Control.SetImageFromFile(Element.Image);
+				Control.ImageSpacing = (uint)Element.ContentLayout.Spacing;
+				Control.SetImagePosition(Element.ContentLayout.Position.AsPositionType());
+				Control.ImageWidget.Visible = true;
+			}
+			else
+			{
+				Control.ImageWidget.Visible = false;
+			}
+>>>>>>> Update from origin (#8)
 		}
 	}
 }

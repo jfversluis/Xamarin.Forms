@@ -145,9 +145,13 @@ namespace Xamarin.Forms.Platform.MacOS
 			for (int i = 0; i < formattedString.Spans.Count; i++)
 			{
 				Span span = formattedString.Spans[i];
+<<<<<<< HEAD
 
 				var attributedString = span.ToAttributed(owner, defaultForegroundColor, textAlignment, lineHeight);
 
+=======
+				var attributedString = span.ToAttributed(owner, defaultForegroundColor, lineHeight);
+>>>>>>> Update from origin (#8)
 				if (attributedString == null)
 					continue;
 

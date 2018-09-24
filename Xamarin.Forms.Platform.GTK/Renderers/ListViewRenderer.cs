@@ -95,8 +95,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				UpdateIsRefreshing();
 			else if (e.PropertyName == ListView.IsPullToRefreshEnabledProperty.PropertyName)
 				UpdatePullToRefreshEnabled();
+<<<<<<< HEAD
 			else if (e.PropertyName == ListView.SelectedItemProperty.PropertyName)
 				UpdateSelectedItem();
+=======
+>>>>>>> Update from origin (#8)
 		}
 
 		protected override void Dispose(bool disposing)
@@ -130,8 +133,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				{
 					_listView.OnItemTapped -= OnItemTapped;
 					_listView.OnRefresh -= OnRefresh;
+<<<<<<< HEAD
 					_listView.Destroy();
 					_listView = null;
+=======
+>>>>>>> Update from origin (#8)
 				}
 
 				if (_footerRenderer != null)
@@ -438,11 +444,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 
+<<<<<<< HEAD
 		private void UpdateSelectedItem()
 		{
 			_listView?.SetSeletedItem(Element.SelectedItem);
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 		private void UpdateGrouping()
 		{
 			var templatedItems = TemplatedItemsView.TemplatedItems;

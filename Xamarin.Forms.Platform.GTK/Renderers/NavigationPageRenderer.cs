@@ -67,12 +67,15 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				if (_currentPage != null)
 				{
 					_currentPage.PropertyChanged -= OnCurrentPagePropertyChanged;
+<<<<<<< HEAD
 					_currentPage = null;
 				}
 				if (_currentStack != null)
 				{
 					_currentStack.ForEach(s => s.Dispose());
 					_currentStack = null;
+=======
+>>>>>>> Update from origin (#8)
 				}
 			}
 
@@ -141,7 +144,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				if (Widget == null)
 				{
 					Widget = new Fixed();
+<<<<<<< HEAD
 					var eventBox = new GtkFormsContainer();
+=======
+					var eventBox = new EventBox();
+>>>>>>> Update from origin (#8)
 					eventBox.Add(Widget);
 
 					Control.Content = eventBox;
@@ -156,11 +163,19 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			base.UpdateBackgroundImage();
 
+<<<<<<< HEAD
 			if (Widget?.Parent is EventBox parent)
 			{
 				parent.VisibleWindow = Page.CurrentPage?.Parent is Page parentPage
 					? parentPage.BackgroundImageSource.IsEmpty
 					: true;
+=======
+			var parent = Widget?.Parent as EventBox;
+
+			if (parent != null)
+			{
+				parent.VisibleWindow = Page.CurrentPage?.ShouldDisplayNativeWindow() ?? true;
+>>>>>>> Update from origin (#8)
 			}
 		}
 
@@ -258,7 +273,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			if (e.PropertyName == Xamarin.Forms.Page.TitleProperty.PropertyName)
 				UpdateTitle();
+<<<<<<< HEAD
 			else if (e.PropertyName == Xamarin.Forms.Page.IconImageSourceProperty.PropertyName)
+=======
+			else if (e.PropertyName == Xamarin.Forms.Page.IconProperty.PropertyName)
+>>>>>>> Update from origin (#8)
 				UpdateIcon();
 		}
 
@@ -336,7 +355,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			if (oldPage != null && Platform.GetRenderer(oldPage) != null)
 			{
 				var oldPageRenderer = Platform.GetRenderer(oldPage);
+<<<<<<< HEAD
 				oldPageRenderer.Container.Visible = false;
+=======
+				oldPageRenderer.Container.Sensitive = false;
+>>>>>>> Update from origin (#8)
 			}
 
 			return true;
@@ -349,7 +372,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			if (oldPage != null && Platform.GetRenderer(oldPage) != null)
 			{
 				var oldPageRenderer = Platform.GetRenderer(oldPage);
+<<<<<<< HEAD
 				oldPageRenderer.Container.Visible = true;
+=======
+				oldPageRenderer.Container.Sensitive = true;
+>>>>>>> Update from origin (#8)
 			}
 
 			(page as IPageController)?.SendDisappearing();
@@ -399,7 +426,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			int counter = 0;
 
+<<<<<<< HEAD
 			foreach (var item in items.Reverse())
+=======
+			foreach(var item in items.Reverse())
+>>>>>>> Update from origin (#8)
 			{
 				if (counter == index)
 				{
@@ -413,7 +444,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 				counter++;
 			}
+<<<<<<< HEAD
 
+=======
+	 
+>>>>>>> Update from origin (#8)
 			foreach (var child in Widget.Children)
 			{
 				child.Unparent();

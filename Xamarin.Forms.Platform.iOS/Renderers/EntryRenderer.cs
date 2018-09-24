@@ -47,7 +47,11 @@ namespace Xamarin.Forms.Platform.iOS
 		static readonly int baseHeight = 30;
 		static CGSize initialSize = CGSize.Empty;
 
+<<<<<<< HEAD
 		public EntryRendererBase()
+=======
+		public EntryRenderer()
+>>>>>>> Update from origin (#8)
 		{
 		}
 
@@ -127,8 +131,11 @@ namespace Xamarin.Forms.Platform.iOS
 			_cursorPositionChangePending = Element.IsSet(Entry.CursorPositionProperty);
 			_selectionLengthChangePending = Element.IsSet(Entry.SelectionLengthProperty);
 
+<<<<<<< HEAD
 			// Font needs to be set before Text and Placeholder so that they layout correctly when set
 			UpdateFont();
+=======
+>>>>>>> Update from origin (#8)
 			UpdatePlaceholder();
 			UpdatePassword();
 			UpdateText();
@@ -387,6 +394,7 @@ namespace Xamarin.Forms.Platform.iOS
 				return;
 
 			_cursorPositionChangePending = _selectionLengthChangePending = true;
+<<<<<<< HEAD
 
 			// If this is run from the ctor, the control is likely too early in its lifecycle to be first responder yet. 
 			// Anything done here will have no effect, so we'll skip this work until later.
@@ -397,6 +405,18 @@ namespace Xamarin.Forms.Platform.iOS
 				{
 					int cursorPosition = Element.CursorPosition;
 
+=======
+
+			// If this is run from the ctor, the control is likely too early in its lifecycle to be first responder yet. 
+			// Anything done here will have no effect, so we'll skip this work until later.
+			// We'll try again when the control does become first responder later OnEditingBegan
+			if (Control.BecomeFirstResponder())
+			{
+				try
+				{
+					int cursorPosition = Element.CursorPosition;
+
+>>>>>>> Update from origin (#8)
 					UITextPosition start = GetSelectionStart(cursorPosition, out int startOffset);
 					UITextPosition end = GetSelectionEnd(cursorPosition, start, startOffset);
 
@@ -481,6 +501,7 @@ namespace Xamarin.Forms.Platform.iOS
 				_nativeSelectionIsUpdating = false;
 			}
 		}
+<<<<<<< HEAD
 
 		void SetSelectionLengthFromRenderer(int selectionLength)
 		{
@@ -504,4 +525,24 @@ namespace Xamarin.Forms.Platform.iOS
             Control.UserInteractionEnabled = !Element.IsReadOnly;
         }
     }
+=======
+
+		void SetSelectionLengthFromRenderer(int selectionLength)
+		{
+			try
+			{
+				_nativeSelectionIsUpdating = true;
+				ElementController?.SetValueFromRenderer(Entry.SelectionLengthProperty, selectionLength);
+			}
+			catch (Exception ex)
+			{
+				Internals.Log.Warning("Entry", $"Failed to set SelectionLength from renderer: {ex}");
+			}
+			finally
+			{
+				_nativeSelectionIsUpdating = false;
+			}
+		}
+	}
+>>>>>>> Update from origin (#8)
 }

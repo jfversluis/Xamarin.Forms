@@ -277,7 +277,11 @@ namespace Xamarin.Forms.Maps.Android
 
 		protected Marker GetMarkerForPin(Pin pin)
 		{
+<<<<<<< HEAD
 			return _markers?.Find(m => m.Id == (string)pin.MarkerId);
+=======
+			return _markers?.Find(m => m.Id == (string)pin.Id);
+>>>>>>> Update from origin (#8)
 		}
 
 		void MapOnMarkerClick(object sender, GoogleMap.InfoWindowClickEventArgs eventArgs)

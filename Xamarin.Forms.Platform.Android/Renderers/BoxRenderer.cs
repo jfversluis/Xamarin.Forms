@@ -107,6 +107,7 @@ namespace Xamarin.Forms.Platform.Android
 		void UpdateCornerRadius()
 		{
 			var cornerRadius = Element.CornerRadius;
+<<<<<<< HEAD
 			if (cornerRadius == new CornerRadius(0d))
 			{
 				_backgroundDrawable?.Dispose();
@@ -129,6 +130,27 @@ namespace Xamarin.Forms.Platform.Android
 
 						(float)(Context.ToPixels(cornerRadius.BottomLeft)),
 						(float)(Context.ToPixels(cornerRadius.BottomLeft))
+=======
+			if (cornerRadius == new CornerRadius(0d)) {
+				_backgroundDrawable?.Dispose();
+				_backgroundDrawable = null;
+			}
+			else {
+				this.SetBackground(_backgroundDrawable = new GradientDrawable());
+				if (Background is GradientDrawable backgroundGradient) {
+					var cornerRadii = new[] {
+						(float)(cornerRadius.TopLeft),
+						(float)(cornerRadius.TopLeft),
+
+						(float)(cornerRadius.TopRight),
+						(float)(cornerRadius.TopRight),
+
+						(float)(cornerRadius.BottomRight),
+						(float)(cornerRadius.BottomRight),
+
+						(float)(cornerRadius.BottomLeft),
+						(float)(cornerRadius.BottomLeft)
+>>>>>>> Update from origin (#8)
 					};
 
 					backgroundGradient.SetCornerRadii(cornerRadii);

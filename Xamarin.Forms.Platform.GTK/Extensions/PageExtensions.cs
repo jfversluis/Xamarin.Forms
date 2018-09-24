@@ -4,7 +4,23 @@ namespace Xamarin.Forms.Platform.GTK.Extensions
 {
 	public static class PageExtensions
 	{
+<<<<<<< HEAD
 		public static GtkFormsContainer CreateContainer(this Page view)
+=======
+		internal static bool ShouldDisplayNativeWindow(this Page page)
+		{
+			var parentPage = page.Parent as Page;
+
+			if (parentPage != null)
+			{
+				return string.IsNullOrEmpty(parentPage.BackgroundImage);
+			}
+
+			return true;
+		}
+
+		public static Gtk.EventBox CreateContainer(this Page view)
+>>>>>>> Update from origin (#8)
 		{
 			if (!Forms.IsInitialized)
 				throw new InvalidOperationException("call Forms.Init() before this");

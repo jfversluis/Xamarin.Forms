@@ -29,6 +29,9 @@
 		{
 			return color == Color.Transparent || color == Color.Default;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> Update from origin (#8)
 	}
 }

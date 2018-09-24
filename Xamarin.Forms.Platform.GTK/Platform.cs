@@ -9,10 +9,14 @@ using Xamarin.Forms.Platform.GTK.Renderers;
 
 namespace Xamarin.Forms.Platform.GTK
 {
+<<<<<<< HEAD
 	public class Platform : BindableObject, INavigation, IDisposable
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+=======
+	public class Platform : BindableObject, IPlatform, INavigation, IDisposable
+>>>>>>> Update from origin (#8)
 	{
 		private bool _disposed;
 		readonly List<Page> _modals;
@@ -61,11 +65,20 @@ namespace Xamarin.Forms.Platform.GTK
 
 			renderer = GetRenderer((VisualElement)view);
 
+<<<<<<< HEAD
 			(renderer as Widget)?.Destroy();
 			view.ClearValue(RendererProperty);
 		}
 
 		public static SizeRequest GetNativeSize(VisualElement view, double widthConstraint, double heightConstraint)
+=======
+			renderer?.Dispose();
+
+			view.ClearValue(RendererProperty);
+		}
+
+		SizeRequest IPlatform.GetNativeSize(VisualElement view, double widthConstraint, double heightConstraint)
+>>>>>>> Update from origin (#8)
 		{
 			var renderView = GetRenderer(view);
 
@@ -103,16 +116,28 @@ namespace Xamarin.Forms.Platform.GTK
 				return;
 
 			_disposed = true;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> Update from origin (#8)
 			MessagingCenter.Unsubscribe<Page, ActionSheetArguments>(this, Page.ActionSheetSignalName);
 			MessagingCenter.Unsubscribe<Page, AlertArguments>(this, Page.AlertSignalName);
 			MessagingCenter.Unsubscribe<Page, bool>(this, Page.BusySetSignalName);
 
+<<<<<<< HEAD
 			foreach (var modal in _modals)
 				DisposeModelAndChildrenRenderers(modal);
 			DisposeModelAndChildrenRenderers(Page);
 
 			PlatformRenderer.Destroy();
+=======
+			DisposeModelAndChildrenRenderers(Page);
+			foreach (var modal in _modals)
+				DisposeModelAndChildrenRenderers(modal);
+
+			PlatformRenderer.Dispose();
+>>>>>>> Update from origin (#8)
 		}
 
 		internal void SetPage(Page newRoot)
@@ -124,12 +149,16 @@ namespace Xamarin.Forms.Platform.GTK
 				throw new NotImplementedException();
 
 			Page = newRoot;
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
+=======
+			Page.Platform = this;
+>>>>>>> Update from origin (#8)
 
 			AddChild(Page);
 
@@ -188,7 +217,32 @@ namespace Xamarin.Forms.Platform.GTK
 
 			Device.BeginInvokeOnMainThread(() =>
 			{
+<<<<<<< HEAD
 				pageControl?.Control?.PopModal(modalPage);
+=======
+				if (pageControl != null)
+				{
+					var page = pageControl.Control;
+
+					if (page != null)
+					{
+						if (page.Children.Length > 0)
+						{
+							page.Remove(modalPage);
+						}
+
+						if (page.Children != null)
+						{
+							foreach (var child in page.Children)
+							{
+								child.ShowAll();
+							}
+
+							page.ShowAll();
+						}
+					}
+				}
+>>>>>>> Update from origin (#8)
 
 				DisposeModelAndChildrenRenderers(modal);
 			});
@@ -224,6 +278,7 @@ namespace Xamarin.Forms.Platform.GTK
 		Task INavigation.PushModalAsync(Page modal, bool animated)
 		{
 			_modals.Add(modal);
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -231,6 +286,9 @@ namespace Xamarin.Forms.Platform.GTK
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+			modal.Platform = this;
+>>>>>>> Update from origin (#8)
 			modal.DescendantRemoved += HandleChildRemoved;
 
 			var modalRenderer = GetRenderer(modal);
@@ -250,7 +308,21 @@ namespace Xamarin.Forms.Platform.GTK
 
 					if (page != null)
 					{
+<<<<<<< HEAD
 						page.PushModal(modalRenderer.Container);
+=======
+						page.Attach(modalRenderer.Container, 0, 1, 0, 1);
+
+						if (page.Children != null)
+						{
+							foreach (var child in page.Children)
+							{
+								child.ShowAll();
+							}
+
+							page.ShowAll();
+						}
+>>>>>>> Update from origin (#8)
 					}
 				}
 			});
@@ -267,6 +339,7 @@ namespace Xamarin.Forms.Platform.GTK
 		{
 
 		}
+<<<<<<< HEAD
 
 		#region Obsolete 
 
@@ -276,5 +349,7 @@ namespace Xamarin.Forms.Platform.GTK
 		}
 
 		#endregion
+=======
+>>>>>>> Update from origin (#8)
 	}
 }

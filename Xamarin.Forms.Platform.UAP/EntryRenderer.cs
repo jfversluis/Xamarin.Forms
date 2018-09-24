@@ -61,8 +61,11 @@ namespace Xamarin.Forms.Platform.UWP
 				UpdateMaxLength();
 				UpdateDetectReadingOrderFromContent();
 				UpdateReturnType();
+<<<<<<< HEAD
 				UpdateIsReadOnly();
 				UpdateInputScope();
+=======
+>>>>>>> Update from origin (#8)
 
 				if (_cursorPositionChangePending)
 					UpdateCursorPosition();
@@ -337,6 +340,7 @@ namespace Xamarin.Forms.Platform.UWP
 			if (Control.Focus(FocusState.Programmatic))
 			{
 				try
+<<<<<<< HEAD
 				{
 					int selectionLength = 0;
 					int elemSelectionLength = Element.SelectionLength;
@@ -351,6 +355,22 @@ namespace Xamarin.Forms.Platform.UWP
 				}
 				catch (Exception ex)
 				{
+=======
+				{
+					int selectionLength = 0;
+					int elemSelectionLength = Element.SelectionLength;
+
+					if (Element.IsSet(Entry.SelectionLengthProperty))
+						selectionLength = Math.Max(0, Math.Min(Control.Text.Length - Element.CursorPosition, elemSelectionLength));
+
+					if (elemSelectionLength != selectionLength)
+						SetSelectionLengthFromRenderer(selectionLength);
+
+					Control.SelectionLength = selectionLength;
+				}
+				catch (Exception ex)
+				{
+>>>>>>> Update from origin (#8)
 					Log.Warning("Entry", $"Failed to set Control.SelectionLength from SelectionLength: {ex}");
 				}
 				finally
@@ -368,6 +388,7 @@ namespace Xamarin.Forms.Platform.UWP
 			if (Control.Focus(FocusState.Programmatic))
 			{
 				try
+<<<<<<< HEAD
 				{
 					int start = Control.Text.Length;
 					int cursorPosition = Element.CursorPosition;
@@ -389,6 +410,29 @@ namespace Xamarin.Forms.Platform.UWP
 				}
 				finally
 				{
+=======
+				{
+					int start = Control.Text.Length;
+					int cursorPosition = Element.CursorPosition;
+
+					if (Element.IsSet(Entry.CursorPositionProperty))
+						start = Math.Min(start, cursorPosition);
+
+					if (start != cursorPosition)
+						SetCursorPositionFromRenderer(start);
+
+					Control.SelectionStart = start;
+
+					// Length is dependent on start, so we'll need to update it
+					UpdateSelectionLength();
+				}
+				catch (Exception ex)
+				{
+					Log.Warning("Entry", $"Failed to set Control.SelectionStart from CursorPosition: {ex}");
+				}
+				finally
+				{
+>>>>>>> Update from origin (#8)
 					_cursorPositionChangePending = false;
 				}
 			}
@@ -427,10 +471,13 @@ namespace Xamarin.Forms.Platform.UWP
 				_nativeSelectionIsUpdating = false;
 			}
 		}
+<<<<<<< HEAD
 
 		void UpdateIsReadOnly()
 		{
 			Control.IsReadOnly = Element.IsReadOnly;
 		}
+=======
+>>>>>>> Update from origin (#8)
 	}
 }

@@ -35,11 +35,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected override void OnElementChanged(ElementChangedEventArgs<TableView> e)
 		{
+<<<<<<< HEAD
 			if (e.OldElement != null)
 			{
 				e.OldElement.ModelChanged -= OnModelChanged;
 			}
 
+=======
+>>>>>>> Update from origin (#8)
 			if (e.NewElement != null)
 			{
 				if (Control == null)
@@ -55,9 +58,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				UpdateRowHeight();
 				UpdateHasUnevenRows();
 				UpdateBackgroundView();
+<<<<<<< HEAD
 
 				e.NewElement.ModelChanged += OnModelChanged;
 				OnModelChanged(e.NewElement, EventArgs.Empty);
+=======
+>>>>>>> Update from origin (#8)
 			}
 
 			base.OnElementChanged(e);
@@ -76,12 +82,20 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 
+<<<<<<< HEAD
 		void SetSource()
+=======
+		private void SetSource()
+>>>>>>> Update from origin (#8)
 		{
 			Control.Root = Element.Root;
 		}
 
+<<<<<<< HEAD
 		void UpdateRowHeight()
+=======
+		private void UpdateRowHeight()
+>>>>>>> Update from origin (#8)
 		{
 			var hasUnevenRows = Element.HasUnevenRows;
 
@@ -95,7 +109,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			Control.SetRowHeight(rowHeight > 0 ? rowHeight : DefaultRowHeight);
 		}
 
+<<<<<<< HEAD
 		void UpdateHasUnevenRows()
+=======
+		private void UpdateHasUnevenRows()
+>>>>>>> Update from origin (#8)
 		{
 			var hasUnevenRows = Element.HasUnevenRows;
 
@@ -109,7 +127,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 
+<<<<<<< HEAD
 		void UpdateBackgroundView()
+=======
+		private void UpdateBackgroundView()
+>>>>>>> Update from origin (#8)
 		{
 			if (Element.BackgroundColor.IsDefault)
 			{
@@ -120,12 +142,22 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			Control.SetBackgroundColor(backgroundColor);
 		}
 
+<<<<<<< HEAD
 		void OnItemTapped(object sender, Controls.ItemTappedEventArgs args)
+=======
+		private void OnItemTapped(object sender, Controls.ItemTappedEventArgs args)
+>>>>>>> Update from origin (#8)
 		{
 			if (Element == null)
 				return;
 
+<<<<<<< HEAD
 			if (args.Item is Cell cell)
+=======
+			var cell = args.Item as Cell;
+
+			if (cell != null)
+>>>>>>> Update from origin (#8)
 			{
 				if (cell.IsEnabled)
 				{
@@ -133,6 +165,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				}
 			}
 		}
+<<<<<<< HEAD
 
 		void OnModelChanged(object sender, EventArgs e)
 		{
@@ -140,3 +173,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 	}
 }
+=======
+	}
+}
+>>>>>>> Update from origin (#8)

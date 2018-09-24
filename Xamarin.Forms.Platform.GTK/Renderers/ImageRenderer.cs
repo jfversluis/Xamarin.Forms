@@ -10,7 +10,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 {
 	public class ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
 	{
+<<<<<<< HEAD
 		bool _isDisposed;
+=======
+		private bool _isDisposed;
+>>>>>>> Update from origin (#8)
 
 		protected override void Dispose(bool disposing)
 		{
@@ -68,7 +72,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			Control.SetSizeRequest(allocation.Width, allocation.Height);
 		}
 
+<<<<<<< HEAD
 		async void SetImage(Image oldElement = null)
+=======
+		private async void SetImage(Image oldElement = null)
+>>>>>>> Update from origin (#8)
 		{
 			var source = Element.Source;
 
@@ -85,6 +93,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				Control.Pixbuf = null;
 			}
 
+<<<<<<< HEAD
 			((IImageController)Element).SetIsLoading(true);
 
 			var image = await source.GetNativeImageAsync();
@@ -101,6 +110,47 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 		void SetAspect()
+=======
+			IImageSourceHandler handler;
+
+			((IImageController)Element).SetIsLoading(true);
+
+			if (source != null
+				&& (handler = Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(source)) != null)
+			{
+				Pixbuf image;
+
+				try
+				{
+					image = await handler.LoadImageAsync(source);
+				}
+				catch (OperationCanceledException)
+				{
+					image = null;
+					Internals.Log.Warning("Image loading", "Image load cancelled");
+				}
+				catch(Exception ex)
+				{
+					image = null;
+					Internals.Log.Warning("Image loading", $"Image load failed: {ex}");
+				}
+
+				var imageView = Control;
+				if (imageView != null)
+					imageView.Pixbuf = image;
+
+				if (!_isDisposed)
+					((IVisualElementController)Element).NativeSizeChanged();
+			}
+			else
+				Control.Pixbuf = null;
+
+			if (!_isDisposed)
+				((IImageController)Element).SetIsLoading(false);
+		}
+
+		private void SetAspect()
+>>>>>>> Update from origin (#8)
 		{
 			switch (Element.Aspect)
 			{
@@ -118,7 +168,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 
+<<<<<<< HEAD
 		void SetOpacity()
+=======
+		private void SetOpacity()
+>>>>>>> Update from origin (#8)
 		{
 			var opacity = Element.Opacity;
 

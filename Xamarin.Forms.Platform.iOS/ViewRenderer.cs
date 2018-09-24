@@ -27,7 +27,11 @@ namespace Xamarin.Forms.Platform.MacOS
 	{
 	}
 
+<<<<<<< HEAD
 	public abstract class ViewRenderer<TView, TNativeView> : VisualElementRenderer<TView>, IVisualNativeElementRenderer, ITabStop where TView : View where TNativeView : NativeView
+=======
+	public abstract class ViewRenderer<TView, TNativeView> : VisualElementRenderer<TView>, ITabStop where TView : View where TNativeView : NativeView
+>>>>>>> Update from origin (#8)
 	{
 #if __MOBILE__
 		string _defaultAccessibilityLabel;
@@ -48,6 +52,7 @@ namespace Xamarin.Forms.Platform.MacOS
 		}
 
 		public TNativeView Control { get; private set; }
+<<<<<<< HEAD
 		NativeView IVisualNativeElementRenderer.Control => Control;
 
 
@@ -68,6 +73,8 @@ namespace Xamarin.Forms.Platform.MacOS
 			remove { _controlChanged -= value; }
 		}
 
+=======
+>>>>>>> Update from origin (#8)
 
 		NativeView ITabStop.TabStop => Control;
 #if __MOBILE__
