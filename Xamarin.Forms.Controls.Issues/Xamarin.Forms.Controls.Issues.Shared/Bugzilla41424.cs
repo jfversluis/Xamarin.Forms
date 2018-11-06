@@ -68,18 +68,27 @@ namespace Xamarin.Forms.Controls.Issues
 		public void DatePickerCancelShouldUnfocus()
 		{
 			RunningApp.Tap(q => q.Marked(DatePicker));
+<<<<<<< HEAD
 			Assert.IsTrue(DialogIsOpened(),"Tap Picker");
+=======
+			RunningApp.Back();
+>>>>>>> Update from origin (#11)
 
 			RunningApp.WaitForElement(q => q.Marked("Click to view focus state"));
 			RunningApp.Tap(q => q.Marked("Click to view focus state"));
 			RunningApp.WaitForElement(q => q.Marked("unfocused"));
 
 			RunningApp.Tap(q => q.Marked("Click to focus DatePicker"));
+<<<<<<< HEAD
 			Assert.IsTrue(DialogIsOpened(),"Call Focus Picker");
+=======
+			RunningApp.Back();
+>>>>>>> Update from origin (#11)
 
 			RunningApp.WaitForElement(q => q.Marked("Click to view focus state"));
 			RunningApp.Tap(q => q.Marked("Click to view focus state"));
 			RunningApp.WaitForElement(q => q.Marked("unfocused"));
+<<<<<<< HEAD
 		}
 
 		bool DialogIsOpened()
@@ -97,6 +106,8 @@ namespace Xamarin.Forms.Controls.Issues
 				}
 			}
 			return false;
+=======
+>>>>>>> Update from origin (#11)
 		}
 #endif
 

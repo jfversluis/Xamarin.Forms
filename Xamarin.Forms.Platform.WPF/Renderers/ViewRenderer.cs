@@ -184,6 +184,7 @@ namespace Xamarin.Forms.Platform.WPF
 			UpdateAlignment();
 			UpdateWidth();
 			UpdateHeight();
+<<<<<<< HEAD
 		}
 		
 		private void Control_Loaded(object sender, RoutedEventArgs e)
@@ -197,6 +198,8 @@ namespace Xamarin.Forms.Platform.WPF
 		{
 			Control.Unloaded -= Control_Unloaded;
 			Disappearing();
+=======
+>>>>>>> Update from origin (#11)
 		}
 		
 		private void Control_Loaded(object sender, RoutedEventArgs e)

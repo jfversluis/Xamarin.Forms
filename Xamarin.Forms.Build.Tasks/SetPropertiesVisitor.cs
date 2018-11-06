@@ -990,6 +990,7 @@ namespace Xamarin.Forms.Build.Tasks
 					if (!invoke.Parameters[i].ParameterType.InheritsFromOrImplements(handler.Parameters[i].ParameterType))
 						throw new XamlParseException($"Signature (parameter {i}) of EventHandler \"{context.Body.Method.DeclaringType.FullName}.{value}\" doesn't match the event type", iXmlLineInfo);
 			//TODO check generic parameters if any
+<<<<<<< HEAD
 
 			//FIXME: eventually get the right ctor instead fo the First() one, just in case another one could exists (not even sure it's possible).
 			var ctor = module.ImportReference(eventinfo.EventType.ResolveCached().GetConstructors().First());
@@ -1007,6 +1008,8 @@ namespace Xamarin.Forms.Build.Tasks
 				} else 
 					throw new InvalidProgramException();
 			}
+=======
+>>>>>>> Update from origin (#11)
 
 			if (handler.IsVirtual) {
 				yield return Create(Ldarg_0);

@@ -103,9 +103,13 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					WebViewController.GoBackRequested += OnGoBackRequested;
 					WebViewController.GoForwardRequested += OnGoForwardRequested;
 <<<<<<< HEAD
+<<<<<<< HEAD
 					WebViewController.ReloadRequested += OnReloadRequested;
 =======
 >>>>>>> Update from origin (#8)
+=======
+					WebViewController.ReloadRequested += OnReloadRequested;
+>>>>>>> Update from origin (#11)
 				}
 			}
 
@@ -248,12 +252,18 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			UpdateCanGoBackForward();
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 
 		void OnReloadRequested(object sender, EventArgs eventArgs)
 		{
 			Control.Reload();
 		}
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 	}
 }

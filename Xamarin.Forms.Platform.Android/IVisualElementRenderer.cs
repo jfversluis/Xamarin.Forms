@@ -29,5 +29,7 @@ namespace Xamarin.Forms.Platform.Android
 		void SetLabelFor(int? id);
 
 		void UpdateLayout();
+
+		event EventHandler<ALayoutChangeEventArgs> LayoutChange;
 	}
 }

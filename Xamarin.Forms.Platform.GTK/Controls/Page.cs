@@ -10,6 +10,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 	{
 		private Gdk.Rectangle _lastAllocation = Gdk.Rectangle.Zero;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private GtkFormsContainer _headerContainer;
 		private GtkFormsContainer _contentContainerWrapper;
 		private Fixed _contentContainer;
@@ -22,6 +23,13 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		private HBox _toolbar;
 		private EventBox _content;
 >>>>>>> Update from origin (#8)
+=======
+		private GtkFormsContainer _headerContainer;
+		private GtkFormsContainer _contentContainerWrapper;
+		private Fixed _contentContainer;
+		private HBox _toolbar;
+		private GtkFormsContainer _content;
+>>>>>>> Update from origin (#11)
 		private ImageControl _image;
 		private Gdk.Color _defaultBackgroundColor;
 
@@ -41,10 +49,14 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public GtkFormsContainer Content
 =======
 		public EventBox Content
 >>>>>>> Update from origin (#8)
+=======
+		public GtkFormsContainer Content
+>>>>>>> Update from origin (#11)
 		{
 			get
 			{
@@ -64,6 +76,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			BuildPage();
 		}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		public void SetToolbarColor(Color backgroundColor)
 		{
@@ -111,28 +124,16 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_headerContainer = null;
 =======
 		public void SetToolbarColor(Gdk.Color? backgroundColor)
+=======
+		public void SetToolbarColor(Color backgroundColor)
+>>>>>>> Update from origin (#11)
 		{
-			if (backgroundColor.HasValue)
-			{
-				_headerContainer.ModifyBg(StateType.Normal, backgroundColor.Value);
-			}
-			else
-			{
-				_headerContainer.ModifyBg(StateType.Normal, _defaultBackgroundColor);
-			}
+			_headerContainer.SetBackgroundColor(backgroundColor);
 		}
 
-		public void SetBackgroundColor(Gdk.Color? backgroundColor)
+		public void SetBackgroundColor(Color backgroundColor)
 		{
-			if (backgroundColor != null)
-			{
-				_contentContainerWrapper.VisibleWindow = true;
-				_contentContainerWrapper.ModifyBg(StateType.Normal, backgroundColor.Value);
-			}
-			else
-			{
-				_contentContainerWrapper.VisibleWindow = false;
-			}
+			_contentContainerWrapper.SetBackgroundColor(backgroundColor);
 		}
 
 		public void SetBackgroundImage(string backgroundImagePath)
@@ -152,15 +153,39 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
-		public override void Dispose()
+		public void PushModal(Widget modal)
 		{
-			base.Dispose();
-			
+			Children.Last().Hide();
+			Attach(modal, 0, 1, 0, 1);
+			modal.ShowAll();
+		}
+
+		public void PopModal(Widget modal)
+		{
+			if (Children.Length > 0)
+			{
+				Remove(modal);
+			}
+			Children.Last().Show();
+		}
+
+		public override void Destroy()
+		{
+			base.Destroy();
 			if (_contentContainerWrapper != null)
 			{
 				_contentContainerWrapper.SizeAllocated -= OnContentContainerWrapperSizeAllocated;
+				_contentContainerWrapper = null;
 			}
+<<<<<<< HEAD
 >>>>>>> Update from origin (#8)
+=======
+			_contentContainer = null;
+			_image = null;
+			_toolbar = null;
+			_content = null;
+			_headerContainer = null;
+>>>>>>> Update from origin (#11)
 		}
 
 		private void BuildPage()
@@ -168,6 +193,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_defaultBackgroundColor = Style.Backgrounds[(int)StateType.Normal];
 
 			_toolbar = new HBox();
+<<<<<<< HEAD
 <<<<<<< HEAD
 			_content = new GtkFormsContainer();
 
@@ -181,16 +207,27 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 			_headerContainer = new EventBox();
 >>>>>>> Update from origin (#8)
+=======
+			_content = new GtkFormsContainer();
+
+			var root = new VBox(false, 0);
+
+			_headerContainer = new GtkFormsContainer();
+>>>>>>> Update from origin (#11)
 			root.PackStart(_headerContainer, false, false, 0);
 
 			_image = new ImageControl();
 			_image.Aspect = ImageAspect.Fill;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			_contentContainerWrapper = new GtkFormsContainer();
 =======
 			_contentContainerWrapper = new EventBox();
 >>>>>>> Update from origin (#8)
+=======
+			_contentContainerWrapper = new GtkFormsContainer();
+>>>>>>> Update from origin (#11)
 			_contentContainerWrapper.SizeAllocated += OnContentContainerWrapperSizeAllocated;
 			_contentContainer = new Fixed();
 			_contentContainer.Add(_image);
@@ -206,15 +243,20 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		private void RefreshToolbar(HBox newToolbar)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			_toolbar.Destroy();
 =======
 			_headerContainer.RemoveFromContainer(_toolbar);
 >>>>>>> Update from origin (#8)
+=======
+			_toolbar.Destroy();
+>>>>>>> Update from origin (#11)
 			_toolbar = newToolbar;
 			_headerContainer.Add(_toolbar);
 			_toolbar.ShowAll();
 		}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		private void RefreshContent(GtkFormsContainer newContent)
 		{
@@ -224,6 +266,11 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		{
 			_contentContainer.RemoveFromContainer(_content);
 >>>>>>> Update from origin (#8)
+=======
+		private void RefreshContent(GtkFormsContainer newContent)
+		{
+			_content.Destroy();
+>>>>>>> Update from origin (#11)
 			_content = newContent;
 			_contentContainer.Add(_content);
 			_content.ShowAll();

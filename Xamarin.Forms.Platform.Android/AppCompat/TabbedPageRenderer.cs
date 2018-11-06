@@ -74,7 +74,11 @@ namespace Xamarin.Forms.Platform.Android.AppCompat
 			}
 		}
 
+<<<<<<< HEAD
 		FragmentManager FragmentManager => _fragmentManager ?? (_fragmentManager = Context.GetFragmentManager());
+=======
+		FragmentManager FragmentManager => _fragmentManager ?? (_fragmentManager = ((FormsAppCompatActivity)Context).SupportFragmentManager);
+>>>>>>> Update from origin (#11)
 		bool IsBottomTabPlacement => (Element != null) ? Element.OnThisPlatform().GetToolbarPlacement() == ToolbarPlacement.Bottom : false;
 
 		public Color BarItemColor
@@ -683,11 +687,16 @@ namespace Xamarin.Forms.Platform.Android.AppCompat
 			}
 		}
 
+<<<<<<< HEAD
 		[Obsolete("GetIconDrawable is obsolete as of 4.0.0. Please override SetTabIconImageSource instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected virtual Drawable GetIconDrawable(FileImageSource icon) =>
 			Context.GetDrawable(icon as FileImageSource);
 
+=======
+		protected virtual Drawable GetIconDrawable(FileImageSource icon) =>
+			Context.GetDrawable(icon);
+>>>>>>> Update from origin (#11)
 
 		[Obsolete("SetTabIcon is obsolete as of 4.0.0. Please use SetTabIconImageSource instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]

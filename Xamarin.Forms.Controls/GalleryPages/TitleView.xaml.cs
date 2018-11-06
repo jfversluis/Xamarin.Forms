@@ -153,6 +153,7 @@ namespace Xamarin.Forms.Controls.GalleryPages
 
 			var label = new Label { Text = "hello", HorizontalOptions = LayoutOptions.Start, BackgroundColor = Color.Yellow };
 			var label2 = new Label { Text = "hello 2", HorizontalOptions = LayoutOptions.Start, BackgroundColor = Color.Yellow };
+<<<<<<< HEAD
 			grid.Children.Add(
 				new StackLayout()
 				{
@@ -167,6 +168,9 @@ namespace Xamarin.Forms.Controls.GalleryPages
 					}
 				});
 
+=======
+			grid.Children.Add(label);
+>>>>>>> Update from origin (#11)
 			grid.Children.Add(label2);
 			Grid.SetRow(label2, 1);
 
@@ -185,22 +189,38 @@ namespace Xamarin.Forms.Controls.GalleryPages
 
 		static void toggleTitleIcon(Page page)
 		{
+<<<<<<< HEAD
 			var titleIcon = NavigationPage.GetTitleIconImageSource(page);
 
 			if (titleIcon == null)
 				NavigationPage.SetTitleIconImageSource(page, "coffee.png");
 			else
 				NavigationPage.SetTitleIconImageSource(page, null);
+=======
+			var titleIcon = NavigationPage.GetTitleIcon(page);
+
+			if (titleIcon == null)
+				NavigationPage.SetTitleIcon(page, "coffee.png");
+			else
+				NavigationPage.SetTitleIcon(page, null);
+>>>>>>> Update from origin (#11)
 		}
 
 		void masterDetailsPageIcon_Clicked(object sender, EventArgs e)
 		{
 			if (App.Current.MainPage is MasterDetailPage mdp)
 			{
+<<<<<<< HEAD
 				if (mdp.Master.IconImageSource == null || mdp.Master.IconImageSource.IsEmpty)
 					mdp.Master.IconImageSource = "menuIcon";
 				else
 					mdp.Master.IconImageSource = null;
+=======
+				if (String.IsNullOrWhiteSpace(mdp.Master.Icon))
+					mdp.Master.Icon = "menuIcon";
+				else
+					mdp.Master.Icon = null;
+>>>>>>> Update from origin (#11)
 			}
 		}
 

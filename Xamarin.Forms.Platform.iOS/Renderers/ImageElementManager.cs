@@ -1,4 +1,5 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +16,17 @@ using CoreAnimation;
 using NativeImage = AppKit.NSImage;
 namespace Xamarin.Forms.Platform.MacOS
 #endif
+=======
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Foundation;
+using UIKit;
+
+namespace Xamarin.Forms.Platform.iOS
+>>>>>>> Update from origin (#11)
 {
 	public static class ImageElementManager
 	{
@@ -36,7 +48,11 @@ namespace Xamarin.Forms.Platform.MacOS
 		static void OnControlChanged(object sender, EventArgs e)
 		{
 			var renderer = sender as IImageVisualElementRenderer;
+<<<<<<< HEAD
 			var imageElement = renderer.Element as IImageElement;
+=======
+			var imageElement = renderer.Element as IImageController;
+>>>>>>> Update from origin (#11)
 			SetAspect(renderer, imageElement);
 			SetOpacity(renderer, imageElement);
 		}
@@ -46,7 +62,11 @@ namespace Xamarin.Forms.Platform.MacOS
 			if (e.NewElement != null)
 			{
 				var renderer = sender as IImageVisualElementRenderer;
+<<<<<<< HEAD
 				var imageElement = renderer.Element as IImageElement;
+=======
+				var imageElement = renderer.Element as IImageController;
+>>>>>>> Update from origin (#11)
 
 				SetAspect(renderer, imageElement);
 				SetOpacity(renderer, imageElement);
@@ -56,17 +76,30 @@ namespace Xamarin.Forms.Platform.MacOS
 		static void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			var renderer = sender as IImageVisualElementRenderer;
+<<<<<<< HEAD
 			var imageElement = renderer.Element as IImageElement;
 
 			if (e.PropertyName == Image.IsOpaqueProperty.PropertyName)
 				SetOpacity(renderer, renderer.Element as IImageElement);
 			else if (e.PropertyName == Image.AspectProperty.PropertyName)
 				SetAspect(renderer, renderer.Element as IImageElement);
+=======
+			var imageElement = renderer.Element as IImageController;
+
+			if (e.PropertyName == imageElement.IsOpaqueProperty?.PropertyName)
+				SetOpacity(renderer, renderer.Element as IImageController);
+			else if (e.PropertyName == imageElement.AspectProperty?.PropertyName)
+				SetAspect(renderer, renderer.Element as IImageController);
+>>>>>>> Update from origin (#11)
 		}
 
 
 
+<<<<<<< HEAD
 		public static void SetAspect(IImageVisualElementRenderer renderer, IImageElement imageElement)
+=======
+		public static void SetAspect(IImageVisualElementRenderer renderer, IImageController imageElement)
+>>>>>>> Update from origin (#11)
 		{
 			var Element = renderer.Element;
 			var Control = renderer.GetImage();
@@ -76,6 +109,7 @@ namespace Xamarin.Forms.Platform.MacOS
 			{
 				return;
 			}
+<<<<<<< HEAD
 #if __MOBILE__
 			Control.ContentMode = imageElement.Aspect.ToUIViewContentMode();
 #else
@@ -84,6 +118,13 @@ namespace Xamarin.Forms.Platform.MacOS
 		}
 
 		public static void SetOpacity(IImageVisualElementRenderer renderer, IImageElement imageElement)
+=======
+
+			Control.ContentMode = imageElement.Aspect.ToUIViewContentMode();
+		}
+
+		public static void SetOpacity(IImageVisualElementRenderer renderer, IImageController imageElement)
+>>>>>>> Update from origin (#11)
 		{
 			var Element = renderer.Element;
 			var Control = renderer.GetImage();
@@ -92,6 +133,7 @@ namespace Xamarin.Forms.Platform.MacOS
 			{
 				return;
 			}
+<<<<<<< HEAD
 #if __MOBILE__
 			Control.Opaque = imageElement.IsOpaque;
 #else
@@ -103,6 +145,16 @@ namespace Xamarin.Forms.Platform.MacOS
 		{
 			_ = renderer ?? throw new ArgumentNullException(nameof(renderer), $"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(renderer)} cannot be null");
 			_ = imageElement ?? throw new ArgumentNullException(nameof(imageElement), $"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(imageElement)} cannot be null");
+=======
+
+			Control.Opaque = imageElement.IsOpaque;
+		}
+
+		public static async Task SetImage(IImageVisualElementRenderer renderer, IImageController imageElement, Image oldElement = null)
+		{
+			_ = renderer ?? throw new ArgumentNullException($"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(renderer)} cannot be null");
+			_ = imageElement ?? throw new ArgumentNullException($"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(imageElement)} cannot be null");
+>>>>>>> Update from origin (#11)
 
 			var Element = renderer.Element;
 			var Control = renderer.GetImage();
@@ -112,8 +164,11 @@ namespace Xamarin.Forms.Platform.MacOS
 				return;
 			}
 
+<<<<<<< HEAD
 			var imageController = imageElement as IImageController;
 
+=======
+>>>>>>> Update from origin (#11)
 			var source = imageElement.Source;
 		
 #if __MOBILE__
@@ -128,12 +183,17 @@ namespace Xamarin.Forms.Platform.MacOS
 				if (Equals(oldSource, source))
 					return;
 
+<<<<<<< HEAD
 				if (oldSource is FileImageSource oldFile && source is FileImageSource newFile && oldFile == newFile)
+=======
+				if (oldSource is FileImageSource && source is FileImageSource && ((FileImageSource)oldSource).File == ((FileImageSource)source).File)
+>>>>>>> Update from origin (#11)
 					return;
 
 				renderer.SetImage(null);
 			}
 
+<<<<<<< HEAD
 			imageController?.SetIsLoading(true);
 			try
 			{
@@ -295,3 +355,46 @@ namespace Xamarin.Forms.Platform.MacOS
 		}
 	}
 }
+=======
+			IImageSourceHandler handler;
+			imageElement.SetIsLoading(true);
+			try
+			{
+				if (source != null &&
+				   (handler = Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(source)) != null)
+				{
+					UIImage uiimage;
+					try
+					{
+						uiimage = await handler.LoadImageAsync(source, scale: (float)UIScreen.MainScreen.Scale);
+					}
+					catch (OperationCanceledException)
+					{
+						uiimage = null;
+					}
+
+					if (renderer.IsDisposed)
+						return;
+
+					var imageView = Control;
+					if (imageView != null)
+					{
+						renderer.SetImage(uiimage);
+					}
+				}
+				else
+				{
+					renderer.SetImage(null);
+				}
+
+			}
+			finally
+			{
+				imageElement.SetIsLoading(false);
+			}
+
+			(imageElement as IViewController)?.NativeSizeChanged();
+		}
+	}
+}
+>>>>>>> Update from origin (#11)

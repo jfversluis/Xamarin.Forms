@@ -267,6 +267,7 @@ namespace Xamarin.Forms.Controls
 			fastScrollItemContainer.View.On<Android>().SetIsFastScrollEnabled(true);
 			fastScrollItemContainer.View.ItemsSource = viewModel.CategorizedEmployees;
 
+<<<<<<< HEAD
 			var refreshControlColorContainer = new ViewContainer<ListView>(Test.ListView.RefreshControlColor, new ListView());
 			InitializeElement(refreshControlColorContainer.View);
 			refreshControlColorContainer.View.RefreshControlColor = Color.Red;
@@ -277,6 +278,8 @@ namespace Xamarin.Forms.Controls
 			};
 			refreshControlColorContainer.View.ItemsSource = viewModel.Employees;
 
+=======
+>>>>>>> Update from origin (#11)
 			var scrollbarVisibilityContainer = new ViewContainer<ListView>(Test.ListView.ScrollBarVisibility, new ListView());
 			InitializeElement(scrollbarVisibilityContainer.View);
 			scrollbarVisibilityContainer.View.HorizontalScrollBarVisibility = ScrollBarVisibility.Never;
@@ -297,7 +300,10 @@ namespace Xamarin.Forms.Controls
 			Add(rowHeightContainer);
 			Add(selectedItemContainer);
 			Add(fastScrollItemContainer);
+<<<<<<< HEAD
 			Add(refreshControlColorContainer);
+=======
+>>>>>>> Update from origin (#11)
 			Add(scrollbarVisibilityContainer);
 		}
 	}

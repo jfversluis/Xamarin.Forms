@@ -3,7 +3,11 @@ using Xamarin.Forms.CustomAttributes;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
+<<<<<<< HEAD
 namespace Xamarin.Forms.Controls.Issues
+=======
+namespace Xamarin.Forms.Controls
+>>>>>>> Update from origin (#11)
 {
 #if APP
 	[Preserve(AllMembers = true)]
@@ -28,4 +32,8 @@ namespace Xamarin.Forms.Controls.Issues
 		}
 	}
 #endif
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Update from origin (#11)

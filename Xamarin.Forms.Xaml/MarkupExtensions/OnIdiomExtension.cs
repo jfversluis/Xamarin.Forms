@@ -24,12 +24,23 @@ namespace Xamarin.Forms.Xaml
 		public object ProvideValue(IServiceProvider serviceProvider)
 		{
 			if (   Default == null
+<<<<<<< HEAD
 				&& Phone == null
 				&& Tablet == null
 				&& Desktop == null
 				&& TV == null
 				&& Watch == null)
 				throw new XamlParseException("OnIdiomExtension requires a non-null value to be specified for at least one idiom or Default.", serviceProvider);
+=======
+			    && Phone == null
+			    && Tablet == null
+			    && Desktop == null
+			    && TV == null
+			    && Watch == null) {
+				var lineInfo = serviceProvider?.GetService<IXmlLineInfoProvider>()?.XmlLineInfo;
+				throw new XamlParseException("OnIdiomExtension requires a non-null value to be specified for at least one idiom or Default.", lineInfo ?? new XmlLineInfo());
+			}
+>>>>>>> Update from origin (#11)
 
 			var valueProvider = serviceProvider?.GetService<IProvideValueTarget>() ?? throw new ArgumentException();
 

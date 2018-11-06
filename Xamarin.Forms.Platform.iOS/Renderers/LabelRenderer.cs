@@ -29,6 +29,7 @@ namespace Xamarin.Forms.Platform.MacOS
 
 		bool IsTextFormatted => _formatted != null;
 
+<<<<<<< HEAD
 		static HashSet<string> s_perfectSizeSet = new HashSet<string>
 		{
 			Label.TextProperty.PropertyName,
@@ -39,6 +40,8 @@ namespace Xamarin.Forms.Platform.MacOS
 			Label.LineHeightProperty.PropertyName,
 		};
 
+=======
+>>>>>>> Update from origin (#11)
 		public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
 		{
 			if (!_perfectSizeValid)
@@ -350,10 +353,20 @@ namespace Xamarin.Forms.Platform.MacOS
 
 		void UpdateText()
 		{
+<<<<<<< HEAD
 			_formatted = Element.FormattedText;
 			if (_formatted == null && Element.LineHeight >= 0)
 				_formatted = Element.Text;
 
+=======
+			_perfectSizeValid = false;
+			var values = Element.GetValues(Label.FormattedTextProperty, Label.TextProperty);
+
+			_formatted = values[0] as FormattedString;
+			if (_formatted == null && Element.LineHeight >= 0)
+				_formatted = (string)values[1];
+
+>>>>>>> Update from origin (#11)
 			if (IsTextFormatted)
 			{
 				UpdateFormattedText();
@@ -372,9 +385,15 @@ namespace Xamarin.Forms.Platform.MacOS
 		void UpdateFormattedText()
 		{
 #if __MOBILE__
+<<<<<<< HEAD
 			Control.AttributedText = _formatted.ToAttributed(Element, Element.TextColor, Element.HorizontalTextAlignment, Element.LineHeight);
 #else
 			Control.AttributedStringValue = _formatted.ToAttributed(Element, Element.TextColor, Element.HorizontalTextAlignment, Element.LineHeight);
+=======
+			Control.AttributedText = _formatted.ToAttributed(Element, Element.TextColor, Element.LineHeight);
+#else
+			Control.AttributedStringValue = _formatted.ToAttributed(Element, Element.TextColor, Element.LineHeight);
+>>>>>>> Update from origin (#11)
 #endif
 		}
 
@@ -385,6 +404,10 @@ namespace Xamarin.Forms.Platform.MacOS
 				UpdateFormattedText();
 				return;
 			}
+<<<<<<< HEAD
+=======
+			_perfectSizeValid = false;
+>>>>>>> Update from origin (#11)
 
 #if __MOBILE__
 			Control.Font = Element.ToUIFont();
@@ -401,6 +424,11 @@ namespace Xamarin.Forms.Platform.MacOS
 				UpdateFormattedText();
 				return;
 			}
+<<<<<<< HEAD
+=======
+
+			_perfectSizeValid = false;
+>>>>>>> Update from origin (#11)
 
 			var textColor = (Color)Element.GetValue(Label.TextColorProperty);
 

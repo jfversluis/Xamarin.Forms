@@ -173,6 +173,7 @@ namespace Xamarin.Forms.Platform.UWP
 		{
 			return Platform.GetNativeSize(view, widthConstraint, heightConstraint);
 		}
+<<<<<<< HEAD
 
 		async Task TryAllDispatchers(Action action)
 		{
@@ -258,5 +259,7 @@ namespace Xamarin.Forms.Platform.UWP
 
 			return await taskCompletionSource.Task;
 		}
+=======
+>>>>>>> Update from origin (#11)
 	}
 }

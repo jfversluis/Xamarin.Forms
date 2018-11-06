@@ -167,7 +167,11 @@ namespace Xamarin.Forms.Platform.Android
 				element.SendViewInitialized(this);
 
 			if (element != null && !string.IsNullOrEmpty(element.AutomationId))
+<<<<<<< HEAD
 				SetAutomationId(element.AutomationId);
+=======
+					SetAutomationId(element.AutomationId);
+>>>>>>> Update from origin (#11)
 
 			SetContentDescription();
 		}
@@ -277,7 +281,11 @@ namespace Xamarin.Forms.Platform.Android
 
 		void HandleMasterPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
+<<<<<<< HEAD
 			if (e.PropertyName == Page.TitleProperty.PropertyName || e.PropertyName == Page.IconImageSourceProperty.PropertyName)
+=======
+			if (e.PropertyName == Page.TitleProperty.PropertyName || e.PropertyName == Page.IconProperty.PropertyName)
+>>>>>>> Update from origin (#11)
 				Platform?.UpdateMasterDetailToggle(true);
 		}
 

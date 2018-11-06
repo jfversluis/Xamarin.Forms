@@ -3,7 +3,11 @@ using System.Globalization;
 
 namespace Xamarin.Forms
 {
+<<<<<<< HEAD
 	class ToStringValueConverter : IValueConverter
+=======
+	public class ToStringValueConverter : IValueConverter
+>>>>>>> Update from origin (#11)
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{

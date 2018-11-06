@@ -88,13 +88,19 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					Control.Vadjustment.ValueChanged -= OnScrollEvent;
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 			if (_viewPort != null)
 			{
 				_viewPort.Destroy();
 				_viewPort = null;
 			}
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 
 			base.Dispose(disposing);
 		}
@@ -147,9 +153,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				var content = renderer.Container;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				content.VisibleWindow = false;
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 				_viewPort.Add(content);
 			}
 		}
@@ -229,10 +238,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		PolicyType ScrollBarVisibilityToGtk(ScrollBarVisibility visibility)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			switch (visibility)
 =======
 			switch(visibility)
 >>>>>>> Update from origin (#8)
+=======
+			switch (visibility)
+>>>>>>> Update from origin (#11)
 			{
 				case ScrollBarVisibility.Default:
 					return PolicyType.Automatic;

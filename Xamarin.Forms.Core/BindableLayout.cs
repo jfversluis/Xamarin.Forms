@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Specialized;
+<<<<<<< HEAD
 using Xamarin.Forms.Internals;
+=======
+>>>>>>> Update from origin (#11)
 
 namespace Xamarin.Forms
 {
@@ -173,6 +176,7 @@ namespace Xamarin.Forms
 				return;
 			}
 
+<<<<<<< HEAD
 			foreach (object item in _itemsSource)
 			{
 				layout.Children.Add(CreateItemView(item, layout));
@@ -185,6 +189,21 @@ namespace Xamarin.Forms
 		}
 
 		View CreateItemView(object item, DataTemplate dataTemplate)
+=======
+			int i = 0;
+			foreach (object item in _itemsSource)
+			{
+				layout.Children.Add(CreateItemView(item, i++));
+			}
+		}
+
+		View CreateItemView(object item, int index)
+		{
+			return CreateItemView(item, index, _itemTemplate ?? _itemTemplateSelector?.SelectTemplate(item, null));
+		}
+
+		View CreateItemView(object item, int index, DataTemplate dataTemplate)
+>>>>>>> Update from origin (#11)
 		{
 			if (dataTemplate != null)
 			{
@@ -206,6 +225,7 @@ namespace Xamarin.Forms
 				return;
 			}
 
+<<<<<<< HEAD
 			e.Apply(
 				insert: (item, index, _) => layout.Children.Insert(index, CreateItemView(item, layout)),
 				removeAt: (item, index) => layout.Children.RemoveAt(index),
@@ -213,3 +233,65 @@ namespace Xamarin.Forms
 		}
 	}
 }
+=======
+			switch (e.Action)
+			{
+				case NotifyCollectionChangedAction.Add:
+					{
+						if (e.NewStartingIndex == -1)
+							goto case NotifyCollectionChangedAction.Reset;
+						int i = e.NewStartingIndex;
+						foreach (object item in e.NewItems)
+						{
+							layout.Children.Add(CreateItemView(item, i++));
+						}
+					}
+					break;
+				case NotifyCollectionChangedAction.Remove:
+					{
+						if (e.OldStartingIndex == -1)
+							goto case NotifyCollectionChangedAction.Reset;
+						for (int i = 0; i < e.OldItems.Count; ++i)
+						{
+							layout.Children.RemoveAt(i + e.OldStartingIndex);
+						}
+					}
+					break;
+				case NotifyCollectionChangedAction.Replace:
+					{
+						if (e.OldStartingIndex == -1)
+							goto case NotifyCollectionChangedAction.Reset;
+						int i = e.NewStartingIndex;
+						foreach (object item in e.NewItems)
+						{
+							layout.Children[i] = CreateItemView(item, i);
+							++i;
+						}
+					}
+					break;
+				case NotifyCollectionChangedAction.Move:
+					{
+						if (e.OldStartingIndex == -1 || e.NewStartingIndex == -1)
+							goto case NotifyCollectionChangedAction.Reset;
+						for (int i = 0; i < e.NewItems.Count; ++i)
+						{
+							int iFrom = e.OldStartingIndex + i;
+							int iTo = e.NewStartingIndex + i;
+							View fromView = layout.Children[iFrom];
+							View toView = layout.Children[iTo];
+							layout.Children.Remove(fromView);
+							layout.Children.Remove(toView);
+							layout.Children.Insert(iFrom, toView);
+							layout.Children.Insert(iTo, fromView);
+						}
+					}
+					break;
+
+				case NotifyCollectionChangedAction.Reset:
+					layout.Children.Clear();
+					break;
+			}
+		}
+	}
+}
+>>>>>>> Update from origin (#11)

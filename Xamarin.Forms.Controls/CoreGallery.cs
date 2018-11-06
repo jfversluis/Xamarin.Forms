@@ -566,6 +566,7 @@ namespace Xamarin.Forms.Controls
 				}
 			};
 
+<<<<<<< HEAD
 			var secondaryWindowService = DependencyService.Get<ISecondaryWindowService>();
 			if (secondaryWindowService != null)
 			{
@@ -574,6 +575,8 @@ namespace Xamarin.Forms.Controls
 				stackLayout.Children.Add(openSecondWindowButton);
 			}
 
+=======
+>>>>>>> Update from origin (#11)
 			this.SetAutomationPropertiesName("Gallery");
 			this.SetAutomationPropertiesHelpText("Lists all gallery pages");
 

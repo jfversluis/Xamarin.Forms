@@ -16,10 +16,14 @@ namespace Xamarin.Forms.Platform.GTK
 		private TNativeElement _control;
 		private TElement _element;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private GtkFormsContainer _container;
 =======
 		private EventBox _container;
 >>>>>>> Update from origin (#8)
+=======
+		private GtkFormsContainer _container;
+>>>>>>> Update from origin (#11)
 		private bool _invalidateArrangeNeeded;
 
 		private readonly NotifyCollectionChangedEventHandler _collectionChangedHandler;
@@ -32,10 +36,14 @@ namespace Xamarin.Forms.Platform.GTK
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public GtkFormsContainer Container
 =======
 		public EventBox Container
 >>>>>>> Update from origin (#8)
+=======
+		public GtkFormsContainer Container
+>>>>>>> Update from origin (#11)
 		{
 			get { return _container; }
 			set
@@ -179,10 +187,14 @@ namespace Xamarin.Forms.Platform.GTK
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Container.Destroy();
 =======
 			Container.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+			Container.Destroy();
+>>>>>>> Update from origin (#11)
 			Container = null;
 		}
 
@@ -191,12 +203,17 @@ namespace Xamarin.Forms.Platform.GTK
 			if (Element.Batched)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if (e.PropertyName == VisualElement.XProperty.PropertyName ||
 					e.PropertyName == VisualElement.YProperty.PropertyName ||
 =======
 				if (e.PropertyName == VisualElement.XProperty.PropertyName || 
 					e.PropertyName == VisualElement.YProperty.PropertyName || 
 >>>>>>> Update from origin (#8)
+=======
+				if (e.PropertyName == VisualElement.XProperty.PropertyName ||
+					e.PropertyName == VisualElement.YProperty.PropertyName ||
+>>>>>>> Update from origin (#11)
 					e.PropertyName == VisualElement.WidthProperty.PropertyName ||
 					e.PropertyName == VisualElement.HeightProperty.PropertyName)
 				{
@@ -206,10 +223,14 @@ namespace Xamarin.Forms.Platform.GTK
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (e.PropertyName == VisualElement.AnchorXProperty.PropertyName ||
 =======
 			if (e.PropertyName == VisualElement.AnchorXProperty.PropertyName || 
 >>>>>>> Update from origin (#8)
+=======
+			if (e.PropertyName == VisualElement.AnchorXProperty.PropertyName ||
+>>>>>>> Update from origin (#11)
 				e.PropertyName == VisualElement.AnchorYProperty.PropertyName)
 			{
 				UpdateScaleAndRotation(Element, Container);
@@ -218,6 +239,7 @@ namespace Xamarin.Forms.Platform.GTK
 			{
 				UpdateScaleAndRotation(Element, Container);
 			}
+<<<<<<< HEAD
 <<<<<<< HEAD
 			else if (e.PropertyName == VisualElement.TranslationXProperty.PropertyName ||
 				e.PropertyName == VisualElement.TranslationYProperty.PropertyName ||
@@ -229,6 +251,12 @@ namespace Xamarin.Forms.Platform.GTK
 					 e.PropertyName == VisualElement.RotationProperty.PropertyName || 
 					 e.PropertyName == VisualElement.RotationXProperty.PropertyName || 
 >>>>>>> Update from origin (#8)
+=======
+			else if (e.PropertyName == VisualElement.TranslationXProperty.PropertyName ||
+				e.PropertyName == VisualElement.TranslationYProperty.PropertyName ||
+					 e.PropertyName == VisualElement.RotationProperty.PropertyName ||
+					 e.PropertyName == VisualElement.RotationXProperty.PropertyName ||
+>>>>>>> Update from origin (#11)
 					 e.PropertyName == VisualElement.RotationYProperty.PropertyName)
 			{
 				UpdateRotation(Element, Container);
@@ -273,10 +301,14 @@ namespace Xamarin.Forms.Platform.GTK
 			_container.ButtonPressEvent -= OnContainerButtonPressEvent;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (gestures.GetGesturesFor<TapGestureRecognizer>().Any() || gestures.GetGesturesFor<ClickGestureRecognizer>().Any())
 =======
 			if (gestures.GetGesturesFor<TapGestureRecognizer>(g => g.NumberOfTapsRequired == 1).Any())
 >>>>>>> Update from origin (#8)
+=======
+			if (gestures.GetGesturesFor<TapGestureRecognizer>().Any() || gestures.GetGesturesFor<ClickGestureRecognizer>().Any())
+>>>>>>> Update from origin (#11)
 			{
 				_container.ButtonPressEvent += OnContainerButtonPressEvent;
 			}
@@ -307,10 +339,14 @@ namespace Xamarin.Forms.Platform.GTK
 
 		// TODO: Implement Scale
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private static void UpdateScaleAndRotation(VisualElement view, Gtk.Widget eventBox)
 =======
 		private static void UpdateScaleAndRotation(VisualElement view, EventBox eventBox)
 >>>>>>> Update from origin (#8)
+=======
+		private static void UpdateScaleAndRotation(VisualElement view, Gtk.Widget eventBox)
+>>>>>>> Update from origin (#11)
 		{
 			double anchorX = view.AnchorX;
 			double anchorY = view.AnchorY;
@@ -321,10 +357,14 @@ namespace Xamarin.Forms.Platform.GTK
 
 		// TODO: Implement Rotation
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private static void UpdateRotation(VisualElement view, Gtk.Widget eventBox)
 =======
 		private static void UpdateRotation(VisualElement view, EventBox eventBox)
 >>>>>>> Update from origin (#8)
+=======
+		private static void UpdateRotation(VisualElement view, Gtk.Widget eventBox)
+>>>>>>> Update from origin (#11)
 		{
 			if (view == null)
 				return;
@@ -361,25 +401,34 @@ namespace Xamarin.Forms.Platform.GTK
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private static void UpdateVisibility(VisualElement view, Gtk.Widget eventBox)
 =======
 		private static void UpdateVisibility(VisualElement view, EventBox eventBox)
 >>>>>>> Update from origin (#8)
+=======
+		private static void UpdateVisibility(VisualElement view, Gtk.Widget eventBox)
+>>>>>>> Update from origin (#11)
 		{
 			eventBox.Visible = view.IsVisible;
 		}
 
 		// TODO: Implement Opacity
 <<<<<<< HEAD
+<<<<<<< HEAD
 		private static void UpdateOpacity(VisualElement view, Gtk.Widget eventBox)
 =======
 		private static void UpdateOpacity(VisualElement view, EventBox eventBox)
 >>>>>>> Update from origin (#8)
+=======
+		private static void UpdateOpacity(VisualElement view, Gtk.Widget eventBox)
+>>>>>>> Update from origin (#11)
 		{
 
 		}
 
 		// TODO: Implement InputTransparent
+<<<<<<< HEAD
 <<<<<<< HEAD
 		private static void UpdateInputTransparent(VisualElement view, Gtk.Widget eventBox)
 		{
@@ -389,16 +438,26 @@ namespace Xamarin.Forms.Platform.GTK
 		{
 	
 >>>>>>> Update from origin (#8)
+=======
+		private static void UpdateInputTransparent(VisualElement view, Gtk.Widget eventBox)
+		{
+
+>>>>>>> Update from origin (#11)
 		}
 
 		private void OnContainerButtonPressEvent(object o, ButtonPressEventArgs args)
 		{
+<<<<<<< HEAD
 <<<<<<< HEAD
 			var button = args.Event.Button;
 			if (button != 1 && button != 3)
 =======
 			if (args.Event.Button != 1)
 >>>>>>> Update from origin (#8)
+=======
+			var button = args.Event.Button;
+			if (button != 1 && button != 3)
+>>>>>>> Update from origin (#11)
 			{
 				return;
 			}
@@ -408,6 +467,7 @@ namespace Xamarin.Forms.Platform.GTK
 			if (view == null)
 				return;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			int numClicks = 0;
 			switch (args.Event.Type)
@@ -452,21 +512,53 @@ namespace Xamarin.Forms.Platform.GTK
 					recognizer.SendClicked(view, ButtonsMask.Secondary);
 =======
 			if (args.Event.Type == Gdk.EventType.TwoButtonPress)
+=======
+			int numClicks = 0;
+			switch (args.Event.Type)
+>>>>>>> Update from origin (#11)
 			{
-				IEnumerable<TapGestureRecognizer> doubleTapGestures = view.GestureRecognizers
-					.GetGesturesFor<TapGestureRecognizer>(g => g.NumberOfTapsRequired == 2);
-
-				foreach (TapGestureRecognizer recognizer in doubleTapGestures)
-					recognizer.SendTapped(view);
+				case Gdk.EventType.ThreeButtonPress:
+					numClicks = 3;
+					break;
+				case Gdk.EventType.TwoButtonPress:
+					numClicks = 2;
+					break;
+				case Gdk.EventType.ButtonPress:
+					numClicks = 1;
+					break;
+				default:
+					return;
 			}
-			else
+
+			// Taps or Clicks
+			if (button == 1)
 			{
 				IEnumerable<TapGestureRecognizer> tapGestures = view.GestureRecognizers
-					.GetGesturesFor<TapGestureRecognizer>(g => g.NumberOfTapsRequired == 1);
+					.GetGesturesFor<TapGestureRecognizer>(g => g.NumberOfTapsRequired == numClicks);
 
 				foreach (TapGestureRecognizer recognizer in tapGestures)
 					recognizer.SendTapped(view);
+<<<<<<< HEAD
 >>>>>>> Update from origin (#8)
+=======
+
+				IEnumerable<ClickGestureRecognizer> clickGestures = view.GestureRecognizers
+					.GetGesturesFor<ClickGestureRecognizer>(g => g.NumberOfClicksRequired == numClicks &&
+															g.Buttons == ButtonsMask.Primary);
+
+				foreach (ClickGestureRecognizer recognizer in clickGestures)
+					recognizer.SendClicked(view, ButtonsMask.Primary);
+			}
+			else
+			{
+				// right click
+				IEnumerable<ClickGestureRecognizer> rightClickGestures = view.GestureRecognizers
+					.GetGesturesFor<ClickGestureRecognizer>(g => g.NumberOfClicksRequired == numClicks &&
+															g.Buttons == ButtonsMask.Secondary);
+
+				foreach (ClickGestureRecognizer recognizer in rightClickGestures)
+					recognizer.SendClicked(view, ButtonsMask.Secondary);
+>>>>>>> Update from origin (#11)
 			}
 		}
 

@@ -16,6 +16,7 @@ namespace Xamarin.Forms.Build.Tasks
 
 		static IList<XmlnsDefinitionAttribute> GatherXmlnsDefinitionAttributes(ModuleDefinition module)
 		{
+<<<<<<< HEAD
 			var xmlnsDefinitions = new List<XmlnsDefinitionAttribute>();
 
 			if (module.AssemblyReferences?.Count > 0) {
@@ -29,6 +30,20 @@ namespace Xamarin.Forms.Build.Tasks
 							xmlnsDefinitions.Add(attr);
 						}
 					}
+=======
+			//this could be extended to look for [XmlnsDefinition] in all assemblies
+			var assemblies = new [] {
+				typeof(XamlLoader).Assembly,
+				typeof(View).Assembly,
+			};
+
+			s_xmlnsDefinitions = new List<XmlnsDefinitionAttribute>();
+
+			foreach (var assembly in assemblies)
+				foreach (XmlnsDefinitionAttribute attribute in assembly.GetCustomAttributes(typeof(XmlnsDefinitionAttribute), false)) {
+					s_xmlnsDefinitions.Add(attribute);
+					attribute.AssemblyName = attribute.AssemblyName ?? assembly.FullName;
+>>>>>>> Update from origin (#11)
 				}
 			} else {
 				// Use standard XF assemblies
@@ -79,7 +94,36 @@ namespace Xamarin.Forms.Build.Tasks
 					xmlnsDefinitions = GatherXmlnsDefinitionAttributes(module);
 			}
 
+<<<<<<< HEAD
 			var typeArguments = xmlType.TypeArguments;
+=======
+			if (lookupAssemblies.Count == 0) {
+				string ns;
+				string typename;
+				string asmstring;
+				string targetPlatform;
+
+				XmlnsHelper.ParseXmlns(namespaceURI, out typename, out ns, out asmstring, out targetPlatform);
+				asmstring = asmstring ?? module.Assembly.Name.Name;
+				if (ns != null)
+					lookupAssemblies.Add(new XmlnsDefinitionAttribute(namespaceURI, ns) {
+						AssemblyName = asmstring
+					});
+			}
+
+			lookupNames.Add(elementName + "Extension");
+			lookupNames.Add(elementName);
+
+			for (var i = 0; i < lookupNames.Count; i++)
+			{
+				var name = lookupNames[i];
+				if (name.Contains(":"))
+					name = name.Substring(name.LastIndexOf(':') + 1);
+				if (typeArguments != null)
+					name += "`" + typeArguments.Count; //this will return an open generic Type
+				lookupNames[i] = name;
+			}
+>>>>>>> Update from origin (#11)
 
 			IList<XamlLoader.FallbackTypeInfo> potentialTypes;
 			TypeReference type = xmlType.GetTypeReference(

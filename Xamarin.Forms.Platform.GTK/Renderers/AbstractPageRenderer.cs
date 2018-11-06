@@ -21,6 +21,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		protected AbstractPageRenderer()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			VisibleWindow = true;
 			_propertyChangedHandler = OnElementPropertyChanged;
 		}
@@ -55,6 +56,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			VisualElement oldElement = Element;
 			Element = element;
 =======
+=======
+			VisibleWindow = true;
+>>>>>>> Update from origin (#11)
 			_propertyChangedHandler = OnElementPropertyChanged;
 		}
 
@@ -88,12 +92,15 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			VisualElement oldElement = Element;
 			Element = element;
 
+<<<<<<< HEAD
 			if (element != null)
 			{
 				element.PropertyChanged += _propertyChangedHandler;
 			}
 >>>>>>> Update from origin (#8)
 
+=======
+>>>>>>> Update from origin (#11)
 			OnElementChanged(new VisualElementChangedEventArgs(oldElement, element));
 
 			EffectUtilities.RegisterEffectControlProvider(this, oldElement, element);
@@ -162,18 +169,6 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			PageController.SendAppearing();
 		}
 
-		protected override void OnDestroyed()
-		{
-			base.OnDestroyed();
-
-			if (!_appeared || _disposed)
-				return;
-
-			_appeared = false;
-
-			PageController.SendDisappearing();
-		}
-
 		protected override void OnSizeAllocated(Gdk.Rectangle allocation)
 		{
 			base.OnSizeAllocated(allocation);
@@ -234,21 +229,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected virtual void UpdateBackgroundColor()
 		{
-			Color backgroundColor = Element.BackgroundColor;
-
-			if (backgroundColor.IsDefaultOrTransparent())
-			{
-				Control.SetBackgroundColor(null);
-			}
-			else
-			{
-				Control.SetBackgroundColor(backgroundColor.ToGtkColor());
-			}
+			Control.SetBackgroundColor(Element.BackgroundColor);
 		}
 
 		protected virtual void UpdateBackgroundImage()
 		{
-			VisibleWindow = Page.ShouldDisplayNativeWindow();
 			Control.SetBackgroundImage(Page.BackgroundImage);
 		}
 
@@ -292,6 +277,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				if (hasParentNavigation) break;
 
 				current = parent;
+<<<<<<< HEAD
 			}
 >>>>>>> Update from origin (#8)
 
@@ -414,6 +400,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				current = parent;
 
 				if (hasParentNavigation) break;
+=======
+
+>>>>>>> Update from origin (#11)
 			}
 			var hasAncestorNavigationPage = hasParentNavigation && NavigationPage.GetHasNavigationBar(current);
 			return hasAncestorNavigationPage;

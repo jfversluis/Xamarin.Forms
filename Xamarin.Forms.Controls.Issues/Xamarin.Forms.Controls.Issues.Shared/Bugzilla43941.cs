@@ -106,7 +106,12 @@ namespace Xamarin.Forms.Controls.Issues
 						AutomationId = "GC",
 						Command = new Command(o =>
 						{
+<<<<<<< HEAD
 							GarbageCollectionHelper.Collect();
+=======
+							GC.Collect();
+							GC.WaitForPendingFinalizers();
+>>>>>>> Update from origin (#11)
 							Label.Text = "Counter: " + Counter;
 						})
 					},

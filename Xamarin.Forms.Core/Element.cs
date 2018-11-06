@@ -484,6 +484,7 @@ namespace Xamarin.Forms
 			}
 		}
 
+<<<<<<< HEAD
 		internal static void SetVisualfromParent(Element child)
 		{
 			IVisualController controller = child as IVisualController;
@@ -500,6 +501,8 @@ namespace Xamarin.Forms
 				controller.EffectiveVisual = parentView.EffectiveVisual;
 		}
 
+=======
+>>>>>>> Update from origin (#11)
 		internal virtual void SetChildInheritedBindingContext(Element child, object context)
 		{
 			SetInheritedBindingContext(child, context);

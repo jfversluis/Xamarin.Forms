@@ -73,6 +73,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
@@ -82,13 +83,20 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 				_glWidget.Destroy();
 =======
 		public override void Dispose()
+=======
+		public override void Destroy()
+>>>>>>> Update from origin (#11)
 		{
-			base.Dispose();
+			base.Destroy();
 
 			if (_glWidget != null)
 			{
+<<<<<<< HEAD
 				_glWidget.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+				_glWidget.Destroy();
+>>>>>>> Update from origin (#11)
 			}
 		}
 

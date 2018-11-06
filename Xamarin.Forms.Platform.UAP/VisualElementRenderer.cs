@@ -155,7 +155,11 @@ namespace Xamarin.Forms.Platform.UWP
 
 			OnElementChanged(new ElementChangedEventArgs<TElement>(oldElement, Element));
 
+<<<<<<< HEAD
 			if (_control != null && this is IDontGetFocus)
+=======
+			if (_control != null && this is ITabStopOnDescendants)
+>>>>>>> Update from origin (#11)
 			{
 				_control.GotFocus += OnGotFocus;
 				_control.GettingFocus += OnGettingFocus;
@@ -343,6 +347,7 @@ namespace Xamarin.Forms.Platform.UWP
 			_control.IsTabStop = Element.IsTabStop;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (this is ITabStopOnDescendants)
 				_control?.GetChildren<Control>().ForEach(c => c.IsTabStop = Element.IsTabStop);
 =======
@@ -351,6 +356,10 @@ namespace Xamarin.Forms.Platform.UWP
 			foreach (var child in children)
 				child.IsTabStop = _control.IsTabStop;
 >>>>>>> Update from origin (#8)
+=======
+			if (this is ITabStopOnDescendants)
+				_control?.GetChildren<Control>().ForEach(c => c.IsTabStop = Element.IsTabStop);
+>>>>>>> Update from origin (#11)
 		}
 
 		protected void UpdateTabIndex()
@@ -386,10 +395,15 @@ namespace Xamarin.Forms.Platform.UWP
 			else if (e.PropertyName == VisualElement.TabIndexProperty.PropertyName)
 				UpdateTabIndex();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 			_elementPropertyChanged?.Invoke(this, e);
 =======
 >>>>>>> Update from origin (#8)
+=======
+
+			_elementPropertyChanged?.Invoke(this, e);
+>>>>>>> Update from origin (#11)
 		}
 
 		protected virtual void OnRegisterEffect(PlatformEffect effect)

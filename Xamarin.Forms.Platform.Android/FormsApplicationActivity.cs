@@ -133,7 +133,12 @@ namespace Xamarin.Forms.Platform.Android
 
 			PopupManager.Unsubscribe(this);
 
+<<<<<<< HEAD
 			((IDisposable) Platform)?.Dispose();
+=======
+			if (Platform != null)
+				((IDisposable)Platform).Dispose();
+>>>>>>> Update from origin (#11)
 		}
 
 		protected override void OnPause()
@@ -238,6 +243,7 @@ namespace Xamarin.Forms.Platform.Android
 			PopupManager.ResetBusyCount(this);
 
 			Platform = new Platform(this);
+<<<<<<< HEAD
 
 			if (_application != null)
 			{
@@ -248,6 +254,9 @@ namespace Xamarin.Forms.Platform.Android
 #pragma warning restore CS0618 // Type or member is obsolete
 			}
 
+=======
+			
+>>>>>>> Update from origin (#11)
 			Platform.SetPage(page);
 			_layout.AddView(Platform.GetViewGroup());
 		}

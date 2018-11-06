@@ -368,7 +368,11 @@ namespace Xamarin.Forms.Platform.UWP
 				UpdateToolbarPlacement();
 			else if (e.PropertyName == ToolbarDynamicOverflowEnabledProperty.PropertyName)
 				UpdateToolbarDynamicOverflowEnabled();
+<<<<<<< HEAD
 			else if (e.PropertyName == NavigationPage.TitleIconImageSourceProperty.PropertyName)
+=======
+			else if (e.PropertyName == NavigationPage.TitleIconProperty.PropertyName)
+>>>>>>> Update from origin (#11)
 				UpdateTitleIcon();
 			else if (e.PropertyName == NavigationPage.TitleViewProperty.PropertyName)
 				UpdateTitleView();

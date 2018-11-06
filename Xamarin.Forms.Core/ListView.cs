@@ -46,8 +46,11 @@ namespace Xamarin.Forms
 
 		public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create("SeparatorColor", typeof(Color), typeof(ListView), Color.Default);
 
+<<<<<<< HEAD
 		public static readonly BindableProperty RefreshControlColorProperty = BindableProperty.Create(nameof(RefreshControlColor), typeof(Color), typeof(ListView), Color.Default);
     
+=======
+>>>>>>> Update from origin (#11)
 		public static readonly BindableProperty HorizontalScrollBarVisibilityProperty = BindableProperty.Create(nameof(HorizontalScrollBarVisibility), typeof(ScrollBarVisibility), typeof(ListView), ScrollBarVisibility.Default);
 
 		public static readonly BindableProperty VerticalScrollBarVisibilityProperty = BindableProperty.Create(nameof(VerticalScrollBarVisibility), typeof(ScrollBarVisibility), typeof(ListView), ScrollBarVisibility.Default);
@@ -248,6 +251,10 @@ namespace Xamarin.Forms
 			set { SetValue(VerticalScrollBarVisibilityProperty, value); }
 		}
 
+<<<<<<< HEAD
+=======
+		[EditorBrowsable(EditorBrowsableState.Never)]
+>>>>>>> Update from origin (#11)
 		public ListViewCachingStrategy CachingStrategy { get; private set; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]

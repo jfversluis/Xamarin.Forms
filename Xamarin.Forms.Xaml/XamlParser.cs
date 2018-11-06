@@ -326,9 +326,14 @@ namespace Xamarin.Forms.Xaml
 
 		static void GatherXmlnsDefinitionAttributes()
 		{
+<<<<<<< HEAD
 			Assembly[] assemblies = null;
 #if !NETSTANDARD2_0
 			assemblies = new[] {
+=======
+			//this could be extended to look for [XmlnsDefinition] in all assemblies
+			var assemblies = new [] {
+>>>>>>> Update from origin (#11)
 				typeof(XamlLoader).GetTypeInfo().Assembly,
 				typeof(View).GetTypeInfo().Assembly,
 			};
@@ -369,6 +374,48 @@ namespace Xamarin.Forms.Xaml
 			var typeArguments = xmlType.TypeArguments;
 			exception = null;
 
+<<<<<<< HEAD
+=======
+			var lookupAssemblies = new List<XmlnsDefinitionAttribute>();
+			var lookupNames = new List<string>();
+
+			foreach (var xmlnsDef in s_xmlnsDefinitions) {
+				if (xmlnsDef.XmlNamespace != namespaceURI)
+					continue;
+				lookupAssemblies.Add(xmlnsDef);
+			}
+
+			if (lookupAssemblies.Count == 0) {
+				string ns, asmstring, _;
+				XmlnsHelper.ParseXmlns(namespaceURI, out _, out ns, out asmstring, out _);
+				lookupAssemblies.Add(new XmlnsDefinitionAttribute(namespaceURI, ns) {
+					AssemblyName = asmstring ?? currentAssembly.FullName
+				});
+			}
+
+			lookupNames.Add(elementName + "Extension");
+			lookupNames.Add(elementName);
+
+			for (var i = 0; i < lookupNames.Count; i++)
+			{
+				var name = lookupNames[i];
+				if (name.Contains(":"))
+					name = name.Substring(name.LastIndexOf(':') + 1);
+				if (typeArguments != null)
+					name += "`" + typeArguments.Count; //this will return an open generic Type
+				lookupNames[i] = name;
+			}
+
+			Type type = null;
+			foreach (var asm in lookupAssemblies) {
+				foreach (var name in lookupNames)
+					if ((type = Type.GetType($"{asm.ClrNamespace}.{name}, {asm.AssemblyName}")) != null)
+						break;
+				if (type != null)
+					break;
+			}
+
+>>>>>>> Update from origin (#11)
 			if (type != null && typeArguments != null)
 			{
 				XamlParseException innerexception = null;

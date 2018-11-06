@@ -5,10 +5,14 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 namespace Xamarin.Forms.Platform.GTK.Controls
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public class NotebookWrapper : GtkFormsContainer
 =======
 	public class NotebookWrapper : EventBox
 >>>>>>> Update from origin (#8)
+=======
+	public class NotebookWrapper : GtkFormsContainer
+>>>>>>> Update from origin (#11)
 	{
 		private Notebook _noteBook;
 		private Pixbuf _backgroundPixbuf;
@@ -92,10 +96,14 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			{
 				var page = _noteBook.GetNthPage(i) as NotebookPageWrapper;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 			
 >>>>>>> Update from origin (#8)
+=======
+
+>>>>>>> Update from origin (#11)
 				if (page?.Widget == widget)
 				{
 					_noteBook.RemovePage(i);

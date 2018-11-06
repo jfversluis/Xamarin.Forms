@@ -726,9 +726,15 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			if (NavPage == null)
 				return;
+<<<<<<< HEAD
 			if (_ignorePopCall)
 				return;
 
+=======
+			if (_ignorePopCall) 
+				return;
+			
+>>>>>>> Update from origin (#11)
 			_ignorePopCall = true;
 			if (Element.Navigation.NavigationStack.Contains(pageBeingRemoved))
 				await (NavPage as INavigationPageController)?.RemoveAsyncInner(pageBeingRemoved, false, true);
@@ -775,6 +781,15 @@ namespace Xamarin.Forms.Platform.iOS
 			{
 				masterDetailPage.IsPresented = !masterDetailPage.IsPresented;
 			}
+			if (containerController.NavigationItem.LeftBarButtonItem != null)
+			{
+				if (masterDetailPage != null && !string.IsNullOrEmpty(masterDetailPage.AutomationId))
+					SetAutomationId(containerController.NavigationItem.LeftBarButtonItem, $"btn_{masterDetailPage.AutomationId}");
+#if __MOBILE__
+				containerController.NavigationItem.LeftBarButtonItem.SetAccessibilityHint(masterDetailPage);
+				containerController.NavigationItem.LeftBarButtonItem.SetAccessibilityLabel(masterDetailPage);
+#endif
+			}
 		}
 
 		static void SetAccessibilityHint(UIBarButtonItem uIBarButtonItem, Element element)
@@ -799,6 +814,31 @@ namespace Xamarin.Forms.Platform.iOS
 			uIBarButtonItem.AccessibilityLabel = (string)element.GetValue(AutomationProperties.NameProperty) ?? _defaultAccessibilityLabel;
 		}
 
+<<<<<<< HEAD
+		static void SetAccessibilityHint(UIBarButtonItem uIBarButtonItem, Element element)
+		{
+			if (element == null)
+				return;
+
+			if (_defaultAccessibilityHint == null)
+				_defaultAccessibilityHint = uIBarButtonItem.AccessibilityHint;
+
+			uIBarButtonItem.AccessibilityHint = (string)element.GetValue(AutomationProperties.HelpTextProperty) ?? _defaultAccessibilityHint;
+		}
+
+		static void SetAccessibilityLabel(UIBarButtonItem uIBarButtonItem, Element element)
+		{
+			if (element == null)
+				return;
+
+			if (_defaultAccessibilityLabel == null)
+				_defaultAccessibilityLabel = uIBarButtonItem.AccessibilityLabel;
+
+			uIBarButtonItem.AccessibilityLabel = (string)element.GetValue(AutomationProperties.NameProperty) ?? _defaultAccessibilityLabel;
+		}
+
+=======
+>>>>>>> Update from origin (#11)
 		static void SetIsAccessibilityElement(UIBarButtonItem uIBarButtonItem, Element element)
 		{
 			if (element == null)
@@ -1067,7 +1107,11 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 
 
+<<<<<<< HEAD
 			public bool NeedsTitleViewContainer(Page page) => NavigationPage.GetTitleIconImageSource(page) != null || NavigationPage.GetTitleView(page) != null;
+=======
+			public bool NeedsTitleViewContainer(Page page) => NavigationPage.GetTitleIcon(page) != null || NavigationPage.GetTitleView(page) != null;
+>>>>>>> Update from origin (#11)
 
 			internal void UpdateBackButtonTitle(Page page) => UpdateBackButtonTitle(page.Title, NavigationPage.GetBackButtonTitle(page));
 
@@ -1088,7 +1132,11 @@ namespace Xamarin.Forms.Platform.iOS
 				if (page == null)
 					return;
 
+<<<<<<< HEAD
 				ImageSource titleIcon = NavigationPage.GetTitleIconImageSource(page);
+=======
+				FileImageSource titleIcon = NavigationPage.GetTitleIcon(page);
+>>>>>>> Update from origin (#11)
 				View titleView = NavigationPage.GetTitleView(page);
 				bool needContainer = titleView != null || titleIcon != null;
 
@@ -1119,21 +1167,38 @@ namespace Xamarin.Forms.Platform.iOS
 				}
 			}
 
+<<<<<<< HEAD
 			async void UpdateTitleImage(Container titleViewContainer, ImageSource titleIcon)
+=======
+			async void UpdateTitleImage(Container titleViewContainer, FileImageSource titleIcon)
+>>>>>>> Update from origin (#11)
 			{
 				if (titleViewContainer == null)
 					return;
 
+<<<<<<< HEAD
 				if (titleIcon == null || titleIcon.IsEmpty)
+=======
+				if (string.IsNullOrWhiteSpace(titleIcon))
+>>>>>>> Update from origin (#11)
 				{
 					titleViewContainer.Icon = null;
 				}
 				else
 				{
+<<<<<<< HEAD
 					var image = await titleIcon.GetNativeImageAsync();
 					try
 					{
 						titleViewContainer.Icon = new UIImageView(image);
+=======
+					var source = Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(titleIcon);
+					var image = await source.LoadImageAsync(titleIcon);
+
+					try
+					{
+						titleViewContainer.Icon = new UIImageView(image) { };
+>>>>>>> Update from origin (#11)
 					}
 					catch
 					{
@@ -1350,7 +1415,11 @@ namespace Xamarin.Forms.Platform.iOS
 
 								break;
 							}
+<<<<<<< HEAD
 							else if (view.Class.Name == "UINavigationItemButtonView")
+=======
+							else if(view.Class.Name == "UINavigationItemButtonView")
+>>>>>>> Update from origin (#11)
 							{
 								if (view.Subviews.Length == 0)
 									NavBarLabel = null;
@@ -1383,6 +1452,7 @@ namespace Xamarin.Forms.Platform.iOS
 					TranslatesAutoresizingMaskIntoConstraints = true;
 					AutoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth;
 				}
+<<<<<<< HEAD
 
 				_bar = bar as FormsNavigationBar;
 				if (view != null)
@@ -1393,6 +1463,18 @@ namespace Xamarin.Forms.Platform.iOS
 					AddSubview(_child.NativeView);
 				}
 
+=======
+
+				_bar = bar as FormsNavigationBar;
+				if (view != null)
+				{
+					_view = view;
+					_child = Platform.CreateRenderer(view);
+					Platform.SetRenderer(view, _child);
+					AddSubview(_child.NativeView);
+				}
+
+>>>>>>> Update from origin (#11)
 				ClipsToBounds = true;
 			}
 
@@ -1474,6 +1556,7 @@ namespace Xamarin.Forms.Platform.iOS
 
 				if (_child?.Element != null)
 				{
+<<<<<<< HEAD
 					Rectangle layoutBounds = new Rectangle(IconWidth, 0, Bounds.Width - IconWidth, height);
 					if (_child.Element.Bounds != layoutBounds)
 						Layout.LayoutChildIntoBoundingRegion(_child.Element, layoutBounds);
@@ -1482,12 +1565,19 @@ namespace Xamarin.Forms.Platform.iOS
 				{
 					_icon.Center = new PointF(Superview.Frame.Width / 2 - Frame.X, Superview.Frame.Height / 2);
 				}
+=======
+					var layoutBounds = new Rectangle(IconWidth, 0, Bounds.Width - IconWidth, height);
+					if (_child.Element.Bounds != layoutBounds)
+						Layout.LayoutChildIntoBoundingRegion(_child.Element, layoutBounds);
+				}
+>>>>>>> Update from origin (#11)
 			}
 
 			protected override void Dispose(bool disposing)
 			{
 				if (disposing)
 				{
+<<<<<<< HEAD
 
 					if (_child != null)
 					{
@@ -1497,6 +1587,17 @@ namespace Xamarin.Forms.Platform.iOS
 						_child = null;
 					}
 
+=======
+
+					if (_child != null)
+					{
+						_child.Element?.DisposeModalAndChildRenderers();
+						_child.NativeView.RemoveFromSuperview();
+						_child.Dispose();
+						_child = null;
+					}
+
+>>>>>>> Update from origin (#11)
 					_view = null;
 
 					_icon?.Dispose();

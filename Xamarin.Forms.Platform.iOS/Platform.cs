@@ -11,9 +11,12 @@ using RectangleF = CoreGraphics.CGRect;
 namespace Xamarin.Forms.Platform.iOS
 {
 	public class Platform : BindableObject, INavigation, IDisposable
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+=======
+>>>>>>> Update from origin (#11)
 	{
 		internal static readonly BindableProperty RendererProperty = BindableProperty.CreateAttached("Renderer", typeof(IVisualElementRenderer), typeof(Platform), default(IVisualElementRenderer),
 			propertyChanged: (bindable, oldvalue, newvalue) =>
@@ -165,12 +168,15 @@ namespace Xamarin.Forms.Platform.iOS
 			EndEditing();
 
 			_modals.Add(modal);
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
+=======
+>>>>>>> Update from origin (#11)
 
 			modal.DescendantRemoved += HandleChildRemoved;
 
@@ -270,12 +276,15 @@ namespace Xamarin.Forms.Platform.iOS
 			if (_appeared == false)
 				return;
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;
@@ -291,12 +300,15 @@ namespace Xamarin.Forms.Platform.iOS
 			_renderer.View.BackgroundColor = UIColor.White;
 			_renderer.View.ContentMode = UIViewContentMode.Redraw;
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 				// The Platform property is no longer necessary, but we have to set it because some third-party
 				// library might still be retrieving it and using it
 				Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;

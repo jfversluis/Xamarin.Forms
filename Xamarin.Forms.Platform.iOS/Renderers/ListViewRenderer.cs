@@ -246,7 +246,10 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdateSeparatorColor();
 				UpdateSeparatorVisibility();
 				UpdateSelectionMode();
+<<<<<<< HEAD
 				UpdateSpinnerColor();
+=======
+>>>>>>> Update from origin (#11)
 				UpdateVerticalScrollBarVisibility();
 				UpdateHorizontalScrollBarVisibility();
 
@@ -286,8 +289,11 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdatePullToRefreshEnabled();
 			else if (e.PropertyName == Xamarin.Forms.ListView.SelectionModeProperty.PropertyName)
 				UpdateSelectionMode();
+<<<<<<< HEAD
 			else if (e.PropertyName == Xamarin.Forms.ListView.RefreshControlColorProperty.PropertyName)
 				UpdateSpinnerColor();
+=======
+>>>>>>> Update from origin (#11)
 			else if (e.PropertyName == ScrollView.VerticalScrollBarVisibilityProperty.PropertyName)
 				UpdateVerticalScrollBarVisibility();
 			else if (e.PropertyName == ScrollView.HorizontalScrollBarVisibilityProperty.PropertyName)
@@ -705,6 +711,7 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 		}
 
+<<<<<<< HEAD
 		void UpdateSpinnerColor()
 		{
 			var color = Element.RefreshControlColor;
@@ -713,6 +720,8 @@ namespace Xamarin.Forms.Platform.iOS
 				_tableViewController.UpdateRefreshControlColor(color == Color.Default ? null : color.ToUIColor());
 		}
 
+=======
+>>>>>>> Update from origin (#11)
 		void UpdateVerticalScrollBarVisibility()
 		{
 			if (_defaultVerticalScrollVisibility == null)

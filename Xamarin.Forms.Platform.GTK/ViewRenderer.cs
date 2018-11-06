@@ -16,6 +16,7 @@ namespace Xamarin.Forms.Platform.GTK
 		protected override void Dispose(bool disposing)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (Control != null)
 			{
 				Control.Destroy();
@@ -25,12 +26,18 @@ namespace Xamarin.Forms.Platform.GTK
 =======
 			base.Dispose(disposing);
 
+=======
+>>>>>>> Update from origin (#11)
 			if (Control != null)
 			{
-				Control.Dispose();
+				Control.Destroy();
 				Control = null;
 			}
+<<<<<<< HEAD
 >>>>>>> Update from origin (#8)
+=======
+			base.Dispose(disposing);
+>>>>>>> Update from origin (#11)
 		}
 
 		protected override void OnElementChanged(ElementChangedEventArgs<TView> e)

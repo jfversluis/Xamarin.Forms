@@ -98,6 +98,7 @@ You can find out how to obtain a Google Maps API key [here](https://developer.xa
 
 ##### Build from the Command line #####
 
+<<<<<<< HEAD
 Make sure you have nuget.exe 4.0 or above and the latest dotnet core sdk (2.0.3). On macOS you should specify the platform in the msbuild command (`/p:Platform=iPhoneSimulator`)
 
     msbuild /restore Xamarin.Forms.sln
@@ -112,6 +113,20 @@ To run the UWP UI Tests:
 2. Launch the `Xamarin.Forms.ControlGallery.WindowsUniversal` project to install the ControlGallery application onto your system.
 
 You should now be able to run any of the UWP UI Tests.
+=======
+     nuget restore Xamarin.Forms.sln
+     msbuild Xamarin.Forms.sln
+ 
+### UI Tests ###
+
+##### Run UWP UI Tests #####
+To run the UWP UI Tests:
+    
+1. Install and run the [Windows Application Driver](https://github.com/Microsoft/WinAppDriver#installing-and-running-windows-application-driver).
+2. Launch the `Xamarin.Forms.ControlGallery.WindowsUniversal` project to install the ControlGallery application onto your system.
+
+You should now be able to run any of the UWP UI Tests. 
+>>>>>>> Update from origin (#11)
 
 ## Coding Style ##
 

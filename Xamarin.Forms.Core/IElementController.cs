@@ -17,6 +17,7 @@ namespace Xamarin.Forms
 		ReadOnlyCollection<Element> LogicalChildren { get; }
 		Element RealParent { get; }
 		IEnumerable<Element> Descendants();
+<<<<<<< HEAD
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[Obsolete("IPlatform is obsolete as of 3.5.0. Do not use this property.")]
@@ -25,5 +26,7 @@ namespace Xamarin.Forms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[Obsolete("PlatformSet is obsolete as of 3.5.0. Do not use this event.")]
 		event EventHandler PlatformSet;
+=======
+>>>>>>> Update from origin (#11)
 	}
 }

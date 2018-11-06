@@ -20,7 +20,10 @@ using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 using Specifics = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.ListView;
 using System.Collections.ObjectModel;
 using UwpScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility;
+<<<<<<< HEAD
 using WSelectionChangedEventArgs = Windows.UI.Xaml.Controls.SelectionChangedEventArgs;
+=======
+>>>>>>> Update from origin (#11)
 
 namespace Xamarin.Forms.Platform.UWP
 {
@@ -41,6 +44,9 @@ namespace Xamarin.Forms.Platform.UWP
 =======
 		CollectionViewSource _collectionViewSource;
 >>>>>>> Update from origin (#8)
+
+		UwpScrollBarVisibility? _defaultHorizontalScrollVisibility;
+		UwpScrollBarVisibility? _defaultVerticalScrollVisibility;
 
 		protected WListView List { get; private set; }
 

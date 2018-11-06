@@ -432,7 +432,10 @@ namespace Xamarin.Forms.CustomAttributes
 			GroupShortNameBinding,
 			ScrollTo,
 			FastScroll,
+<<<<<<< HEAD
 			RefreshControlColor,
+=======
+>>>>>>> Update from origin (#11)
 			ScrollBarVisibility
 		}
 
@@ -714,8 +717,12 @@ namespace Xamarin.Forms.CustomAttributes
 
 		public enum Switch
 		{
+<<<<<<< HEAD
 			IsToggled,
 			OnColor
+=======
+			IsToggled
+>>>>>>> Update from origin (#11)
 		}
 
 		public enum CheckBox

@@ -29,6 +29,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			set
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				_source = value;
 				RefreshSource(_source);
 =======
@@ -38,6 +39,10 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 					RefreshSource(_source);
 				}
 >>>>>>> Update from origin (#8)
+=======
+				_source = value;
+				RefreshSource(_source);
+>>>>>>> Update from origin (#11)
 			}
 		}
 
@@ -65,10 +70,14 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int GetUnevenRowCellHeight(Container cell)
 =======
 		private int GetUnevenRowCellHeight(Gtk.Container cell)
 >>>>>>> Update from origin (#8)
+=======
+		int GetUnevenRowCellHeight(Container cell)
+>>>>>>> Update from origin (#11)
 		{
 			int height = -1;
 
@@ -83,10 +92,14 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Cell GetXamarinFormsCell(Container cell)
 =======
 		private Cell GetXamarinFormsCell(Container cell)
 >>>>>>> Update from origin (#8)
+=======
+		Cell GetXamarinFormsCell(Container cell)
+>>>>>>> Update from origin (#11)
 		{
 			try
 			{
@@ -104,10 +117,14 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void BuildTableView()
 =======
 		private void BuildTableView()
 >>>>>>> Update from origin (#8)
+=======
+		void BuildTableView()
+>>>>>>> Update from origin (#11)
 		{
 			CanFocus = true;
 			ShadowType = ShadowType.None;
@@ -118,15 +135,21 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_root = new VBox(false, 0);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 			Viewport viewPort = new Viewport
 			{
 				ShadowType = ShadowType.None
 			};
 
+<<<<<<< HEAD
 =======
 			Viewport viewPort = new Viewport();
 			viewPort.ShadowType = ShadowType.None;
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 			viewPort.Add(_root);
 
 			Add(viewPort);
@@ -134,6 +157,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_cells = new List<Container>();
 		}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		void RefreshSource(TableRoot source)
 		{
@@ -150,11 +174,26 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			{
 =======
 		private void RefreshSource(TableRoot source)
+=======
+		void RefreshSource(TableRoot source)
+>>>>>>> Update from origin (#11)
 		{
+			// Clear
+			_cells.Clear();
+
+			foreach (var child in _root.AllChildren)
+			{
+				_root.RemoveFromContainer((Widget)child);
+			}
+
+			// Add Title
 			if (!string.IsNullOrEmpty(source.Title))
 			{
+<<<<<<< HEAD
 				// Add Title
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 				var titleSpan = new Span()
 				{
 					FontSize = 16,
@@ -171,12 +210,16 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			for (int i = 0; i < source.Count; i++)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if (source[i] is TableSection tableSection)
 =======
 				var tableSection = source[i] as TableSection;
 
 				if (tableSection != null)
 >>>>>>> Update from origin (#8)
+=======
+				if (source[i] is TableSection tableSection)
+>>>>>>> Update from origin (#11)
 				{
 					var tableSectionSpan = new Span()
 					{
@@ -197,15 +240,21 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 					// Table Section Separator
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 					EventBox separator = new EventBox
 					{
 						HeightRequest = 1
 					};
 
+<<<<<<< HEAD
 =======
 					EventBox separator = new EventBox();
 					separator.HeightRequest = 1;
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 					separator.ModifyBg(StateType.Normal, Color.Black.ToGtkColor());
 					_root.PackStart(separator, false, false, 0);
 
@@ -225,12 +274,16 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 							nativeCell.ButtonPressEvent += (sender, args) =>
 							{
 <<<<<<< HEAD
+<<<<<<< HEAD
 								if (sender is CellBase gtkCell && gtkCell.Cell != null)
 =======
 								var gtkCell = sender as CellBase;
 
 								if (gtkCell != null && gtkCell.Cell != null)
 >>>>>>> Update from origin (#8)
+=======
+								if (sender is CellBase gtkCell && gtkCell.Cell != null)
+>>>>>>> Update from origin (#11)
 								{
 									var selectedCell = gtkCell.Cell;
 
@@ -247,11 +300,17 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 					}
 				}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 				// Refresh
 				_root.ShowAll();
 =======
 >>>>>>> Update from origin (#8)
+=======
+
+				// Refresh
+				_root.ShowAll();
+>>>>>>> Update from origin (#11)
 			}
 		}
 	}

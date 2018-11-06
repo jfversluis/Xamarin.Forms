@@ -72,12 +72,15 @@ namespace Xamarin.Forms.Platform.MacOS
 
 		Task INavigation.PushModalAsync(Page modal, bool animated)
 		{
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 				// The Platform property is no longer necessary, but we have to set it because some third-party
 				// library might still be retrieving it and using it
 				modal.Platform = _platformRenderer.Platform;
 #pragma warning restore CS0618 // Type or member is obsolete
 			
+=======
+>>>>>>> Update from origin (#11)
 			return _modalTracker.PushAsync(modal, _animateModals && animated);
 		}
 

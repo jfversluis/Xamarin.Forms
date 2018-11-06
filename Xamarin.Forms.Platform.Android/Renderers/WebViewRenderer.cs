@@ -216,13 +216,19 @@ namespace Xamarin.Forms.Platform.Android
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 		void OnReloadRequested(object sender, EventArgs eventArgs)
 		{
 			Control.Reload();
 		}
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 		protected internal void UpdateCanGoBackForward()
 		{
 			if (Element == null || Control == null)

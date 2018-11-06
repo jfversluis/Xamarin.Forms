@@ -26,6 +26,9 @@ namespace Xamarin.Forms.Platform.iOS
 		bool UsingSafeArea => (Forms.IsiOS11OrNewer) ? Page.On<PlatformConfiguration.iOS>().UsingSafeArea() : false;
 		Thickness SafeAreaInsets => Page.On<PlatformConfiguration.iOS>().SafeAreaInsets();
 
+		bool UsingSafeArea => (Forms.IsiOS11OrNewer) ? Page.On<PlatformConfiguration.iOS>().UsingSafeArea() : false;
+		Thickness SafeAreaInsets => Page.On<PlatformConfiguration.iOS>().SafeAreaInsets();
+
 		public PageRenderer()
 		{
 		}
@@ -154,11 +157,20 @@ namespace Xamarin.Forms.Platform.iOS
 			if (Page != null && Forms.IsiOS11OrNewer)
 			{
 				var insets = NativeView.SafeAreaInsets;
+<<<<<<< HEAD
 				if (Page.Parent is TabbedPage)
 				{
 					insets.Bottom = 0;
 				}
 				Page.On<PlatformConfiguration.iOS>().SetSafeAreaInsets(new Thickness(insets.Left, insets.Top, insets.Right, insets.Bottom));
+=======
+				if (page.Parent is TabbedPage)
+				{
+					insets.Bottom = 0;
+				}
+				page.On<PlatformConfiguration.iOS>().SetSafeAreaInsets(new Thickness(insets.Left, insets.Top, insets.Right, insets.Bottom));
+
+>>>>>>> Update from origin (#11)
 			}
 
 			base.ViewSafeAreaInsetsDidChange();
@@ -298,8 +310,11 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdateUseSafeArea();
 			else if (Forms.IsiOS11OrNewer && e.PropertyName == PlatformConfiguration.iOSSpecific.Page.SafeAreaInsetsProperty.PropertyName)
 				UpdateUseSafeArea();
+<<<<<<< HEAD
 			else if (e.PropertyName == PlatformConfiguration.iOSSpecific.Page.PrefersHomeIndicatorAutoHiddenProperty.PropertyName)
 				UpdateHomeIndicatorAutoHidden();
+=======
+>>>>>>> Update from origin (#11)
 		}
 
 		public override UIKit.UIStatusBarAnimation PreferredStatusBarUpdateAnimation
@@ -320,6 +335,7 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 		}
 
+<<<<<<< HEAD
 		void IAccessibilityElementsController.ResetAccessibilityElements()
 		{
 			Container?.ClearAccessibilityElements();
@@ -329,6 +345,11 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			if (!Forms.IsiOS11OrNewer)
 				return;
+=======
+		void UpdateUseSafeArea()
+		{
+			if (!Forms.IsiOS11OrNewer) return;
+>>>>>>> Update from origin (#11)
 
 			if (!UsingSafeArea)
 			{
@@ -342,6 +363,7 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 		}
 
+<<<<<<< HEAD
 		void UpdateShellInsetPadding()
 		{
 			if (!(Element?.Parent is ShellContent))
@@ -364,6 +386,8 @@ namespace Xamarin.Forms.Platform.iOS
 			Page.Padding = new Thickness(0, topPadding, 0, bottomPadding);
 		}
 
+=======
+>>>>>>> Update from origin (#11)
 		void UpdateStatusBarPrefersHidden()
 		{
 			if (Element == null)

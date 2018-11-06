@@ -10,8 +10,11 @@ using Windows.UI.Xaml.Media;
 using Xamarin.Forms.Internals;
 using WImageSource = Windows.UI.Xaml.Media.ImageSource;
 using UwpScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility;
+<<<<<<< HEAD
 using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+=======
+>>>>>>> Update from origin (#11)
 
 namespace Xamarin.Forms.Platform.UWP
 {

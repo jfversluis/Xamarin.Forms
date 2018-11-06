@@ -30,8 +30,12 @@
 			return color == Color.Transparent || color == Color.Default;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Update from origin (#8)
+=======
+
+>>>>>>> Update from origin (#11)
 	}
 }

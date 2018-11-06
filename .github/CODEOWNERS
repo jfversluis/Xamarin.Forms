@@ -37,6 +37,9 @@
 # XAML
 /Xamarin.Forms.Xaml/ @StephaneDelcroix
 /Xamarin.Forms.Build.Tasks/ @StephaneDelcroix
+<<<<<<< HEAD
 
 # Core
 /Xamarin.Forms.Core/ @StephaneDelcroix
+=======
+>>>>>>> Update from origin (#11)

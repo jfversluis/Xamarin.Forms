@@ -205,8 +205,13 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdateKeyboard();
 			else if (e.PropertyName == Editor.IsTextPredictionEnabledProperty.PropertyName)
 				UpdateKeyboard();
+<<<<<<< HEAD
 			else if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName || e.PropertyName == Xamarin.Forms.InputView.IsReadOnlyProperty.PropertyName)
 				UpdateUserInteraction();
+=======
+			else if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName)
+				UpdateEditable();
+>>>>>>> Update from origin (#11)
 			else if (e.PropertyName == Editor.TextColorProperty.PropertyName)
 				UpdateTextColor();
 			else if (e.PropertyName == Editor.FontAttributesProperty.PropertyName)
@@ -269,27 +274,44 @@ namespace Xamarin.Forms.Platform.iOS
 		protected internal virtual void UpdateFont()
 		{
 			var font = Element.ToUIFont();
+<<<<<<< HEAD
 			TextView.Font = font;
+=======
+			Control.Font = font;
+			_placeholderLabel.Font = font;
+>>>>>>> Update from origin (#11)
 		}
 
 		void UpdateKeyboard()
 		{
 			var keyboard = Element.Keyboard;
+<<<<<<< HEAD
 			TextView.ApplyKeyboard(keyboard);
+=======
+			Control.ApplyKeyboard(keyboard);
+>>>>>>> Update from origin (#11)
 			if (!(keyboard is Internals.CustomKeyboard))
 			{
 				if (Element.IsSet(Xamarin.Forms.InputView.IsSpellCheckEnabledProperty))
 				{
 					if (!Element.IsSpellCheckEnabled)
 					{
+<<<<<<< HEAD
 						TextView.SpellCheckingType = UITextSpellCheckingType.No;
+=======
+						Control.SpellCheckingType = UITextSpellCheckingType.No;
+>>>>>>> Update from origin (#11)
 					}
 				}
 				if (Element.IsSet(Editor.IsTextPredictionEnabledProperty))
 				{
 					if (!Element.IsTextPredictionEnabled)
 					{
+<<<<<<< HEAD
 						TextView.AutocorrectionType = UITextAutocorrectionType.No;
+=======
+						Control.AutocorrectionType = UITextAutocorrectionType.No;
+>>>>>>> Update from origin (#11)
 					}
 				}
 			}

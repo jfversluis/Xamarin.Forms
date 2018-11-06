@@ -50,10 +50,14 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("color", typeof(ProgressBar), nameof(ProgressBar.ProgressColorProperty))]
 [assembly: StyleProperty("color", typeof(Switch), nameof(Switch.OnColorProperty))]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: StyleProperty("column-gap", typeof(Grid), nameof(Grid.ColumnSpacingProperty))]
 =======
 [assembly: StyleProperty("column-gap", typeof(Grid), nameof(Grid.RowSpacingProperty))]
 >>>>>>> Update from origin (#8)
+=======
+[assembly: StyleProperty("column-gap", typeof(Grid), nameof(Grid.ColumnSpacingProperty))]
+>>>>>>> Update from origin (#11)
 [assembly: StyleProperty("direction", typeof(VisualElement), nameof(VisualElement.FlowDirectionProperty), Inherited = true)]
 [assembly: StyleProperty("font-family", typeof(IFontElement), nameof(FontElement.FontFamilyProperty), Inherited = true)]
 [assembly: StyleProperty("font-size", typeof(IFontElement), nameof(FontElement.FontSizeProperty), Inherited = true)]

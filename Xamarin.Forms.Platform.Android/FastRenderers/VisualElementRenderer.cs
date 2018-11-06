@@ -42,6 +42,10 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 			_effectControlProvider.RegisterEffect(effect);
 		}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Update from origin (#11)
 		void UpdateFlowDirection()
 		{
 			if (_disposed)

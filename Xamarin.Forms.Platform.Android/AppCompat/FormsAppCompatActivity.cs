@@ -143,7 +143,19 @@ namespace Xamarin.Forms.Platform.Android
 
 			application.PropertyChanged += AppOnPropertyChanged;
 
+<<<<<<< HEAD
 			Profile.FramePartition(nameof(SetMainPage));
+=======
+			if (application?.MainPage != null)
+			{
+				var iver = Android.Platform.GetRenderer(application.MainPage);
+				if (iver != null)
+				{
+					iver.Dispose();
+					application.MainPage.ClearValue(Android.Platform.RendererProperty);
+				}
+			}
+>>>>>>> Update from origin (#11)
 
 			SetMainPage();
 
@@ -210,7 +222,10 @@ namespace Xamarin.Forms.Platform.Android
 				_application.PropertyChanged -= AppOnPropertyChanged;
 
 			PopupManager.Unsubscribe(this);
+<<<<<<< HEAD
 
+=======
+>>>>>>> Update from origin (#11)
 			Platform?.Dispose();
 
 			// call at the end to avoid race conditions with Platform dispose
@@ -348,7 +363,11 @@ namespace Xamarin.Forms.Platform.Android
 			PopupManager.ResetBusyCount(this);
 
 			Platform = new AppCompat.Platform(this);
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> Update from origin (#11)
 			Platform.SetPage(page);
 			_layout.AddView(Platform);
 			_layout.BringToFront();

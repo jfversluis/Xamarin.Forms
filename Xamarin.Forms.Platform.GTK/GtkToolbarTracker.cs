@@ -168,8 +168,12 @@ namespace Xamarin.Forms.Platform.GTK
 				e.PropertyName.Equals(Page.IconProperty.PropertyName))
 				UpdateToolBar();
 		}
+<<<<<<< HEAD
 		
 >>>>>>> Update from origin (#8)
+=======
+
+>>>>>>> Update from origin (#11)
 		private string GetCurrentPageTitle()
 		{
 			if (_navigation == null)
@@ -192,6 +196,7 @@ namespace Xamarin.Forms.Platform.GTK
 			if (Navigation != null)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				page?.SetToolbarColor(Navigation.BarBackgroundColor);
 =======
 				if (Navigation.BarBackgroundColor.IsDefaultOrTransparent())
@@ -204,6 +209,9 @@ namespace Xamarin.Forms.Platform.GTK
 					page?.SetToolbarColor(backgroundColor);
 				}
 >>>>>>> Update from origin (#8)
+=======
+				page?.SetToolbarColor(Navigation.BarBackgroundColor);
+>>>>>>> Update from origin (#11)
 			}
 		}
 
@@ -244,9 +252,13 @@ namespace Xamarin.Forms.Platform.GTK
 			foreach (var child in _toolbarSection.Children)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				child.Destroy();
 =======
 >>>>>>> Update from origin (#8)
+=======
+				child.Destroy();
+>>>>>>> Update from origin (#11)
 				_toolbarSection.Remove(child);
 			}
 
@@ -417,6 +429,7 @@ namespace Xamarin.Forms.Platform.GTK
 			if (NavigationPage.GetHasNavigationBar(currentPage))
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if (_toolbar == null)
 				{
 					_toolbar = ConfigureToolbar();
@@ -435,15 +448,28 @@ namespace Xamarin.Forms.Platform.GTK
 				_toolbar = ConfigureToolbar();
 
 				_toolbarIcon = new ImageControl
+=======
+				if (_toolbar == null)
+>>>>>>> Update from origin (#11)
 				{
-					WidthRequest = 1,
-					Aspect = ImageAspect.AspectFit
-				};
-				_toolbarTitleSection.PackStart(_toolbarIcon, false, false, 8);
+					_toolbar = ConfigureToolbar();
 
+					_toolbarIcon = new ImageControl
+					{
+						WidthRequest = 1,
+						Aspect = ImageAspect.AspectFit
+					};
+					_toolbarTitleSection.PackStart(_toolbarIcon, false, false, 8);
+
+<<<<<<< HEAD
 				_toolbarTitle = new Gtk.Label();
 				_toolbarTitleSection.PackEnd(_toolbarTitle, true, true, 0);
 >>>>>>> Update from origin (#8)
+=======
+					_toolbarTitle = new Gtk.Label();
+					_toolbarTitleSection.PackEnd(_toolbarTitle, true, true, 0);
+				}
+>>>>>>> Update from origin (#11)
 
 				FindParentMasterDetail();
 

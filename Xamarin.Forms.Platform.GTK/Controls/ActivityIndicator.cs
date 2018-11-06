@@ -4,6 +4,7 @@ using System;
 namespace Xamarin.Forms.Platform.GTK.Controls
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public class ActivityIndicator : GtkFormsContainer
 	{
 		private const int DefaultHeight = 48;
@@ -20,11 +21,22 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 		private ActivityIndicatorDrawingArea _activityIndicator;
 >>>>>>> Update from origin (#8)
+=======
+	public class ActivityIndicator : GtkFormsContainer
+	{
+		private const int DefaultHeight = 48;
+		private const int DefaultWidth = 48;
+		private const int Lines = 8;
+		private bool _running;
+		private int _current;
+		private Color _color;
+>>>>>>> Update from origin (#11)
 
 		public ActivityIndicator()
 		{
 			HeightRequest = DefaultHeight;
 			WidthRequest = DefaultWidth;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -167,6 +179,8 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		{
 			get { return (_running); }
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 		}
 
 		public void Start()
@@ -182,6 +196,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			QueueDraw();
 		}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		public void UpdateColor(Color color)
 		{
@@ -206,15 +221,24 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 			return (true);
 >>>>>>> Update from origin (#8)
+=======
+		public void UpdateColor(Color color)
+		{
+            _color = color;
+>>>>>>> Update from origin (#11)
 		}
 
 		private bool ExposeTimeoutHandler()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (_current + 1 > Lines)
 =======
 			if (_current + 1 > _lines)
 >>>>>>> Update from origin (#8)
+=======
+			if (_current + 1 > Lines)
+>>>>>>> Update from origin (#11)
 			{
 				_current = 0;
 			}
@@ -226,6 +250,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			return (_running);
 		}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		protected override void Draw(Gdk.Rectangle area, Context cr)
 		{
@@ -245,11 +270,16 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			cr.Restore();
 
 >>>>>>> Update from origin (#8)
+=======
+		protected override void Draw(Gdk.Rectangle area, Context cr)
+		{
+>>>>>>> Update from origin (#11)
 			// Draw Activity Indicator
 			double radius;
 			double half;
 			double x, y;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			x = Allocation.Width / 2;
 			y = Allocation.Height / 2;
@@ -268,19 +298,22 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 =======
 			x = Allocation.X + Width / 2;
 			y = Allocation.Y + _height / 2;
+=======
+			x = Allocation.Width / 2;
+			y = Allocation.Height / 2;
+>>>>>>> Update from origin (#11)
 
-			radius = Math.Min(
-				Width / 2,
-				_height / 2);
+			radius = Math.Min(x, y);
 
-			half = _lines / 2;
+			half = Lines / 2;
 
-			for (int i = 0; i < _lines; i++)
+			for (int i = 0; i < Lines; i++)
 			{
-				double move = (double)((i + _lines - _current) % _lines) / _lines;
+				double move = (double)((i + Lines - _current) % Lines) / Lines;
 				double inset = 0.5 * radius;
 
 				cr.Save();
+<<<<<<< HEAD
 
 				var cairoColor = new Cairo.Color(
 					(double)Color.Red / ushort.MaxValue,
@@ -290,6 +323,9 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 				cr.SetSourceRGBA(cairoColor.R, cairoColor.G, cairoColor.B, move);
 
 >>>>>>> Update from origin (#8)
+=======
+				cr.SetSourceRGBA(_color.R, _color.G, _color.B, move);
+>>>>>>> Update from origin (#11)
 				cr.LineWidth *= 2;
 				cr.MoveTo(move + x + (radius - inset) * Math.Cos(i * Math.PI / half),
 						  move + y + (radius - inset) * Math.Sin(i * Math.PI / half));

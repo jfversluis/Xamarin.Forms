@@ -7,9 +7,12 @@ using Xamarin.Forms.Internals;
 namespace Xamarin.Forms.Platform.MacOS
 {
 	public class Platform : BindableObject, IDisposable
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+=======
+>>>>>>> Update from origin (#11)
 	{
 		internal static readonly BindableProperty RendererProperty = BindableProperty.CreateAttached("Renderer",
 			typeof(IVisualElementRenderer), typeof(Platform), default(IVisualElementRenderer),
@@ -161,12 +164,15 @@ namespace Xamarin.Forms.Platform.MacOS
 			if (_appeared == false)
 				return;
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;
@@ -186,12 +192,15 @@ namespace Xamarin.Forms.Platform.MacOS
 			if (_appeared)
 				return;
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;

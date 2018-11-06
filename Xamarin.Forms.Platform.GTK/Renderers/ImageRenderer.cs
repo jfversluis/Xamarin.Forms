@@ -11,10 +11,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 	public class ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		bool _isDisposed;
 =======
 		private bool _isDisposed;
 >>>>>>> Update from origin (#8)
+=======
+		bool _isDisposed;
+>>>>>>> Update from origin (#11)
 
 		protected override void Dispose(bool disposing)
 		{
@@ -73,10 +77,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		async void SetImage(Image oldElement = null)
 =======
 		private async void SetImage(Image oldElement = null)
 >>>>>>> Update from origin (#8)
+=======
+		async void SetImage(Image oldElement = null)
+>>>>>>> Update from origin (#11)
 		{
 			var source = Element.Source;
 
@@ -149,8 +157,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				((IImageController)Element).SetIsLoading(false);
 		}
 
+<<<<<<< HEAD
 		private void SetAspect()
 >>>>>>> Update from origin (#8)
+=======
+		void SetAspect()
+>>>>>>> Update from origin (#11)
 		{
 			switch (Element.Aspect)
 			{
@@ -169,10 +181,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void SetOpacity()
 =======
 		private void SetOpacity()
 >>>>>>> Update from origin (#8)
+=======
+		void SetOpacity()
+>>>>>>> Update from origin (#11)
 		{
 			var opacity = Element.Opacity;
 

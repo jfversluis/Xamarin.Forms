@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 ﻿using Windows.ApplicationModel.Core;
 using System;
 using Windows.UI.Xaml.Media;
+=======
+﻿using Windows.UI.Xaml.Media;
+>>>>>>> Update from origin (#11)
 using Xamarin.Forms.Internals;
 
 namespace Xamarin.Forms.Platform.UWP
 {
 	internal class WindowsTicker : Ticker
 	{
+<<<<<<< HEAD
 		[ThreadStatic]
 		static Ticker s_ticker;
 
+=======
+>>>>>>> Update from origin (#11)
 		protected override void DisableTimer()
 		{
 			CompositionTarget.Rendering -= RenderingFrameEventHandler;
@@ -23,6 +30,7 @@ namespace Xamarin.Forms.Platform.UWP
 		void RenderingFrameEventHandler(object sender, object args)
 		{
 			SendSignals();
+<<<<<<< HEAD
 		}
 
 		protected override Ticker GetTickerInstance()
@@ -40,6 +48,8 @@ namespace Xamarin.Forms.Platform.UWP
 			}
 
 			return base.GetTickerInstance();
+=======
+>>>>>>> Update from origin (#11)
 		}
 	}
 }

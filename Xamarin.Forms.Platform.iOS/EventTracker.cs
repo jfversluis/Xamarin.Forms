@@ -221,11 +221,17 @@ namespace Xamarin.Forms.Platform.MacOS
 				var recognizers = childGestures?.GetChildGesturesFor<TapGestureRecognizer>(x => x.NumberOfTapsRequired == (int)sender.NumberOfTapsRequired);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if(recognizers == null)
 					return;
 
 =======
 >>>>>>> Update from origin (#8)
+=======
+				if(recognizers == null)
+					return;
+
+>>>>>>> Update from origin (#11)
 				var tapGestureRecognizer = ((ChildGestureRecognizer)weakRecognizer.Target).GestureRecognizer as TapGestureRecognizer;
 				foreach (var item in recognizers)
 					if (item == tapGestureRecognizer && view != null)

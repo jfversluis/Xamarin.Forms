@@ -154,11 +154,15 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		{
 			Helpers.GrabHelper.RemoveGrab(this);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Destroy();
 =======
 			this.Dispose();
 			this.Destroy();
 >>>>>>> Update from origin (#8)
+=======
+			Destroy();
+>>>>>>> Update from origin (#11)
 		}
 
 		private void NotifyDateChanged()

@@ -6,6 +6,7 @@ using Xamarin.Forms.Core.UnitTests;
 
 namespace Xamarin.Forms.Xaml.UnitTests
 {
+<<<<<<< HEAD
 	public class Gh4215VM
 	{
 		public static implicit operator DateTime(Gh4215VM value) => DateTime.UtcNow;
@@ -16,6 +17,18 @@ namespace Xamarin.Forms.Xaml.UnitTests
 	
 	public partial class Gh4215 : ContentPage
 	{
+=======
+	public partial class Gh4215 : ContentPage
+	{
+		public class Gh4215VM
+		{
+			public static implicit operator DateTime(Gh4215VM value) => DateTime.UtcNow;
+			public static implicit operator string(Gh4215VM value) => "foo";
+			public static implicit operator long(Gh4215VM value) => long.MaxValue;
+			public static implicit operator Rectangle(Gh4215VM value) => new Rectangle();
+		}
+
+>>>>>>> Update from origin (#11)
 		public Gh4215()
 		{
 			InitializeComponent();
@@ -44,7 +57,11 @@ namespace Xamarin.Forms.Xaml.UnitTests
 			[TestCase(true), TestCase(false)]
 			public void AvoidAmbiguousMatch(bool useCompiledXaml)
 			{
+<<<<<<< HEAD
 				var layout = new Gh4215(useCompiledXaml);
+=======
+				var layout = new Gh4215();
+>>>>>>> Update from origin (#11)
 				Assert.DoesNotThrow(() => layout.BindingContext = new Gh4215VM());
 				Assert.That(layout.l0.Text, Is.EqualTo("foo"));
 			}

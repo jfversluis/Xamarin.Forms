@@ -10,9 +10,12 @@ using Xamarin.Forms.Platform.WPF.Controls;
 namespace Xamarin.Forms.Platform.WPF
 {
 	public class Platform : BindableObject, INavigation
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+=======
+>>>>>>> Update from origin (#11)
 	{
 		readonly FormsApplicationPage _page;
 		Page Page { get; set; }
@@ -164,6 +167,7 @@ namespace Xamarin.Forms.Platform.WPF
 				return;
 
 			Page = newRoot;
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -171,6 +175,8 @@ namespace Xamarin.Forms.Platform.WPF
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			_page.StartupPage = Page;
 			Application.Current.NavigationProxy.Inner = this;
 		}
@@ -244,6 +250,7 @@ namespace Xamarin.Forms.Platform.WPF
 				throw new ArgumentNullException(nameof(page));
 
 			var tcs = new TaskCompletionSource<bool>();
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 				// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -251,6 +258,8 @@ namespace Xamarin.Forms.Platform.WPF
 				page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			_page.PushModal(page, animated);
 			tcs.SetResult(true);
 			return tcs.Task;

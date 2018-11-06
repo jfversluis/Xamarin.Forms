@@ -95,10 +95,18 @@ namespace Xamarin.Forms.Platform.MacOS
 
 			if (e.NewElement != null)
 			{
+<<<<<<< HEAD
 				if (Control == null)
 				{
 					CreateControl();
 				}
+=======
+				CreateControl();
+			}
+
+			if (e.NewElement != null)
+			{
+>>>>>>> Update from origin (#11)
 				UpdateControl();
 			}
 		}
@@ -152,11 +160,62 @@ namespace Xamarin.Forms.Platform.MacOS
 			{
 				_disposed = true;
 				ClearControl();
+<<<<<<< HEAD
+=======
 			}
 
 			base.Dispose(disposing);
 		}
 
+		void CreateControl()
+		{
+			NSTextField textField;
+			if (Element.IsPassword)
+				textField = new NSSecureTextField();
+			else
+			{
+				textField = new FormsNSTextField();
+				(textField as FormsNSTextField).FocusChanged += TextFieldFocusChanged;
+				(textField as FormsNSTextField).Completed += OnCompleted;
+			}
+
+			SetNativeControl(textField);
+
+			_defaultTextColor = textField.TextColor;
+
+			textField.Changed += OnChanged;
+			textField.EditingBegan += OnEditingBegan;
+			textField.EditingEnded += OnEditingEnded;
+		}
+
+		void ClearControl()
+		{
+			if (Control != null)
+			{
+				Control.EditingBegan -= OnEditingBegan;
+				Control.Changed -= OnChanged;
+				Control.EditingEnded -= OnEditingEnded;
+				var formsNSTextField = (Control as FormsNSTextField);
+				if (formsNSTextField != null)
+				{
+					formsNSTextField.FocusChanged -= TextFieldFocusChanged;
+					formsNSTextField.Completed -= OnCompleted;
+				}
+>>>>>>> Update from origin (#11)
+			}
+		}
+
+		void UpdateControl()
+		{
+			UpdatePlaceholder();
+			UpdateText();
+			UpdateColor();
+			UpdateFont();
+			UpdateAlignment();
+			UpdateMaxLength();
+		}
+
+<<<<<<< HEAD
 		void CreateControl()
 		{
 			NSTextField textField;
@@ -205,6 +264,8 @@ namespace Xamarin.Forms.Platform.MacOS
 			UpdateIsReadOnly();
         }
 
+=======
+>>>>>>> Update from origin (#11)
 		void TextFieldFocusChanged(object sender, BoolEventArgs e)
 		{
 			ElementController.SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, e.Value);

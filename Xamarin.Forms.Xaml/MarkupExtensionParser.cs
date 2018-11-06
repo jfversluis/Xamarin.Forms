@@ -60,6 +60,7 @@ namespace Xamarin.Forms.Xaml
 					return;
 				try {
 					setter = t.GetRuntimeProperty(prop).SetMethod;
+<<<<<<< HEAD
 				}
 				catch (AmbiguousMatchException e) {
 					throw new XamlParseException($"Multiple properties with name  '{t}.{prop}' found.", serviceProvider, innerException: e);
@@ -83,6 +84,31 @@ namespace Xamarin.Forms.Xaml
 				}
 				catch (AmbiguousMatchException e) {
 					throw new XamlParseException($"Multiple properties with name  '{markupExtension.GetType()}.{prop}' found.", serviceProvider, innerException: e);
+=======
+				} catch (AmbiguousMatchException e) {
+					var lineInfo = (serviceProvider.GetService(typeof(IXmlLineInfoProvider)) is IXmlLineInfoProvider lineInfoProvider) ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
+					throw new XamlParseException($"Multiple properties with name  '{t}.{prop}' found.", lineInfo, innerException: e);
+				}
+			}
+			else {
+				try
+				{
+					setter = markupExtension.GetType().GetRuntimeProperty(prop).SetMethod;
+				} catch (AmbiguousMatchException e) {
+					var lineInfo = (serviceProvider.GetService(typeof(IXmlLineInfoProvider)) is IXmlLineInfoProvider lineInfoProvider) ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
+					throw new XamlParseException($"Multiple properties with name  '{markupExtension.GetType()}.{prop}' found.", lineInfo, innerException: e);
+				}
+
+			}
+			if (value == null && strValue != null)
+			{
+				try {
+					value = strValue.ConvertTo(markupExtension.GetType().GetRuntimeProperty(prop).PropertyType,
+						(Func<TypeConverter>)null, serviceProvider);
+				} catch (AmbiguousMatchException e) {
+					var lineInfo = (serviceProvider.GetService(typeof(IXmlLineInfoProvider)) is IXmlLineInfoProvider lineInfoProvider) ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
+					throw new XamlParseException($"Multiple properties with name  '{markupExtension.GetType()}.{prop}' found.", lineInfo, innerException: e);
+>>>>>>> Update from origin (#11)
 				}
 			}
 

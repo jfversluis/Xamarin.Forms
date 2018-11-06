@@ -103,8 +103,13 @@ namespace Xamarin.Forms
 
 		public event EventHandler CanExecuteChanged
 		{
+<<<<<<< HEAD
 			add { _weakEventManager.AddEventHandler(value); }
 			remove { _weakEventManager.RemoveEventHandler(value); }
+=======
+			add { _weakEventManager.AddEventHandler(nameof(CanExecuteChanged), value); }
+			remove { _weakEventManager.RemoveEventHandler(nameof(CanExecuteChanged), value); }
+>>>>>>> Update from origin (#11)
 		}
 
 		public void Execute(object parameter)

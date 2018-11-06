@@ -33,17 +33,23 @@ namespace Xamarin.Forms.Platform.MacOS
 
 		public VisualElementTracker(IVisualElementRenderer renderer) : this(renderer, true)
 		{
+<<<<<<< HEAD
 		}
 
 		public VisualElementTracker(IVisualElementRenderer renderer, bool trackFrame)
 		{
+=======
+>>>>>>> Update from origin (#11)
 			Renderer = renderer ?? throw new ArgumentNullException("renderer");
 
 			_propertyChangedHandler = HandlePropertyChanged;
 			_sizeChangedEventHandler = HandleSizeChanged;
 			_batchCommittedHandler = HandleRedrawNeeded;
 
+<<<<<<< HEAD
 			TrackFrame = trackFrame;
+=======
+>>>>>>> Update from origin (#11)
 			renderer.ElementChanged += OnRendererElementChanged;
 			SetElement(null, renderer.Element);
 		}

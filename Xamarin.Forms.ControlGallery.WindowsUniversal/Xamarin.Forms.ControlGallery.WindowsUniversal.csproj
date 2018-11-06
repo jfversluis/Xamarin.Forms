@@ -138,7 +138,10 @@
     <Content Include="crimson.jpg" />
     <Content Include="crimsonsmall.jpg" />
     <Content Include="default.css" />
+<<<<<<< HEAD
     <Content Include="FlowerBuds.jpg" />
+=======
+>>>>>>> Update from origin (#11)
     <Content Include="Fruits.jpg" />
     <Content Include="invalidimage.jpg" />
     <Content Include="Legumes.jpg" />

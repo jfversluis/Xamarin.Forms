@@ -8,9 +8,13 @@ using AView = Android.Views.View;
 using Xamarin.Forms.Platform.Android.FastRenderers;
 using Android.Runtime;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using Android.Support.V4.View;
 =======
 >>>>>>> Update from origin (#8)
+=======
+using Android.Support.V4.View;
+>>>>>>> Update from origin (#11)
 
 namespace Xamarin.Forms.Platform.Android
 {

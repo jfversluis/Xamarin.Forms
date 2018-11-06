@@ -80,9 +80,12 @@ namespace Xamarin.Forms.Platform.Tizen
 
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public interface ITizenPlatform : IDisposable
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 		, IPlatform
 #pragma warning restore CS0618 // Type or member is obsolete
+=======
+>>>>>>> Update from origin (#11)
 	{
 		void SetPage(Page page);
 		bool SendBackButtonPressed();
@@ -174,12 +177,15 @@ namespace Xamarin.Forms.Platform.Tizen
 			_navModel.Push(newRoot, null);
 
 			Page = newRoot;
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
+=======
+>>>>>>> Update from origin (#11)
 
 			IVisualElementRenderer pageRenderer = Platform.CreateRenderer(Page);
 			var naviItem = _internalNaviframe.Push(pageRenderer.NativeView);

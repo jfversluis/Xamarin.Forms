@@ -67,12 +67,15 @@ namespace Xamarin.Forms.Internals
 		public TypedBinding(Func<TSource, TProperty> getter, Action<TSource, TProperty> setter, Tuple<Func<TSource, object>, string> [] handlers)
 				: this (s=>(getter(s), true), setter, handlers)
 		{
+<<<<<<< HEAD
 			if (getter == null)
 				throw new ArgumentNullException(nameof(getter));
 		}
 
 		public TypedBinding(Func<TSource, (TProperty value, bool success)> getter, Action<TSource, TProperty> setter, Tuple<Func<TSource, object>, string>[] handlers)
 		{
+=======
+>>>>>>> Update from origin (#11)
 			_getter = getter ?? throw new ArgumentNullException(nameof(getter));
 			_setter = setter;
 

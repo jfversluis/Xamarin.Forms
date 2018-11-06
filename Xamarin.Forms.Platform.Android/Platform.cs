@@ -22,9 +22,12 @@ using AView = Android.Views.View;
 namespace Xamarin.Forms.Platform.Android
 {
 	public class Platform : BindableObject, INavigation, IDisposable, IPlatformLayout
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+=======
+>>>>>>> Update from origin (#11)
 	{
 
 		internal static string PackageName { get; private set; }
@@ -287,12 +290,15 @@ namespace Xamarin.Forms.Platform.Android
 
 			_navModel.PushModal(modal);
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			await PresentModal(modal, animated);
 
 			// Verify that the modal is still on the stack
@@ -484,6 +490,7 @@ namespace Xamarin.Forms.Platform.Android
 			_navModel.Push(newRoot, null);
 
 			Page = newRoot;
+<<<<<<< HEAD
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -491,6 +498,8 @@ namespace Xamarin.Forms.Platform.Android
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			AddChild(Page, layout);
 
 			Application.Current.NavigationProxy.Inner = this;
@@ -790,6 +799,7 @@ namespace Xamarin.Forms.Platform.Android
 				return;
 			}
 
+<<<<<<< HEAD
 			// TODO: this must be changed to support the other image source types
 			var fileImageSource = CurrentMasterDetailPage.Master.IconImageSource as FileImageSource;
 			if (fileImageSource == null)
@@ -797,6 +807,8 @@ namespace Xamarin.Forms.Platform.Android
 
 			int icon = ResourceManager.GetDrawableByName(fileImageSource);
 
+=======
+>>>>>>> Update from origin (#11)
 			FastRenderers.AutomationPropertiesProvider.GetDrawerAccessibilityResources(_activity, CurrentMasterDetailPage, out int resourceIdOpen, out int resourceIdClose);
 #pragma warning disable 618 // Eventually we will need to determine how to handle the v7 ActionBarDrawerToggle for AppCompat
 			MasterDetailPageToggle = new ActionBarDrawerToggle(_activity, drawer, icon,

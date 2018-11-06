@@ -70,10 +70,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					Widget.Animated = true;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 					var eventBox = new GtkFormsContainer();
 =======
 					var eventBox = new EventBox();
 >>>>>>> Update from origin (#8)
+=======
+					var eventBox = new GtkFormsContainer();
+>>>>>>> Update from origin (#11)
 					eventBox.Add(Widget);
 					Control.Content = eventBox;
 				}
@@ -143,10 +147,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 					var newPages = new List<object>();
 <<<<<<< HEAD
+<<<<<<< HEAD
 					foreach (var pc in _pages)
 =======
 					foreach(var pc in _pages)
 >>>>>>> Update from origin (#8)
+=======
+					foreach (var pc in _pages)
+>>>>>>> Update from origin (#11)
 					{
 						newPages.Add(pc.Page);
 					}

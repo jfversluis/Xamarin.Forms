@@ -93,13 +93,19 @@ namespace Xamarin.Forms.StyleSheets
 					try {
 						minfo = property.DeclaringType.GetRuntimeProperty(property.PropertyName);
 					} catch (AmbiguousMatchException e) {
+<<<<<<< HEAD
 						throw new XamlParseException($"Multiple properties with name '{property.DeclaringType}.{property.PropertyName}' found.", serviceProvider, innerException: e);
+=======
+						IXmlLineInfo lineInfo = serviceProvider.GetService(typeof(IXmlLineInfoProvider)) is IXmlLineInfoProvider lineInfoProvider ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
+						throw new XamlParseException($"Multiple properties with name '{property.DeclaringType}.{property.PropertyName}' found.", lineInfo, innerException: e);
+>>>>>>> Update from origin (#11)
 					}
 					if (minfo != null)
 						return minfo;
 					try {
 						return property.DeclaringType.GetRuntimeMethod("Get" + property.PropertyName, new[] { typeof(BindableObject) });
 					} catch (AmbiguousMatchException e) {
+<<<<<<< HEAD
 						throw new XamlParseException($"Multiple methods with name '{property.DeclaringType}.Get{property.PropertyName}' found.", serviceProvider, innerException: e);
 					}
 				};
@@ -107,6 +113,13 @@ namespace Xamarin.Forms.StyleSheets
 			if (exception != null)
 				throw exception;
 			return ret;
+=======
+						IXmlLineInfo lineInfo = serviceProvider.GetService(typeof(IXmlLineInfoProvider)) is IXmlLineInfoProvider lineInfoProvider ? lineInfoProvider.XmlLineInfo : new XmlLineInfo();
+						throw new XamlParseException($"Multiple methods with name '{property.DeclaringType}.Get{property.PropertyName}' found.", lineInfo, innerException: e);
+					}
+				};
+			return value.ConvertTo(property.ReturnType, minforetriever, serviceProvider);
+>>>>>>> Update from origin (#11)
 		}
 
 		public void UnApply(IStylable styleable)

@@ -125,7 +125,13 @@ namespace Xamarin.Forms
 			{
 				Subscription current = subscriptions[n - 1];
 
+<<<<<<< HEAD
 				if (current.Subscriber?.Target != handlerTarget|| current.Handler.Name != methodInfo.Name)
+=======
+				if (current.Subscriber?.Target != handlerTarget
+				    || current.Handler.Name != methodInfo.Name)
+				{
+>>>>>>> Update from origin (#11)
 					continue;
 
 				subscriptions.Remove(current);

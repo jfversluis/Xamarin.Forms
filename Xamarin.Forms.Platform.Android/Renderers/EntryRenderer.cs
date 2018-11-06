@@ -325,10 +325,20 @@ namespace Xamarin.Forms.Platform.Android
 				EditText.KeyListener = GetDigitsKeyListener(EditText.InputType);
 			}
 
+<<<<<<< HEAD
 			if (model.IsPassword && ((EditText.InputType & InputTypes.ClassText) == InputTypes.ClassText))
 				EditText.InputType = EditText.InputType | InputTypes.TextVariationPassword;
 			if (model.IsPassword && ((EditText.InputType & InputTypes.ClassNumber) == InputTypes.ClassNumber))
 				EditText.InputType = EditText.InputType | InputTypes.NumberVariationPassword;
+=======
+			if (model.IsPassword && ((Control.InputType & InputTypes.ClassText) == InputTypes.ClassText))
+				Control.InputType = Control.InputType | InputTypes.TextVariationPassword;
+			if (model.IsPassword && ((Control.InputType & InputTypes.ClassNumber) == InputTypes.ClassNumber))
+				Control.InputType = Control.InputType | InputTypes.NumberVariationPassword;
+
+			UpdateFont();
+		}
+>>>>>>> Update from origin (#11)
 
 			UpdateFont();
 		}

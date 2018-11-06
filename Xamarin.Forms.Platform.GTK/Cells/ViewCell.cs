@@ -52,10 +52,14 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public override void Destroy()
 =======
 		public override void Dispose()
 >>>>>>> Update from origin (#8)
+=======
+		public override void Destroy()
+>>>>>>> Update from origin (#11)
 		{
 			IVisualElementRenderer renderer;
 			if (_rendererRef != null && _rendererRef.TryGetTarget(out renderer) && renderer.Element != null)
@@ -64,10 +68,14 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			base.Destroy();
 =======
 			base.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+			base.Destroy();
+>>>>>>> Update from origin (#11)
 		}
 
 		protected override void UpdateCell()

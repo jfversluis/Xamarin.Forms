@@ -21,8 +21,14 @@ namespace Xamarin.Forms.Platform.UWP
 			_titleViewRendererController = titleViewRendererController;
 			_titleViewRendererController.TitleViewPresenter.Loaded += OnTitleViewPresenterLoaded;
 
+<<<<<<< HEAD
 			CommandBar.LayoutUpdated += commandLayoutUpdated;
 			CommandBar.Unloaded += commandBarUnloaded;
+=======
+			// Uncomment once https://github.com/xamarin/Xamarin.Forms/issues/4116 is fixed
+			// CommandBar.LayoutUpdated += commandLayoutUpdated;
+			// CommandBar.Unloaded += commandBarUnloaded;
+>>>>>>> Update from origin (#11)
 		}
 
 		internal void OnTitleViewPropertyChanged()

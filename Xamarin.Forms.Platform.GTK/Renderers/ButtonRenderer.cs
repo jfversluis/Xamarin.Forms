@@ -8,10 +8,14 @@ using GtkImageButton = Xamarin.Forms.Platform.GTK.Controls.ImageButton;
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public class ButtonRenderer : ViewRenderer<Button, GtkImageButton>
 =======
 	public class ButtonRenderer : ViewRenderer<Button, ImageButton>
 >>>>>>> Update from origin (#8)
+=======
+	public class ButtonRenderer : ViewRenderer<Button, GtkImageButton>
+>>>>>>> Update from origin (#11)
 	{
 		private const uint DefaultBorderWidth = 1;
 
@@ -36,6 +40,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				if (Control == null)
 				{
 <<<<<<< HEAD
+<<<<<<< HEAD
 					// To allow all available options in Xamarin.Forms, a custom control has been created.
 					// Can set text, text color, border, image, etc.
 					var btn = new GtkImageButton();
@@ -44,6 +49,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					// Can set text, text color, border, image, etc.
 					var btn = new ImageButton();
 >>>>>>> Update from origin (#8)
+=======
+					// To allow all available options in Xamarin.Forms, a custom control has been created.
+					// Can set text, text color, border, image, etc.
+					var btn = new GtkImageButton();
+>>>>>>> Update from origin (#11)
 					SetNativeControl(btn);
 
 					Control.Clicked += OnButtonClicked;
@@ -109,10 +119,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			var elemValue = (string)Element?.GetValue(AutomationProperties.NameProperty);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (string.IsNullOrWhiteSpace(elemValue)
 =======
 			if (string.IsNullOrWhiteSpace(elemValue) 
 >>>>>>> Update from origin (#8)
+=======
+			if (string.IsNullOrWhiteSpace(elemValue)
+>>>>>>> Update from origin (#11)
 				&& Control?.Accessible.Description == Control?.LabelWidget.Text)
 				return;
 

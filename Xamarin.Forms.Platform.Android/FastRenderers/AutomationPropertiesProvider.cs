@@ -19,9 +19,14 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 				return;
 
 			var automationIdParent = s_defaultDrawerId;
+<<<<<<< HEAD
 			var icon = page.Master?.IconImageSource;
 			if (icon != null && !icon.IsEmpty)
 				automationIdParent = page.Master.IconImageSource.AutomationId;
+=======
+			if (!string.IsNullOrEmpty(page.Master?.Icon))
+				automationIdParent = page.Master.Icon.AutomationId;
+>>>>>>> Update from origin (#11)
 			else if (!string.IsNullOrEmpty(page.AutomationId))
 				automationIdParent = page.AutomationId;
 
@@ -46,7 +51,11 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 
 		internal static void SetBasicContentDescription(
 			AView control,
+<<<<<<< HEAD
 			BindableObject element,
+=======
+			VisualElement element,
+>>>>>>> Update from origin (#11)
 			ref string defaultContentDescription)
 		{
 			if (element == null || control == null)
@@ -60,8 +69,13 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 		}
 
 		internal static void SetContentDescription(
+<<<<<<< HEAD
 			AView control,
 			BindableObject element,
+=======
+			AView control, 
+			VisualElement element, 
+>>>>>>> Update from origin (#11)
 			ref string defaultContentDescription,
 			ref string defaultHint)
 		{

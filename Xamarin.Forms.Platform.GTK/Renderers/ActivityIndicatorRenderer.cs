@@ -34,6 +34,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		protected override void UpdateBackgroundColor()
 		{
@@ -48,11 +49,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 		private void UpdateColor()
 		{
 			if (Element == null || Control == null)
 				return;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			Control.UpdateColor(Element.Color);
 =======
@@ -60,6 +64,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			Control.UpdateColor(color);
 >>>>>>> Update from origin (#8)
+=======
+			Control.UpdateColor(Element.Color);
+>>>>>>> Update from origin (#11)
 		}
 
 		private void UpdateIsRunning()

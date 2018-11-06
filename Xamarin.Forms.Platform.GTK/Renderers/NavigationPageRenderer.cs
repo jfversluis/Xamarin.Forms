@@ -68,14 +68,20 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				{
 					_currentPage.PropertyChanged -= OnCurrentPagePropertyChanged;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 					_currentPage = null;
 				}
 				if (_currentStack != null)
 				{
 					_currentStack.ForEach(s => s.Dispose());
 					_currentStack = null;
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 				}
 			}
 
@@ -145,10 +151,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				{
 					Widget = new Fixed();
 <<<<<<< HEAD
+<<<<<<< HEAD
 					var eventBox = new GtkFormsContainer();
 =======
 					var eventBox = new EventBox();
 >>>>>>> Update from origin (#8)
+=======
+					var eventBox = new GtkFormsContainer();
+>>>>>>> Update from origin (#11)
 					eventBox.Add(Widget);
 
 					Control.Content = eventBox;
@@ -356,10 +366,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				var oldPageRenderer = Platform.GetRenderer(oldPage);
 <<<<<<< HEAD
+<<<<<<< HEAD
 				oldPageRenderer.Container.Visible = false;
 =======
 				oldPageRenderer.Container.Sensitive = false;
 >>>>>>> Update from origin (#8)
+=======
+				oldPageRenderer.Container.Visible = false;
+>>>>>>> Update from origin (#11)
 			}
 
 			return true;
@@ -373,10 +387,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				var oldPageRenderer = Platform.GetRenderer(oldPage);
 <<<<<<< HEAD
+<<<<<<< HEAD
 				oldPageRenderer.Container.Visible = true;
 =======
 				oldPageRenderer.Container.Sensitive = true;
 >>>>>>> Update from origin (#8)
+=======
+				oldPageRenderer.Container.Visible = true;
+>>>>>>> Update from origin (#11)
 			}
 
 			(page as IPageController)?.SendDisappearing();
@@ -427,10 +445,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			int counter = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			foreach (var item in items.Reverse())
 =======
 			foreach(var item in items.Reverse())
 >>>>>>> Update from origin (#8)
+=======
+			foreach (var item in items.Reverse())
+>>>>>>> Update from origin (#11)
 			{
 				if (counter == index)
 				{
@@ -445,10 +467,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				counter++;
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 	 
 >>>>>>> Update from origin (#8)
+=======
+
+>>>>>>> Update from origin (#11)
 			foreach (var child in Widget.Children)
 			{
 				child.Unparent();

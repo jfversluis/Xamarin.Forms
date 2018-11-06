@@ -147,6 +147,7 @@ namespace Xamarin.Forms.Platform.GTK
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
@@ -156,6 +157,11 @@ namespace Xamarin.Forms.Platform.GTK
 			base.Dispose();
 
 >>>>>>> Update from origin (#8)
+=======
+		public override void Destroy()
+		{
+			base.Destroy();
+>>>>>>> Update from origin (#11)
 			Dispose(true);
 		}
 
@@ -253,6 +259,7 @@ namespace Xamarin.Forms.Platform.GTK
 				return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Container.SetBackgroundColor(Element.BackgroundColor);
 =======
 			Color backgroundColor = Element.BackgroundColor;
@@ -266,6 +273,9 @@ namespace Xamarin.Forms.Platform.GTK
 
 			Container.VisibleWindow = !isDefault;
 >>>>>>> Update from origin (#8)
+=======
+			Container.SetBackgroundColor(Element.BackgroundColor);
+>>>>>>> Update from origin (#11)
 		}
 
 		protected virtual void SetAccessibilityHint()

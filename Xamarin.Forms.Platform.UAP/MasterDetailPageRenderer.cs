@@ -343,7 +343,11 @@ namespace Xamarin.Forms.Platform.UWP
 			if (_detail == null)
 				return;
 
+<<<<<<< HEAD
 			Control.DetailTitleIcon = await NavigationPage.GetTitleIconImageSource(GetCurrentPage()).ToWindowsImageSourceAsync();
+=======
+			Control.DetailTitleIcon = await NavigationPage.GetTitleIcon(GetCurrentPage()).ToWindowsImageSource();
+>>>>>>> Update from origin (#11)
 			Control.InvalidateMeasure();
 		}
 

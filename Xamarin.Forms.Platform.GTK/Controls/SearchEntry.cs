@@ -110,6 +110,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		public override void Destroy()
 		{
 			base.Destroy();
@@ -118,6 +119,11 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		{
 			base.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+		public override void Destroy()
+		{
+			base.Destroy();
+>>>>>>> Update from origin (#11)
 
 			if (_entryWrapper?.Entry != null)
 			{

@@ -61,6 +61,7 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			if (e.NewElement != null)
 			{
+<<<<<<< HEAD
 				if (Control == null)
 				{
 					var imageView = new UIImageView(RectangleF.Empty);
@@ -69,6 +70,8 @@ namespace Xamarin.Forms.Platform.iOS
 					SetNativeControl(imageView);
 				}
 
+=======
+>>>>>>> Update from origin (#11)
 				await TrySetImage(e.OldElement as Image);
 			}
 

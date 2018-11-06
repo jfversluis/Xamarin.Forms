@@ -44,8 +44,13 @@
     <AndroidSigningKeyPass>android</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+<<<<<<< HEAD
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
+=======
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+>>>>>>> Update from origin (#11)
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;HAVE_OPENTK</DefineConstants>
@@ -62,7 +67,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;HAVE_OPENTK</DefineConstants>
@@ -155,6 +160,7 @@
     <AndroidResource Include="Resources\drawable\test.jpg" />
     <AndroidResource Include="Resources\drawable\invalidimage.jpg" />
     <AndroidResource Include="Resources\values\strings.xml" />
+<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\icon_search.png" />
     <AndroidResource Include="Resources\drawable\icon_bookmark.png" />
     <AndroidResource Include="Resources\drawable\button_add.png" />
@@ -164,6 +170,8 @@
     <AndroidResource Include="Resources\drawable\newspaperflyout.png" />
     <AndroidResource Include="Resources\drawable\booksflyout.png" />
     <AndroidResource Include="Resources\drawable\homeflyout.png" />
+=======
+>>>>>>> Update from origin (#11)
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

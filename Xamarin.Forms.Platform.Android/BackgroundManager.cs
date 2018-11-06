@@ -28,11 +28,15 @@ namespace Xamarin.Forms.Platform.Android
 			if (Element == null || Control == null)
 				return;
 
+<<<<<<< HEAD
 			var finalColor = color ?? Element.BackgroundColor;
 			if (finalColor.IsDefault)
 				Control.SetBackground(null);
 			else
 				Control.SetBackgroundColor(finalColor.ToAndroid());
+=======
+			Control.SetBackgroundColor((color ?? Element.BackgroundColor).ToAndroid());
+>>>>>>> Update from origin (#11)
 		}
 
 

@@ -36,13 +36,19 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		protected override void OnElementChanged(ElementChangedEventArgs<TableView> e)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 			if (e.OldElement != null)
 			{
 				e.OldElement.ModelChanged -= OnModelChanged;
 			}
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update from origin (#11)
 			if (e.NewElement != null)
 			{
 				if (Control == null)
@@ -59,11 +65,17 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				UpdateHasUnevenRows();
 				UpdateBackgroundView();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 				e.NewElement.ModelChanged += OnModelChanged;
 				OnModelChanged(e.NewElement, EventArgs.Empty);
 =======
 >>>>>>> Update from origin (#8)
+=======
+
+				e.NewElement.ModelChanged += OnModelChanged;
+				OnModelChanged(e.NewElement, EventArgs.Empty);
+>>>>>>> Update from origin (#11)
 			}
 
 			base.OnElementChanged(e);
@@ -83,19 +95,27 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void SetSource()
 =======
 		private void SetSource()
 >>>>>>> Update from origin (#8)
+=======
+		void SetSource()
+>>>>>>> Update from origin (#11)
 		{
 			Control.Root = Element.Root;
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void UpdateRowHeight()
 =======
 		private void UpdateRowHeight()
 >>>>>>> Update from origin (#8)
+=======
+		void UpdateRowHeight()
+>>>>>>> Update from origin (#11)
 		{
 			var hasUnevenRows = Element.HasUnevenRows;
 
@@ -110,10 +130,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void UpdateHasUnevenRows()
 =======
 		private void UpdateHasUnevenRows()
 >>>>>>> Update from origin (#8)
+=======
+		void UpdateHasUnevenRows()
+>>>>>>> Update from origin (#11)
 		{
 			var hasUnevenRows = Element.HasUnevenRows;
 
@@ -128,10 +152,14 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void UpdateBackgroundView()
 =======
 		private void UpdateBackgroundView()
 >>>>>>> Update from origin (#8)
+=======
+		void UpdateBackgroundView()
+>>>>>>> Update from origin (#11)
 		{
 			if (Element.BackgroundColor.IsDefault)
 			{
@@ -143,14 +171,19 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		void OnItemTapped(object sender, Controls.ItemTappedEventArgs args)
 =======
 		private void OnItemTapped(object sender, Controls.ItemTappedEventArgs args)
 >>>>>>> Update from origin (#8)
+=======
+		void OnItemTapped(object sender, Controls.ItemTappedEventArgs args)
+>>>>>>> Update from origin (#11)
 		{
 			if (Element == null)
 				return;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			if (args.Item is Cell cell)
 =======
@@ -158,6 +191,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			if (cell != null)
 >>>>>>> Update from origin (#8)
+=======
+			if (args.Item is Cell cell)
+>>>>>>> Update from origin (#11)
 			{
 				if (cell.IsEnabled)
 				{
@@ -166,14 +202,22 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update from origin (#11)
 
 		void OnModelChanged(object sender, EventArgs e)
 		{
 			SetSource();
 		}
+<<<<<<< HEAD
 	}
 }
 =======
 	}
 }
 >>>>>>> Update from origin (#8)
+=======
+	}
+}
+>>>>>>> Update from origin (#11)

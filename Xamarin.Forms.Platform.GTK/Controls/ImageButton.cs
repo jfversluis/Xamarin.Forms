@@ -122,11 +122,15 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			}
 		}
 
-		public override void Dispose()
+		public override void Destroy()
 		{
+<<<<<<< HEAD
 			base.Dispose();
 
 >>>>>>> Update from origin (#8)
+=======
+			base.Destroy();
+>>>>>>> Update from origin (#11)
 			_label = null;
 			_image = null;
 			_imageAndLabelContainer = null;

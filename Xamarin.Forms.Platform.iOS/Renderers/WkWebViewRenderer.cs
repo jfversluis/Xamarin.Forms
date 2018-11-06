@@ -45,8 +45,12 @@ namespace Xamarin.Forms.Platform.iOS
 			WebView.GoBackRequested += OnGoBackRequested;
 			WebView.GoForwardRequested += OnGoForwardRequested;
 			WebView.ReloadRequested += OnReloadRequested;
+<<<<<<< HEAD
 			NavigationDelegate = new CustomWebViewNavigationDelegate(this);
 			UIDelegate = new CustomWebViewUIDelegate();
+=======
+			NavigationDelegate = new CustomWebViewDelegate(this);
+>>>>>>> Update from origin (#11)
 
 			BackgroundColor = UIColor.Clear;
 

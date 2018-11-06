@@ -24,6 +24,7 @@ namespace Xamarin.Forms.Xaml
 		public object ProvideValue(IServiceProvider serviceProvider)
 		{
 			if (   Android == null
+<<<<<<< HEAD
 				&& GTK == null
 				&& iOS == null
 				&& macOS == null
@@ -32,6 +33,17 @@ namespace Xamarin.Forms.Xaml
 				&& WPF == null
 				&& Default == null) {
 				throw new XamlParseException("OnPlatformExtension requires a non-null value to be specified for at least one platform or Default.", serviceProvider);
+=======
+			    && GTK == null
+			    && iOS == null
+			    && macOS == null
+			    && Tizen == null
+			    && UWP == null
+			    && WPF == null
+			    && Default == null) {
+				var lineInfo = serviceProvider?.GetService<IXmlLineInfoProvider>()?.XmlLineInfo ?? new XmlLineInfo();
+				throw new XamlParseException("OnPlatformExtension requires a non-null value to be specified for at least one platform or Default.", lineInfo);
+>>>>>>> Update from origin (#11)
 			}
 
 			var valueProvider = serviceProvider?.GetService<IProvideValueTarget>() ?? throw new ArgumentException();

@@ -49,10 +49,14 @@ namespace Xamarin.Forms.Platform.GTK.Extensions
 				if (childRenderer != null)
 				{
 <<<<<<< HEAD
+<<<<<<< HEAD
 					((Gtk.Widget)childRenderer).Destroy();
 =======
 					childRenderer.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+					((Gtk.Widget)childRenderer).Destroy();
+>>>>>>> Update from origin (#11)
 					Platform.SetRenderer(visual, null);
 				}
 			}
@@ -60,10 +64,14 @@ namespace Xamarin.Forms.Platform.GTK.Extensions
 			if (renderer != null)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				((Gtk.Widget)renderer).Destroy();
 =======
 				renderer.Dispose();
 >>>>>>> Update from origin (#8)
+=======
+				((Gtk.Widget)renderer).Destroy();
+>>>>>>> Update from origin (#11)
 				Platform.SetRenderer(self, null);
 			}
 		}

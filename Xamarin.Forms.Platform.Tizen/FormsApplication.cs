@@ -131,6 +131,7 @@ namespace Xamarin.Forms.Platform.Tizen
 				throw new InvalidOperationException("Call Forms.Init (UIApplication) before this");
 			}
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
@@ -140,6 +141,8 @@ namespace Xamarin.Forms.Platform.Tizen
 			}
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			_platform.HasAlpha = MainWindow.Alpha;
 			_platform.SetPage(page);
 		}

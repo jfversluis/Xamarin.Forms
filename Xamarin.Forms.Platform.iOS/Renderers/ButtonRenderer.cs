@@ -11,7 +11,11 @@ using SizeF = CoreGraphics.CGSize;
 
 namespace Xamarin.Forms.Platform.iOS
 {
+<<<<<<< HEAD
 	public class ButtonRenderer : ViewRenderer<Button, UIButton>, IImageVisualElementRenderer, IButtonLayoutRenderer
+=======
+	public class ButtonRenderer : ViewRenderer<Button, UIButton>, IImageVisualElementRenderer
+>>>>>>> Update from origin (#11)
 	{
 		bool _isDisposed;
 		UIColor _buttonTextColorDefaultDisabled;
@@ -32,15 +36,32 @@ namespace Xamarin.Forms.Platform.iOS
 
 		public bool IsDisposed => _isDisposed;
 
+<<<<<<< HEAD
 		IImageVisualElementRenderer IButtonLayoutRenderer.ImageVisualElementRenderer => this;
 		nfloat IButtonLayoutRenderer.MinimumHeight => _minimumButtonHeight;
 
 		public ButtonRenderer()
+=======
+		public ButtonRenderer() : base()
+		{
+			BorderElementManager.Init(this);
+			ImageElementManager.Init(this);
+		}
+
+		public override SizeF SizeThatFits(SizeF size)
+>>>>>>> Update from origin (#11)
 		{
 			BorderElementManager.Init(this);
 
+<<<<<<< HEAD
 			_buttonLayoutManager = new ButtonLayoutManager(this);
 		}
+=======
+			if (result.Height < _minimumButtonHeight)
+			{
+				result.Height = _minimumButtonHeight;
+			}
+>>>>>>> Update from origin (#11)
 
 		public override SizeF SizeThatFits(SizeF size)
 		{
@@ -57,8 +78,12 @@ namespace Xamarin.Forms.Platform.iOS
 				Control.TouchUpInside -= OnButtonTouchUpInside;
 				Control.TouchDown -= OnButtonTouchDown;
 				BorderElementManager.Dispose(this);
+<<<<<<< HEAD
 				_buttonLayoutManager?.Dispose();
 				_buttonLayoutManager = null;
+=======
+				ImageElementManager.Dispose(this);
+>>>>>>> Update from origin (#11)
 			}
 
 			_isDisposed = true;
@@ -91,6 +116,10 @@ namespace Xamarin.Forms.Platform.iOS
 				}
 
 				UpdateFont();
+<<<<<<< HEAD
+=======
+				UpdateImage();
+>>>>>>> Update from origin (#11)
 				UpdateTextColor();
 				_buttonLayoutManager?.Update();
 			}
@@ -109,6 +138,13 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdateTextColor();
 			else if (e.PropertyName == Button.FontProperty.PropertyName)
 				UpdateFont();
+<<<<<<< HEAD
+=======
+			else if (e.PropertyName == Button.ImageProperty.PropertyName)
+				UpdateImage();
+			else if (e.PropertyName == Button.PaddingProperty.PropertyName)
+				UpdatePadding();
+>>>>>>> Update from origin (#11)
 		}
 
 		protected override void SetAccessibilityLabel()
@@ -151,9 +187,52 @@ namespace Xamarin.Forms.Platform.iOS
 			Control.TitleLabel.Font = Element.ToUIFont();
 		}
 
+<<<<<<< HEAD
 		public void SetImage(UIImage image) => _buttonLayoutManager.SetImage(image);
 
 		public UIImageView GetImage() => Control?.ImageView;
+=======
+		async void UpdateImage()
+		{
+			try
+			{
+				await ImageElementManager.SetImage(this, Element);
+			}
+			catch (Exception ex)
+			{
+				Internals.Log.Warning(nameof(ImageRenderer), "Error loading image: {0}", ex);
+			}
+		}
+
+		public void SetImage(UIImage image)
+		{
+			if (image != null)
+			{
+				UIButton button = Control;
+				button.SetImage(image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), UIControlState.Normal);
+				button.ImageView.ContentMode = UIViewContentMode.ScaleAspectFit;
+				ComputeEdgeInsets(Control, Element.ContentLayout);
+			}
+			else
+			{
+				Control.SetImage(null, UIControlState.Normal);
+				ClearEdgeInsets(Control);
+			}
+		}
+
+		public UIImageView GetImage() => Control?.ImageView;
+
+		void UpdateText()
+		{
+			var newText = Element.Text;
+
+			if (Control.Title(UIControlState.Normal) != newText)
+			{
+				Control.SetTitle(Element.Text, UIControlState.Normal);
+				_titleChanged = true;
+			}
+		}
+>>>>>>> Update from origin (#11)
 
 		void UpdateTextColor()
 		{

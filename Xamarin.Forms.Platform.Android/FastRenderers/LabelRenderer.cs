@@ -44,7 +44,10 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 		}
 
 		[Obsolete("This constructor is obsolete as of version 2.5. Please use LabelRenderer(Context) instead.")]
+<<<<<<< HEAD
 		[EditorBrowsable(EditorBrowsableState.Never)]
+=======
+>>>>>>> Update from origin (#11)
 		public LabelRenderer() : base(Forms.Context)
 		{
 			_labelTextColorDefault = TextColors;
@@ -207,7 +210,11 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 			return _motionEventHelper.HandleMotionEvent(Parent, e);
 		}
 
+<<<<<<< HEAD
 		protected virtual void OnElementChanged(ElementChangedEventArgs<Label> e)
+=======
+		void OnElementChanged(ElementChangedEventArgs<Label> e)
+>>>>>>> Update from origin (#11)
 		{
 			ElementChanged?.Invoke(this, new VisualElementChangedEventArgs(e.OldElement, e.NewElement));
 

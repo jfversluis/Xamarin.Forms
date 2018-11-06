@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using System;
+=======
+﻿using System;
+>>>>>>> Update from origin (#11)
 using System.ComponentModel;
 using Android.Content;
 using Android.Support.V7.Widget;
@@ -21,9 +25,13 @@ namespace Xamarin.Forms.Platform.Android
 		IImageRendererController,
 		AView.IOnFocusChangeListener,
 		AView.IOnClickListener,
+<<<<<<< HEAD
 		AView.IOnTouchListener,
 		ILayoutChanges,
 		IDisposedState
+=======
+		AView.IOnTouchListener
+>>>>>>> Update from origin (#11)
 	{
 		bool _inputTransparent;
 		bool _disposed;
@@ -39,6 +47,7 @@ namespace Xamarin.Forms.Platform.Android
 		public event EventHandler<PropertyChangedEventArgs> ElementPropertyChanged;
 
 		void IVisualElementRenderer.UpdateLayout() => _tracker?.UpdateLayout();
+<<<<<<< HEAD
 		VisualElement IVisualElementRenderer.Element => Element;
 		AView IVisualElementRenderer.View => this;
 		ViewGroup IVisualElementRenderer.ViewGroup => null;
@@ -49,6 +58,17 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			get => _imageButton;
 			private set
+=======
+		VisualElement IVisualElementRenderer.Element => ImageButton;
+		AView IVisualElementRenderer.View => this;
+		ViewGroup IVisualElementRenderer.ViewGroup => null;
+		VisualElementTracker IVisualElementRenderer.Tracker => _tracker;
+
+		ImageButton ImageButton
+		{
+			get => _imageButton;
+			set
+>>>>>>> Update from origin (#11)
 			{
 				_imageButton = value;
 				_platformElementConfiguration = null;
@@ -68,9 +88,13 @@ namespace Xamarin.Forms.Platform.Android
 			SetOnTouchListener(this);
 			OnFocusChangeListener = this;
 
+<<<<<<< HEAD
 			// Setting the tag will break Glide
 			// Tag = this;
 
+=======
+			Tag = this;
+>>>>>>> Update from origin (#11)
 			_backgroundTracker = new BorderBackgroundManager(this, false);
 		}
 
@@ -92,6 +116,7 @@ namespace Xamarin.Forms.Platform.Android
 				_backgroundTracker?.Dispose();
 				_backgroundTracker = null;
 
+<<<<<<< HEAD
 				if (Element != null)
 				{
 					Element.PropertyChanged -= OnElementPropertyChanged;
@@ -102,6 +127,18 @@ namespace Xamarin.Forms.Platform.Android
 					}
 
 					Element = null;
+=======
+				if (ImageButton != null)
+				{
+					ImageButton.PropertyChanged -= OnElementPropertyChanged;
+
+					if (Android.Platform.GetRenderer(ImageButton) == this)
+					{
+						ImageButton.ClearValue(Android.Platform.RendererProperty);
+					}
+
+					ImageButton = null;
+>>>>>>> Update from origin (#11)
 				}
 			}
 
@@ -147,8 +184,13 @@ namespace Xamarin.Forms.Platform.Android
 				throw new ArgumentException("Element is not of type " + typeof(ImageButton), nameof(element));
 			}
 
+<<<<<<< HEAD
 			ImageButton oldElement = Element;
 			Element = image;
+=======
+			ImageButton oldElement = ImageButton;
+			ImageButton = image;
+>>>>>>> Update from origin (#11)
 
 			Performance.Start(out string reference);
 
@@ -177,6 +219,7 @@ namespace Xamarin.Forms.Platform.Android
 			UpdateInputTransparent();
 			UpdatePadding();
 
+<<<<<<< HEAD
 			OnElementChanged(new ElementChangedEventArgs<ImageButton>(oldElement, Element));
 			Element?.SendViewInitialized(Control);
 		}
@@ -184,10 +227,15 @@ namespace Xamarin.Forms.Platform.Android
 		protected virtual void OnElementChanged(ElementChangedEventArgs<ImageButton> e)
 		{
 			ElementChanged?.Invoke(this, new VisualElementChangedEventArgs(e.OldElement, e.NewElement));
+=======
+			ElementChanged?.Invoke(this, new VisualElementChangedEventArgs(oldElement, ImageButton));
+			ImageButton?.SendViewInitialized(Control);
+>>>>>>> Update from origin (#11)
 		}
 
 		public override void Draw(Canvas canvas)
 		{
+<<<<<<< HEAD
 			if (Element == null)
 				return;
 
@@ -228,6 +276,48 @@ namespace Xamarin.Forms.Platform.Android
 
 			base.Draw(canvas);
 			if (_backgroundTracker?.BackgroundDrawable != null)
+=======
+			if (ImageButton == null)
+				return;
+
+			var backgroundDrawable = _backgroundTracker?.BackgroundDrawable;
+
+			RectF drawableBounds = null;
+
+			if ((int)Build.VERSION.SdkInt >= 18 && backgroundDrawable != null)
+			{
+				var outlineBounds = backgroundDrawable.GetPaddingBounds(canvas.Width, canvas.Height);
+				var width = (float)MeasuredWidth;
+				var height = (float)MeasuredHeight;
+
+				var widthRatio = 1f;
+				var heightRatio = 1f;
+
+				if (ImageButton.Aspect == Aspect.AspectFill && OnThisPlatform().GetIsShadowEnabled())
+					Internals.Log.Warning(nameof(ImageButtonRenderer), "AspectFill isn't fully supported when using shadows. Image may be clipped incorrectly to Border");
+
+				switch (ImageButton.Aspect)
+				{
+					case Aspect.Fill:
+						break;
+					case Aspect.AspectFill:
+					case Aspect.AspectFit:
+						heightRatio = (float)Drawable.IntrinsicHeight / height;
+						widthRatio = (float)Drawable.IntrinsicWidth / width;
+						break;
+				}
+
+				drawableBounds = new RectF(outlineBounds.Left * widthRatio, outlineBounds.Top * heightRatio, outlineBounds.Right * widthRatio, outlineBounds.Bottom * heightRatio);
+			}
+
+			if (drawableBounds != null)
+				Drawable.SetBounds((int)drawableBounds.Left, (int)drawableBounds.Top, (int)drawableBounds.Right, (int)drawableBounds.Bottom);
+
+
+
+			base.Draw(canvas);
+			if (_backgroundTracker.BackgroundDrawable != null)
+>>>>>>> Update from origin (#11)
 				_backgroundTracker.BackgroundDrawable.DrawOutline(canvas, canvas.Width, canvas.Height);
 		}
 
@@ -251,24 +341,43 @@ namespace Xamarin.Forms.Platform.Android
 		void UpdatePadding()
 		{
 			SetPadding(
+<<<<<<< HEAD
 				(int)(Context.ToPixels(Element.Padding.Left)),
 				(int)(Context.ToPixels(Element.Padding.Top)),
 				(int)(Context.ToPixels(Element.Padding.Right)),
 				(int)(Context.ToPixels(Element.Padding.Bottom))
+=======
+				(int)(Context.ToPixels(ImageButton.Padding.Left)),
+				(int)(Context.ToPixels(ImageButton.Padding.Top)),
+				(int)(Context.ToPixels(ImageButton.Padding.Right)),
+				(int)(Context.ToPixels(ImageButton.Padding.Bottom))
+>>>>>>> Update from origin (#11)
 			);
 		}
 
 		void UpdateInputTransparent()
 		{
+<<<<<<< HEAD
 			if (Element == null || _disposed)
+=======
+			if (ImageButton == null || _disposed)
+>>>>>>> Update from origin (#11)
 			{
 				return;
 			}
 
+<<<<<<< HEAD
 			_inputTransparent = Element.InputTransparent;
 		}
 
 		protected virtual void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+=======
+			_inputTransparent = ImageButton.InputTransparent;
+		}
+
+		// Image related
+		void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+>>>>>>> Update from origin (#11)
 		{
 			if (e.PropertyName == VisualElement.InputTransparentProperty.PropertyName)
 				UpdateInputTransparent();
@@ -282,17 +391,28 @@ namespace Xamarin.Forms.Platform.Android
 		// general state related
 		void IOnFocusChangeListener.OnFocusChange(AView v, bool hasFocus)
 		{
+<<<<<<< HEAD
 			((IElementController)Element).SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, hasFocus);
+=======
+			((IElementController)ImageButton).SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, hasFocus);
+>>>>>>> Update from origin (#11)
 		}
 		// general state related
 
 
 		// Button related
 		void IOnClickListener.OnClick(AView v) =>
+<<<<<<< HEAD
 			ButtonElementManager.OnClick(Element, Element, v);
 
 		bool IOnTouchListener.OnTouch(AView v, MotionEvent e) =>
 			ButtonElementManager.OnTouch(Element, Element, v, e);
+=======
+			ButtonElementManager.OnClick(ImageButton, ImageButton, v);
+
+		bool IOnTouchListener.OnTouch(AView v, MotionEvent e) =>
+			ButtonElementManager.OnTouch(ImageButton, ImageButton, v, e);
+>>>>>>> Update from origin (#11)
 		// Button related
 
 
@@ -303,13 +423,21 @@ namespace Xamarin.Forms.Platform.Android
 		bool IBorderVisualElementRenderer.IsShadowEnabled() => OnThisPlatform().GetIsShadowEnabled();
 		bool IBorderVisualElementRenderer.UseDefaultPadding() => false;
 		bool IBorderVisualElementRenderer.UseDefaultShadow() => false;
+<<<<<<< HEAD
 		VisualElement IBorderVisualElementRenderer.Element => Element;
+=======
+		VisualElement IBorderVisualElementRenderer.Element => ImageButton;
+>>>>>>> Update from origin (#11)
 		AView IBorderVisualElementRenderer.View => this;
 
 		IPlatformElementConfiguration<PlatformConfiguration.Android, ImageButton> OnThisPlatform()
 		{
 			if (_platformElementConfiguration == null)
+<<<<<<< HEAD
 				_platformElementConfiguration = Element.OnThisPlatform();
+=======
+				_platformElementConfiguration = ImageButton.OnThisPlatform();
+>>>>>>> Update from origin (#11)
 
 			return _platformElementConfiguration;
 		}

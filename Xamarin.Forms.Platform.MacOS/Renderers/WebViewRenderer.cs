@@ -203,9 +203,12 @@ namespace Xamarin.Forms.Platform.MacOS
 				Renderer._sentNavigating = false;
 				
 				if (Renderer.Control.IsLoading)
+<<<<<<< HEAD
 					return;
 
 				if (Renderer.Control.MainFrameUrl == $"file://{NSBundle.MainBundle.BundlePath}/")
+=======
+>>>>>>> Update from origin (#11)
 					return;
 
 				Renderer._ignoreSourceChanges = true;

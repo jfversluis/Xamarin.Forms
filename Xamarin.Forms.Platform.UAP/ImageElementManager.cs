@@ -30,9 +30,15 @@ namespace Xamarin.Forms.Platform.UWP
 		static void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			IImageVisualElementRenderer renderer = sender as IImageVisualElementRenderer;
+<<<<<<< HEAD
 			var controller = renderer.Element as IImageElement;
 
 			if (e.PropertyName == Image.AspectProperty.PropertyName)
+=======
+			var controller = renderer.Element as IImageController;
+
+			if (e.PropertyName == controller.AspectProperty?.PropertyName)
+>>>>>>> Update from origin (#11)
 				UpdateAspect(renderer, controller);
 		}
 
@@ -41,7 +47,11 @@ namespace Xamarin.Forms.Platform.UWP
 			if (e.NewElement != null)
 			{
 				IImageVisualElementRenderer renderer = sender as IImageVisualElementRenderer;
+<<<<<<< HEAD
 				var controller = renderer.Element as IImageElement;
+=======
+				var controller = renderer.Element as IImageController;
+>>>>>>> Update from origin (#11)
 
 				UpdateAspect(renderer, controller);
 			}
@@ -53,12 +63,20 @@ namespace Xamarin.Forms.Platform.UWP
 		{
 			IImageVisualElementRenderer renderer = sender as IImageVisualElementRenderer;
 
+<<<<<<< HEAD
 			var controller = renderer.Element as IImageElement;
+=======
+			var controller = renderer.Element as IImageController;
+>>>>>>> Update from origin (#11)
 
 			UpdateAspect(renderer, controller);
 		}
 
+<<<<<<< HEAD
 		public static void UpdateAspect(IImageVisualElementRenderer renderer, IImageElement controller)
+=======
+		public static void UpdateAspect(IImageVisualElementRenderer renderer, IImageController controller)
+>>>>>>> Update from origin (#11)
 		{
 			var Element = renderer.Element;
 			var Control = renderer.GetNativeElement();
@@ -101,13 +119,18 @@ namespace Xamarin.Forms.Platform.UWP
 		{
 			var Element = renderer.Element;
 			var Control = renderer.GetNativeElement();
+<<<<<<< HEAD
 			var imageElement = Element as IImageElement;
+=======
+			var controller = Element as IImageController;
+>>>>>>> Update from origin (#11)
 
 			if (renderer.IsDisposed || Element == null || Control == null)
 			{
 				return;
 			}
 
+<<<<<<< HEAD
 			var imageController = Element as IImageController;
 
 			imageController?.SetIsLoading(true);
@@ -127,6 +150,38 @@ namespace Xamarin.Forms.Platform.UWP
 			finally
 			{
 				imageController?.SetIsLoading(false);
+=======
+			controller.SetIsLoading(true);
+
+			ImageSource source = controller.Source;
+			IImageSourceHandler handler;
+			if (source != null && (handler = Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(source)) != null)
+			{
+				Windows.UI.Xaml.Media.ImageSource imagesource;
+
+				try
+				{
+					imagesource = await handler.LoadImageAsync(source);
+				}
+				catch (OperationCanceledException)
+				{
+					imagesource = null;
+				}
+
+				// In the time it takes to await the imagesource, some zippy little app
+				// might have disposed of this Image already.
+				if (Control != null)
+				{
+					renderer.SetImage(imagesource);
+				}
+
+				RefreshImage(controller as IViewController);
+			}
+			else
+			{
+				renderer.SetImage(null);
+				controller.SetIsLoading(false);
+>>>>>>> Update from origin (#11)
 			}
 		}
 

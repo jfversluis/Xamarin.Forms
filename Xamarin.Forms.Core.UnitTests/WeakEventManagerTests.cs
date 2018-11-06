@@ -113,6 +113,19 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+		public void CanRemoveEventHandler()
+		{
+			var source = new TestSource();
+			int beforeRun = source.Count;
+			source.Fire();
+
+			Assert.IsTrue(source.Count == 1);
+			source.Clean();
+			source.Fire();
+			Assert.IsTrue(source.Count == 1);
+		}
+
+		[Test]
 		public void CanRemoveStaticEventHandler()
 		{
 			int beforeRun = s_count;

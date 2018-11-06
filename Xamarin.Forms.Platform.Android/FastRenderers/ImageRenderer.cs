@@ -74,7 +74,11 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 			base.Invalidate();
 		}
 
+<<<<<<< HEAD
 		protected virtual void OnElementChanged(ElementChangedEventArgs<Image> e)
+=======
+		void OnElementChanged(ElementChangedEventArgs<Image> e)
+>>>>>>> Update from origin (#11)
 		{
 			this.EnsureId();
 			ElementChanged?.Invoke(this, new VisualElementChangedEventArgs(e.OldElement, e.NewElement));
@@ -187,9 +191,17 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 		{
 		}
 
+<<<<<<< HEAD
 		protected virtual void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			ElementPropertyChanged?.Invoke(this, e);
 		}
 	}
+=======
+		void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+		{
+			ElementPropertyChanged?.Invoke(this, e);
+        }
+    }
+>>>>>>> Update from origin (#11)
 }

@@ -17,9 +17,12 @@ using NativeAutomationProperties = Windows.UI.Xaml.Automation.AutomationProperti
 namespace Xamarin.Forms.Platform.UWP
 {
 	public abstract class Platform : INavigation
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 		, IPlatform
 #pragma warning restore CS0618 // Type or member is obsolete
+=======
+>>>>>>> Update from origin (#11)
 	{
 		static Task<bool> s_currentAlert;
 
@@ -191,7 +194,7 @@ namespace Xamarin.Forms.Platform.UWP
 			return tcs.Task;
 		}
 
-		SizeRequest IPlatform.GetNativeSize(VisualElement element, double widthConstraint, double heightConstraint)
+		public static SizeRequest GetNativeSize(VisualElement element, double widthConstraint, double heightConstraint)
 		{
 			return Platform.GetNativeSize(element, widthConstraint, heightConstraint);
 		} 
@@ -292,12 +295,15 @@ namespace Xamarin.Forms.Platform.UWP
 			if (newPage == _currentPage)
 				return;
 
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			newPage.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+=======
+>>>>>>> Update from origin (#11)
 			if (_currentPage != null)
 			{
 				Page previousPage = _currentPage;
@@ -428,7 +434,11 @@ namespace Xamarin.Forms.Platform.UWP
 				button.DataContext = item;
 				button.SetValue(NativeAutomationProperties.AutomationIdProperty, item.AutomationId);
 				button.SetAutomationPropertiesName(item);
+<<<<<<< HEAD
 				button.SetAutomationPropertiesAccessibilityView(item);
+=======
+				button.SetAutomationPropertiesAccessibilityView(item);							   
+>>>>>>> Update from origin (#11)
 				button.SetAutomationPropertiesHelpText(item);
 				button.SetAutomationPropertiesLabeledBy(item);
 

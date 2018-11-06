@@ -1,10 +1,15 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections;
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+=======
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+>>>>>>> Update from origin (#11)
 using System.Linq;
 
 namespace Xamarin.Forms.Core.UnitTests
@@ -49,10 +54,17 @@ namespace Xamarin.Forms.Core.UnitTests
 				IsPlatformEnabled = true,
 			};
 
+<<<<<<< HEAD
 			var itemsSource = new ObservableCollection<int>() { 0, 1, 2, 3, 4 };
 			BindableLayout.SetItemsSource(layout, itemsSource);
 
 			itemsSource.Insert(2, 5);
+=======
+			var itemsSource = new ObservableCollection<int>();
+			BindableLayout.SetItemsSource(layout, itemsSource);
+
+			itemsSource.Insert(0, 1);
+>>>>>>> Update from origin (#11)
 			Assert.IsTrue(IsLayoutWithItemsSource(itemsSource, layout));
 		}
 
@@ -75,6 +87,7 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+<<<<<<< HEAD
 		public void TracksRemoveAll()
 		{
 			var layout = new StackLayout
@@ -90,6 +103,8 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+=======
+>>>>>>> Update from origin (#11)
 		public void TracksReplace()
 		{
 			var layout = new StackLayout
@@ -190,6 +205,7 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+<<<<<<< HEAD
 		public void ContainerIsPassedInSelectTemplate()
 		{
 			var layout = new StackLayout
@@ -212,6 +228,8 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+=======
+>>>>>>> Update from origin (#11)
 		public void ItemTemplateTakesPrecendenceOverItemTemplateSelector()
 		{
 			var layout = new StackLayout
@@ -393,6 +411,7 @@ namespace Xamarin.Forms.Core.UnitTests
 				return dt;
 			}
 		}
+<<<<<<< HEAD
 
 		class ObservableRangeCollection<T> : ObservableCollection<T>
 		{
@@ -425,5 +444,7 @@ namespace Xamarin.Forms.Core.UnitTests
 			protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
 				=> _func(item, container);
 		}
+=======
+>>>>>>> Update from origin (#11)
 	}
 }

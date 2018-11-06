@@ -147,6 +147,7 @@ namespace Xamarin.Forms.Controls.Issues
 						HorizontalOptions = LayoutOptions.Center,
 						HeightRequest = sizes,
 						WidthRequest = sizes
+<<<<<<< HEAD
 					},
 					new Label(){ Text = $"CornerRadius:{sizes / 2}, BorderWidth: 5, BorderColor:Red" },
 					new ImageButton()
@@ -159,6 +160,9 @@ namespace Xamarin.Forms.Controls.Issues
 						HeightRequest = sizes,
 						WidthRequest = sizes
 					},
+=======
+					}
+>>>>>>> Update from origin (#11)
 				}
 			};
 
