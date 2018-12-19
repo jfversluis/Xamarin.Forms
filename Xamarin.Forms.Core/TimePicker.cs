@@ -23,6 +23,11 @@ namespace Xamarin.Forms
 
 		public static readonly BindableProperty FontAttributesProperty = FontElement.FontAttributesProperty;
 
+		public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(TimePicker), default(string));
+
+		public static readonly BindableProperty TitleColorProperty =
+			BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(TimePicker), default(Color));
+
 		readonly Lazy<PlatformConfigurationRegistry<TimePicker>> _platformConfigurationRegistry;
 
 		public TimePicker()
@@ -65,6 +70,18 @@ namespace Xamarin.Forms
 		{
 			get { return (double)GetValue(FontSizeProperty); }
 			set { SetValue(FontSizeProperty, value); }
+		}
+
+		public string Title
+		{
+			get { return (string)GetValue(TitleProperty); }
+			set { SetValue(TitleProperty, value); }
+		}
+
+		public Color TitleColor
+		{
+			get { return (Color)GetValue(TitleColorProperty); }
+			set { SetValue(TitleColorProperty, value); }
 		}
 
 		void IFontElement.OnFontFamilyChanged(string oldValue, string newValue) =>
