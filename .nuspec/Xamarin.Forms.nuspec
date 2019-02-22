@@ -14,10 +14,24 @@
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <dependencies>
       <group targetFramework="MonoAndroid81">
+<<<<<<< HEAD
+=======
+        <dependency id="Xamarin.Android.Support.v4" version="27.0.2"/>
+        <dependency id="Xamarin.Android.Support.Design" version="27.0.2"/>
+        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="27.0.2"/>
+        <dependency id="Xamarin.Android.Support.v7.CardView" version="27.0.2"/>
+        <dependency id="Xamarin.Android.Support.v7.MediaRouter" version="27.0.2"/>
+      </group>
+      <group targetFramework="MonoAndroid90">
+>>>>>>> Update (#12)
         <dependency id="Xamarin.Android.Support.v4" version="28.0.0.1"/>
         <dependency id="Xamarin.Android.Support.Design" version="28.0.0.1"/>
         <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.1"/>
         <dependency id="Xamarin.Android.Support.v7.CardView" version="28.0.0.1"/>
+<<<<<<< HEAD
+=======
+        <dependency id="Xamarin.Android.Support.v7.MediaRouter" version="28.0.0.1"/>
+>>>>>>> Update (#12)
         <dependency id="Xamarin.Android.Support.CustomTabs" version="28.0.0.1"/>
       </group>
       <group targetFramework="uap10.0">
@@ -32,6 +46,7 @@
         <dependency id="Tizen.NET" version="4.0.0"/>
       </group>
     </dependencies>
+<<<<<<< HEAD
     
     <!-- DO NOT DELETE THESE REFERENCES -->
     <!-- IF YOU DELETE THESE REFERENCES THE PACKAGE WILL NOT WORK ON MAC -->
@@ -81,6 +96,52 @@
         <reference file="Xamarin.Forms.Platform.dll" />
         <reference file="Xamarin.Forms.Xaml.dll" />
       </group>
+=======
+    <references>    
+        <group> 
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+        </group>
+        <group targetFramework="Xamarin.iOS10"> 
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+            <reference file="Xamarin.Forms.Platform.iOS.dll" />
+        </group>    
+        <group targetFramework="MonoAndroid90"> 
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+            <reference file="FormsViewGroup.dll" /> 
+            <reference file="Xamarin.Forms.Platform.Android.dll" /> 
+        </group>
+        <group targetFramework="MonoAndroid81">
+          <reference file="Xamarin.Forms.Core.dll" />
+          <reference file="Xamarin.Forms.Platform.dll" />
+          <reference file="Xamarin.Forms.Xaml.dll" />
+          <reference file="FormsViewGroup.dll" />
+          <reference file="Xamarin.Forms.Platform.Android.dll" />
+        </group>   
+        <group targetFramework="uap10.0">   
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+            <reference file="Xamarin.Forms.Platform.UAP.dll" /> 
+        </group>    
+        <group targetFramework="Xamarin.Mac">   
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.macOS.dll" />   
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+        </group>    
+        <group targetFramework="tizen40">   
+            <reference file="Xamarin.Forms.Core.dll" /> 
+            <reference file="Xamarin.Forms.Platform.Tizen.dll" />   
+            <reference file="Xamarin.Forms.Platform.dll" /> 
+            <reference file="Xamarin.Forms.Xaml.dll" /> 
+        </group>    
+>>>>>>> Update (#12)
     </references>
   </metadata>
 

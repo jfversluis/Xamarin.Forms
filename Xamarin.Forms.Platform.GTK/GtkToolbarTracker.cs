@@ -267,10 +267,14 @@ namespace Xamarin.Forms.Platform.GTK
 				ToolButton newToolButton = ToolButtonHelper.CreateToolButton(toolBarItem);
 				_toolbarSection.PackStart(newToolButton, false, false, GtkToolbarConstants.ToolbarItemSpacing);
 <<<<<<< HEAD
+<<<<<<< HEAD
 				newToolButton.Clicked += (sender, args) => { ((IMenuItemController)toolBarItem).Activate(); };
 =======
 				newToolButton.Clicked += (sender, args) => { toolBarItem.Activate(); };
 >>>>>>> Update from origin (#8)
+=======
+				newToolButton.Clicked += (sender, args) => { ((IMenuItemController)toolBarItem).Activate(); };
+>>>>>>> Update (#12)
 
 				toolBarItem.PropertyChanged -= OnToolbarItemPropertyChanged;
 				toolBarItem.PropertyChanged += OnToolbarItemPropertyChanged;
@@ -295,10 +299,14 @@ namespace Xamarin.Forms.Platform.GTK
 					menuItem.ButtonPressEvent += (sender, args) =>
 					{
 <<<<<<< HEAD
+<<<<<<< HEAD
 						((IMenuItemController)secondaryToolBarItem).Activate();
 =======
 						secondaryToolBarItem.Activate();
 >>>>>>> Update from origin (#8)
+=======
+						((IMenuItemController)secondaryToolBarItem).Activate();
+>>>>>>> Update (#12)
 					};
 
 					secondaryToolBarItem.PropertyChanged -= OnToolbarItemPropertyChanged;

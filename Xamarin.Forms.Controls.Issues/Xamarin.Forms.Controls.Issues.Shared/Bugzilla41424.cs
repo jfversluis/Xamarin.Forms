@@ -80,6 +80,9 @@ namespace Xamarin.Forms.Controls.Issues
 
 			RunningApp.Tap(q => q.Marked("Click to focus DatePicker"));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 			Assert.IsTrue(DialogIsOpened(),"Call Focus Picker");
 =======
 			RunningApp.Back();

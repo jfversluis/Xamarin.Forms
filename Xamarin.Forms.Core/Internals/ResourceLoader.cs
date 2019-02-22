@@ -45,7 +45,10 @@ namespace Xamarin.Forms.Internals
 		{
 			public AssemblyName AssemblyName { get; set; }
 			public string ResourcePath { get; set; }
+<<<<<<< HEAD
 			public object Instance { get; set; }
+=======
+>>>>>>> Update (#12)
 		}
 
 		public class ResourceLoadingResponse
@@ -54,6 +57,7 @@ namespace Xamarin.Forms.Internals
 			public bool UseDesignProperties { get; set; }
 		}
 
+<<<<<<< HEAD
 		static Action<Exception> exceptionHandler1;
 
 		[Obsolete("2 is better than 1")]
@@ -66,5 +70,8 @@ namespace Xamarin.Forms.Internals
 		}
 
 		internal static Action<(Exception exception, string filepath)> ExceptionHandler2 { get; set; }
+=======
+		internal static Action<Exception> ExceptionHandler { get; set; }
+>>>>>>> Update (#12)
 	}
 }

@@ -31,6 +31,7 @@ namespace Xamarin.Forms.Controls
 					break;
 			}
 
+<<<<<<< HEAD
 			grid.Children.Add(new ImageButton
 			{
 				Source = new FontImageSource
@@ -42,6 +43,9 @@ namespace Xamarin.Forms.Controls
 			});
 
 			var i = 1;
+=======
+			var i = 0;
+>>>>>>> Update (#12)
 			foreach (char c in Ionicons)
 			{
 				grid.Children.Add(new Image

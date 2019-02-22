@@ -8,7 +8,11 @@ using System.ComponentModel;
 
 namespace Xamarin.Forms.Platform.Android
 {
+<<<<<<< HEAD
 	public class FormsEditText : FormsEditTextBase, IFormsEditText
+=======
+	public class FormsEditText : EditText, IDescendantFocusToggler, IFormsEditText
+>>>>>>> Update (#12)
 	{
 		public FormsEditText(Context context) : base(context)
 		{
@@ -37,6 +41,7 @@ namespace Xamarin.Forms.Platform.Android
 		event EventHandler _onKeyboardBackPressed;
 		event EventHandler IFormsEditText.OnKeyboardBackPressed
 		{
+<<<<<<< HEAD
 			add => _onKeyboardBackPressed += value;
 			remove => _onKeyboardBackPressed -= value;
 		}
@@ -72,6 +77,25 @@ namespace Xamarin.Forms.Platform.Android
 		}
 
 
+=======
+			base.OnSelectionChanged(selStart, selEnd);
+			_selectionChanged?.Invoke(this, new SelectionChangedEventArgs(selStart, selEnd));
+		}
+
+		event EventHandler _onKeyboardBackPressed;
+		event EventHandler IFormsEditText.OnKeyboardBackPressed
+		{
+			add => _onKeyboardBackPressed += value;
+			remove => _onKeyboardBackPressed -= value;
+		}
+
+		event EventHandler<SelectionChangedEventArgs> _selectionChanged;
+		event EventHandler<SelectionChangedEventArgs> IFormsEditText.SelectionChanged
+		{
+			add => _selectionChanged += value;
+			remove => _selectionChanged -= value;
+		}
+>>>>>>> Update (#12)
 	}
 
 	public class SelectionChangedEventArgs : EventArgs

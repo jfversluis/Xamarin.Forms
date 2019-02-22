@@ -92,12 +92,18 @@ namespace Xamarin.Forms.Platform.iOS
 
 				if (element != null)
 				{
+<<<<<<< HEAD
 					VisualStateManager.GoToState(element, value
 						? VisualStateManager.CommonStates.Selected
+=======
+					VisualStateManager.GoToState(element, value 
+						? VisualStateManager.CommonStates.Selected 
+>>>>>>> Update (#12)
 						: VisualStateManager.CommonStates.Normal);
 				}
 			}
 		}
+<<<<<<< HEAD
 
 		void MeasureInvalidated(object sender, EventArgs args)
 		{
@@ -128,5 +134,7 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			ContentSizeChanged?.Invoke(this, EventArgs.Empty);
 		}
+=======
+>>>>>>> Update (#12)
 	}
 }

@@ -3,6 +3,9 @@ using Xamarin.Forms.CustomAttributes;
 using Xamarin.Forms.Internals;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #if UITEST
 using Xamarin.UITest;
@@ -10,8 +13,11 @@ using NUnit.Framework;
 using Xamarin.Forms.Core.UITests;
 #endif
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 namespace Xamarin.Forms.Controls.Issues
 {
 	[Preserve(AllMembers = true)]
@@ -60,10 +66,14 @@ namespace Xamarin.Forms.Controls.Issues
 				var label = new Label();
 				label.SetBinding(Label.TextProperty, "Description");
 <<<<<<< HEAD
+<<<<<<< HEAD
 				label.AutomationId = "pandabear";
 =======
 
 >>>>>>> Update from origin (#11)
+=======
+				label.AutomationId = "pandabear";
+>>>>>>> Update (#12)
 				var menu = new MenuItem { Text = "Remove" };
 				menu.Command = new Command(() => ((ListItemViewModel)BindingContext).Remove.Execute((this, BindingContext)));
 				ContextActions.Add(menu);
@@ -117,6 +127,9 @@ namespace Xamarin.Forms.Controls.Issues
 				new Command(() => MessagingCenter.Send(this, "Remove", this));
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #if UITEST && !__WINDOWS__
 		[Test]
@@ -153,7 +166,10 @@ namespace Xamarin.Forms.Controls.Issues
 		}
 #endif
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 	}
 }

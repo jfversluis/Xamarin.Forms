@@ -30,6 +30,7 @@ namespace Xamarin.Forms.Core.UnitTests
 	internal class RenderWithChild : RenderWith { }
 	internal class RenderWithChildTarget : IRegisterable { }
 	internal class RenderWithSetAsNewDefault : IRegisterable { }
+<<<<<<< HEAD
 
 	internal class VisualButtonTarget : IRegisterable
 	{
@@ -42,6 +43,8 @@ namespace Xamarin.Forms.Core.UnitTests
 			Param2 = param2;
 		}
 	}
+=======
+>>>>>>> Update (#12)
 
 	internal class VisualSliderTarget : IRegisterable { }
 	internal class ButtonChildTarget : IRegisterable { }

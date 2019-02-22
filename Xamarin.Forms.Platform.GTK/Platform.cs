@@ -15,12 +15,15 @@ namespace Xamarin.Forms.Platform.GTK
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
+<<<<<<< HEAD
 =======
 	public class Platform : BindableObject, IPlatform, INavigation, IDisposable
 >>>>>>> Update from origin (#8)
 =======
 	public class Platform : BindableObject, INavigation, IDisposable
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 	{
 		private bool _disposed;
 		readonly List<Page> _modals;
@@ -187,6 +190,12 @@ namespace Xamarin.Forms.Platform.GTK
 =======
 >>>>>>> Update from origin (#11)
 
+#pragma warning disable CS0618 // Type or member is obsolete
+			// The Platform property is no longer necessary, but we have to set it because some third-party
+			// library might still be retrieving it and using it
+			Page.Platform = this;
+#pragma warning restore CS0618 // Type or member is obsolete
+
 			AddChild(Page);
 
 			Application.Current.NavigationProxy.Inner = this;
@@ -311,6 +320,9 @@ namespace Xamarin.Forms.Platform.GTK
 			_modals.Add(modal);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -318,11 +330,14 @@ namespace Xamarin.Forms.Platform.GTK
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 			modal.Platform = this;
 >>>>>>> Update from origin (#8)
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			modal.DescendantRemoved += HandleChildRemoved;
 
 			var modalRenderer = GetRenderer(modal);
@@ -378,6 +393,9 @@ namespace Xamarin.Forms.Platform.GTK
 
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 		#region Obsolete 
 
@@ -387,7 +405,10 @@ namespace Xamarin.Forms.Platform.GTK
 		}
 
 		#endregion
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update (#12)
 	}
 }

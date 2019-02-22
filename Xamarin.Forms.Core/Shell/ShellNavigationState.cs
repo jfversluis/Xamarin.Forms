@@ -26,6 +26,7 @@ namespace Xamarin.Forms
 		}
 
 		public ShellNavigationState() { }
+<<<<<<< HEAD
 		public ShellNavigationState(string location)
 		{
 			var uri = ShellUriHandler.CreateUri(location);
@@ -37,6 +38,10 @@ namespace Xamarin.Forms
 		}
 
 		public ShellNavigationState(Uri location) => FullLocation = location;
+=======
+		public ShellNavigationState(string location) => Location = new Uri(location, UriKind.RelativeOrAbsolute);
+		public ShellNavigationState(Uri location) => Location = location;
+>>>>>>> Update (#12)
 		public static implicit operator ShellNavigationState(Uri uri) => new ShellNavigationState(uri);
 		public static implicit operator ShellNavigationState(string value) => new ShellNavigationState(value);
 	}

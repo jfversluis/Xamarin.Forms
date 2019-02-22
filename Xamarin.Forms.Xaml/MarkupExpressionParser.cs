@@ -137,7 +137,17 @@ namespace Xamarin.Forms.Xaml
 				str_value = value as string;
 			}
 			else
+<<<<<<< HEAD
 				str_value = GetNextPiece(ref remaining, out next);
+=======
+				str_value = GetNextPiece(ref remaining, out var next);
+
+			if (str_value != null && !str_value.StartsWith("{}", StringComparison.Ordinal) && str_value.Length > 2 && str_value.StartsWith("{", StringComparison.Ordinal))
+			{
+				var lineInfo = (serviceProvider.GetService(typeof(IXmlLineInfoProvider)) as IXmlLineInfoProvider != null) ? (serviceProvider.GetService(typeof(IXmlLineInfoProvider)) as IXmlLineInfoProvider).XmlLineInfo : new XmlLineInfo();
+				throw new XamlParseException("Strings starting with `{` needs to be escaped. Start the string with `{}`", lineInfo);
+			}
+>>>>>>> Update (#12)
 
 			SetPropertyValue(prop, str_value, value, serviceProvider);
 		}

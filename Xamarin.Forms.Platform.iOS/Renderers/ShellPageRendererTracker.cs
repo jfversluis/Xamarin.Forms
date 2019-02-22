@@ -221,8 +221,14 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 			else if (IsRootPage && _flyoutBehavior == FlyoutBehavior.Flyout)
 			{
+<<<<<<< HEAD
 
 				await SetDrawerArrowDrawableFromFlyoutIcon();
+=======
+				ImageSource image = "3bar.png";
+				var icon = await image.GetNativeImageAsync();
+				NavigationItem.LeftBarButtonItem = new UIBarButtonItem(icon, UIBarButtonItemStyle.Plain, OnMenuButtonPressed);
+>>>>>>> Update (#12)
 			}
 			else
 			{
@@ -553,6 +559,7 @@ namespace Xamarin.Forms.Platform.iOS
 		async void SetSearchBarIcon(UISearchBar searchBar, ImageSource source, UISearchBarIcon icon)
 		{
 			var result = await source.GetNativeImageAsync();
+<<<<<<< HEAD
 			var newResult = result.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
 			searchBar.SetImageforSearchBarIcon(newResult, icon, UIControlState.Normal);
 			searchBar.SetImageforSearchBarIcon(newResult, icon, UIControlState.Highlighted);
@@ -564,6 +571,9 @@ namespace Xamarin.Forms.Platform.iOS
 			//UIKIt will try to override our colors when the SearchController is inside the NavigationBar
 			//Best way was to force them to be set again when page is Appearing / ViewDidLoad
 			_searchHandlerAppearanceTracker?.UpdateSearchBarColors();
+=======
+			searchBar.SetImageforSearchBarIcon(result, icon, UIControlState.Normal);
+>>>>>>> Update (#12)
 		}
 
 		#endregion SearchHandler

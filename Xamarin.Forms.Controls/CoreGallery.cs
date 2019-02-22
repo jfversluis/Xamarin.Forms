@@ -282,8 +282,11 @@ namespace Xamarin.Forms.Controls
 		}
 
 		List<GalleryPageFactory> _pages = new List<GalleryPageFactory> {
+<<<<<<< HEAD
 				new GalleryPageFactory(() => new MemoryLeakGallery(), "Memory Leak"),
 				new GalleryPageFactory(() => new Issues.A11yTabIndex(), "Accessibility TabIndex"),
+=======
+>>>>>>> Update (#12)
 				new GalleryPageFactory(() => new FontImageSourceGallery(), "Font ImageSource"),
 				new GalleryPageFactory(() => new CollectionViewGallery(), "CollectionView Gallery"),
 				new GalleryPageFactory(() => new CollectionViewCoreGalleryPage(), "CollectionView Core Gallery"),
@@ -300,6 +303,10 @@ namespace Xamarin.Forms.Controls
 				new GalleryPageFactory(() => new CellForceUpdateSizeGalleryPage(), "Cell Force Update Size Gallery"),
 				new GalleryPageFactory(() => new AppearingGalleryPage(), "Appearing Gallery"),
 				new GalleryPageFactory(() => new EntryCoreGalleryPage(), "Entry Gallery"),
+<<<<<<< HEAD
+=======
+				new GalleryPageFactory(() => new EntryCoreGalleryPage{ Visual = VisualMarker.Material }, "Entry Gallery (Material)"),
+>>>>>>> Update (#12)
 				new GalleryPageFactory(() => new MaterialEntryGalleryPage(), "Entry Material Demos"),
 				new GalleryPageFactory(() => new NavBarTitleTestPage(), "Titles And Navbar Windows"),
 				new GalleryPageFactory(() => new PanGestureGalleryPage(), "Pan gesture Gallery"),
@@ -334,8 +341,12 @@ namespace Xamarin.Forms.Controls
 				new GalleryPageFactory(() => new OpenGLViewCoreGalleryPage(), "OpenGLView Gallery"),
 				new GalleryPageFactory(() => new PickerCoreGalleryPage(), "Picker Gallery"),
 				new GalleryPageFactory(() => new ProgressBarCoreGalleryPage(), "ProgressBar Gallery"),
+<<<<<<< HEAD
 				new GalleryPageFactory(() => new MaterialProgressBarGallery(), "ProgressBar & Slider Gallery (Material)"),
 				new GalleryPageFactory(() => new MaterialActivityIndicatorGallery(), "ActivityIndicator Gallery (Material)"),
+=======
+				new GalleryPageFactory(() => new MaterialProgressBarGallery(), "[Material] ProgressBar & Slider Gallery"),
+>>>>>>> Update (#12)
 				new GalleryPageFactory(() => new ScrollGallery(), "ScrollView Gallery"),
 				new GalleryPageFactory(() => new ScrollGallery(ScrollOrientation.Horizontal), "ScrollView Gallery Horizontal"),
 				new GalleryPageFactory(() => new ScrollGallery(ScrollOrientation.Both), "ScrollView Gallery 2D"),
@@ -449,10 +460,15 @@ namespace Xamarin.Forms.Controls
 						}
 					})
 				});
+<<<<<<< HEAD
 
 				return cell;
 			});
 
+=======
+				return cell;
+			});
+>>>>>>> Update (#12)
 			template.SetBinding(TextCell.TextProperty, "Title");
 			template.SetBinding(TextCell.AutomationIdProperty, "TitleAutomationId");
 

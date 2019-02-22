@@ -103,7 +103,10 @@
     <Compile Include="PlatformSpecificCoreGalleryFactory.cs" />
     <Compile Include="RegistrarValidationService.cs" />
     <Compile Include="SampleNativeControl.cs" />
+<<<<<<< HEAD
     <Compile Include="SeparatorMenuItem.cs" />
+=======
+>>>>>>> Update (#12)
     <Compile Include="..\Xamarin.Forms.Controls\GalleryPages\OpenGLGalleries\AdvancedOpenGLGallery.cs">
       <Link>GalleryPages\AdvancedOpenGLGallery.cs</Link>
     </Compile>

@@ -39,7 +39,11 @@ namespace Xamarin.Forms.Platform.Android.AppCompat
 
 		[Obsolete("This constructor is obsolete as of version 2.5. Please use PickerRenderer(Context) instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
+<<<<<<< HEAD
 		public PickerRendererBase()
+=======
+		public PickerRenderer()
+>>>>>>> Update (#12)
 		{
 			AutoPackage = false;
 		}

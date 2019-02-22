@@ -166,7 +166,10 @@ namespace Xamarin.Forms.Platform.iOS
 				{
 					TearDownOldElement(Element);
 				}
+<<<<<<< HEAD
 				ItemsViewController.Dispose();
+=======
+>>>>>>> Update (#12)
 			}
 
 			base.Dispose(disposing);

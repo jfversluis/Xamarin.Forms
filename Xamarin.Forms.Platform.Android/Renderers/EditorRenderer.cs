@@ -66,7 +66,11 @@ namespace Xamarin.Forms.Platform.Android
 
 		[Obsolete("This constructor is obsolete as of version 2.5. Please use EditorRenderer(Context) instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
+<<<<<<< HEAD
 		public EditorRendererBase()
+=======
+		public EditorRenderer()
+>>>>>>> Update (#12)
 		{
 			AutoPackage = false;
 		}
@@ -108,6 +112,24 @@ namespace Xamarin.Forms.Platform.Android
 			}
 		}
 
+		protected override void OnFocusChangeRequested(object sender, VisualElement.FocusRequestArgs e)
+		{
+			if (!e.Focus)
+			{
+				Control.HideKeyboard();
+			}
+
+			base.OnFocusChangeRequested(sender, e);
+
+			if (e.Focus)
+			{
+				// Post this to the main looper queue so it doesn't happen until the other focus stuff has resolved
+				// Otherwise, ShowKeyboard will be called before this control is truly focused, and we will potentially
+				// be displaying the wrong keyboard
+				Control?.PostShowKeyboard();
+			}
+		}
+
 		protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
 		{
 			base.OnElementChanged(e);
@@ -118,9 +140,20 @@ namespace Xamarin.Forms.Platform.Android
 				edit = CreateNativeControl();
 
 				SetNativeControl(edit);
+<<<<<<< HEAD
 				EditText.AddTextChangedListener(this);
 				if(EditText is IFormsEditText formsEditText)
 					formsEditText.OnKeyboardBackPressed += OnKeyboardBackPressed;
+=======
+				edit.AddTextChangedListener(this);
+				if(edit is IFormsEditText formsEditText)
+					formsEditText.OnKeyboardBackPressed += OnKeyboardBackPressed;
+
+				var useLegacyColorManagement = e.NewElement.UseLegacyColorManagement();
+				_textColorSwitcher = new TextColorSwitcher(edit.TextColors, useLegacyColorManagement);
+
+				defaultPlaceholdercolor = Control.HintTextColors;
+>>>>>>> Update (#12)
 			}
 
 			EditText.SetSingleLine(false);
@@ -180,7 +213,11 @@ namespace Xamarin.Forms.Platform.Android
 
 			if (disposing)
 			{
+<<<<<<< HEAD
 				if (EditText != null && EditText is IFormsEditText formsEditText)
+=======
+				if (Control != null && Control is IFormsEditText formsEditText)
+>>>>>>> Update (#12)
 				{
 					formsEditText.OnKeyboardBackPressed -= OnKeyboardBackPressed;
 				}
@@ -295,6 +332,15 @@ namespace Xamarin.Forms.Platform.Android
 			EditText.FocusableInTouchMode = isReadOnly;
 			EditText.Focusable = isReadOnly;
 			EditText.SetCursorVisible(isReadOnly);
+		}
+
+		void UpdateIsReadOnly()
+		{
+			bool isReadOnly = !Element.IsReadOnly;
+
+			Control.FocusableInTouchMode = isReadOnly;
+			Control.Focusable = isReadOnly;
+			Control.SetCursorVisible(isReadOnly);
 		}
 	}
 }

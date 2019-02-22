@@ -213,7 +213,8 @@ namespace Xamarin.Forms.Platform.MacOS
 			UpdateFont();
 			UpdateAlignment();
 			UpdateMaxLength();
-		}
+			UpdateIsReadOnly();
+        }
 
 <<<<<<< HEAD
 		void CreateControl()

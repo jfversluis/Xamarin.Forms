@@ -718,11 +718,16 @@ namespace Xamarin.Forms.CustomAttributes
 		public enum Switch
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			IsToggled,
 			OnColor
 =======
 			IsToggled
 >>>>>>> Update from origin (#11)
+=======
+			IsToggled,
+			OnColor
+>>>>>>> Update (#12)
 		}
 
 		public enum CheckBox

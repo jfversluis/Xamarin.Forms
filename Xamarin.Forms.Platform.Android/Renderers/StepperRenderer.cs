@@ -40,6 +40,21 @@ namespace Xamarin.Forms.Platform.Android
 
 			if (e.OldElement == null)
 			{
+<<<<<<< HEAD
+=======
+				_downButton = new AButton(Context) { Text = "-", Gravity = GravityFlags.Center, Tag = this, Focusable = true };
+				_downButton.SetHeight((int)Context.ToPixels(10.0));
+
+				_downButton.SetOnClickListener(StepperListener.Instance);
+
+				_upButton = new AButton(Context) { Text = "+", Tag = this, Focusable = true };
+
+				_upButton.SetOnClickListener(StepperListener.Instance);
+				_upButton.SetHeight((int)Context.ToPixels(10.0));
+
+				_downButton.NextFocusForwardId = _upButton.Id = Platform.GenerateViewId();
+
+>>>>>>> Update (#12)
 				var layout = CreateNativeControl();
 				StepperRendererManager.CreateStepperButtons(this, out _downButton, out _upButton);
 				layout.AddView(_downButton, new LinearLayout.LayoutParams(LayoutParams.WrapContent, LayoutParams.MatchParent));

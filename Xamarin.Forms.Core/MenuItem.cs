@@ -17,6 +17,7 @@ namespace Xamarin.Forms
 
 		public static readonly BindableProperty IsDestructiveProperty = BindableProperty.Create(nameof(IsDestructive), typeof(bool), typeof(MenuItem), false);
 
+<<<<<<< HEAD
 		public static readonly BindableProperty IconImageSourceProperty = BindableProperty.Create(nameof(IconImageSource), typeof(ImageSource), typeof(MenuItem), default(ImageSource));
 
 		[Obsolete("IconProperty is obsolete as of 4.0.0. Please use IconImageSourceProperty instead.")]
@@ -28,6 +29,15 @@ namespace Xamarin.Forms
 
 		public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(MenuItem), null);
 
+=======
+		public static readonly BindableProperty IconProperty = BindableProperty.Create(nameof(Icon), typeof(FileImageSource), typeof(MenuItem), default(FileImageSource));
+
+		static readonly BindablePropertyKey IsEnabledPropertyKey = BindableProperty.CreateReadOnly(nameof(IsEnabled), typeof(bool), typeof(ToolbarItem), true);
+		public static readonly BindableProperty IsEnabledProperty = IsEnabledPropertyKey.BindableProperty;
+
+		public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(MenuItem), null);
+
+>>>>>>> Update (#12)
 		public static Accelerator GetAccelerator(BindableObject bindable) => (Accelerator)bindable.GetValue(AcceleratorProperty);
 
 		public static void SetAccelerator(BindableObject bindable, Accelerator value) => bindable.SetValue(AcceleratorProperty, value);
@@ -48,6 +58,7 @@ namespace Xamarin.Forms
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public FileImageSource Icon
 		{
+<<<<<<< HEAD
 			get => GetValue(IconProperty) as FileImageSource ?? default(FileImageSource);
 			set => SetValue(IconProperty, value);
 		}
@@ -56,6 +67,10 @@ namespace Xamarin.Forms
 		{
 			get => (ImageSource)GetValue(IconImageSourceProperty);
 			set => SetValue(IconImageSourceProperty, value);
+=======
+			get => (FileImageSource)GetValue(IconProperty);
+			set => SetValue(IconProperty, value);
+>>>>>>> Update (#12)
 		}
 
 		public bool IsDestructive

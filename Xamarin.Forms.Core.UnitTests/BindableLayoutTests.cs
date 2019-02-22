@@ -206,6 +206,9 @@ namespace Xamarin.Forms.Core.UnitTests
 
 		[Test]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 		public void ContainerIsPassedInSelectTemplate()
 		{
 			var layout = new StackLayout
@@ -228,8 +231,11 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 		public void ItemTemplateTakesPrecendenceOverItemTemplateSelector()
 		{
 			var layout = new StackLayout
@@ -412,6 +418,7 @@ namespace Xamarin.Forms.Core.UnitTests
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		class ObservableRangeCollection<T> : ObservableCollection<T>
 		{
@@ -433,6 +440,8 @@ namespace Xamarin.Forms.Core.UnitTests
 				OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, changedItems, 0));
 			}
 		}
+=======
+>>>>>>> Update (#12)
 
 		class MyDataTemplateSelectorTest : DataTemplateSelector
 		{
@@ -444,7 +453,10 @@ namespace Xamarin.Forms.Core.UnitTests
 			protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
 				=> _func(item, container);
 		}
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 	}
 }

@@ -7,6 +7,7 @@ using Android.Webkit;
 using WView = Android.Webkit.WebView;
 =======
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -139,9 +140,13 @@ namespace Xamarin.Forms.Platform.Android
 
 		[Obsolete("OnReceivedError is obsolete as of version 2.3.0. This method was deprecated in API level 23.")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public override void OnReceivedError(WView view, ClientError errorCode, string description, string failingUrl)
 =======
+=======
+		[EditorBrowsable(EditorBrowsableState.Never)]
+>>>>>>> Update (#12)
 		public override void OnReceivedError(global::Android.Webkit.WebView view, ClientError errorCode, string description, string failingUrl)
 >>>>>>> Update from origin (#8)
 		{

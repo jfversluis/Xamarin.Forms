@@ -62,6 +62,9 @@ namespace Xamarin.Forms.Platform.UWP
 				UpdateDetectReadingOrderFromContent();
 				UpdateReturnType();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 				UpdateIsReadOnly();
 				UpdateInputScope();
 =======
@@ -472,12 +475,18 @@ namespace Xamarin.Forms.Platform.UWP
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 		void UpdateIsReadOnly()
 		{
 			Control.IsReadOnly = Element.IsReadOnly;
 		}
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#8)
+=======
+>>>>>>> Update (#12)
 	}
 }

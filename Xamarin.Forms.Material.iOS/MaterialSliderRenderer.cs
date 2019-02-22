@@ -4,15 +4,30 @@ using CoreGraphics;
 using MaterialComponents;
 using UIKit;
 using Xamarin.Forms;
+<<<<<<< HEAD
 using Xamarin.Forms.Platform.iOS;
 using MSlider = MaterialComponents.Slider;
 
 namespace Xamarin.Forms.Material.iOS
+=======
+using MSlider = MaterialComponents.Slider;
+
+namespace Xamarin.Forms.Platform.iOS.Material
+>>>>>>> Update (#12)
 {
 	public class MaterialSliderRenderer : ViewRenderer<Slider, MSlider>
 	{
 		SemanticColorScheme _defaultColorScheme;
 		SemanticColorScheme _colorScheme;
+<<<<<<< HEAD
+=======
+
+		public MaterialSliderRenderer()
+		{
+			VisualElement.VerifyVisualFlagEnabled();
+		}
+
+>>>>>>> Update (#12)
 		protected override void Dispose(bool disposing)
 		{
 			if (Control != null)
@@ -51,6 +66,14 @@ namespace Xamarin.Forms.Material.iOS
 			}
 		}
 
+<<<<<<< HEAD
+=======
+		protected virtual SemanticColorScheme CreateColorScheme()
+		{
+			return MaterialColors.Light.CreateColorScheme();
+		}
+
+>>>>>>> Update (#12)
 		protected virtual void ApplyTheme()
 		{
 			SliderColorThemer.ApplySemanticColorScheme(CreateColorScheme(), Control);
@@ -62,6 +85,13 @@ namespace Xamarin.Forms.Material.iOS
 			OverrideThemeColors();
 		}
 
+<<<<<<< HEAD
+=======
+		protected override MSlider CreateNativeControl()
+		{
+			return new MSlider { StatefulApiEnabled = true };
+		}
+>>>>>>> Update (#12)
 
 		public override CGSize SizeThatFits(CGSize size)
 		{
@@ -100,12 +130,24 @@ namespace Xamarin.Forms.Material.iOS
 				ApplyTheme();
 		}
 
+<<<<<<< HEAD
 		protected override MSlider CreateNativeControl() => new MSlider { StatefulApiEnabled = true };
 		protected virtual SemanticColorScheme CreateColorScheme() => MaterialColors.Light.CreateColorScheme();
 
 		void UpdateMaximum() => Control.MaximumValue = (nfloat)Element.Maximum;
 		void UpdateMinimum() => Control.MinimumValue = (nfloat)Element.Minimum;
 		void OnControlValueChanged(object sender, EventArgs eventArgs) => Element.SetValueFromRenderer(Slider.ValueProperty, Control.Value);
+=======
+		void UpdateMaximum()
+		{
+			Control.MaximumValue = (nfloat)Element.Maximum;
+		}
+
+		void UpdateMinimum()
+		{
+			Control.MinimumValue = (nfloat)Element.Minimum;
+		}
+>>>>>>> Update (#12)
 
 		void UpdateValue()
 		{
@@ -145,5 +187,13 @@ namespace Xamarin.Forms.Material.iOS
 			if (!thumbColor.IsDefault)
 				Control.SetThumbColor(thumbColor.ToUIColor(), UIControlState.Normal);
 		}
+<<<<<<< HEAD
+=======
+
+		void OnControlValueChanged(object sender, EventArgs eventArgs)
+		{
+			Element.SetValueFromRenderer(Slider.ValueProperty, Control.Value);
+		}
+>>>>>>> Update (#12)
 	}
 }

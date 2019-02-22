@@ -168,10 +168,14 @@ namespace Xamarin.Forms.Platform.Android
 
 			if (element != null && !string.IsNullOrEmpty(element.AutomationId))
 <<<<<<< HEAD
+<<<<<<< HEAD
 				SetAutomationId(element.AutomationId);
 =======
 					SetAutomationId(element.AutomationId);
 >>>>>>> Update from origin (#11)
+=======
+				SetAutomationId(element.AutomationId);
+>>>>>>> Update (#12)
 
 			SetContentDescription();
 		}

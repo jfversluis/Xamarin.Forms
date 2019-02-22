@@ -2,7 +2,10 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using CoreGraphics;
+<<<<<<< HEAD
 using Foundation;
+=======
+>>>>>>> Update (#12)
 using UIKit;
 
 namespace Xamarin.Forms.Platform.iOS
@@ -141,7 +144,11 @@ namespace Xamarin.Forms.Platform.iOS
 
 			if (e.PropertyName == Button.PaddingProperty.PropertyName)
 				UpdatePadding();
+<<<<<<< HEAD
 			else if (e.PropertyName == Button.ImageSourceProperty.PropertyName)
+=======
+			else if (e.PropertyName == Button.ImageProperty.PropertyName)
+>>>>>>> Update (#12)
 				_ = UpdateImageAsync();
 			else if (e.PropertyName == Button.TextProperty.PropertyName)
 				UpdateText();
@@ -264,6 +271,7 @@ namespace Xamarin.Forms.Platform.iOS
 			{
 				// TODO: Do not use the title label as it is not yet updated and
 				//       if we move the image, then we technically have more
+<<<<<<< HEAD
 				//       space and will require a new layout pass.
 
 				var title =
@@ -273,6 +281,11 @@ namespace Xamarin.Forms.Platform.iOS
 					control.Bounds.Size,
 					NSStringDrawingOptions.UsesLineFragmentOrigin | NSStringDrawingOptions.UsesFontLeading,
 					null);
+=======
+				//       space and will require a new laoyt pass.
+
+				var titleRect = control.TitleLabel.Bounds.Size;
+>>>>>>> Update (#12)
 
 				var titleWidth = titleRect.Width;
 				var titleHeight = titleRect.Height;

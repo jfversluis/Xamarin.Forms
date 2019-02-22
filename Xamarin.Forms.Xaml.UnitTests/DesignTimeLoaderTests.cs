@@ -23,7 +23,10 @@ namespace Xamarin.Forms.Xaml.UnitTests
 			XamlLoader.FallbackTypeResolver = null;
 			XamlLoader.ValueCreatedCallback = null;
 			XamlLoader.InstantiationFailedCallback = null;
+<<<<<<< HEAD
 #pragma warning disable 0618
+=======
+>>>>>>> Update (#12)
 			Xamarin.Forms.Internals.ResourceLoader.ExceptionHandler = null;
 			Xamarin.Forms.Xaml.Internals.XamlLoader.DoNotThrowOnExceptions = false;
 #pragma warning restore 0618
@@ -535,6 +538,7 @@ namespace Xamarin.Forms.Xaml.UnitTests
 					</ContentPage>";
 
 			var exceptions = new List<Exception>();
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 			Xamarin.Forms.Internals.ResourceLoader.ExceptionHandler = exceptions.Add;
 #pragma warning restore CS0618 // Type or member is obsolete
@@ -713,6 +717,12 @@ namespace Xamarin.Forms.Xaml.UnitTests
 
 			Assert.DoesNotThrow(() => XamlLoader.Create(xaml, true));
 		}
+=======
+			Xamarin.Forms.Internals.ResourceLoader.ExceptionHandler = exceptions.Add;
+			Assert.DoesNotThrow(() => XamlLoader.Create(xaml, true));
+			Assert.That(exceptions.Count, Is.EqualTo(2));
+		}
+>>>>>>> Update (#12)
 	}
 
 	public class InstantiateThrows

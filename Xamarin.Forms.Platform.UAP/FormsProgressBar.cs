@@ -17,11 +17,16 @@ namespace Xamarin.Forms.Platform.UWP
 		{
 			var result = base.MeasureOverride(availableSize);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (!double.IsInfinity(availableSize.Width))
 				result.Width = availableSize.Width;
 =======
 			result.Width = availableSize.Width;
 >>>>>>> Update from origin (#11)
+=======
+			if (!double.IsInfinity(availableSize.Width))
+				result.Width = availableSize.Width;
+>>>>>>> Update (#12)
 			return result;
 		}
 	}

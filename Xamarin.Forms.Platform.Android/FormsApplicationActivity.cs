@@ -244,6 +244,9 @@ namespace Xamarin.Forms.Platform.Android
 
 			Platform = new Platform(this);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 			if (_application != null)
 			{
@@ -254,9 +257,12 @@ namespace Xamarin.Forms.Platform.Android
 #pragma warning restore CS0618 // Type or member is obsolete
 			}
 
+<<<<<<< HEAD
 =======
 			
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			Platform.SetPage(page);
 			_layout.AddView(Platform.GetViewGroup());
 		}

@@ -1,5 +1,8 @@
 using System;
+<<<<<<< HEAD
 using System.Collections.Generic;
+=======
+>>>>>>> Update (#12)
 using Android.Content;
 using Android.Support.V7.Widget;
 using Object = Java.Lang.Object;
@@ -9,10 +12,16 @@ namespace Xamarin.Forms.Platform.Android
 	public class SelectableItemsViewAdapter : ItemsViewAdapter
 	{
 		protected readonly SelectableItemsView SelectableItemsView;
+<<<<<<< HEAD
 		List<SelectableViewHolder> _currentViewHolders = new List<SelectableViewHolder>();
 
 		internal SelectableItemsViewAdapter(SelectableItemsView selectableItemsView,
 			Func<View, Context, ItemContentView> createView = null) : base(selectableItemsView, createView)
+=======
+
+		internal SelectableItemsViewAdapter(SelectableItemsView selectableItemsView, 
+			Func<IVisualElementRenderer, Context, global::Android.Views.View> createView = null) : base(selectableItemsView, createView)
+>>>>>>> Update (#12)
 		{
 			SelectableItemsView = selectableItemsView;
 		}
@@ -29,6 +38,7 @@ namespace Xamarin.Forms.Platform.Android
 			// Watch for clicks so the user can select the item held by this ViewHolder
 			selectable.Clicked += SelectableOnClicked;
 
+<<<<<<< HEAD
 			// Keep track of the view holders here so we can clear the native selection
 			_currentViewHolders.Add(selectable);
 
@@ -58,11 +68,15 @@ namespace Xamarin.Forms.Platform.Android
 
 		internal void MarkNativeSelection(object selectedItem)
 		{
+=======
+			var selectedItem = SelectableItemsView.SelectedItem;
+>>>>>>> Update (#12)
 			if (selectedItem == null)
 			{
 				return;
 			}
 
+<<<<<<< HEAD
 			var position = GetPositionForItem(selectedItem);
 
 			for (int i = 0; i < _currentViewHolders.Count; i++)
@@ -118,6 +132,24 @@ namespace Xamarin.Forms.Platform.Android
 			}
 
 			return false;
+=======
+			// If there's a selected item, check to see if it's this one so we can mark it 'selected'
+			if (GetPositionForItem(selectedItem) == position)
+			{
+				selectable.IsSelected = true;
+			}
+		}
+	
+		public override void OnViewRecycled(Object holder)
+		{
+			if (holder is SelectableViewHolder selectable)
+			{
+				selectable.Clicked -= SelectableOnClicked;
+				selectable.IsSelected = false;
+			}
+
+			base.OnViewRecycled(holder);
+>>>>>>> Update (#12)
 		}
 
 		void SelectableOnClicked(object sender, int adapterPosition)
@@ -138,6 +170,7 @@ namespace Xamarin.Forms.Platform.Android
 					SelectableItemsView.SelectedItem = ItemsSource[adapterPosition];
 					return;
 				case SelectionMode.Multiple:
+<<<<<<< HEAD
 					var item = ItemsSource[adapterPosition];
 					var selectedItems = SelectableItemsView.SelectedItems;
 
@@ -150,6 +183,12 @@ namespace Xamarin.Forms.Platform.Android
 						selectedItems.Add(item);
 					}
 					return;
+=======
+					// TODO hartez 2018/11/06 22:22:42 Once SelectedItems is available, toggle ItemsSource[adapterPosition] here	
+					return;
+				default:
+					throw new ArgumentOutOfRangeException();
+>>>>>>> Update (#12)
 			}
 		}
 	}

@@ -268,9 +268,15 @@ namespace Xamarin.Forms.Build.Tasks
 					var nop = Instruction.Create(Nop);
 
 					il.Emit(Newobj, module.ImportCtorReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader/ResourceLoadingQuery"), 0));
+<<<<<<< HEAD
 
 					//AssemblyName
 					il.Emit(Dup); //dup the RLQ
+=======
+					il.Emit(Dup); //dup the RLQ
+
+					//AssemblyName
+>>>>>>> Update (#12)
 					il.Emit(Ldtoken, module.ImportReference(initComp.DeclaringType));
 					il.Emit(Call, module.ImportMethodReference(("mscorlib", "System", "Type"), methodName: "GetTypeFromHandle", parameterTypes: new[] { ("mscorlib", "System", "RuntimeTypeHandle") }, isStatic: true));
 					il.Emit(Call, module.ImportMethodReference(("mscorlib", "System.Reflection", "IntrospectionExtensions"), methodName: "GetTypeInfo", parameterTypes: new[] { ("mscorlib", "System", "Type") }, isStatic: true));
@@ -278,6 +284,7 @@ namespace Xamarin.Forms.Build.Tasks
 					il.Emit(Callvirt, module.ImportMethodReference(("mscorlib", "System.Reflection", "Assembly"), methodName: "GetName", parameterTypes: null));
 					il.Emit(Callvirt, module.ImportPropertySetterReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader/ResourceLoadingQuery"), "AssemblyName"));
 
+<<<<<<< HEAD
 					//ResourcePath
 					il.Emit(Dup); //dup the RLQ
 					il.Emit(Ldstr, resourcePath);
@@ -288,6 +295,14 @@ namespace Xamarin.Forms.Build.Tasks
 					il.Emit(Ldarg_0); //Instance = this
 					il.Emit(Callvirt, module.ImportPropertySetterReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader/ResourceLoadingQuery"), "Instance"));
 
+=======
+					il.Emit(Callvirt, module.ImportPropertySetterReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader/ResourceLoadingQuery"), "AssemblyName"));
+					il.Emit(Dup); //dup the RLQ
+
+					il.Emit(Ldstr, resourcePath);   //resourcePath
+					il.Emit(Callvirt, module.ImportPropertySetterReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader/ResourceLoadingQuery"), "ResourcePath"));
+					
+>>>>>>> Update (#12)
 					il.Emit(Call, module.ImportMethodReference(("Xamarin.Forms.Core", "Xamarin.Forms.Internals", "ResourceLoader"), "CanProvideContentFor", 1, isStatic: true));
 					il.Emit(Brfalse, nop);
 					il.Emit(Ldarg_0);

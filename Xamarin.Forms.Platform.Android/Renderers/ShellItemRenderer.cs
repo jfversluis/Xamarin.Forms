@@ -362,6 +362,23 @@ namespace Xamarin.Forms.Platform.Android
 				UpdateTabBarVisibility();
 		}
 
+<<<<<<< HEAD
+=======
+		async void SetImage(ImageView image, ImageSource source)
+		{
+			image.SetImageDrawable(await Context.GetFormsDrawable(source));
+		}
+
+		async Task SetMenuItemIcon(IMenuItem menuItem, ImageSource source)
+		{
+			if (source == null)
+				return;
+			var drawable = await Context.GetFormsDrawable(source);
+			menuItem.SetIcon(drawable);
+			drawable?.Dispose();
+		}
+
+>>>>>>> Update (#12)
 		void SetupMenu()
 		{
 			using (var menu = _bottomView.Menu)

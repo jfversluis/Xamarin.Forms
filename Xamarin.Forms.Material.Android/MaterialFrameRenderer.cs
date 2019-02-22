@@ -6,6 +6,7 @@ using Android.Support.V4.View;
 using Android.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android.FastRenderers;
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 using Xamarin.Forms.Material.Android;
 using AView = Android.Views.View;
 using MaterialCardView = Android.Support.Design.Card.MaterialCardView;
@@ -13,6 +14,15 @@ using Xamarin.Forms.Platform.Android;
 
 
 namespace Xamarin.Forms.Material.Android
+=======
+using Xamarin.Forms.Platform.Android.Material;
+using AView = Android.Views.View;
+using MaterialCardView = Android.Support.Design.Card.MaterialCardView;
+
+[assembly: ExportRenderer(typeof(Xamarin.Forms.Frame), typeof(MaterialFrameRenderer), new[] { typeof(VisualRendererMarker.Material) })]
+
+namespace Xamarin.Forms.Platform.Android.Material
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 {
 	public class MaterialFrameRenderer : MaterialCardView,
 		IVisualElementRenderer, IEffectControlProvider, IViewRenderer, ITabStop
@@ -24,21 +34,41 @@ namespace Xamarin.Forms.Material.Android
 		int? _defaultStrokeColor;
 		int? _defaultLabelFor;
 		bool _disposed;
+
 		Frame _element;
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 		VisualElementTracker _visualElementTracker;
 		VisualElementPackager _visualElementPackager;
+=======
+
+		VisualElementTracker _visualElementTracker;
+		VisualElementPackager _visualElementPackager;
+
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 		readonly GestureManager _gestureManager;
 		readonly EffectControlProvider _effectControlProvider;
 		readonly MotionEventHelper _motionEventHelper;
 
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 		public MaterialFrameRenderer(Context context)
 			: base(MaterialContextThemeWrapper.Create(context))
 		{
+=======
+		public event EventHandler<VisualElementChangedEventArgs> ElementChanged;
+		public event EventHandler<PropertyChangedEventArgs> ElementPropertyChanged;
+
+		public MaterialFrameRenderer(Context context)
+			: base(new ContextThemeWrapper(context, Resource.Style.XamarinFormsMaterialTheme))
+		{
+			VisualElement.VerifyVisualFlagEnabled();
+
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 			_gestureManager = new GestureManager(this);
 			_effectControlProvider = new EffectControlProvider(this);
 			_motionEventHelper = new MotionEventHelper();
 		}
 
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 		public event EventHandler<VisualElementChangedEventArgs> ElementChanged;
 		public event EventHandler<PropertyChangedEventArgs> ElementPropertyChanged;
 
@@ -50,6 +80,8 @@ namespace Xamarin.Forms.Material.Android
 			return _motionEventHelper.HandleMotionEvent(Parent, e);
 		}
 
+=======
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 		protected MaterialCardView Control => this;
 
 		protected Frame Element
@@ -164,12 +196,32 @@ namespace Xamarin.Forms.Material.Android
 			{
 				if (children[i] is VisualElement visualElement)
 				{
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 					var renderer = Platform.Android.Platform.GetRenderer(visualElement);
+=======
+					var renderer = Platform.GetRenderer(visualElement);
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 					renderer?.UpdateLayout();
 				}
 			}
 		}
 
+		void UpdateShadow()
+		{
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
+			if (_disposed || Element == null)
+				return;
+=======
+			if (_gestureManager.OnTouchEvent(e) || base.OnTouchEvent(e))
+				return true;
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
+
+			// set the default elevation on the first time
+			if (_defaultElevation < 0)
+				_defaultElevation = CardElevation;
+
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
+=======
 		void UpdateShadow()
 		{
 			if (_disposed || Element == null)
@@ -179,6 +231,7 @@ namespace Xamarin.Forms.Material.Android
 			if (_defaultElevation < 0)
 				_defaultElevation = CardElevation;
 
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 			if (Element.HasShadow)
 				CardElevation = _defaultElevation;
 			else
@@ -191,9 +244,17 @@ namespace Xamarin.Forms.Material.Android
 				return;
 
 			var cornerRadius = Element.CornerRadius;
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 
 			if (_defaultCornerRadius < 0f)
 				_defaultCornerRadius = Context.ToPixels(MaterialColors.kFrameCornerRadiusDefault);
+=======
+			if (cornerRadius < 0f && _defaultCornerRadius < 0f)
+				return;
+
+			if (_defaultCornerRadius < 0f)
+				_defaultCornerRadius = Radius;
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 
 			if (cornerRadius < 0f)
 				Radius = _defaultCornerRadius;
@@ -248,6 +309,7 @@ namespace Xamarin.Forms.Material.Android
 		}
 
 		// IVisualElementRenderer
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
 		VisualElement IVisualElementRenderer.Element => Element;
 		VisualElementTracker IVisualElementRenderer.Tracker => _visualElementTracker;
 		ViewGroup IVisualElementRenderer.ViewGroup => this;
@@ -276,10 +338,52 @@ namespace Xamarin.Forms.Material.Android
 			_effectControlProvider?.RegisterEffect(effect);
 
 		// IViewRenderer
+=======
+
+		VisualElement IVisualElementRenderer.Element => Element;
+
+		VisualElementTracker IVisualElementRenderer.Tracker => _visualElementTracker;
+
+		ViewGroup IVisualElementRenderer.ViewGroup => this;
+
+		AView IVisualElementRenderer.View => this;
+
+		SizeRequest IVisualElementRenderer.GetDesiredSize(int widthConstraint, int heightConstraint)
+		{
+			var context = Context;
+			return new SizeRequest(new Size(context.ToPixels(20), context.ToPixels(20)));
+		}
+
+		void IVisualElementRenderer.SetElement(VisualElement element) =>
+			Element = (element as Frame) ?? throw new ArgumentException("Element must be of type Frame.");
+
+		void IVisualElementRenderer.SetLabelFor(int? id)
+		{
+			if (_defaultLabelFor == null)
+				_defaultLabelFor = ViewCompat.GetLabelFor(this);
+
+			ViewCompat.SetLabelFor(this, (int)(id ?? _defaultLabelFor));
+		}
+
+		void IVisualElementRenderer.UpdateLayout() =>
+			_visualElementTracker?.UpdateLayout();
+
+		// IEffectControlProvider
+
+		void IEffectControlProvider.RegisterEffect(Effect effect) =>
+			_effectControlProvider?.RegisterEffect(effect);
+
+		// IViewRenderer
+
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 		void IViewRenderer.MeasureExactly() =>
 			ViewRenderer.MeasureExactly(this, Element, Context);
 
 		// ITabStop
+<<<<<<< HEAD:Xamarin.Forms.Material.Android/MaterialFrameRenderer.cs
+=======
+
+>>>>>>> Update (#12):Xamarin.Forms.Platform.Android/Material/MaterialFrameRenderer.cs
 		AView ITabStop.TabStop => this;
 	}
 }

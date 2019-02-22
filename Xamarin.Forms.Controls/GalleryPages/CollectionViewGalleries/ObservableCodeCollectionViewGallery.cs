@@ -26,9 +26,15 @@
 			var itemTemplate = ExampleTemplates.PhotoTemplate();
 
 			var collectionView = new CollectionView {ItemsLayout = itemsLayout, ItemTemplate = itemTemplate, AutomationId = "collectionview" };
+<<<<<<< HEAD:Xamarin.Forms.Controls/GalleryPages/CollectionViewGalleries/ObservableCodeCollectionViewGallery.cs
 
 			var generator = new ItemsSourceGenerator(collectionView, initialItems, ItemsSourceType.ObservableCollection);
 
+=======
+
+			var generator = new ItemsSourceGenerator(collectionView, initialItems, ItemsSourceType.ObservableCollection);
+			
+>>>>>>> Update (#12):Xamarin.Forms.Controls/GalleryPages/CollectionViewGalleries/ObservableCodeCollectionViewGallery.cs
 			var remover = new ItemRemover(collectionView);
 			var adder = new ItemAdder(collectionView);
 			var replacer = new ItemReplacer(collectionView);
@@ -42,7 +48,7 @@
 
 			layout.Children.Add(adder);
 			Grid.SetRow(adder, 2);
-
+			
 			layout.Children.Add(replacer);
 			Grid.SetRow(replacer, 3);
 
@@ -57,10 +63,14 @@
 
 			Content = layout;
 
+<<<<<<< HEAD:Xamarin.Forms.Controls/GalleryPages/CollectionViewGalleries/ObservableCodeCollectionViewGallery.cs
 			if (addItemsWithTimer)
 				generator.GenerateEmptyObservableCollectionAndAddItemsEverySecond();
 			else
 				generator.GenerateItems();
+=======
+			generator.GenerateItems();
+>>>>>>> Update (#12):Xamarin.Forms.Controls/GalleryPages/CollectionViewGalleries/ObservableCodeCollectionViewGallery.cs
 		}
 	}
 }

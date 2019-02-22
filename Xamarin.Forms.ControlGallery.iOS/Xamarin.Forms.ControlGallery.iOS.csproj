@@ -53,7 +53,11 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 =======
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+<<<<<<< HEAD
 >>>>>>> Update from origin (#11)
+=======
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+>>>>>>> Update (#12)
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +102,10 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+<<<<<<< HEAD
+=======
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+>>>>>>> Update (#12)
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -343,6 +351,9 @@
     <Reference Include="Xamarin.iOS" />
     <Reference Include="netstandard" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
     <Reference Include="OpenTK-1.0" />
   </ItemGroup>
   <ItemGroup>

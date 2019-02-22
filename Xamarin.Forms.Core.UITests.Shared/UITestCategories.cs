@@ -44,6 +44,10 @@
 		public const string Navigation = "Navigation";
 		public const string Effects = "Effects";
 		public const string Focus = "Focus";
+<<<<<<< HEAD
+=======
+
+>>>>>>> Update (#12)
 		public const string ManualReview = "ManualReview";
 		public const string Performance = "Performance";
 		public const string Visual = "Visual";

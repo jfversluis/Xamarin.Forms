@@ -74,10 +74,14 @@ namespace Xamarin.Forms.Platform.UWP
 			if (Control == null)
 				return;
 
+<<<<<<< HEAD
 			var grid = Control.GetFirstDescendant<Windows.UI.Xaml.Controls.Grid>();
 			if (grid == null)
 				return;
 
+=======
+			var grid = Control.GetChildren<Windows.UI.Xaml.Controls.Grid>().FirstOrDefault();
+>>>>>>> Update (#12)
 			var groups = Windows.UI.Xaml.VisualStateManager.GetVisualStateGroups(grid);
 			foreach (var group in groups)
 			{

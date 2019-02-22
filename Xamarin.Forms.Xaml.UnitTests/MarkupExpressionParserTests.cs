@@ -248,11 +248,20 @@ namespace Xamarin.Forms.Xaml.UnitTests
 		}
 
 		[Test]
+<<<<<<< HEAD
 		public void BindingStringFormatWithoutEscaping ()
+=======
+		public void NonStartingBracesDoNotNeedToBeEscaped()
+>>>>>>> Update (#12)
 		{
 			var bindingString = "{Binding Foo, StringFormat='{0,20}'}";
 
+<<<<<<< HEAD
 			var binding = (new MarkupExtensionParser ()).ParseExpression (ref bindingString, new Internals.XamlServiceProvider (null, null) {
+=======
+			Assert.DoesNotThrow(() => new MarkupExtensionParser().ParseExpression(ref bindingString, new Internals.XamlServiceProvider(null, null)
+			{
+>>>>>>> Update (#12)
 				IXamlTypeResolver = typeResolver,
 			});
 

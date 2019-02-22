@@ -152,6 +152,7 @@ namespace Xamarin.Forms.Controls.GalleryPages
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	class MapItemTemplateSelector : DataTemplateSelector
 	{
@@ -162,4 +163,6 @@ namespace Xamarin.Forms.Controls.GalleryPages
 			return DataTemplate;
 		}
 	}
+=======
+>>>>>>> Update (#12)
 }

@@ -18,11 +18,17 @@ namespace Xamarin.Forms.Platform.UWP
 {
 	public abstract class Platform : INavigation
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma warning disable CS0618 // Type or member is obsolete
 		, IPlatform
 #pragma warning restore CS0618 // Type or member is obsolete
 =======
 >>>>>>> Update from origin (#11)
+=======
+#pragma warning disable CS0618 // Type or member is obsolete
+		, IPlatform
+#pragma warning restore CS0618 // Type or member is obsolete
+>>>>>>> Update (#12)
 	{
 		static Task<bool> s_currentAlert;
 
@@ -194,6 +200,11 @@ namespace Xamarin.Forms.Platform.UWP
 			return tcs.Task;
 		}
 
+		SizeRequest IPlatform.GetNativeSize(VisualElement element, double widthConstraint, double heightConstraint)
+		{
+			return Platform.GetNativeSize(element, widthConstraint, heightConstraint);
+		} 
+
 		public static SizeRequest GetNativeSize(VisualElement element, double widthConstraint, double heightConstraint)
 		{
 			return Platform.GetNativeSize(element, widthConstraint, heightConstraint);
@@ -296,14 +307,20 @@ namespace Xamarin.Forms.Platform.UWP
 				return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			newPage.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			if (_currentPage != null)
 			{
 				Page previousPage = _currentPage;

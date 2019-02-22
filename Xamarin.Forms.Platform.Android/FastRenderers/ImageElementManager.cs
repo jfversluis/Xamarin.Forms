@@ -6,9 +6,13 @@ using ARect = Android.Graphics.Rect;
 using System;
 using Xamarin.Forms.Internals;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using AViewCompat = Android.Support.V4.View.ViewCompat;
 =======
 >>>>>>> Update from origin (#11)
+=======
+using AViewCompat = Android.Support.V4.View.ViewCompat;
+>>>>>>> Update (#12)
 
 namespace Xamarin.Forms.Platform.Android.FastRenderers
 {
@@ -31,10 +35,14 @@ namespace Xamarin.Forms.Platform.Android.FastRenderers
 		{
 			if(sender is IVisualElementRenderer renderer && renderer.View is ImageView imageView)
 <<<<<<< HEAD
+<<<<<<< HEAD
 				AViewCompat.SetClipBounds(imageView, imageView.GetScaleType() == AScaleType.CenterCrop ? new ARect(0, 0, e.Right - e.Left, e.Bottom - e.Top) : null);
 =======
 				imageView.ClipBounds = imageView.GetScaleType() == AScaleType.CenterCrop ? new ARect(0, 0, e.Right - e.Left, e.Bottom - e.Top) : null;
 >>>>>>> Update from origin (#11)
+=======
+				AViewCompat.SetClipBounds(imageView, imageView.GetScaleType() == AScaleType.CenterCrop ? new ARect(0, 0, e.Right - e.Left, e.Bottom - e.Top) : null);
+>>>>>>> Update (#12)
 		}
 
 		public static void Dispose(IVisualElementRenderer renderer)

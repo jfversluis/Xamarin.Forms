@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 using System;
+=======
+>>>>>>> Update (#12)
 using System.ComponentModel;
 using CoreAnimation;
 using CoreGraphics;
 using MaterialComponents;
 using UIKit;
+<<<<<<< HEAD
 using Xamarin.Forms.Platform.iOS;
 using MActivityIndicator = MaterialComponents.ActivityIndicator;
 
@@ -21,6 +25,26 @@ namespace Xamarin.Forms.Material.iOS
 		SemanticColorScheme _defaultColorScheme;
 		SemanticColorScheme _colorScheme;
 		CAShapeLayer _backgroundLayer;
+=======
+using Xamarin.Forms;
+using MActivityIndicator = MaterialComponents.ActivityIndicator;
+
+
+namespace Xamarin.Forms.Platform.iOS.Material
+{
+	public class MaterialActivityIndicatorRenderer : ViewRenderer<ActivityIndicator, MActivityIndicator>
+	{
+		SemanticColorScheme _defaultColorScheme;
+		SemanticColorScheme _colorScheme;
+
+		CAShapeLayer _backgroundLayer;
+		CGPoint _center;
+
+		public MaterialActivityIndicatorRenderer()
+		{
+			VisualElement.VerifyVisualFlagEnabled();
+		}
+>>>>>>> Update (#12)
 
 		protected override void OnElementChanged(ElementChangedEventArgs<ActivityIndicator> e)
 		{
@@ -39,7 +63,11 @@ namespace Xamarin.Forms.Material.iOS
 
 					_backgroundLayer = new CAShapeLayer
 					{
+<<<<<<< HEAD
 						LineWidth = Control.StrokeWidth,
+=======
+						LineWidth = 4,
+>>>>>>> Update (#12)
 						FillColor = UIColor.Clear.CGColor,
 						Hidden = true
 					};
@@ -48,7 +76,10 @@ namespace Xamarin.Forms.Material.iOS
 
 				UpdateColor();
 				UpdateIsRunning();
+<<<<<<< HEAD
 				SetBackgroundColor(Element.BackgroundColor);
+=======
+>>>>>>> Update (#12)
 
 				ApplyTheme();
 			}
@@ -69,8 +100,13 @@ namespace Xamarin.Forms.Material.iOS
 			return new MActivityIndicator
 			{
 				IndicatorMode = ActivityIndicatorMode.Indeterminate,
+<<<<<<< HEAD
 				StrokeWidth = _defaultStrokeWidth,
 				Radius = _defaultRadius
+=======
+				StrokeWidth = 4,
+				Radius = 24
+>>>>>>> Update (#12)
 			};
 		}
 
@@ -78,6 +114,7 @@ namespace Xamarin.Forms.Material.iOS
 		{
 			base.LayoutSubviews();
 
+<<<<<<< HEAD
 			// try get the radius for this size
 			var min = NMath.Min(Control.Bounds.Width, Control.Bounds.Height);
 			var stroke = min / _strokeRatio;
@@ -100,6 +137,14 @@ namespace Xamarin.Forms.Material.iOS
 			var min = NMath.Min(size.Width, size.Height);
 			size.Width = size.Height = min;
 			return size;
+=======
+			if (_center != Control.Center)
+			{
+				_center = Control.Center;
+				_backgroundLayer.Path = UIBezierPath.FromArc(_center, Control.Radius - 2, 0, 360, true).CGPath;
+			}
+			SetBackgroundColor(Element.BackgroundColor);
+>>>>>>> Update (#12)
 		}
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -130,7 +175,14 @@ namespace Xamarin.Forms.Material.iOS
 			_backgroundLayer.StrokeColor = color.ToCGColor();
 		}
 
+<<<<<<< HEAD
 		void UpdateColor() => _colorScheme.PrimaryColor = Element.Color.IsDefault ? _defaultColorScheme.PrimaryColor : Element.Color.ToUIColor();
+=======
+		void UpdateColor()
+		{
+			_colorScheme.PrimaryColor = Element.Color.IsDefault ? _defaultColorScheme.PrimaryColor : Element.Color.ToUIColor();
+		}
+>>>>>>> Update (#12)
 
 		void UpdateIsRunning()
 		{

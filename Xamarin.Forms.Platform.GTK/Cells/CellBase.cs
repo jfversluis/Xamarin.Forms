@@ -152,8 +152,12 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 
 				menuItem.ButtonPressEvent += (sender, args) =>
 				{
+<<<<<<< HEAD
 					item.Activate();
 >>>>>>> Update from origin (#8)
+=======
+					((IMenuItemController)item).Activate();
+>>>>>>> Update (#12)
 				};
 
 				menu.Add(menuItem);

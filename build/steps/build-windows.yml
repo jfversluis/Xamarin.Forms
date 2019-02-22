@@ -97,12 +97,15 @@ jobs:
           Xamarin.Forms.Material.iOS/bin/$(BuildConfiguration)/**/*.dll
           Xamarin.Forms.Material.iOS/bin/$(BuildConfiguration)/**/*.pdb
           Xamarin.Forms.Material.iOS/bin/$(BuildConfiguration)/**/*.mdb
+<<<<<<< HEAD
           Xamarin.Forms.Material.Android/bin/$(BuildConfiguration)/**/*.dll
           Xamarin.Forms.Material.Android/bin/$(BuildConfiguration)/**/*.pdb
           Xamarin.Forms.Material.Android/bin/$(BuildConfiguration)/**/*.mdb
           Xamarin.Forms.Material.Tizen/bin/$(BuildConfiguration)/**/*.dll
           Xamarin.Forms.Material.Tizen/bin/$(BuildConfiguration)/**/*.pdb
           Xamarin.Forms.Material.Tizen/bin/$(BuildConfiguration)/**/*.mdb
+=======
+>>>>>>> Update (#12)
           Xamarin.Forms.Platform.WP8/bin/$(BuildConfiguration)/**/*.dll
           Xamarin.Forms.Platform.UAP/bin/$(BuildConfiguration)/**/*.pdb
           Xamarin.Forms.Platform.UAP/bin/$(BuildConfiguration)/**/*.dll

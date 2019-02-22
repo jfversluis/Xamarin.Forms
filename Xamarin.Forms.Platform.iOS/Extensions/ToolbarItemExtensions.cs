@@ -81,7 +81,11 @@ namespace Xamarin.Forms.Platform.iOS
 
 			async void UpdateIconAndStyle()
 			{
+<<<<<<< HEAD
 				Image = await _item.IconImageSource.GetNativeImageAsync();
+=======
+				Image = await _item.Icon.GetNativeImageAsync();
+>>>>>>> Update (#12)
 				Style = UIBarButtonItemStyle.Plain;
 			}
 
@@ -145,7 +149,11 @@ namespace Xamarin.Forms.Platform.iOS
 				UIImage image = null;
 				if (_item.IconImageSource != null && !_item.IconImageSource.IsEmpty)
 				{
+<<<<<<< HEAD
 					image = await _item.IconImageSource.GetNativeImageAsync();
+=======
+					image = await _item.Icon.GetNativeImageAsync();
+>>>>>>> Update (#12)
 				}
 				((SecondaryToolbarItemContent)CustomView).Image = image;
 			}

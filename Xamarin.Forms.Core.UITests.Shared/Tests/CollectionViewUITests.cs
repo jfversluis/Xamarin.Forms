@@ -279,6 +279,7 @@ namespace Xamarin.Forms.Core.UITests
 				}
 			}
 		}
+<<<<<<< HEAD
 
 		[TestCase("EmptyView", "EmptyView (load simulation)", "photo")]
         public void VisitAndCheckItem(string collectionTestName, string subgallery, string item)
@@ -304,4 +305,7 @@ namespace Xamarin.Forms.Core.UITests
         }
         
     }
+=======
+	}
+>>>>>>> Update (#12)
 }

@@ -4,16 +4,30 @@ using CoreGraphics;
 using MaterialComponents;
 using UIKit;
 using Xamarin.Forms;
+<<<<<<< HEAD
 using Xamarin.Forms.Platform.iOS;
 using MProgressView = MaterialComponents.ProgressView;
 
 namespace Xamarin.Forms.Material.iOS
+=======
+using MProgressView = MaterialComponents.ProgressView;
+
+namespace Xamarin.Forms.Platform.iOS.Material
+>>>>>>> Update (#12)
 {
 	public class MaterialProgressBarRenderer : ViewRenderer<ProgressBar, MProgressView>
 	{
 		BasicColorScheme _defaultColorScheme;
 		BasicColorScheme _colorScheme;
 
+<<<<<<< HEAD
+=======
+		public MaterialProgressBarRenderer()
+		{
+			VisualElement.VerifyVisualFlagEnabled();
+		}
+
+>>>>>>> Update (#12)
 		protected override void OnElementChanged(ElementChangedEventArgs<ProgressBar> e)
 		{
 			_colorScheme?.Dispose();
@@ -58,7 +72,14 @@ namespace Xamarin.Forms.Material.iOS
 #pragma warning restore CS0618 // Type or member is obsolete
 		}
 
+<<<<<<< HEAD
 		protected override MProgressView CreateNativeControl() => new MProgressView();
+=======
+		protected override MProgressView CreateNativeControl()
+		{
+			return new MProgressView();
+		}
+>>>>>>> Update (#12)
 
 		public override CGSize SizeThatFits(CGSize size)
 		{
@@ -107,7 +128,14 @@ namespace Xamarin.Forms.Material.iOS
 			ApplyTheme();
 		}
 
+<<<<<<< HEAD
 		void UpdateProgressColor() => UpdateAllColors();
+=======
+		void UpdateProgressColor()
+		{
+			UpdateAllColors();
+		}
+>>>>>>> Update (#12)
 
 		void UpdateAllColors()
 		{

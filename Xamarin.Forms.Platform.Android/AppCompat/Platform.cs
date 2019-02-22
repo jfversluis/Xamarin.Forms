@@ -17,11 +17,17 @@ namespace Xamarin.Forms.Platform.Android.AppCompat
 {
 	internal class Platform : BindableObject, IPlatformLayout, INavigation, IDisposable
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
 =======
 >>>>>>> Update from origin (#11)
+=======
+#pragma warning disable CS0618
+		, IPlatform
+#pragma warning restore
+>>>>>>> Update (#12)
 	{
 		readonly Context _context;
 		readonly PlatformRenderer _renderer;
@@ -162,14 +168,20 @@ namespace Xamarin.Forms.Platform.Android.AppCompat
 			_navModel.PushModal(modal);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			Task presentModal = PresentModal(modal, animated);
 
 			await presentModal;

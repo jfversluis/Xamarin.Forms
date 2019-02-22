@@ -50,14 +50,20 @@ namespace Xamarin.Forms.Platform.Tizen
 			if (_page == null) return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			_page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			var renderer = Platform.CreateRenderer(_page);
 			_rootView = renderer.NativeView;
 			RootNativeViewChanged?.Invoke(this, new RootNativeViewChangedEventArgs(_rootView));
@@ -86,12 +92,18 @@ namespace Xamarin.Forms.Platform.Tizen
 			_disposed = true;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 		SizeRequest IPlatform.GetNativeSize(VisualElement view, double widthConstraint, double heightConstraint)
 		{
 			return Platform.GetNativeSize(view, widthConstraint, heightConstraint);
 		}
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 	}
 }

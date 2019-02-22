@@ -40,7 +40,11 @@ namespace Xamarin.Forms.Platform.Android
 
 		[Obsolete("This constructor is obsolete as of version 2.5. Please use DatePickerRenderer(Context) instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
+<<<<<<< HEAD
 		public DatePickerRendererBase()
+=======
+		public DatePickerRenderer()
+>>>>>>> Update (#12)
 		{
 			AutoPackage = false;
 			if (Forms.IsLollipopOrNewer)

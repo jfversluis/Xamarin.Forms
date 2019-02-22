@@ -53,7 +53,11 @@ using UIKit;
 [assembly: ExportImageSourceHandler(typeof(FontImageSource), typeof(FontImageSourceHandler))]
 [assembly: InternalsVisibleTo("iOSUnitTests")]
 [assembly: InternalsVisibleTo("Xamarin.Forms.Platform")]
+<<<<<<< HEAD
 [assembly: InternalsVisibleTo("Xamarin.Forms.Material")]
+=======
+[assembly: InternalsVisibleTo("Xamarin.Forms.Material.iOS")]
+>>>>>>> Update (#12)
 [assembly: Xamarin.Forms.Dependency(typeof(Deserializer))]
 [assembly: Xamarin.Forms.Dependency(typeof(ResourcesProvider))]
 [assembly: ResolutionGroupName("Xamarin")]

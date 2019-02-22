@@ -24,6 +24,7 @@ namespace Xamarin.Forms.Platform.iOS
 
 		public object this[int index] => _itemsSource[index];
 
+<<<<<<< HEAD
 		public void Dispose()
 		{
 			Dispose(true);
@@ -42,6 +43,8 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 		}
 
+=======
+>>>>>>> Update (#12)
 		void CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
 		{
 			switch (args.Action)
@@ -127,6 +130,7 @@ namespace Xamarin.Forms.Platform.iOS
 		void Remove(NotifyCollectionChangedEventArgs args)
 		{
 			var startIndex = args.OldStartingIndex;
+<<<<<<< HEAD
 
 			if (startIndex < 0)
 			{
@@ -136,6 +140,17 @@ namespace Xamarin.Forms.Platform.iOS
 				return;
 			}
 
+=======
+
+			if (startIndex < 0)
+			{
+				// INCC implementation isn't giving us enough information to know where the removed items were in the
+				// collection. So the best we can do is a ReloadData()
+				_collectionView.ReloadData();
+				return;
+			}
+
+>>>>>>> Update (#12)
 			// If we have a start index, we can be more clever about removing the item(s) (and get the nifty animations)
 			var count = args.OldItems.Count;
 			_collectionView.DeleteItems(CreateIndexesFrom(startIndex, count));

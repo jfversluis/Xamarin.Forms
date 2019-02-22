@@ -55,11 +55,16 @@ namespace Xamarin.Forms.Platform.macOS.Extensions
 
 			nsMenuItem.Enabled = menuItem.IsEnabled;
 			nsMenuItem.Activated += (sender, e) => ((IMenuItemController)menuItem).Activate();
+<<<<<<< HEAD
 			_ = menuItem.ApplyNativeImageAsync(MenuItem.IconImageSourceProperty, image =>
 			{
 				if (image != null)
 					nsMenuItem.Image = image;
 			});
+=======
+			if (!string.IsNullOrEmpty(menuItem.Icon))
+				nsMenuItem.Image = new NSImage(menuItem.Icon);
+>>>>>>> Update (#12)
 
 			return nsMenuItem;
 		}

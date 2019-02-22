@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms.Internals;
 
@@ -268,6 +269,7 @@ namespace Xamarin.Forms
 			ShellSection shellSection = null;
 			ShellContent shellContent = null;
 
+<<<<<<< HEAD
 			switch (element)
 			{
 				case MenuShellItem menuShellItem:
@@ -288,6 +290,27 @@ namespace Xamarin.Forms
 				case MenuItem m:
 					((IMenuItemController)m).Activate();
 					break;
+=======
+			switch (element) {
+			case MenuShellItem menuShellItem:
+				((IMenuItemController)menuShellItem.MenuItem).Activate();
+				break;
+			case ShellItem i:
+				shellItem = i;
+				break;
+			case ShellSection s:
+				shellItem = s.Parent as ShellItem;
+				shellSection = s;
+				break;
+			case ShellContent c:
+				shellItem = c.Parent.Parent as ShellItem;
+				shellSection = c.Parent as ShellSection;
+				shellContent = c;
+				break;
+			case MenuItem m:
+				((IMenuItemController)m).Activate();
+				break;
+>>>>>>> Update (#12)
 			}
 
 			if (shellItem == null || !shellItem.IsEnabled)
@@ -342,6 +365,7 @@ namespace Xamarin.Forms
 
 		public static Shell Current => Application.Current?.MainPage as Shell;
 
+<<<<<<< HEAD
 
 		List<RequestDefinition> BuildAllTheRoutes()
 		{
@@ -378,6 +402,38 @@ namespace Xamarin.Forms
 		}
 
 		internal async Task GoToAsync(ShellNavigationState state, bool animate, bool enableRelativeShellRoutes)
+=======
+		Uri GetAbsoluteUri(Uri relativeUri)
+		{
+			if (CurrentItem == null)
+				throw new InvalidOperationException("Relative path is used after selecting Current item.");
+
+			var parseUri = Regex.Match(relativeUri.OriginalString, @"(?<u>.+?)(\?(?<q>.+?))?(#(?<f>.+))?$").Groups;
+			var url = parseUri["u"].Value;
+			var query = parseUri["q"].Value;
+			var fragment = parseUri["f"].Value;
+
+			Element item = CurrentItem;
+			var list = new List<string> { url.Trim('/') };
+			while (item != null)
+			{
+				var route = Routing.GetRoute(item)?.Trim('/');
+				if (string.IsNullOrEmpty(route))
+					break;
+				list.Insert(0, route);
+				item = item.Parent;
+			}
+			var parentUriBuilder = new UriBuilder(RouteScheme)
+			{
+				Path = string.Join("/", list),
+				Query = query,
+				Fragment = fragment
+			};
+			return parentUriBuilder.Uri;
+		}
+
+		public async Task GoToAsync(ShellNavigationState state, bool animate = true)
+>>>>>>> Update (#12)
 		{
 			// FIXME: This should not be none, we need to compute the delta and set flags correctly
 			var accept = ProposeNavigation(ShellNavigationSource.Unknown, state, true);
@@ -386,9 +442,14 @@ namespace Xamarin.Forms
 
 			_accumulateNavigatedEvents = true;
 
+<<<<<<< HEAD
 			var navigationRequest = ShellUriHandler.GetNavigationRequest(this, state.FullLocation, enableRelativeShellRoutes);
 			var uri = navigationRequest.Request.FullUri;
 			var queryString = navigationRequest.Query;
+=======
+			var uri = state.Location.IsAbsoluteUri ? state.Location : GetAbsoluteUri(state.Location);
+			var queryString = uri.Query;
+>>>>>>> Update (#12)
 			var queryData = ParseQueryString(queryString);
 			var path = uri.AbsolutePath;
 

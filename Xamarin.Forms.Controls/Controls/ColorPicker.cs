@@ -17,7 +17,11 @@ namespace Xamarin.Forms.Controls
 
 		Label _titleLabel;
 		Slider[] _sliders;
+<<<<<<< HEAD
 		Frame _box;
+=======
+		BoxView _box;
+>>>>>>> Update (#12)
 		Label _hexLabel;
 		Switch _useDefault;
 
@@ -69,6 +73,7 @@ namespace Xamarin.Forms.Controls
 				grid.AddChild(_sliders[i], 1, i + 1);
 			}
 
+<<<<<<< HEAD
 			_box = new Frame
 			{
 				BackgroundColor = Color,
@@ -76,6 +81,13 @@ namespace Xamarin.Forms.Controls
 				VerticalOptions = LayoutOptions.Fill,
 				BorderColor = Color.Black,
 
+=======
+			_box = new BoxView
+			{
+				Color = Color,
+				HorizontalOptions = LayoutOptions.Fill,
+				VerticalOptions = LayoutOptions.Fill,
+>>>>>>> Update (#12)
 			};
 			grid.AddChild(_box, 2, 1, 1, 3);
 
@@ -91,6 +103,7 @@ namespace Xamarin.Forms.Controls
 			Content = grid;
 		}
 
+<<<<<<< HEAD
 		public void InitWithColor(Color color)
 		{
 			_sliders[0].Value = color.R * 255;
@@ -99,6 +112,8 @@ namespace Xamarin.Forms.Controls
 			_sliders[3].Value = color.A * 255;
 		}
 
+=======
+>>>>>>> Update (#12)
 		public string Title
 		{
 			get => (string)GetValue(TitleProperty);
@@ -143,7 +158,11 @@ namespace Xamarin.Forms.Controls
 			{
 				var color = picker.UseDefault ? Color.Default : picker.Color;
 				picker._hexLabel.Text = color.IsDefault ? "<default>" : ColorToHex(color);
+<<<<<<< HEAD
 				picker._box.BackgroundColor = color;
+=======
+				picker._box.Color = color;
+>>>>>>> Update (#12)
 				picker.ColorPicked?.Invoke(picker, new ColorPickedEventArgs(color));
 			}
 		}

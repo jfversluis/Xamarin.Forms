@@ -316,10 +316,15 @@ namespace Xamarin.Forms.Platform.iOS
 		protected virtual void UpdateTabBarItem()
 		{
 			Title = ShellSection.Title;
+<<<<<<< HEAD
 			_ = _context.ApplyNativeImageAsync(ShellSection, ShellSection.IconProperty, icon =>
 			{
 				TabBarItem = new UITabBarItem(ShellSection.Title, icon, null);
 			});
+=======
+			var icon = await ShellSection.Icon.GetNativeImageAsync();
+			TabBarItem = new UITabBarItem(ShellSection.Title, icon, null);
+>>>>>>> Update (#12)
 		}
 
 		void DisposePage(Page page)

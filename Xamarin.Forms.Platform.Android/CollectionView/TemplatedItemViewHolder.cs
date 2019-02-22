@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 using System;
 using Xamarin.Forms.Internals;
 
+=======
+>>>>>>> Update (#12)
 namespace Xamarin.Forms.Platform.Android
 {
 	internal class TemplatedItemViewHolder : SelectableViewHolder
 	{
+<<<<<<< HEAD
 		readonly ItemContentView _itemContentView;
 		readonly DataTemplate _template;
 		DataTemplate _selectedTemplate;
@@ -15,21 +19,32 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			_itemContentView = itemContentView;
 			_template = template;
+=======
+		public View View { get; }
+
+		public TemplatedItemViewHolder(global::Android.Views.View itemView, View rootElement) : base(itemView)
+		{
+			View = rootElement;
+>>>>>>> Update (#12)
 		}
 
 		protected override void OnSelectedChanged()
 		{
 			base.OnSelectedChanged();
 
+<<<<<<< HEAD
 			if (View == null)
 			{
 				return;
 			}
 
+=======
+>>>>>>> Update (#12)
 			VisualStateManager.GoToState(View, IsSelected 
 				? VisualStateManager.CommonStates.Selected 
 				: VisualStateManager.CommonStates.Normal);
 		}
+<<<<<<< HEAD
 
 		public void Recycle(ItemsView itemsView)
 		{
@@ -55,5 +70,7 @@ namespace Xamarin.Forms.Platform.Android
 
 			itemsView.AddLogicalChild(View);
 		}
+=======
+>>>>>>> Update (#12)
 	}
 }

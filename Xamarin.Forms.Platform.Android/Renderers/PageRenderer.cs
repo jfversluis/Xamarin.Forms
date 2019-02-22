@@ -80,7 +80,11 @@ namespace Xamarin.Forms.Platform.Android
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
+<<<<<<< HEAD
 			if (e.PropertyName == Page.BackgroundImageSourceProperty.PropertyName)
+=======
+			if (e.PropertyName == Page.BackgroundImageProperty.PropertyName)
+>>>>>>> Update (#12)
 				UpdateBackground(true);
 			else if (e.PropertyName == VisualElement.BackgroundColorProperty.PropertyName)
 				UpdateBackground(false);
@@ -118,6 +122,7 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			Page page = Element;
 
+<<<<<<< HEAD
 			_ = this.ApplyDrawableAsync(page, Page.BackgroundImageSourceProperty, Context, drawable =>
 			{
 				if (drawable != null)
@@ -207,6 +212,23 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			base.OnLayout(changed, l, t, r, b);
 			OrderedTraversalController.UpdateTraversalOrder();
+=======
+			string bkgndImage = page.BackgroundImage;
+			if (!string.IsNullOrEmpty(bkgndImage))
+				this.SetBackground(Context.GetDrawable(bkgndImage));
+			else
+			{
+				Color bkgndColor = page.BackgroundColor;
+				bool isDefaultBkgndColor = bkgndColor.IsDefault;
+				if (page.Parent is BaseShellItem && isDefaultBkgndColor)
+				{
+					var color = Context.Resources.GetColor(global::Android.Resource.Color.BackgroundLight, Context.Theme);
+					SetBackgroundColor(color);
+				}
+				else if (!isDefaultBkgndColor || setBkndColorEvenWhenItsDefault)
+					SetBackgroundColor(bkgndColor.ToAndroid());
+			}
+>>>>>>> Update (#12)
 		}
 	}
 }

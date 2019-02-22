@@ -31,6 +31,7 @@ namespace Xamarin.Forms.Platform.Android
 
 		public static Type LayoutClass { get; set; }
 
+<<<<<<< HEAD
 		internal static async Task<Drawable> GetFormsDrawableAsync(this Context context, ImageSource imageSource, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			if (imageSource == null || imageSource.IsEmpty)
@@ -82,6 +83,9 @@ namespace Xamarin.Forms.Platform.Android
 		}
 
 		internal static async Task<Bitmap> GetFormsBitmapAsync(this Context context, ImageSource imageSource, CancellationToken cancellationToken = default(CancellationToken))
+=======
+		internal static async Task<Drawable> GetFormsDrawable(this Context context, ImageSource imageSource)
+>>>>>>> Update (#12)
 		{
 			if (imageSource == null || imageSource.IsEmpty)
 				return null;

@@ -18,6 +18,25 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.EmptyViewG
 			CollectionView.EmptyView = _emptyViewGalleryFilterInfo;
 
 			SearchBar.SearchCommand = new Command(() =>
+<<<<<<< HEAD
+=======
+			{
+				_demoFilteredItemSource.FilterItems(SearchBar.Text);
+				_emptyViewGalleryFilterInfo.Filter = SearchBar.Text;
+			});
+		}
+	}
+
+	[Preserve(AllMembers = true)]
+	public class EmptyViewGalleryFilterInfo : INotifyPropertyChanged
+	{
+		string _filter;
+
+		public string Filter
+		{
+			get => _filter;
+			set
+>>>>>>> Update (#12)
 			{
 				_demoFilteredItemSource.FilterItems(SearchBar.Text);
 				_emptyViewGalleryFilterInfo.Filter = SearchBar.Text;

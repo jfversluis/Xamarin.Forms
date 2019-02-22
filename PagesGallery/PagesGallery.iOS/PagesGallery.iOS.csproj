@@ -157,6 +157,7 @@
 
   <Import Project="..\..\.nuspec\Xamarin.Forms.targets" Condition="'$(BuildingInsideVisualStudio)' == 'true' AND Exists('$(__XFBuildTasksLocation)Xamarin.Forms.Build.Tasks.dll')" />
   <Import Project="..\..\.nuspec\Xamarin.Forms.targets" Condition="'$(BuildingInsideVisualStudio)' != 'true'" />
+<<<<<<< HEAD
   
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -166,3 +167,6 @@
   </Target>
 </Project>
 >>>>>>> Update from origin (#11)
+=======
+</Project>
+>>>>>>> Update (#12)

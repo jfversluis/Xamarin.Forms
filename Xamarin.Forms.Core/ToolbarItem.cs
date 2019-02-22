@@ -23,7 +23,11 @@ namespace Xamarin.Forms
 				throw new ArgumentNullException("activated");
 
 			Text = name;
+<<<<<<< HEAD
 			IconImageSource = icon;
+=======
+			Icon = icon;
+>>>>>>> Update (#12)
 			Clicked += (s, e) => activated();
 			Order = order;
 			Priority = priority;

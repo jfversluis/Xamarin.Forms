@@ -12,7 +12,11 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 
 		public ObservableCollection<CollectionViewGalleryTestItem> Items { get; }
 
+<<<<<<< HEAD
 		public DemoFilteredItemSource(int count = 50, Func<string, CollectionViewGalleryTestItem, bool> filter = null)
+=======
+		public DemoFilteredItemSource(int count = 50)
+>>>>>>> Update (#12)
 		{
 			_source = new List<CollectionViewGalleryTestItem>();
 			

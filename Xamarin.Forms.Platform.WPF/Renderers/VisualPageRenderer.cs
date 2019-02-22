@@ -113,10 +113,14 @@ namespace Xamarin.Forms.Platform.WPF
 					if (appBar.DataContext is ToolbarItem toolbarItem)
 					{
 <<<<<<< HEAD
+<<<<<<< HEAD
 						((IMenuItemController)toolbarItem).Activate();
 =======
 						toolbarItem.Activate();
 >>>>>>> Update from origin (#8)
+=======
+						((IMenuItemController)toolbarItem).Activate();
+>>>>>>> Update (#12)
 					}
 				};
 

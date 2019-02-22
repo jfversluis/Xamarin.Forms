@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+<<<<<<< HEAD
 using CoreGraphics;
 using MaterialComponents;
 using UIKit;
@@ -7,18 +8,46 @@ using Xamarin.Forms.Platform.iOS;
 using MButton = MaterialComponents.Button;
 
 namespace Xamarin.Forms.Material.iOS
+=======
+using System.Diagnostics;
+using CoreGraphics;
+using Foundation;
+using MaterialComponents;
+using UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Specifics = Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using MButton = MaterialComponents.Button;
+
+namespace Xamarin.Forms.Platform.iOS.Material
+>>>>>>> Update (#12)
 {
 	public class MaterialButtonRenderer : ViewRenderer<Button, MButton>, IImageVisualElementRenderer, IButtonLayoutRenderer
 	{
 		bool _isDisposed;
+<<<<<<< HEAD
 		UIColor _defaultBorderColor;
 		nfloat _defaultBorderWidth = -1;
 		ButtonScheme _defaultButtonScheme;
 		ButtonScheme _buttonScheme;
+=======
+
+		UIColor _defaultBorderColor;
+		nfloat _defaultBorderWidth = -1;
+
+		ButtonScheme _defaultButtonScheme;
+		ButtonScheme _buttonScheme;
+
+>>>>>>> Update (#12)
 		ButtonLayoutManager _buttonLayoutManager;
 
 		public MaterialButtonRenderer()
 		{
+<<<<<<< HEAD
+=======
+			VisualElement.VerifyVisualFlagEnabled();
+
+>>>>>>> Update (#12)
 			_buttonLayoutManager = new ButtonLayoutManager(this,
 				preserveInitialPadding: true,
 				spacingAdjustsPadding: false,
@@ -75,6 +104,10 @@ namespace Xamarin.Forms.Material.iOS
 				UpdateBorder();
 				UpdateTextColor();
 				_buttonLayoutManager?.Update();
+<<<<<<< HEAD
+=======
+
+>>>>>>> Update (#12)
 				ApplyTheme();
 			}
 		}
@@ -89,8 +122,20 @@ namespace Xamarin.Forms.Material.iOS
 			};
 		}
 
+<<<<<<< HEAD
 		protected virtual void ApplyTheme() => ContainedButtonThemer.ApplyScheme(_buttonScheme, Control);
 		protected override MButton CreateNativeControl() => new MButton();
+=======
+		protected virtual void ApplyTheme()
+		{
+			ContainedButtonThemer.ApplyScheme(_buttonScheme, Control);
+		}
+
+		protected override MButton CreateNativeControl()
+		{
+			return new MButton();
+		}
+>>>>>>> Update (#12)
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
@@ -142,7 +187,14 @@ namespace Xamarin.Forms.Material.iOS
 			Element?.SendClicked();
 		}
 
+<<<<<<< HEAD
 		void OnButtonTouchDown(object sender, EventArgs eventArgs) => Element?.SendPressed();
+=======
+		void OnButtonTouchDown(object sender, EventArgs eventArgs)
+		{
+			Element?.SendPressed();
+		}
+>>>>>>> Update (#12)
 
 		protected override void SetBackgroundColor(Color color)
 		{
@@ -167,6 +219,12 @@ namespace Xamarin.Forms.Material.iOS
 		{
 			// NOTE: borders are not a "supported" style of the contained
 			// button, thus we don't use the themer here.
+<<<<<<< HEAD
+=======
+
+			// BorderColor
+
+>>>>>>> Update (#12)
 			Color borderColor = Element.BorderColor;
 
 			if (_defaultBorderColor == null)
@@ -177,6 +235,11 @@ namespace Xamarin.Forms.Material.iOS
 			else
 				Control.SetBorderColor(borderColor.ToUIColor(), UIControlState.Normal);
 
+<<<<<<< HEAD
+=======
+			// BorderWidth
+
+>>>>>>> Update (#12)
 			double borderWidth = Element.BorderWidth;
 
 			if (_defaultBorderWidth == -1)
@@ -238,6 +301,7 @@ namespace Xamarin.Forms.Material.iOS
 		}
 
 		// IImageVisualElementRenderer
+<<<<<<< HEAD
 		bool IImageVisualElementRenderer.IsDisposed => _isDisposed;
 		void IImageVisualElementRenderer.SetImage(UIImage image) => _buttonLayoutManager.SetImage(image);
 		UIImageView IImageVisualElementRenderer.GetImage() => Control?.ImageView;
@@ -245,6 +309,21 @@ namespace Xamarin.Forms.Material.iOS
 		// IButtonLayoutRenderer
 		UIButton IButtonLayoutRenderer.Control => Control;
 		IImageVisualElementRenderer IButtonLayoutRenderer.ImageVisualElementRenderer => this;
+=======
+
+		bool IImageVisualElementRenderer.IsDisposed => _isDisposed;
+
+		void IImageVisualElementRenderer.SetImage(UIImage image) => _buttonLayoutManager.SetImage(image);
+
+		UIImageView IImageVisualElementRenderer.GetImage() => Control?.ImageView;
+
+		// IButtonLayoutRenderer
+
+		UIButton IButtonLayoutRenderer.Control => Control;
+
+		IImageVisualElementRenderer IButtonLayoutRenderer.ImageVisualElementRenderer => this;
+
+>>>>>>> Update (#12)
 		nfloat IButtonLayoutRenderer.MinimumHeight => _buttonScheme?.MinimumHeight ?? -1;
 	}
 }

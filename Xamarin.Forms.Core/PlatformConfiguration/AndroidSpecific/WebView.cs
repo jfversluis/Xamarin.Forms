@@ -35,15 +35,24 @@ namespace Xamarin.Forms.PlatformConfiguration.AndroidSpecific
 			return config;
 		}
 
+<<<<<<< HEAD
 		public static readonly BindableProperty EnableZoomControlsProperty = BindableProperty.Create("EnableZoomControls", typeof(bool), typeof(FormsElement), false);
 
 		public static bool GetEnableZoomControls(FormsElement element)
 		{
 			return (bool)element.GetValue(EnableZoomControlsProperty);
+=======
+		public static readonly BindableProperty EnableZoomControlProperty = BindableProperty.Create("EnableZoomControls", typeof(bool), typeof(FormsElement), false);
+
+		public static bool GetEnableZoomControls(FormsElement element)
+		{
+			return (bool)element.GetValue(EnableZoomControlProperty);
+>>>>>>> Update (#12)
 		}
 
 		public static void SetEnableZoomControls(FormsElement element, bool value)
 		{
+<<<<<<< HEAD
 			element.SetValue(EnableZoomControlsProperty, value);
 		}
 
@@ -52,6 +61,12 @@ namespace Xamarin.Forms.PlatformConfiguration.AndroidSpecific
 			SetEnableZoomControls(config.Element, value);
 		}
 		public static bool ZoomControlsEnabled(this IPlatformElementConfiguration<Android, FormsElement> config)
+=======
+			element.SetValue(EnableZoomControlProperty, value);
+		}
+
+		public static bool EnableZoomControls(this IPlatformElementConfiguration<Android, FormsElement> config)
+>>>>>>> Update (#12)
 		{
 			return GetEnableZoomControls(config.Element);
 		}
@@ -74,12 +89,16 @@ namespace Xamarin.Forms.PlatformConfiguration.AndroidSpecific
 			element.SetValue(DisplayZoomControlsProperty, value);
 		}
 
+<<<<<<< HEAD
 		public static void DisplayZoomControls(this IPlatformElementConfiguration<Android, FormsElement> config, bool value)
 		{
 			SetDisplayZoomControls(config.Element, value);
 		}
 
 		public static bool ZoomControlsDisplayed(this IPlatformElementConfiguration<Android, FormsElement> config)
+=======
+		public static bool DisplayZoomControls(this IPlatformElementConfiguration<Android, FormsElement> config)
+>>>>>>> Update (#12)
 		{
 			return GetDisplayZoomControls(config.Element);
 		}

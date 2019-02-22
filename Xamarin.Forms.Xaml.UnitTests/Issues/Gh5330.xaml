@@ -2,7 +2,15 @@
 <ContentPage
         xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<<<<<<< HEAD:Xamarin.Forms.Xaml.UnitTests/Issues/Gh5330.xaml
         x:Class="Xamarin.Forms.Xaml.UnitTests.Gh5330"
         x:DataType="{x:Type Button}">
     <Label Text="{Binding foo}" />
+=======
+        x:Class="Xamarin.Forms.Xaml.UnitTests.Gh2756">
+    <StackLayout>
+        <Label Text="{Binding Color.R, StringFormat='R = {0:F2}'}"/> <!-- should parse -->
+        <Label Text="{Binding Path=StartTime, StringFormat='{0:yy-MM-dd}'}"/> <!-- should throw -->
+    </StackLayout>
+>>>>>>> Update (#12):Xamarin.Forms.Xaml.UnitTests/Issues/Gh2756.xaml
 </ContentPage>

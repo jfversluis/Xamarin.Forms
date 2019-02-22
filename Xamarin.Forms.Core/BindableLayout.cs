@@ -193,13 +193,13 @@ namespace Xamarin.Forms
 			int i = 0;
 			foreach (object item in _itemsSource)
 			{
-				layout.Children.Add(CreateItemView(item, i++));
+				layout.Children.Add(CreateItemView(item, i++, layout));
 			}
 		}
 
-		View CreateItemView(object item, int index)
+		View CreateItemView(object item, int index, Layout<View> layout)
 		{
-			return CreateItemView(item, index, _itemTemplate ?? _itemTemplateSelector?.SelectTemplate(item, null));
+			return CreateItemView(item, index, _itemTemplate ?? _itemTemplateSelector?.SelectTemplate(item, layout));
 		}
 
 		View CreateItemView(object item, int index, DataTemplate dataTemplate)
@@ -243,7 +243,7 @@ namespace Xamarin.Forms
 						int i = e.NewStartingIndex;
 						foreach (object item in e.NewItems)
 						{
-							layout.Children.Add(CreateItemView(item, i++));
+							layout.Children.Add(CreateItemView(item, i++, layout));
 						}
 					}
 					break;
@@ -264,7 +264,7 @@ namespace Xamarin.Forms
 						int i = e.NewStartingIndex;
 						foreach (object item in e.NewItems)
 						{
-							layout.Children[i] = CreateItemView(item, i);
+							layout.Children[i] = CreateItemView(item, i, layout);
 							++i;
 						}
 					}

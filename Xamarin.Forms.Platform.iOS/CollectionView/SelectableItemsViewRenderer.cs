@@ -17,9 +17,15 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			base.OnElementPropertyChanged(sender, changedProperty);
 
+<<<<<<< HEAD
 			if (changedProperty.IsOneOf(SelectableItemsView.SelectedItemProperty, SelectableItemsView.SelectedItemsProperty))
 			{
 				SelectableItemsViewController.UpdateNativeSelection();
+=======
+			if (changedProperty.Is(SelectableItemsView.SelectedItemProperty))
+			{
+				UpdateNativeSelection();
+>>>>>>> Update (#12)
 			}
 			else if (changedProperty.Is(SelectableItemsView.SelectionModeProperty))
 			{
@@ -36,13 +42,45 @@ namespace Xamarin.Forms.Platform.iOS
 
 			base.SetUpNewElement(newElement);
 
+<<<<<<< HEAD
 			if (newElement == null)
+=======
+			SelectableItemsViewController.UpdateSelectionMode();
+			UpdateNativeSelection();
+		}
+
+		void UpdateNativeSelection()
+		{
+			if (SelectableItemsView == null)
+>>>>>>> Update (#12)
 			{
 				return;
 			}
 
+<<<<<<< HEAD
 			SelectableItemsViewController.UpdateSelectionMode();
 			SelectableItemsViewController.UpdateNativeSelection();
+=======
+			var mode = SelectableItemsView.SelectionMode;
+			var selectedItem = SelectableItemsView.SelectedItem;
+
+			if (mode != SelectionMode.Multiple)
+			{
+				ClearSelection();
+
+				if (selectedItem != null)
+				{
+					SelectableItemsViewController.SelectItem(selectedItem);
+				}
+			}
+
+			// TODO hartez 2018/11/06 22:32:07 This doesn't cover all the possible cases yet; need to handle multiple selection	
+		}
+
+		void ClearSelection()
+		{
+			SelectableItemsViewController.ClearSelection();
+>>>>>>> Update (#12)
 		}
 	}
 }

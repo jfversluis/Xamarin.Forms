@@ -12,11 +12,17 @@ namespace Xamarin.Forms.Platform.iOS
 {
 	public class Platform : BindableObject, INavigation, IDisposable
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
 =======
 >>>>>>> Update from origin (#11)
+=======
+#pragma warning disable CS0618
+		, IPlatform
+#pragma warning restore
+>>>>>>> Update (#12)
 	{
 		internal static readonly BindableProperty RendererProperty = BindableProperty.CreateAttached("Renderer", typeof(IVisualElementRenderer), typeof(Platform), default(IVisualElementRenderer),
 			propertyChanged: (bindable, oldvalue, newvalue) =>
@@ -178,6 +184,12 @@ namespace Xamarin.Forms.Platform.iOS
 =======
 >>>>>>> Update from origin (#11)
 
+#pragma warning disable CS0618 // Type or member is obsolete
+			// The Platform property is no longer necessary, but we have to set it because some third-party
+			// library might still be retrieving it and using it
+			modal.Platform = this;
+#pragma warning restore CS0618 // Type or member is obsolete
+
 			modal.DescendantRemoved += HandleChildRemoved;
 
 			if (_appeared)
@@ -277,14 +289,20 @@ namespace Xamarin.Forms.Platform.iOS
 				return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;
@@ -301,14 +319,20 @@ namespace Xamarin.Forms.Platform.iOS
 			_renderer.View.ContentMode = UIViewContentMode.Redraw;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 				// The Platform property is no longer necessary, but we have to set it because some third-party
 				// library might still be retrieving it and using it
 				Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			AddChild(Page);
 
 			Page.DescendantRemoved += HandleChildRemoved;

@@ -53,7 +53,11 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			{
 				var templateLayout = new Grid
 				{
+<<<<<<< HEAD
 					RowDefinitions = new RowDefinitionCollection { new RowDefinition(), new RowDefinition { Height = GridLength.Auto } },
+=======
+					RowDefinitions = new RowDefinitionCollection { new RowDefinition(), new RowDefinition {Height = GridLength.Auto} },
+>>>>>>> Update (#12)
 					WidthRequest = 280,
 					HeightRequest = 310,
 				};
@@ -271,7 +275,11 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 				return templateLayout;
 			});
 		}
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> Update (#12)
 		public static DataTemplate VariableSizeTemplate()
 		{
 			var indexHeightConverter = new IndexRequestConverter(3, 50, 150);
@@ -302,6 +310,7 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			});
 		}
 
+<<<<<<< HEAD
 		public static DataTemplate DynamicTextTemplate()
 		{
 			return new DataTemplate(() =>
@@ -389,6 +398,8 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			throw new NotImplementedException();
 		}
 
+=======
+>>>>>>> Update (#12)
 		class IndexRequestConverter : IValueConverter
 		{
 			readonly int _cutoff;

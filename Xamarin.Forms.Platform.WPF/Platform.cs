@@ -11,11 +11,17 @@ namespace Xamarin.Forms.Platform.WPF
 {
 	public class Platform : BindableObject, INavigation
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
 =======
 >>>>>>> Update from origin (#11)
+=======
+#pragma warning disable CS0618
+		, IPlatform
+#pragma warning restore
+>>>>>>> Update (#12)
 	{
 		readonly FormsApplicationPage _page;
 		Page Page { get; set; }
@@ -168,6 +174,9 @@ namespace Xamarin.Forms.Platform.WPF
 
 			Page = newRoot;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -175,8 +184,11 @@ namespace Xamarin.Forms.Platform.WPF
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			_page.StartupPage = Page;
 			Application.Current.NavigationProxy.Inner = this;
 		}
@@ -251,6 +263,9 @@ namespace Xamarin.Forms.Platform.WPF
 
 			var tcs = new TaskCompletionSource<bool>();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #pragma warning disable CS0618 // Type or member is obsolete
 				// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -258,8 +273,11 @@ namespace Xamarin.Forms.Platform.WPF
 				page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			_page.PushModal(page, animated);
 			tcs.SetResult(true);
 			return tcs.Task;

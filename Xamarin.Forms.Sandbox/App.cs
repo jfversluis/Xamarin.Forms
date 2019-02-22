@@ -13,7 +13,11 @@ namespace Xamarin.Forms.Sandbox
 	{
 		public App()
 		{
+<<<<<<< HEAD
 			Device.SetFlags(new[] { "Shell_Experimental", "CollectionView_Experimental" });
+=======
+			Device.SetFlags(new[] { "Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental" });
+>>>>>>> Update (#12)
 			InitializeMainPage();
 		}
 

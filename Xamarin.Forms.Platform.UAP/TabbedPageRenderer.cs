@@ -19,7 +19,10 @@ using Specifics = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.TabbedPage
 using VisualElementSpecifics = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.VisualElement;
 using PageSpecifics = Xamarin.Forms.PlatformConfiguration.WindowsSpecific.Page;
 using Windows.UI.Xaml.Input;
+<<<<<<< HEAD
 using System.Linq;
+=======
+>>>>>>> Update (#12)
 using WSelectionChangedEventArgs = Windows.UI.Xaml.Controls.SelectionChangedEventArgs;
 
 namespace Xamarin.Forms.Platform.UWP

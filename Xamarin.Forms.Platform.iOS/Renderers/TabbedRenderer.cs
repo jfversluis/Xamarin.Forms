@@ -432,6 +432,7 @@ namespace Xamarin.Forms.Platform.iOS
 			icons?.Item2?.Dispose();
 		}
 
+<<<<<<< HEAD
 		void UpdateSelectedTabColors()
 		{
 			if (Tabbed == null || TabBar == null || TabBar.Items == null)
@@ -451,6 +452,8 @@ namespace Xamarin.Forms.Platform.iOS
 				TabBar.UnselectedItemTintColor = null;
 		}
 
+=======
+>>>>>>> Update (#12)
 		/// <summary>
 		/// Get the icon for the tab bar item of this page
 		/// </summary>
@@ -460,8 +463,18 @@ namespace Xamarin.Forms.Platform.iOS
 		/// </returns>
 		protected virtual async Task<Tuple<UIImage, UIImage>> GetIcon(Page page)
 		{
+<<<<<<< HEAD
 			var icon = await page.IconImageSource.GetNativeImageAsync();
 			return icon == null ? null : Tuple.Create(icon, (UIImage)null);
+=======
+			if (!string.IsNullOrEmpty(page.Icon?.File))
+			{
+				var icon = await page.Icon.GetNativeImageAsync();
+				return Tuple.Create(icon, (UIImage)null);
+			}
+
+			return null;
+>>>>>>> Update (#12)
 		}
 	}
 }

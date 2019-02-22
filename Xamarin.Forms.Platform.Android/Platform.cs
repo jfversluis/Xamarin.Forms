@@ -23,11 +23,17 @@ namespace Xamarin.Forms.Platform.Android
 {
 	public class Platform : BindableObject, INavigation, IDisposable, IPlatformLayout
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma warning disable CS0618
 		, IPlatform
 #pragma warning restore
 =======
 >>>>>>> Update from origin (#11)
+=======
+#pragma warning disable CS0618
+		, IPlatform
+#pragma warning restore
+>>>>>>> Update (#12)
 	{
 
 		internal static string PackageName { get; private set; }
@@ -291,14 +297,20 @@ namespace Xamarin.Forms.Platform.Android
 			_navModel.PushModal(modal);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
 			// library might still be retrieving it and using it
 			modal.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			await PresentModal(modal, animated);
 
 			// Verify that the modal is still on the stack
@@ -491,6 +503,9 @@ namespace Xamarin.Forms.Platform.Android
 
 			Page = newRoot;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party
@@ -498,8 +513,11 @@ namespace Xamarin.Forms.Platform.Android
 			Page.Platform = this;
 #pragma warning restore CS0618 // Type or member is obsolete
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 			AddChild(Page, layout);
 
 			Application.Current.NavigationProxy.Inner = this;

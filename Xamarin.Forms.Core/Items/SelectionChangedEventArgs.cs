@@ -16,10 +16,17 @@ namespace Xamarin.Forms
 			CurrentSelection = currentSelection != null ? new List<object>(1) { currentSelection } : s_empty;
 		}
 
+<<<<<<< HEAD
 		internal SelectionChangedEventArgs(IList<object> previousSelection, IList<object> currentSelection)
 		{
 			PreviousSelection = new List<object>(previousSelection ?? throw new ArgumentNullException(nameof(previousSelection)));
 			CurrentSelection = new List<object>(currentSelection ?? throw new ArgumentNullException(nameof(currentSelection)));
+=======
+		internal SelectionChangedEventArgs(List<object> previousSelection, List<object> currentSelection)
+		{
+			PreviousSelection = previousSelection ?? throw new ArgumentNullException(nameof(previousSelection));
+			CurrentSelection = currentSelection ?? throw new ArgumentNullException(nameof(currentSelection));
+>>>>>>> Update (#12)
 		}
 	}
 }

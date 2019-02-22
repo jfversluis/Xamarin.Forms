@@ -252,9 +252,12 @@ namespace Xamarin.Forms
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		[EditorBrowsable(EditorBrowsableState.Never)]
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 		public ListViewCachingStrategy CachingStrategy { get; private set; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]

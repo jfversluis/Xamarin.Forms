@@ -5,8 +5,27 @@ steps:
     displayName: Provisionate Xamarin
     condition: eq(variables['provisioningOSX'], 'true')
     inputs:
+<<<<<<< HEAD
       provisioning_script: $(provisionator.osxPath)
       provisioning_extra_args: $(provisionator.extraArguments)
+=======
+      type: InlineScript
+      script: '$(Build.Repository.LocalPath)/$(ProvisionatorExecutablePath) keychain set $(p12CertName) $(la.p12.Password)'
+
+  - bash: '$(Build.Repository.LocalPath)/$(ProvisionatorExecutablePath) keychain set github.com $(GitHub.Token) || echo "PAT already set"'
+    displayName: 'Initialize PAT'
+    condition: eq(variables['provisioningSign'], 'true')
+
+
+  - bash: '$(Build.Repository.LocalPath)/$(ProvisionatorExecutablePath) $(Build.Repository.LocalPath)/Xamarin.Forms.Build/provisioning_sign.csx $(provisionator.extraArguments)'
+    displayName: Provisioning
+    condition: eq(variables['provisioningSign'], 'true')
+    env:
+      APPLECODESIGNIDENTITY: $(AppleCodesignIdentity)
+      APPLECODESIGNIDENTITYURL: $(AppleCodesignIdentityUrl)
+      APPLECODESIGNPROFILEURL: $(AppleCodesignProfileUrl)
+
+>>>>>>> Update (#12)
 
   - bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MONO_VERSION)
     displayName: Switch to the latest Xamarin SDK

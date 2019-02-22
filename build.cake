@@ -140,6 +140,16 @@ Task("VSMAC")
     .IsDependentOn("BuildHack")
     .Does(() =>
     {
+<<<<<<< HEAD
+=======
+        MSBuild("./Xamarin.Forms.ControlGallery.Android/Xamarin.Forms.ControlGallery.Android.csproj", 
+                GetMSBuildSettings()
+                    .WithRestore()
+                    // work around bug on vs mac where resources generate wrong first time
+                    .WithTarget("rebuild")
+        );
+
+>>>>>>> Update (#12)
         StartProcess("open", new ProcessSettings{ Arguments = "Xamarin.Forms.sln" });        
     });
 
@@ -194,4 +204,8 @@ MSBuildSettings GetMSBuildSettings()
     msbuildSettings.Configuration = configuration;
     return msbuildSettings;
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Update (#12)

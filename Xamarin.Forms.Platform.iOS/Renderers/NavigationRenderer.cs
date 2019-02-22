@@ -754,6 +754,7 @@ namespace Xamarin.Forms.Platform.iOS
 			{
 				if (icon != null)
 				{
+<<<<<<< HEAD
 					try
 					{
 						containerController.NavigationItem.LeftBarButtonItem = new UIBarButtonItem(icon, UIBarButtonItemStyle.Plain, OnItemTapped);
@@ -762,6 +763,10 @@ namespace Xamarin.Forms.Platform.iOS
 					{
 						// Throws Exception otherwise would catch more specific exception type
 					}
+=======
+					var icon = await masterDetailPage.Master.Icon.GetNativeImageAsync();
+					containerController.NavigationItem.LeftBarButtonItem = new UIBarButtonItem(icon, UIBarButtonItemStyle.Plain, handler);
+>>>>>>> Update (#12)
 				}
 
 				if(icon == null || containerController.NavigationItem.LeftBarButtonItem == null)
@@ -1187,6 +1192,7 @@ namespace Xamarin.Forms.Platform.iOS
 				else
 				{
 <<<<<<< HEAD
+<<<<<<< HEAD
 					var image = await titleIcon.GetNativeImageAsync();
 					try
 					{
@@ -1199,6 +1205,12 @@ namespace Xamarin.Forms.Platform.iOS
 					{
 						titleViewContainer.Icon = new UIImageView(image) { };
 >>>>>>> Update from origin (#11)
+=======
+					var image = await titleIcon.GetNativeImageAsync();
+					try
+					{
+						titleViewContainer.Icon = new UIImageView(image);
+>>>>>>> Update (#12)
 					}
 					catch
 					{

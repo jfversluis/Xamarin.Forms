@@ -19,15 +19,22 @@ namespace Xamarin.Forms.Maps
 
 		public static readonly BindableProperty HasZoomEnabledProperty = BindableProperty.Create("HasZoomEnabled", typeof(bool), typeof(Map), true);
 
+<<<<<<< HEAD
 		public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(Map), default(IEnumerable),
+=======
+		public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(IEnumerable), typeof(IEnumerable), typeof(Map), default(IEnumerable),
+>>>>>>> Update (#12)
 			propertyChanged: (b, o, n) => ((Map)b).OnItemsSourcePropertyChanged((IEnumerable)o, (IEnumerable)n));
 
 		public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(Map), default(DataTemplate),
 			propertyChanged: (b, o, n) => ((Map)b).OnItemTemplatePropertyChanged((DataTemplate)o, (DataTemplate)n));
 
+<<<<<<< HEAD
 		public static readonly BindableProperty ItemTemplateSelectorProperty = BindableProperty.Create(nameof(ItemTemplateSelector), typeof(DataTemplateSelector), typeof(Map), default(DataTemplateSelector),
 			propertyChanged: (b, o, n) => ((Map)b).OnItemTemplateSelectorPropertyChanged());
 
+=======
+>>>>>>> Update (#12)
 		readonly ObservableCollection<Pin> _pins = new ObservableCollection<Pin>();
 		MapSpan _visibleRegion;
 
@@ -86,6 +93,7 @@ namespace Xamarin.Forms.Maps
 			set { SetValue(ItemTemplateProperty, value); }
 		}
 
+<<<<<<< HEAD
 		public DataTemplateSelector ItemTemplateSelector
 		{
 			get { return (DataTemplateSelector)GetValue(ItemTemplateSelectorProperty); }
@@ -97,6 +105,8 @@ namespace Xamarin.Forms.Maps
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public void SendMapClicked(Position position) => MapClicked?.Invoke(this, new MapClickedEventArgs(position));
 
+=======
+>>>>>>> Update (#12)
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public void SetVisibleRegion(MapSpan value) => VisibleRegion = value;
 		public MapSpan VisibleRegion
@@ -161,15 +171,20 @@ namespace Xamarin.Forms.Maps
 		{
 			if (newItemTemplate is DataTemplateSelector)
 			{
+<<<<<<< HEAD
 				throw new NotSupportedException(
 					$"The {nameof(Map)}.{ItemTemplateProperty.PropertyName} property only supports {nameof(DataTemplate)}." +
 					$" Set the {nameof(Map)}.{ItemTemplateSelectorProperty.PropertyName} property instead to use a {nameof(DataTemplateSelector)}");
+=======
+				throw new NotSupportedException($"You are using an instance of {nameof(DataTemplateSelector)} to set the {nameof(Map)}.{ItemTemplateProperty.PropertyName} property. Use an instance of a {nameof(DataTemplate)} property instead to set an item template.");
+>>>>>>> Update (#12)
 			}
 
 			_pins.Clear();
 			CreatePinItems();
 		}
 
+<<<<<<< HEAD
 		void OnItemTemplateSelectorPropertyChanged()
 		{
 			_pins.Clear();
@@ -182,11 +197,50 @@ namespace Xamarin.Forms.Maps
 				insert: (item, _, __) => CreatePin(item),
 				removeAt: (item, _) => RemovePin(item),
 				reset: () => _pins.Clear());
+=======
+		void OnItemsSourceCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+		{
+			switch (e.Action)
+			{
+				case NotifyCollectionChangedAction.Add:
+					if (e.NewStartingIndex == -1)
+						goto case NotifyCollectionChangedAction.Reset;
+					foreach (object item in e.NewItems)
+						CreatePin(item);
+					break;
+				case NotifyCollectionChangedAction.Move:
+					if (e.OldStartingIndex == -1 || e.NewStartingIndex == -1)
+						goto case NotifyCollectionChangedAction.Reset;
+					// Not tracking order
+					break;
+				case NotifyCollectionChangedAction.Remove:
+					if (e.OldStartingIndex == -1)
+						goto case NotifyCollectionChangedAction.Reset;
+					foreach (object item in e.OldItems)
+						RemovePin(item);
+					break;
+				case NotifyCollectionChangedAction.Replace:
+					if (e.OldStartingIndex == -1)
+						goto case NotifyCollectionChangedAction.Reset;
+					foreach (object item in e.OldItems)
+						RemovePin(item);
+					foreach (object item in e.NewItems)
+						CreatePin(item);
+					break;
+				case NotifyCollectionChangedAction.Reset:
+					_pins.Clear();
+					break;
+			}
+>>>>>>> Update (#12)
 		}
 
 		void CreatePinItems()
 		{
+<<<<<<< HEAD
 			if (ItemsSource == null || (ItemTemplate == null && ItemTemplateSelector == null))
+=======
+			if (ItemsSource == null || ItemTemplate == null)
+>>>>>>> Update (#12)
 			{
 				return;
 			}
@@ -199,6 +253,7 @@ namespace Xamarin.Forms.Maps
 
 		void CreatePin(object newItem)
 		{
+<<<<<<< HEAD
 			DataTemplate itemTemplate = ItemTemplate;
 			if (itemTemplate == null)
 				itemTemplate = ItemTemplateSelector?.SelectTemplate(newItem, this);
@@ -207,12 +262,21 @@ namespace Xamarin.Forms.Maps
 				return;
 
 			var pin = (Pin)itemTemplate.CreateContent();
+=======
+			if (ItemTemplate == null)
+			{
+				return;
+			}
+
+			var pin = (Pin)ItemTemplate.CreateContent();
+>>>>>>> Update (#12)
 			pin.BindingContext = newItem;
 			_pins.Add(pin);
 		}
 
 		void RemovePin(object itemToRemove)
 		{
+<<<<<<< HEAD
 			// Instead of just removing by item (i.e. _pins.Remove(pinToRemove))
 			//  we need to remove by index because of how Pin.Equals() works
 			for (int i = 0; i < _pins.Count; ++i)
@@ -222,6 +286,12 @@ namespace Xamarin.Forms.Maps
 				{
 					_pins.RemoveAt(i);
 				}
+=======
+			Pin pinToRemove = _pins.FirstOrDefault(pin => pin.BindingContext?.Equals(itemToRemove) == true);
+			if (pinToRemove != null)
+			{
+				_pins.Remove(pinToRemove);
+>>>>>>> Update (#12)
 			}
 		}
 	}

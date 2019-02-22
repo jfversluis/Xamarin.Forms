@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Foundation;
 using UIKit;
@@ -145,6 +146,7 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 			_ = renderer ?? throw new ArgumentNullException(nameof(renderer), $"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(renderer)} cannot be null");
 			_ = imageElement ?? throw new ArgumentNullException(nameof(imageElement), $"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(imageElement)} cannot be null");
+<<<<<<< HEAD
 =======
 
 			Control.Opaque = imageElement.IsOpaque;
@@ -155,6 +157,8 @@ namespace Xamarin.Forms.Platform.iOS
 			_ = renderer ?? throw new ArgumentNullException($"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(renderer)} cannot be null");
 			_ = imageElement ?? throw new ArgumentNullException($"{nameof(ImageElementManager)}.{nameof(SetImage)} {nameof(imageElement)} cannot be null");
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 
 			var Element = renderer.Element;
 			var Control = renderer.GetImage();
@@ -194,10 +198,14 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 			imageController?.SetIsLoading(true);
 			try
 			{
 				var uiimage = await source.GetNativeImageAsync();
+<<<<<<< HEAD
 
 				if (renderer.IsDisposed)
 					return;
@@ -386,7 +394,12 @@ namespace Xamarin.Forms.Platform.iOS
 				{
 					renderer.SetImage(null);
 				}
+=======
+				if (renderer.IsDisposed)
+					return;
+>>>>>>> Update (#12)
 
+				renderer.SetImage(Control == null ? null : uiimage);
 			}
 			finally
 			{
@@ -394,6 +407,24 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 
 			(imageElement as IViewController)?.NativeSizeChanged();
+		}
+
+		internal static async Task<UIImage> GetNativeImageAsync(this ImageSource source, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			IImageSourceHandler handler;
+			if (source != null && (handler = Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(source)) != null)
+			{
+				try
+				{
+					return await handler.LoadImageAsync(source, scale: (float)UIScreen.MainScreen.Scale, cancelationToken: cancellationToken);
+				}
+				catch (OperationCanceledException ex)
+				{
+					Internals.Log.Warning(source.GetType().Name, "Error loading image: {0}", ex);
+				}
+			}
+
+			return null;
 		}
 	}
 }

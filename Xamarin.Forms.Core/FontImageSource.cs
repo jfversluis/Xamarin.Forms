@@ -21,8 +21,11 @@ namespace Xamarin.Forms
 			);
 		}
 
+<<<<<<< HEAD
 		public override bool IsEmpty => string.IsNullOrEmpty(Glyph);
 
+=======
+>>>>>>> Update (#12)
 		public double Size { get => (double)GetValue(SizeProperty); set => SetValue(SizeProperty, value); }
 		public static readonly BindableProperty SizeProperty = CreateBindableProperty(nameof(Size), 30d);
 

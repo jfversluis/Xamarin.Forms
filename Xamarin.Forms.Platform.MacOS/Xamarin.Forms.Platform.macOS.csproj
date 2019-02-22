@@ -240,6 +240,7 @@
     <Compile Include="..\Xamarin.Forms.Platform.iOS\DisposeHelpers.cs">
       <Link>DisposeHelpers.cs</Link>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="..\Xamarin.Forms.Platform.iOS\Renderers\ImageElementManager.cs">
       <Link>Renderers\ImageElementManager.cs</Link>
     </Compile>
@@ -251,6 +252,8 @@
     <Compile Include="..\Xamarin.Forms.Platform.iOS\Extensions\FontExtensions.Shared.cs">
       <Link>Extensions\FontExtensions.Shared.cs</Link>
     </Compile>
+=======
+>>>>>>> Update (#12)
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Forms.Platform\Xamarin.Forms.Platform.csproj">

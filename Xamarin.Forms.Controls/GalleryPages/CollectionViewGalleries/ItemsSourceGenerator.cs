@@ -6,6 +6,33 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 {
     internal enum ItemsSourceType
 	{
+<<<<<<< HEAD
+		List,
+		ObservableCollection,
+		MultiTestObservableCollection
+=======
+		public DateTime Date { get; set; }
+		public string Caption { get; set; }
+		public string Image { get; set; }
+		public int Index { get; set; }
+
+		public CollectionViewGalleryTestItem(DateTime date, string caption, string image, int index)
+		{
+			Date = date;
+			Caption = caption;
+			Image = image;
+			Index = index;
+		}
+
+		public override string ToString()
+		{
+			return $"Item: {Index}";
+		}
+>>>>>>> Update (#12)
+	}
+
+	internal enum ItemsSourceType
+	{
 		List,
 		ObservableCollection,
 		MultiTestObservableCollection
@@ -17,7 +44,11 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 		private readonly ItemsSourceType _itemsSourceType;
 		readonly Entry _entry;
 
+<<<<<<< HEAD
 		public ItemsSourceGenerator(ItemsView cv, int initialItems = 1000,
+=======
+		public ItemsSourceGenerator(ItemsView cv, int initialItems = 1000, 
+>>>>>>> Update (#12)
 			ItemsSourceType itemsSourceType = ItemsSourceType.List)
 		{
 			_cv = cv;
@@ -57,7 +88,11 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			switch (_itemsSourceType)
 			{
 				case ItemsSourceType.List:
+<<<<<<< HEAD
 					GenerateList();
+=======
+					GenerateList();	
+>>>>>>> Update (#12)
 					break;
 				case ItemsSourceType.ObservableCollection:
 					GenerateObservableCollection();
@@ -116,6 +151,7 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			}
 		}
 
+<<<<<<< HEAD
 		public void GenerateEmptyObservableCollectionAndAddItemsEverySecond()
 		{
 			if (int.TryParse(_entry.Text, out int count))
@@ -134,6 +170,8 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 		}
 
 
+=======
+>>>>>>> Update (#12)
 		void GenerateItems(object sender, EventArgs e)
 		{
 			GenerateItems();

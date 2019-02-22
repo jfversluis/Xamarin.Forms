@@ -8,6 +8,7 @@ using Foundation;
 using UIKit;
 using Xamarin.Forms.Internals;
 using RectangleF = CoreGraphics.CGRect;
+using System.Linq;
 
 namespace Xamarin.Forms.Platform.iOS
 {
@@ -62,6 +63,9 @@ namespace Xamarin.Forms.Platform.iOS
 			if (e.NewElement != null)
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 				if (Control == null)
 				{
 					var imageView = new UIImageView(RectangleF.Empty);
@@ -70,8 +74,11 @@ namespace Xamarin.Forms.Platform.iOS
 					SetNativeControl(imageView);
 				}
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update from origin (#11)
+=======
+>>>>>>> Update (#12)
 				await TrySetImage(e.OldElement as Image);
 			}
 
@@ -193,9 +200,12 @@ namespace Xamarin.Forms.Platform.iOS
 
 	public sealed class FontImageSourceHandler : IImageSourceHandler
 	{
+<<<<<<< HEAD
 		//should this be the default color on the BP for iOS? 
 		readonly Color _defaultColor = Color.White;
 
+=======
+>>>>>>> Update (#12)
 		public Task<UIImage> LoadImageAsync(
 			ImageSource imagesource, 
 			CancellationToken cancelationToken = default(CancellationToken), 
@@ -205,9 +215,17 @@ namespace Xamarin.Forms.Platform.iOS
 			var fontsource = imagesource as FontImageSource;
 			if (fontsource != null)
 			{
+<<<<<<< HEAD
 				var iconcolor = fontsource.Color.IsDefault ? _defaultColor : fontsource.Color;
 				var imagesize = new SizeF((float)fontsource.Size, (float)fontsource.Size);
 				var font = UIFont.FromName(fontsource.FontFamily ?? string.Empty, (float)fontsource.Size) ??
+=======
+				var iconcolor = fontsource.Color != Color.Default ? fontsource.Color : Color.White;
+				var imagesize = new SizeF((float)fontsource.Size, (float)fontsource.Size);
+				var hasFontFamily = fontsource.FontFamily != null && UIFont.FamilyNames.Contains(fontsource.FontFamily);
+				var font = hasFontFamily ?
+					UIFont.FromName(fontsource.FontFamily, (float)fontsource.Size) :
+>>>>>>> Update (#12)
 					UIFont.SystemFontOfSize((float)fontsource.Size);
 
 				UIGraphics.BeginImageContextWithOptions(imagesize, false, 0f);
@@ -222,7 +240,11 @@ namespace Xamarin.Forms.Platform.iOS
 				image = UIGraphics.GetImageFromCurrentImageContext();
 				UIGraphics.EndImageContext();
 
+<<<<<<< HEAD
 				if (iconcolor != _defaultColor)
+=======
+				if (iconcolor != Color.Default)
+>>>>>>> Update (#12)
 					image = image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal);
 			}
 			return Task.FromResult(image);

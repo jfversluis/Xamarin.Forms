@@ -64,7 +64,11 @@ namespace Xamarin.Forms.Xaml
 	{
 		public static void Load(object view, Type callingType)
 		{
+<<<<<<< HEAD
 			var xaml = GetXamlForType(callingType, view, out var useDesignProperties);
+=======
+			var xaml = GetXamlForType(callingType, out var useDesignProperties);
+>>>>>>> Update (#12)
 			if (string.IsNullOrEmpty(xaml))
 				throw new XamlParseException(string.Format("No embeddedresource found for {0}", callingType), new XmlLineInfo());
 			Load(view, xaml, useDesignProperties);
@@ -92,11 +96,14 @@ namespace Xamarin.Forms.Xaml
 #pragma warning disable 0618
 					var doNotThrow = ResourceLoader.ExceptionHandler2 != null || Internals.XamlLoader.DoNotThrowOnExceptions;
 #pragma warning restore 0618
+<<<<<<< HEAD
 					void ehandler(Exception e) => ResourceLoader.ExceptionHandler2?.Invoke((e, XamlFilePathAttribute.GetFilePathForObject(view)));
 					Visit(rootnode, new HydrationContext {
 						RootElement = view,
 
 						ExceptionHandler = doNotThrow ? ehandler : (Action<Exception>)null
+=======
+>>>>>>> Update (#12)
 					}, useDesignProperties);
 					break;
 				}
@@ -142,6 +149,7 @@ namespace Xamarin.Forms.Xaml
 			return inflatedView;
 		}
 
+<<<<<<< HEAD
 		public static IResourceDictionary LoadResources(string xaml, IResourcesProvider rootView)
 		{
 			void ehandler(Exception e) => ResourceLoader.ExceptionHandler2?.Invoke((e, XamlFilePathAttribute.GetFilePathForObject(rootView)));
@@ -190,6 +198,8 @@ namespace Xamarin.Forms.Xaml
 			return null;
 		}
 
+=======
+>>>>>>> Update (#12)
 		static void Visit(RootNode rootnode, HydrationContext visitorContext, bool useDesignProperties)
 		{
 			rootnode.Accept(new XamlNodeVisitor((node, parent) => node.Parent = parent), null); //set parents for {StaticResource}
@@ -204,7 +214,11 @@ namespace Xamarin.Forms.Xaml
 			rootnode.Accept(new ApplyPropertiesVisitor(visitorContext, true), null);
 		}
 
+<<<<<<< HEAD
 		static string GetXamlForType(Type type, object instance, out bool useDesignProperties)
+=======
+		static string GetXamlForType(Type type, out bool useDesignProperties)
+>>>>>>> Update (#12)
 		{
 			useDesignProperties = false;
 			//the Previewer might want to provide it's own xaml for this... let them do that
@@ -219,11 +233,15 @@ namespace Xamarin.Forms.Xaml
 			var assembly = type.GetTypeInfo().Assembly;
 			var resourceId = XamlResourceIdAttribute.GetResourceIdForType(type);
 
+<<<<<<< HEAD
 			var rlr = ResourceLoader.ResourceProvider2?.Invoke(new ResourceLoader.ResourceLoadingQuery {
 				AssemblyName = assembly.GetName(),
 				ResourcePath = XamlResourceIdAttribute.GetPathForType(type),
 				Instance = instance,
 			});
+=======
+			var rlr = ResourceLoader.ResourceProvider2?.Invoke(new ResourceLoader.ResourceLoadingQuery { AssemblyName = assembly.GetName(), ResourcePath = XamlResourceIdAttribute.GetPathForType(type) });
+>>>>>>> Update (#12)
 			var alternateXaml = rlr?.ResourceContent;
 
 			if (alternateXaml != null) {

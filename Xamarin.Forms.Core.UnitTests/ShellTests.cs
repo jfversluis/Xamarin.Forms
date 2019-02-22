@@ -100,6 +100,7 @@ namespace Xamarin.Forms.Core.UnitTests
 		}
 
 		[Test]
+<<<<<<< HEAD
 		public async Task CaseIgnoreRouting()
 		{
 			var routes = new[] { "Tab1", "TAB2", "@-_-@", "+:~", "=%", "Super_Simple+-Route.doc", "1/2", @"1\2/3", "app://tab" };
@@ -128,7 +129,61 @@ namespace Xamarin.Forms.Core.UnitTests
 
 			Assert.Catch(typeof(ArgumentException), () => Routing.RegisterRoute("app://tab2/IMPL_tab21", typeof(ShellItem)));
 		}
+=======
+		public async Task RelativeGoTo()
+		{
+			var shell = new Shell
+			{
+				Route = "s"
+			};
 
+			var one = new ShellItem { Route = "one" };
+			var two = new ShellItem { Route = "two" };
+
+			var tab11 = MakeSimpleShellSection("tab11", "content");
+			var tab12 = MakeSimpleShellSection("tab12", "content");
+			var tab21 = MakeSimpleShellSection("tab21", "content");
+			var tab22 = MakeSimpleShellSection("tab22", "content");
+			var tab23 = MakeSimpleShellSection("tab23", "content");
+
+			one.Items.Add(tab11);
+			one.Items.Add(tab12);
+>>>>>>> Update (#12)
+
+			two.Items.Add(tab21);
+			two.Items.Add(tab22);
+			two.Items.Add(tab23);
+
+			shell.Items.Add(one);
+			shell.Items.Add(two);
+
+			await shell.GoToAsync("app:///s/two/tab21/");
+
+			await shell.GoToAsync("/tab22");
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/two/tab22/content/"));
+
+			await shell.GoToAsync("tab21");
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/two/tab21/content/"));
+
+			await shell.GoToAsync("/tab23");
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/two/tab23/content/"));
+
+			await shell.GoToAsync("../one/tab11");
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/one/tab11/content/"));
+
+			await shell.GoToAsync("/eee/hm../../../../two/../one/../two/tab21");
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/two/tab21/content/"));
+
+			await shell.GoToAsync(new ShellNavigationState("../one/tab11"));
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/one/tab11/content/"));
+
+			await shell.GoToAsync(new ShellNavigationState($"../two/tab23/content?{nameof(ShellTestPage.SomeQueryParameter)}=1234"));
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/two/tab23/content/"));
+			Assert.AreEqual("1234", (two.CurrentItem.CurrentItem.Content as ShellTestPage).SomeQueryParameter);
+
+			await shell.GoToAsync(new ShellNavigationState($"../one/tab11#fragment"));
+			Assert.That(shell.CurrentState.Location.ToString(), Is.EqualTo("app:///s/one/tab11/content/"));
+		}
 
 		[Test]
 		public async Task RelativeGoTo()

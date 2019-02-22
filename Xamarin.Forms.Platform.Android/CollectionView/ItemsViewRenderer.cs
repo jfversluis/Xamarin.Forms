@@ -215,8 +215,13 @@ namespace Xamarin.Forms.Platform.Android
 			}
 
 			// Stop watching the old adapter to see if it's empty (if we _are_ watching)
+<<<<<<< HEAD
 			Unwatch(ItemsViewAdapter ?? GetAdapter());
 
+=======
+			Unwatch(GetAdapter());
+			
+>>>>>>> Update (#12)
 			UpdateAdapter();
 
 			UpdateEmptyView();

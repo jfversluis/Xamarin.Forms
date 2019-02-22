@@ -139,6 +139,9 @@ namespace Xamarin.Forms.Platform.MacOS
 			return new NSGestureProbe((gesturerecognizer) =>
 			{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 				var tapGestureRecognizer = weakRecognizer.Target as TapGestureRecognizer;
 				var eventTracker = weakEventTracker.Target as EventTracker;
 				var view = eventTracker?._renderer?.Element as View;

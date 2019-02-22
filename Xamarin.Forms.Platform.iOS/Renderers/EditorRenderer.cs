@@ -206,12 +206,17 @@ namespace Xamarin.Forms.Platform.iOS
 			else if (e.PropertyName == Editor.IsTextPredictionEnabledProperty.PropertyName)
 				UpdateKeyboard();
 <<<<<<< HEAD
+<<<<<<< HEAD
 			else if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName || e.PropertyName == Xamarin.Forms.InputView.IsReadOnlyProperty.PropertyName)
 				UpdateUserInteraction();
 =======
 			else if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName)
 				UpdateEditable();
 >>>>>>> Update from origin (#11)
+=======
+			else if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName || e.PropertyName == Xamarin.Forms.InputView.IsReadOnlyProperty.PropertyName)
+				UpdateUserInteraction();
+>>>>>>> Update (#12)
 			else if (e.PropertyName == Editor.TextColorProperty.PropertyName)
 				UpdateTextColor();
 			else if (e.PropertyName == Editor.FontAttributesProperty.PropertyName)
@@ -361,9 +366,12 @@ namespace Xamarin.Forms.Platform.iOS
 
 		void UpdateReadOnly()
 		{
+<<<<<<< HEAD
 			TextView.UserInteractionEnabled = !Element.IsReadOnly;
 
 			// Control and TextView might be different
+=======
+>>>>>>> Update (#12)
 			Control.UserInteractionEnabled = !Element.IsReadOnly;
 		}
 
@@ -375,7 +383,11 @@ namespace Xamarin.Forms.Platform.iOS
 				UpdateEditable();
 		}
 
+<<<<<<< HEAD
 		internal class FormsUITextView : UITextView, IFormsUITextView
+=======
+		internal class FormsUITextView : UITextView
+>>>>>>> Update (#12)
 		{
 			public event EventHandler FrameChanged;
 

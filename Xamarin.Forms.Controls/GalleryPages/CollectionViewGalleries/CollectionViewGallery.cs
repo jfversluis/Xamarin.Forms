@@ -1,6 +1,9 @@
 ﻿using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.EmptyViewGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.SelectionGalleries;
+<<<<<<< HEAD
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.ItemSizeGalleries;
+=======
+>>>>>>> Update (#12)
 
 namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 {
@@ -22,7 +25,10 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 					GalleryBuilder.NavButton("EmptyView Galleries", () => new EmptyViewGallery(), Navigation),
 					GalleryBuilder.NavButton("Selection Galleries", () => new SelectionGallery(), Navigation),
 					GalleryBuilder.NavButton("Propagation Galleries", () => new PropagationGallery(), Navigation),
+<<<<<<< HEAD
 					GalleryBuilder.NavButton("Item Size Galleries", () => new ItemsSizeGallery(), Navigation),
+=======
+>>>>>>> Update (#12)
 				}
 			};
 		}

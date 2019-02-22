@@ -115,5 +115,15 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			BuildMenu();
 		}
+<<<<<<< HEAD
+=======
+
+		async void SetMenuItemIcon(IMenuItem menuItem, ImageSource source)
+		{
+			var drawable = await Context.GetFormsDrawable(source);
+			menuItem.SetIcon(drawable);
+			drawable?.Dispose();
+		}
+>>>>>>> Update (#12)
 	}
 }

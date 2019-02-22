@@ -32,6 +32,13 @@ namespace Xamarin.Forms.Platform.MacOS
 		int _updateCount;
 
 		public VisualElementTracker(IVisualElementRenderer renderer) : this(renderer, true)
+<<<<<<< HEAD
+=======
+		{
+		}
+
+		public VisualElementTracker(IVisualElementRenderer renderer, bool trackFrame)
+>>>>>>> Update (#12)
 		{
 <<<<<<< HEAD
 		}

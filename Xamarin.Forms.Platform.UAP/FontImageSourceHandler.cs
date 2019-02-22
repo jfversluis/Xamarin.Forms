@@ -4,12 +4,19 @@ using System.Threading.Tasks;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+<<<<<<< HEAD
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Xamarin.Forms.Platform.UWP
 {
 	public sealed class FontImageSourceHandler : IImageSourceHandler, IIconElementHandler
+=======
+
+namespace Xamarin.Forms.Platform.UWP
+{
+	public sealed class FontImageSourceHandler : IImageSourceHandler
+>>>>>>> Update (#12)
 	{
 		float _minimumDpi = 300;
 
@@ -34,15 +41,20 @@ namespace Xamarin.Forms.Platform.UWP
 					Options = CanvasDrawTextOptions.Default,
 				};
 				var iconcolor = (fontsource.Color != Color.Default ? fontsource.Color : Color.White).ToWindowsColor();
+<<<<<<< HEAD
 
 				// offset by 1 as we added a 1 inset
 				var x = textFormat.FontSize / 2f + 1f;
 				var y = -1f;
 				ds.DrawText(fontsource.Glyph, x, y, iconcolor, textFormat);
+=======
+				ds.DrawText(fontsource.Glyph, textFormat.FontSize / 2, 0, iconcolor, textFormat);
+>>>>>>> Update (#12)
 			}
 
 			return Task.FromResult((Windows.UI.Xaml.Media.ImageSource)imageSource);
 		}
+<<<<<<< HEAD
 
 		public Task<IconElement> LoadIconElementAsync(ImageSource imagesource, CancellationToken cancellationToken = default(CancellationToken))
 		{
@@ -61,5 +73,7 @@ namespace Xamarin.Forms.Platform.UWP
 
 			return Task.FromResult(image);
 		}
+=======
+>>>>>>> Update (#12)
 	}
 }

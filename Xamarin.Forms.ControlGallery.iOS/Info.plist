@@ -35,6 +35,13 @@
 		<string>Default-568h@2x.png</string>
 		<string>Default-812h@3x.png</string>
 	</array>
+<<<<<<< HEAD
+=======
+	<key>UIAppFonts</key>
+	<array>
+		<string>ionicons.ttf</string>
+	</array>
+>>>>>>> Update (#12)
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>

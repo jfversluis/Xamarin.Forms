@@ -32,7 +32,11 @@ namespace Xamarin.Forms.Controls.Issues
 					Orientation = StackOrientation.Horizontal,
 					Children =
 					{
+<<<<<<< HEAD
 						new Button(){ ImageSource = "bank.png", AutomationId="bank"},
+=======
+						new Button(){ Image = "bank.png", AutomationId="bank"},
+>>>>>>> Update (#12)
 						new Image(){Source = "bank.png"},
 						new ImageButton{Source = "bank.png"}
 					}

@@ -46,7 +46,11 @@ namespace Xamarin.Forms.Platform.Android
 			if (_defaultList == null)
 			{
 #if __ANDROID_28__
+<<<<<<< HEAD
 				_defaultList = bottomView.ItemTextColor ?? MakeColorStateList(titleColor.ToAndroid().ToArgb(), disabledColor.ToAndroid().ToArgb(), unselectedColor.ToAndroid().ToArgb());
+=======
+				_defaultList = bottomView.ItemTextColor ?? MakeColorStateList(title.ToAndroid().ToArgb(), disabled.ToAndroid().ToArgb(), unselected.ToAndroid().ToArgb());
+>>>>>>> Update (#12)
 #else
 				_defaultList = bottomView.ItemTextColor;
 #endif

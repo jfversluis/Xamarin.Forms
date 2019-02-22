@@ -971,6 +971,17 @@ namespace Xamarin.Forms.Build.Tasks
 			var value = ((ValueNode)valueNode).Value;
 
 			yield return Create(Ldloc, parent);
+<<<<<<< HEAD
+=======
+			if (context.Root is VariableDefinition)
+				foreach (var instruction in (context.Root as VariableDefinition).LoadAs(adder.Parameters[0].ParameterType.ResolveGenericParameters(adder), module))
+					yield return instruction;
+			else if (context.Root is FieldDefinition) {
+				yield return Create(Ldarg_0);
+				yield return Create(Ldfld, context.Root as FieldDefinition);
+			} else 
+				throw new InvalidProgramException();
+>>>>>>> Update (#12)
 			var declaringType = context.Body.Method.DeclaringType;
 			while (declaringType.IsNested)
 				declaringType = declaringType.DeclaringType;

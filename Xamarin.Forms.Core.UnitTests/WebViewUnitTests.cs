@@ -113,8 +113,13 @@ namespace Xamarin.Forms.Core.UnitTests
 			var enableZoomControlsWebView = new WebView();
 			enableZoomControlsWebView.On<Android>().SetEnableZoomControls(true);
 
+<<<<<<< HEAD
 			Assert.AreEqual(defaultWebView.On<Android>().ZoomControlsEnabled(), false);
 			Assert.AreEqual(enableZoomControlsWebView.On<Android>().ZoomControlsEnabled(), true);
+=======
+			Assert.AreEqual(defaultWebView.On<Android>().EnableZoomControls(), false);
+			Assert.AreEqual(enableZoomControlsWebView.On<Android>().EnableZoomControls(), true);
+>>>>>>> Update (#12)
 		}
 
 		[Test]
@@ -125,8 +130,13 @@ namespace Xamarin.Forms.Core.UnitTests
 			var displayZoomControlsWebView = new WebView();
 			displayZoomControlsWebView.On<Android>().SetDisplayZoomControls(false);
 
+<<<<<<< HEAD
 			Assert.AreEqual(defaultWebView.On<Android>().ZoomControlsDisplayed(), true);
 			Assert.AreEqual(displayZoomControlsWebView.On<Android>().ZoomControlsDisplayed(), false);
+=======
+			Assert.AreEqual(defaultWebView.On<Android>().DisplayZoomControls(), true);
+			Assert.AreEqual(displayZoomControlsWebView.On<Android>().DisplayZoomControls(), false);
+>>>>>>> Update (#12)
 		}
 
 		[Test]

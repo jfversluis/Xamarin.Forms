@@ -97,8 +97,18 @@ namespace Xamarin.Forms.Platform.iOS
 			base.Dispose(disposing);
 		}
 
+<<<<<<< HEAD
 		abstract protected override TControl CreateNativeControl();
 
+=======
+		protected override UITextField CreateNativeControl()
+		{
+			var textField = new UITextField(RectangleF.Empty);
+			textField.BorderStyle = UITextBorderStyle.RoundedRect;
+			textField.ClipsToBounds = true;
+			return textField;
+		}
+>>>>>>> Update (#12)
 		protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged(e);
@@ -132,10 +142,15 @@ namespace Xamarin.Forms.Platform.iOS
 			_selectionLengthChangePending = Element.IsSet(Entry.SelectionLengthProperty);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// Font needs to be set before Text and Placeholder so that they layout correctly when set
 			UpdateFont();
 =======
 >>>>>>> Update from origin (#8)
+=======
+			// Font needs to be set before Text and Placeholder so that they layout correctly when set
+			UpdateFont();
+>>>>>>> Update (#12)
 			UpdatePlaceholder();
 			UpdatePassword();
 			UpdateText();
@@ -246,7 +261,11 @@ namespace Xamarin.Forms.Platform.iOS
 			Control.TextAlignment = Element.HorizontalTextAlignment.ToNativeTextAlignment(((IVisualElementController)Element).EffectiveFlowDirection);
 		}
 
+<<<<<<< HEAD
 		protected virtual void UpdateColor()
+=======
+		protected internal virtual void UpdateColor()
+>>>>>>> Update (#12)
 		{
 			var textColor = Element.TextColor;
 
@@ -265,7 +284,11 @@ namespace Xamarin.Forms.Platform.iOS
 			Control.AdjustsFontSizeToFitWidth = Element.OnThisPlatform().AdjustsFontSizeToFitWidth();
 		}
 
+<<<<<<< HEAD
 		protected virtual void UpdateFont()
+=======
+		protected internal virtual void UpdateFont()
+>>>>>>> Update (#12)
 		{
 			if (initialSize == CGSize.Empty)
 			{
@@ -313,7 +336,11 @@ namespace Xamarin.Forms.Platform.iOS
 				Control.SecureTextEntry = Element.IsPassword;
 		}
 
+<<<<<<< HEAD
 		protected virtual void UpdatePlaceholder()
+=======
+		protected internal virtual void UpdatePlaceholder()
+>>>>>>> Update (#12)
 		{
 			var formatted = (FormattedString)Element.Placeholder;
 
@@ -543,6 +570,15 @@ namespace Xamarin.Forms.Platform.iOS
 				_nativeSelectionIsUpdating = false;
 			}
 		}
+<<<<<<< HEAD
 	}
 >>>>>>> Update from origin (#8)
+=======
+
+        void UpdateIsReadOnly()
+        {
+            Control.UserInteractionEnabled = !Element.IsReadOnly;
+        }
+    }
+>>>>>>> Update (#12)
 }

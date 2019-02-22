@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Android.Content;
+<<<<<<< HEAD
+=======
+using Android.Content.Res;
+using Android.OS;
+>>>>>>> Update (#12)
 using Android.Text;
 using Android.Text.Method;
 using Android.Util;
@@ -14,6 +19,38 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 namespace Xamarin.Forms.Platform.Android
 {
 	public class EntryRenderer : EntryRendererBase<FormsEditText>
+<<<<<<< HEAD
+=======
+	{
+		public EntryRenderer(Context context) : base(context)
+		{
+		}
+
+		[Obsolete("This constructor is obsolete as of version 2.5. Please use EntryRenderer(Context) instead.")]
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public EntryRenderer()
+		{
+			AutoPackage = false;
+		}
+
+		protected override FormsEditText CreateNativeControl()
+		{
+			return new FormsEditText(Context);
+		}
+
+		protected override EditText EditText => Control;
+
+		protected override void UpdateIsReadOnly()
+		{
+			base.UpdateIsReadOnly();
+			bool isReadOnly = !Element.IsReadOnly;
+			Control.SetCursorVisible(isReadOnly);
+		}
+	}
+
+	public abstract class EntryRendererBase<TControl> : ViewRenderer<Entry, TControl>, ITextWatcher, TextView.IOnEditorActionListener
+		where TControl : global::Android.Views.View
+>>>>>>> Update (#12)
 	{
 		TextColorSwitcher _hintColorSwitcher;
 		TextColorSwitcher _textColorSwitcher;
@@ -73,12 +110,20 @@ namespace Xamarin.Forms.Platform.Android
 		bool _nativeSelectionIsUpdating;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		protected abstract EditText EditText { get; }
 
 		public EntryRendererBase(Context context) : base(context)
 =======
 		public EntryRenderer(Context context) : base(context)
 >>>>>>> Update from origin (#8)
+=======
+
+		protected abstract EditText EditText { get; }
+
+
+		public EntryRendererBase(Context context) : base(context)
+>>>>>>> Update (#12)
 		{
 			AutoPackage = false;
 		}
@@ -123,7 +168,11 @@ namespace Xamarin.Forms.Platform.Android
 		{
 			if (!e.Focus)
 			{
+<<<<<<< HEAD
 				EditText.HideKeyboard();
+=======
+				Control.HideKeyboard();
+>>>>>>> Update (#12)
 			}
 
 			base.OnFocusChangeRequested(sender, e);
@@ -133,7 +182,11 @@ namespace Xamarin.Forms.Platform.Android
 				// Post this to the main looper queue so it doesn't happen until the other focus stuff has resolved
 				// Otherwise, ShowKeyboard will be called before this control is truly focused, and we will potentially
 				// be displaying the wrong keyboard
+<<<<<<< HEAD
 				EditText?.PostShowKeyboard();
+=======
+				Control?.PostShowKeyboard();
+>>>>>>> Update (#12)
 			}
 		}
 
@@ -147,12 +200,26 @@ namespace Xamarin.Forms.Platform.Android
 
 				EditText.AddTextChangedListener(this);
 				EditText.SetOnEditorActionListener(this);
+<<<<<<< HEAD
 
 				if (EditText is IFormsEditText formsEditText)
 				{
 					formsEditText.OnKeyboardBackPressed += OnKeyboardBackPressed;
 					formsEditText.SelectionChanged += SelectionChanged;
 				}
+=======
+
+				if (EditText is IFormsEditText formsEditText)
+				{
+					formsEditText.OnKeyboardBackPressed += OnKeyboardBackPressed;
+					formsEditText.SelectionChanged += SelectionChanged;
+				}
+
+				var useLegacyColorManagement = e.NewElement.UseLegacyColorManagement();
+
+				_textColorSwitcher = new TextColorSwitcher(EditText.TextColors, useLegacyColorManagement);
+				_hintColorSwitcher = new TextColorSwitcher(EditText.HintTextColors, useLegacyColorManagement);
+>>>>>>> Update (#12)
 			}
 
 			// When we set the control text, it triggers the SelectionChanged event, which updates CursorPosition and SelectionLength;
@@ -161,12 +228,17 @@ namespace Xamarin.Forms.Platform.Android
 			_selectionLengthChangePending = Element.IsSet(Entry.SelectionLengthProperty);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			UpdatePlaceHolderText();
 			EditText.Text = Element.Text;
 =======
 			Control.Hint = Element.Placeholder;
 			Control.Text = Element.Text;
 >>>>>>> Update from origin (#8)
+=======
+			UpdatePlaceHolderText();
+			EditText.Text = Element.Text;
+>>>>>>> Update (#12)
 			UpdateInputType();
 
 			UpdateColor();
@@ -177,9 +249,13 @@ namespace Xamarin.Forms.Platform.Android
 			UpdateImeOptions();
 			UpdateReturnType();
 <<<<<<< HEAD
+<<<<<<< HEAD
 			UpdateIsReadOnly();
 =======
 >>>>>>> Update from origin (#8)
+=======
+			UpdateIsReadOnly();
+>>>>>>> Update (#12)
 
 			if (_cursorPositionChangePending || _selectionLengthChangePending)
 				UpdateCursorSelection();
@@ -196,7 +272,11 @@ namespace Xamarin.Forms.Platform.Android
 
 			if (disposing)
 			{
+<<<<<<< HEAD
 				if (EditText != null && EditText is IFormsEditText formsEditContext)
+=======
+				if (Control != null && Control is IFormsEditText formsEditContext)
+>>>>>>> Update (#12)
 				{
 					formsEditContext.OnKeyboardBackPressed -= OnKeyboardBackPressed;
 					formsEditContext.SelectionChanged -= SelectionChanged;
@@ -207,12 +287,20 @@ namespace Xamarin.Forms.Platform.Android
 		}
 
 
+<<<<<<< HEAD
 		protected virtual void UpdatePlaceHolderText() => EditText.Hint = Element.Placeholder;
+=======
+		internal protected virtual void UpdatePlaceHolderText() => EditText.Hint = Element.Placeholder;
+>>>>>>> Update (#12)
 
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName == Entry.PlaceholderProperty.PropertyName)
+<<<<<<< HEAD
 				UpdatePlaceHolderText();
+=======
+				EditText.Hint = Element.Placeholder;
+>>>>>>> Update (#12)
 			else if (e.PropertyName == Entry.IsPasswordProperty.PropertyName)
 				UpdateInputType();
 			else if (e.PropertyName == Entry.TextProperty.PropertyName)
@@ -220,10 +308,17 @@ namespace Xamarin.Forms.Platform.Android
 				if (EditText.Text != Element.Text)
 				{
 					EditText.Text = Element.Text;
+<<<<<<< HEAD
 					if (EditText.IsFocused)
 					{
 						EditText.SetSelection(EditText.Text.Length);
 						EditText.ShowKeyboard();
+=======
+					if (Control.IsFocused)
+					{
+						EditText.SetSelection(EditText.Text.Length);
+						Control.ShowKeyboard();
+>>>>>>> Update (#12)
 					}
 				}
 			}
@@ -285,10 +380,18 @@ namespace Xamarin.Forms.Platform.Android
 			EditText.UpdateHorizontalAlignment(Element.HorizontalTextAlignment, Context.HasRtlSupport());
 		}
 
+<<<<<<< HEAD
 		protected abstract void UpdateColor();
 		protected abstract void UpdateTextColor(Color color);
 
 		protected virtual void UpdateFont()
+=======
+		internal protected virtual void UpdateColor() => UpdateTextColor(Element.TextColor);
+
+		internal protected void UpdateTextColor(Color color) => _textColorSwitcher.UpdateTextColor(EditText, color);
+
+		protected internal virtual void UpdateFont()
+>>>>>>> Update (#12)
 		{
 			EditText.Typeface = Element.ToTypeface();
 			EditText.SetTextSize(ComplexUnitType.Sp, (float)Element.FontSize);
@@ -326,21 +429,33 @@ namespace Xamarin.Forms.Platform.Android
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Update (#12)
 			if (model.IsPassword && ((EditText.InputType & InputTypes.ClassText) == InputTypes.ClassText))
 				EditText.InputType = EditText.InputType | InputTypes.TextVariationPassword;
 			if (model.IsPassword && ((EditText.InputType & InputTypes.ClassNumber) == InputTypes.ClassNumber))
 				EditText.InputType = EditText.InputType | InputTypes.NumberVariationPassword;
+<<<<<<< HEAD
 =======
 			if (model.IsPassword && ((Control.InputType & InputTypes.ClassText) == InputTypes.ClassText))
 				Control.InputType = Control.InputType | InputTypes.TextVariationPassword;
 			if (model.IsPassword && ((Control.InputType & InputTypes.ClassNumber) == InputTypes.ClassNumber))
 				Control.InputType = Control.InputType | InputTypes.NumberVariationPassword;
+=======
+>>>>>>> Update (#12)
 
 			UpdateFont();
 		}
 >>>>>>> Update from origin (#11)
 
+<<<<<<< HEAD
 			UpdateFont();
+=======
+		protected internal virtual void UpdatePlaceholderColor()
+		{
+			_hintColorSwitcher.UpdateTextColor(EditText, Element.PlaceholderColor, EditText.SetHintTextColor);
+>>>>>>> Update (#12)
 		}
 
 		abstract protected void UpdatePlaceholderColor();
@@ -379,12 +494,17 @@ namespace Xamarin.Forms.Platform.Android
 				return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			EditText.ImeOptions = Element.ReturnType.ToAndroidImeAction();
 			_currentInputImeFlag = EditText.ImeOptions;
 =======
 			Control.ImeOptions = Element.ReturnType.ToAndroidImeAction();
 			_currentInputImeFlag = Control.ImeOptions;
 >>>>>>> Update from origin (#8)
+=======
+			EditText.ImeOptions = Element.ReturnType.ToAndroidImeAction();
+			_currentInputImeFlag = EditText.ImeOptions;
+>>>>>>> Update (#12)
 		}
 
 		void SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -393,6 +513,7 @@ namespace Xamarin.Forms.Platform.Android
 				return;
 
 			int cursorPosition = Element.CursorPosition;
+<<<<<<< HEAD
 <<<<<<< HEAD
 			int selectionStart = EditText.SelectionStart;
 
@@ -411,6 +532,9 @@ namespace Xamarin.Forms.Platform.Android
 				var controlSelectionLength = EditText.SelectionEnd - selectionStart;
 =======
 			int selectionStart = Control.SelectionStart;
+=======
+			int selectionStart = EditText.SelectionStart;
+>>>>>>> Update (#12)
 
 			if (!_cursorPositionChangePending)
 			{
@@ -422,10 +546,14 @@ namespace Xamarin.Forms.Platform.Android
 
 			if (!_selectionLengthChangePending)
 			{
-				int elementSelectionLength = System.Math.Min(Control.Text.Length - cursorPosition, Element.SelectionLength);
+				int elementSelectionLength = System.Math.Min(EditText.Text.Length - cursorPosition, Element.SelectionLength);
 
+<<<<<<< HEAD
 				var controlSelectionLength = Control.SelectionEnd - selectionStart;
 >>>>>>> Update from origin (#8)
+=======
+				var controlSelectionLength = EditText.SelectionEnd - selectionStart;
+>>>>>>> Update (#12)
 				if (controlSelectionLength != elementSelectionLength)
 					SetSelectionLengthFromRenderer(controlSelectionLength);
 			}
@@ -442,14 +570,19 @@ namespace Xamarin.Forms.Platform.Android
 			if (_nativeSelectionIsUpdating || Control == null || Element == null)
 				return;
 
+<<<<<<< HEAD
 			if (Control.RequestFocus())
 >>>>>>> Update from origin (#8)
+=======
+			if (!Element.IsReadOnly && Control.RequestFocus())
+>>>>>>> Update (#12)
 			{
 				try
 				{
 					int start = GetSelectionStart();
 					int end = GetSelectionEnd(start);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 					EditText.SetSelection(start, end);
 				}
@@ -462,6 +595,9 @@ namespace Xamarin.Forms.Platform.Android
 					_cursorPositionChangePending = _selectionLengthChangePending = false;
 =======
 					Control.SetSelection(start, end);
+=======
+					EditText.SetSelection(start, end);
+>>>>>>> Update (#12)
 				}
 				catch (System.Exception ex)
 				{
@@ -472,69 +608,6 @@ namespace Xamarin.Forms.Platform.Android
 				{
 					_cursorPositionChangePending = _selectionLengthChangePending = false;
 				}
-			}
-		}
-
-		int GetSelectionEnd(int start)
-		{
-			int end = start;
-			int selectionLength = Element.SelectionLength;
-
-			if (Element.IsSet(Entry.SelectionLengthProperty))
-				end = System.Math.Max(start, System.Math.Min(Control.Length(), start + selectionLength));
-
-			int newSelectionLength = System.Math.Max(0, end - start);
-			if (newSelectionLength != selectionLength)
-				SetSelectionLengthFromRenderer(newSelectionLength);
-
-			return end;
-		}
-
-		int GetSelectionStart()
-		{
-			int start = Control.Length();
-			int cursorPosition = Element.CursorPosition;
-
-			if (Element.IsSet(Entry.CursorPositionProperty))
-				start = System.Math.Min(Control.Text.Length, cursorPosition);
-
-			if (start != cursorPosition)
-				SetCursorPositionFromRenderer(start);
-
-			return start;
-		}
-
-		void SetCursorPositionFromRenderer(int start)
-		{
-			try
-			{
-				_nativeSelectionIsUpdating = true;
-				ElementController?.SetValueFromRenderer(Entry.CursorPositionProperty, start);
-			}
-			catch (System.Exception ex)
-			{
-				Internals.Log.Warning("Entry", $"Failed to set CursorPosition from renderer: {ex}");
-			}
-			finally
-			{
-				_nativeSelectionIsUpdating = false;
-			}
-		}
-
-		void SetSelectionLengthFromRenderer(int selectionLength)
-		{
-			try
-			{
-				_nativeSelectionIsUpdating = true;
-				ElementController?.SetValueFromRenderer(Entry.SelectionLengthProperty, selectionLength);
-			}
-			catch (System.Exception ex)
-			{
-				Internals.Log.Warning("Entry", $"Failed to set SelectionLength from renderer: {ex}");
-			}
-			finally
-			{
-				_nativeSelectionIsUpdating = false;
 			}
 		}
 
@@ -601,12 +674,83 @@ namespace Xamarin.Forms.Platform.Android
 			}
 		}
 
+<<<<<<< HEAD
+		int GetSelectionEnd(int start)
+		{
+			int end = start;
+			int selectionLength = Element.SelectionLength;
+
+			if (Element.IsSet(Entry.SelectionLengthProperty))
+				end = System.Math.Max(start, System.Math.Min(EditText.Length(), start + selectionLength));
+
+			int newSelectionLength = System.Math.Max(0, end - start);
+			if (newSelectionLength != selectionLength)
+				SetSelectionLengthFromRenderer(newSelectionLength);
+
+			return end;
+		}
+
+		int GetSelectionStart()
+		{
+			int start = EditText.Length();
+			int cursorPosition = Element.CursorPosition;
+
+			if (Element.IsSet(Entry.CursorPositionProperty))
+				start = System.Math.Min(EditText.Text.Length, cursorPosition);
+
+			if (start != cursorPosition)
+				SetCursorPositionFromRenderer(start);
+
+			return start;
+		}
+
+		void SetCursorPositionFromRenderer(int start)
+		{
+			try
+			{
+				_nativeSelectionIsUpdating = true;
+				ElementController?.SetValueFromRenderer(Entry.CursorPositionProperty, start);
+			}
+			catch (System.Exception ex)
+			{
+				Internals.Log.Warning("Entry", $"Failed to set CursorPosition from renderer: {ex}");
+			}
+			finally
+			{
+				_nativeSelectionIsUpdating = false;
+			}
+		}
+
+		void SetSelectionLengthFromRenderer(int selectionLength)
+		{
+			try
+			{
+				_nativeSelectionIsUpdating = true;
+				ElementController?.SetValueFromRenderer(Entry.SelectionLengthProperty, selectionLength);
+			}
+			catch (System.Exception ex)
+			{
+				Internals.Log.Warning("Entry", $"Failed to set SelectionLength from renderer: {ex}");
+			}
+			finally
+			{
+				_nativeSelectionIsUpdating = false;
+			}
+		}
+
+=======
+>>>>>>> Update (#12)
 		protected virtual void UpdateIsReadOnly()
 		{
 			bool isReadOnly = !Element.IsReadOnly;
 
+<<<<<<< HEAD
 			EditText.FocusableInTouchMode = isReadOnly;
 			EditText.Focusable = isReadOnly;
+=======
+			Control.FocusableInTouchMode = isReadOnly;
+			Control.Focusable = isReadOnly;
+>>>>>>> Update (#12)
 		}
 	}
 }
